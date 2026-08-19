@@ -3,89 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SITARA — Coming Soon</title>
+  <title>SITARA — Building Something Special</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Ambient Luxury Glows -->
-  <div class="ambient-glow glow-top"></div>
-  <div class="ambient-glow glow-bottom"></div>
+  <!-- Ambient Luxury Glow Background -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
 
-  <div class="site-wrapper">
+  <!-- Interactive Star Particle Canvas -->
+  <canvas id="particleCanvas"></canvas>
 
-    <!-- Top Header -->
-    <header class="header">
-      <div class="brand">
-        <span class="brand-title">SITARA</span>
-        <span class="brand-sub">STUDIO</span>
+  <div class="app-container">
+
+    <!-- Header -->
+    <header class="top-nav">
+      <div class="brand-badge">
+        <span class="brand-icon">✦</span>
+        <span class="brand-text">SITARA</span>
       </div>
-      <div class="status-indicator">
-        <span class="pulse-dot"></span>
-        <span>STORE OPENING SOON</span>
+      <div class="live-pill">
+        <span class="pulse-ring"></span>
+        <span class="live-text">CONSTRUCTION IN PROGRESS</span>
       </div>
     </header>
 
-    <!-- Center Hero Section -->
-    <main class="hero">
-      
-      <div class="hero-content">
-        <span class="edition-tag">SPRING / SUMMER 2026</span>
+    <!-- Center Stage: Animated Boutique Loader Experience -->
+    <main class="loader-stage">
+
+      <!-- Main Animated Centerpiece -->
+      <div class="centerpiece-box" id="centerpiece">
         
-        <h1 class="hero-heading">
-          Something exquisite is <span class="italic">in the making</span>.
+        <!-- Rotating Luxury Orbital Rings -->
+        <div class="orbital-ring ring-outer"></div>
+        <div class="orbital-ring ring-middle"></div>
+        
+        <!-- Floating Satellite Mini Badges -->
+        <div class="satellite-badge sat-1">
+          <span>🧵</span> Handcrafting
+        </div>
+        <div class="satellite-badge sat-2">
+          <span>📦</span> Packaging
+        </div>
+        <div class="satellite-badge sat-3">
+          <span>✨</span> New Drops
+        </div>
+
+        <!-- Glowing Central Icon (Sitara Star & Bag Motif) -->
+        <div class="core-emblem">
+          <svg class="emblem-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#E9C46A" />
+                <stop offset="100%" stop-color="#D96B43" />
+              </linearGradient>
+            </defs>
+            
+            <!-- Pulsing Star Silhouette -->
+            <path class="star-shape" d="M50 8 L54 36 L82 40 L58 56 L66 84 L50 68 L34 84 L42 56 L18 40 L46 36 Z" fill="url(#goldGrad)" />
+            <circle cx="50" cy="50" r="14" fill="#201B18" />
+            <path d="M50 42 L52 48 L58 50 L52 52 L50 58 L48 52 L42 50 L48 48 Z" fill="#FFF" />
+          </svg>
+        </div>
+
+      </div>
+
+      <!-- Main Loading Headline & Dynamic Status Switcher -->
+      <div class="status-content">
+        <h1 class="main-title">
+          Setting Up Our <span class="highlight-text">Digital Atelier</span>
         </h1>
+        
+        <!-- Live Changing Text Ticker -->
+        <div class="ticker-box">
+          <span class="ticker-prefix">Current task:</span>
+          <span class="ticker-message" id="tickerMsg">Weaving exclusive silhouettes...</span>
+        </div>
 
-        <p class="hero-desc">
-          Our online boutique is currently under construction. We are hand-curating our inaugural collection and polishing every detail of the digital atelier.
-        </p>
-
-        <!-- Minimal Notify Form -->
-        <div class="subscribe-container">
-          <form class="subscribe-form" id="subscribeForm" onsubmit="return handleSubscribe(event)">
-            <div class="input-wrapper">
-              <input 
-                type="email" 
-                id="emailInput" 
-                placeholder="Enter your email for private access" 
-                required 
-                autocomplete="email"
-              />
-              <button type="submit" id="submitBtn">
-                <span>Notify Me</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </button>
+        <!-- Animated Progress Meter -->
+        <div class="progress-wrapper">
+          <div class="progress-meter">
+            <div class="progress-indicator" id="progressBar">
+              <div class="bar-shine"></div>
             </div>
-            <span class="form-hint">Private access & inaugural preview sent prior to launch.</span>
-          </form>
-
-          <!-- Success Message -->
-          <div class="success-message" id="successMessage">
-            <div class="success-icon">✓</div>
-            <div>
-              <strong>You're on the list.</strong>
-              <p>We'll notify you the moment doors open.</p>
-            </div>
+          </div>
+          <div class="progress-meta">
+            <span class="loading-label">STORE SETUP</span>
+            <span class="loading-percent" id="progressPercent">84%</span>
           </div>
         </div>
 
-        <!-- Sleek Launch Progress Line -->
-        <div class="progress-section">
-          <div class="progress-track">
-            <div class="progress-fill"></div>
-          </div>
-          <div class="progress-labels">
-            <span class="done">01. Conception</span>
-            <span class="done">02. Crafting</span>
-            <span class="active">03. Storefront</span>
-            <span>04. Launch</span>
-          </div>
+        <!-- Interactive Tap Prompt -->
+        <div class="tap-hint">
+          <span>✨ Click anywhere to sparkle</span>
         </div>
 
       </div>
@@ -93,24 +107,20 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-copy">
-        © <span id="year">2026</span> SITARA. All rights reserved.
+    <footer class="bottom-bar">
+      <div class="footer-note">
+        © <span id="year">2026</span> SITARA. We will be live shortly.
       </div>
-      <div class="footer-links">
-        <a href="#instagram" onclick="showNotice(event, 'Instagram')">Instagram</a>
-        <span class="divider">/</span>
-        <a href="#pinterest" onclick="showNotice(event, 'Pinterest')">Pinterest</a>
-        <span class="divider">/</span>
-        <a href="#tiktok" onclick="showNotice(event, 'TikTok')">TikTok</a>
-        <span class="divider">/</span>
-        <a href="mailto:contact@newsitara.com">Contact</a>
+      <div class="social-cluster">
+        <a href="#instagram" class="social-tag" onclick="showToast(event, 'Instagram')">Instagram ↗</a>
+        <a href="#pinterest" class="social-tag" onclick="showToast(event, 'Pinterest')">Pinterest ↗</a>
+        <a href="#tiktok" class="social-tag" onclick="showToast(event, 'TikTok')">TikTok ↗</a>
       </div>
     </footer>
 
   </div>
 
-  <div class="toast" id="toast"></div>
+  <div class="custom-toast" id="toast"></div>
 
   <script src="app.js"></script>
 </body>

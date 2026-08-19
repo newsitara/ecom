@@ -3,124 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SITARA — Building Something Special</title>
+  <title>SITARA — Haute Couture & Ready-to-Wear</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Ambient Luxury Glow Background -->
-  <div class="ambient-glow glow-1"></div>
-  <div class="ambient-glow glow-2"></div>
+  <!-- Ambient Luxury Lighting -->
+  <div class="luxury-glow glow-center"></div>
+  <div class="luxury-glow glow-corner"></div>
 
-  <!-- Interactive Star Particle Canvas -->
-  <canvas id="particleCanvas"></canvas>
+  <!-- Film Grain Overlay for High-End Texture -->
+  <div class="film-grain"></div>
 
-  <div class="app-container">
+  <div class="atelier-wrapper">
 
-    <!-- Header -->
-    <header class="top-nav">
-      <div class="brand-badge">
-        <span class="brand-icon">✦</span>
-        <span class="brand-text">SITARA</span>
+    <!-- Top Luxury Navigation -->
+    <header class="atelier-header">
+      <div class="brand-monogram">
+        <span class="star-accent">✦</span>
+        <div class="brand-titles">
+          <span class="brand-name">SITARA</span>
+          <span class="brand-descriptor">ATELIER &bull; NEW YORK &bull; PARIS</span>
+        </div>
       </div>
-      <div class="live-pill">
-        <span class="pulse-ring"></span>
-        <span class="live-text">CONSTRUCTION IN PROGRESS</span>
+
+      <div class="atelier-status">
+        <span class="status-radar"></span>
+        <span class="status-code">PRIVATE CURATION IN PROGRESS</span>
       </div>
     </header>
 
-    <!-- Center Stage: Animated Boutique Loader Experience -->
-    <main class="loader-stage">
+    <!-- Centerpiece Stage -->
+    <main class="atelier-main">
 
-      <!-- Main Animated Centerpiece -->
-      <div class="centerpiece-box" id="centerpiece">
+      <!-- High-End Luxury Geometric Loader -->
+      <div class="loader-visual">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
         
-        <!-- Rotating Luxury Orbital Rings -->
-        <div class="orbital-ring ring-outer"></div>
-        <div class="orbital-ring ring-middle"></div>
-        
-        <!-- Floating Satellite Mini Badges -->
-        <div class="satellite-badge sat-1">
-          <span>🧵</span> Handcrafting
-        </div>
-        <div class="satellite-badge sat-2">
-          <span>📦</span> Packaging
-        </div>
-        <div class="satellite-badge sat-3">
-          <span>✨</span> New Drops
-        </div>
-
-        <!-- Glowing Central Icon (Sitara Star & Bag Motif) -->
-        <div class="core-emblem">
-          <svg class="emblem-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#E9C46A" />
-                <stop offset="100%" stop-color="#D96B43" />
-              </linearGradient>
-            </defs>
-            
-            <!-- Pulsing Star Silhouette -->
-            <path class="star-shape" d="M50 8 L54 36 L82 40 L58 56 L66 84 L50 68 L34 84 L42 56 L18 40 L46 36 Z" fill="url(#goldGrad)" />
-            <circle cx="50" cy="50" r="14" fill="#201B18" />
-            <path d="M50 42 L52 48 L58 50 L52 52 L50 58 L48 52 L42 50 L48 48 Z" fill="#FFF" />
+        <div class="geometric-center">
+          <svg class="luxury-star" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="5" x2="50" y2="95" stroke="#C8A26A" stroke-width="1" stroke-opacity="0.6"/>
+            <line x1="5" y1="50" x2="95" y2="50" stroke="#C8A26A" stroke-width="1" stroke-opacity="0.6"/>
+            <polygon points="50,18 58,42 82,50 58,58 50,82 42,58 18,50 42,42" fill="none" stroke="#C8A26A" stroke-width="1.5"/>
+            <polygon points="50,30 54,46 70,50 54,54 50,70 46,54 30,50 46,46" fill="#C8A26A" fill-opacity="0.2" stroke="#E6C898" stroke-width="1"/>
+            <circle cx="50" cy="50" r="3" fill="#FFFFFF"/>
           </svg>
         </div>
-
       </div>
 
-      <!-- Main Loading Headline & Dynamic Status Switcher -->
-      <div class="status-content">
-        <h1 class="main-title">
-          Setting Up Our <span class="highlight-text">Digital Atelier</span>
-        </h1>
+      <!-- Editorial Typography & Status -->
+      <div class="editorial-block">
+        <span class="collection-season">INAUGURAL COLLECTION &bull; SS 2026</span>
         
-        <!-- Live Changing Text Ticker -->
-        <div class="ticker-box">
-          <span class="ticker-prefix">Current task:</span>
-          <span class="ticker-message" id="tickerMsg">Weaving exclusive silhouettes...</span>
-        </div>
+        <h1 class="editorial-headline">
+          The definitive standard of <span class="italic">modern luxury</span>.
+        </h1>
 
-        <!-- Animated Progress Meter -->
-        <div class="progress-wrapper">
-          <div class="progress-meter">
-            <div class="progress-indicator" id="progressBar">
-              <div class="bar-shine"></div>
+        <p class="editorial-statement">
+          Our online flagship is undergoing final architectural refinement. We are preparing our premier ready-to-wear silhouettes and private client salon.
+        </p>
+
+        <!-- Technical Luxury Progress Console -->
+        <div class="technical-console">
+          <div class="console-meta">
+            <span class="console-task" id="consoleTask">INITIALIZING FLAGSHIP STOREFRONT</span>
+            <span class="console-percent" id="consolePercent">88%</span>
+          </div>
+
+          <div class="console-line">
+            <div class="console-fill" id="consoleBar">
+              <span class="line-glow"></span>
             </div>
           </div>
-          <div class="progress-meta">
-            <span class="loading-label">STORE SETUP</span>
-            <span class="loading-percent" id="progressPercent">84%</span>
-          </div>
-        </div>
 
-        <!-- Interactive Tap Prompt -->
-        <div class="tap-hint">
-          <span>✨ Click anywhere to sparkle</span>
+          <div class="console-phases">
+            <span class="phase active">01 / ARCHITECTURE</span>
+            <span class="phase active">02 / ATELIER CURATION</span>
+            <span class="phase current">03 / DIGITAL SHOWROOM</span>
+            <span class="phase">04 / GLOBAL PREVIEW</span>
+          </div>
         </div>
 
       </div>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="bottom-bar">
-      <div class="footer-note">
-        © <span id="year">2026</span> SITARA. We will be live shortly.
+    <!-- Luxury Footer -->
+    <footer class="atelier-footer">
+      <div class="footer-left">
+        <span>&copy; <span id="year">2026</span> SITARA ATELIER. ALL RIGHTS RESERVED.</span>
       </div>
-      <div class="social-cluster">
-        <a href="#instagram" class="social-tag" onclick="showToast(event, 'Instagram')">Instagram ↗</a>
-        <a href="#pinterest" class="social-tag" onclick="showToast(event, 'Pinterest')">Pinterest ↗</a>
-        <a href="#tiktok" class="social-tag" onclick="showToast(event, 'TikTok')">TikTok ↗</a>
+
+      <div class="footer-center">
+        <span class="inquiry-text">CLIENT SERVICES:</span>
+        <a href="mailto:concierge@newsitara.com" class="inquiry-link">CONCIERGE@NEWSITARA.COM</a>
+      </div>
+
+      <div class="footer-right">
+        <a href="#instagram" class="nav-link" onclick="showNotice(event, 'Instagram')">INSTAGRAM</a>
+        <span class="sep">&bull;</span>
+        <a href="#lookbook" class="nav-link" onclick="showNotice(event, 'Lookbook')">LOOKBOOK</a>
+        <span class="sep">&bull;</span>
+        <a href="#appointments" class="nav-link" onclick="showNotice(event, 'Private Appointments')">APPOINTMENTS</a>
       </div>
     </footer>
 
   </div>
 
-  <div class="custom-toast" id="toast"></div>
+  <div class="minimal-toast" id="toast"></div>
 
   <script src="app.js"></script>
 </body>

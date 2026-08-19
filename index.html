@@ -3,277 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SITARA — We're Crafting Something Special ✨</title>
+  <title>SITARA — Coming Soon</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- Canvas Confetti for celebrate effect -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
-  <!-- Floating Ambient Warm Glows -->
-  <div class="ambient-glow glow-1"></div>
-  <div class="ambient-glow glow-2"></div>
-  <div class="ambient-glow glow-3"></div>
+  <!-- Ambient Luxury Glows -->
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-bottom"></div>
 
-  <!-- Background decorative floating stars container -->
-  <div class="bg-stars-container" id="bgStars"></div>
+  <div class="site-wrapper">
 
-  <!-- Main Container -->
-  <div class="page-wrapper">
-
-    <!-- Top Navigation / Brand Bar -->
+    <!-- Top Header -->
     <header class="header">
-      <div class="brand-container">
-        <span class="brand-star">✦</span>
-        <h1 class="brand-name">SITARA</h1>
-        <span class="brand-tagline">ATELIER</span>
+      <div class="brand">
+        <span class="brand-title">SITARA</span>
+        <span class="brand-sub">STUDIO</span>
       </div>
-      <div class="status-pill">
-        <span class="status-dot"></span>
-        <span class="status-text">Boutique in the Making</span>
+      <div class="status-indicator">
+        <span class="pulse-dot"></span>
+        <span>STORE OPENING SOON</span>
       </div>
     </header>
 
-    <!-- Main Content Grid -->
-    <main class="main-content">
-
-      <!-- Left Column: Cute Interactive Centerpiece & Badges -->
-      <section class="mascot-section">
-        <div class="mascot-wrapper" id="mascotContainer" title="Click me for magic sparkles! 🎁">
-          
-          <!-- Cute Interactive Mascot: Animated Shopping Tote with Star Charm -->
-          <div class="mascot-figure">
-            <svg class="mascot-svg" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Shadow -->
-              <ellipse cx="120" cy="216" rx="65" ry="10" fill="#211B18" fill-opacity="0.08" class="mascot-shadow" />
-              
-              <!-- Bag Handles -->
-              <path d="M85 85 C85 42, 155 42, 155 85" stroke="#D96B43" stroke-width="8" stroke-linecap="round" fill="none" class="mascot-handle" />
-              
-              <!-- Main Bag Body -->
-              <path d="M55 85 H185 L195 205 C195 212 189 218 181 218 H59 C51 218 45 212 45 205 L55 85 Z" fill="#FFFDF8" stroke="#211B18" stroke-width="4" stroke-linejoin="round" class="mascot-body" />
-              
-              <!-- Bag Stitching Accent -->
-              <path d="M66 100 L174 100" stroke="#E9C46A" stroke-width="2.5" stroke-dasharray="5 4" />
-              <path d="M57 198 L183 198" stroke="#E9C46A" stroke-width="2.5" stroke-dasharray="5 4" />
-
-              <!-- Tissue paper sticking out -->
-              <path d="M75 84 C70 65 95 62 100 84" fill="#F4A261" opacity="0.8" />
-              <path d="M140 84 C145 60 170 66 165 84" fill="#E76F51" opacity="0.7" />
-
-              <!-- Cute Face -->
-              <!-- Eyes -->
-              <circle cx="95" cy="142" r="5.5" fill="#211B18" class="mascot-eye left-eye">
-                <circle cx="97" cy="140" r="1.8" fill="#FFFFFF" />
-              </circle>
-              <circle cx="145" cy="142" r="5.5" fill="#211B18" class="mascot-eye right-eye">
-                <circle cx="147" cy="140" r="1.8" fill="#FFFFFF" />
-              </circle>
-              
-              <!-- Cute Blush -->
-              <ellipse cx="82" cy="153" rx="7" ry="4.5" fill="#F4A261" opacity="0.45" />
-              <ellipse cx="158" cy="153" rx="7" ry="4.5" fill="#F4A261" opacity="0.45" />
-              
-              <!-- Happy Smile -->
-              <path d="M112 148 C112 157 128 157 128 148" stroke="#211B18" stroke-width="3.5" stroke-linecap="round" fill="none" class="mascot-mouth" />
-              
-              <!-- Hanging Sitara Star Tag -->
-              <g class="hanging-tag">
-                <path d="M152 85 L168 120" stroke="#D96B43" stroke-width="2" stroke-linecap="round" />
-                <polygon points="168,114 172,125 183,125 174,132 177,143 168,136 159,143 162,132 153,125 164,125" fill="#E9C46A" stroke="#211B18" stroke-width="2" />
-                <circle cx="168" cy="120" r="2" fill="#211B18" />
-              </g>
-
-              <!-- Little Star Sparkles popping out -->
-              <g class="mascot-sparkle sparkle-1">
-                <path d="M38 90 Q44 90 44 84 Q44 90 50 90 Q44 90 44 96 Q44 90 38 90 Z" fill="#D96B43" />
-              </g>
-              <g class="mascot-sparkle sparkle-2">
-                <path d="M192 100 Q198 100 198 94 Q198 100 204 100 Q198 100 198 106 Q198 100 192 100 Z" fill="#E9C46A" />
-              </g>
-              <g class="mascot-sparkle sparkle-3">
-                <path d="M120 40 Q124 40 124 36 Q124 40 128 40 Q124 40 124 44 Q124 40 120 40 Z" fill="#8A9A86" />
-              </g>
-            </svg>
-          </div>
-
-          <div class="mascot-bubble">
-            <span>✨ Tap me for sparkles!</span>
-          </div>
-        </div>
-
-        <!-- Floating Cute Tags -->
-        <div class="floating-pills">
-          <div class="pill pill-1">🧵 Handcrafted Drops</div>
-          <div class="pill pill-2">🌿 Conscious Silhouettes</div>
-          <div class="pill pill-3">✨ Secret VIP Access</div>
-        </div>
-      </section>
-
-      <!-- Right Column: Story, Timeline, VIP Signup, Countdown -->
-      <section class="copy-section">
+    <!-- Center Hero Section -->
+    <main class="hero">
+      
+      <div class="hero-content">
+        <span class="edition-tag">SPRING / SUMMER 2026</span>
         
-        <div class="headline-container">
-          <span class="eyebrow">✦ UNDER CONSTRUCTION & LAUNCHING SOON ✦</span>
-          <h2 class="main-title">
-            We’re stitching together a <span class="highlight-serif">dreamy</span> new store.
-          </h2>
-          <p class="description">
-            Our digital atelier is currently sewing tags, packing ribbons, and polishing the final touches. Sitara is almost ready to welcome you into our new world of aesthetic pieces.
-          </p>
-        </div>
+        <h1 class="hero-heading">
+          Something exquisite is <span class="italic">in the making</span>.
+        </h1>
 
-        <!-- Interactive Progress Roadmap -->
-        <div class="roadmap-card">
-          <div class="roadmap-header">
-            <span class="roadmap-title">🛠️ Atelier Construction Progress</span>
-            <span class="roadmap-percent">82% Ready</span>
-          </div>
+        <p class="hero-desc">
+          Our online boutique is currently under construction. We are hand-curating our inaugural collection and polishing every detail of the digital atelier.
+        </p>
 
-          <div class="progress-bar-container">
-            <div class="progress-bar-fill" style="width: 82%;">
-              <span class="progress-bar-glow"></span>
-            </div>
-          </div>
-
-          <div class="roadmap-steps">
-            <div class="step completed">
-              <div class="step-icon">✓</div>
-              <div class="step-info">
-                <span class="step-name">Curations</span>
-                <span class="step-status">Finalized</span>
-              </div>
-            </div>
-            <div class="step completed">
-              <div class="step-icon">✓</div>
-              <div class="step-info">
-                <span class="step-name">Packaging</span>
-                <span class="step-status">Delightful</span>
-              </div>
-            </div>
-            <div class="step active">
-              <div class="step-icon pulse">⚡</div>
-              <div class="step-info">
-                <span class="step-name">Shopfront</span>
-                <span class="step-status">Polishing</span>
-              </div>
-            </div>
-            <div class="step pending">
-              <div class="step-icon">🎁</div>
-              <div class="step-info">
-                <span class="step-name">Grand Launch</span>
-                <span class="step-status">Soon</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- VIP Waitlist Card -->
-        <div class="waitlist-card">
-          <div class="waitlist-header">
-            <div class="waitlist-badge">VIP PASS</div>
-            <h3 class="waitlist-title">Be first through the doors</h3>
-            <p class="waitlist-subtitle">Join the inner circle for 1-hour early access & <strong>15% off</strong> your first order.</p>
-          </div>
-
-          <form class="waitlist-form" id="waitlistForm" onsubmit="return handleSubscribe(event)">
-            <div class="input-group">
+        <!-- Minimal Notify Form -->
+        <div class="subscribe-container">
+          <form class="subscribe-form" id="subscribeForm" onsubmit="return handleSubscribe(event)">
+            <div class="input-wrapper">
               <input 
                 type="email" 
                 id="emailInput" 
-                class="email-input" 
-                placeholder="your.name@email.com" 
+                placeholder="Enter your email for private access" 
                 required 
                 autocomplete="email"
               />
-              <button type="submit" class="submit-btn" id="submitBtn">
-                <span class="btn-text">Get Invite</span>
-                <span class="btn-icon">💌</span>
+              <button type="submit" id="submitBtn">
+                <span>Notify Me</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
               </button>
             </div>
-            <p class="form-microcopy">No spam, pinky promise. Only secret previews & treats.</p>
+            <span class="form-hint">Private access & inaugural preview sent prior to launch.</span>
           </form>
 
-          <!-- Success VIP Ticket (Hidden by default) -->
-          <div class="vip-ticket" id="vipTicket">
-            <div class="ticket-cutout left"></div>
-            <div class="ticket-cutout right"></div>
-            <div class="ticket-content">
-              <div class="ticket-header">
-                <span class="ticket-logo">SITARA VIP</span>
-                <span class="ticket-status">CONFIRMED ✦</span>
-              </div>
-              <div class="ticket-body">
-                <p class="ticket-congrats">You're officially on the secret guestlist!</p>
-                <div class="discount-code-box">
-                  <span class="code-label">YOUR EXCLUSIVE CODE:</span>
-                  <span class="code-value" id="discountCode">SITARA-MAGIC15</span>
-                  <button type="button" class="copy-btn" onclick="copyDiscountCode()" id="copyBtn">Copy 📋</button>
-                </div>
-              </div>
+          <!-- Success Message -->
+          <div class="success-message" id="successMessage">
+            <div class="success-icon">✓</div>
+            <div>
+              <strong>You're on the list.</strong>
+              <p>We'll notify you the moment doors open.</p>
             </div>
           </div>
         </div>
 
-        <!-- Launch Countdown -->
-        <div class="countdown-wrapper">
-          <span class="countdown-label">COUNTDOWN TO DOORS OPENING:</span>
-          <div class="countdown-grid">
-            <div class="count-box">
-              <span class="count-num" id="days">07</span>
-              <span class="count-unit">Days</span>
-            </div>
-            <span class="count-separator">:</span>
-            <div class="count-box">
-              <span class="count-num" id="hours">14</span>
-              <span class="count-unit">Hours</span>
-            </div>
-            <span class="count-separator">:</span>
-            <div class="count-box">
-              <span class="count-num" id="minutes">32</span>
-              <span class="count-unit">Mins</span>
-            </div>
-            <span class="count-separator">:</span>
-            <div class="count-box">
-              <span class="count-num" id="seconds">45</span>
-              <span class="count-unit">Secs</span>
-            </div>
+        <!-- Sleek Launch Progress Line -->
+        <div class="progress-section">
+          <div class="progress-track">
+            <div class="progress-fill"></div>
+          </div>
+          <div class="progress-labels">
+            <span class="done">01. Conception</span>
+            <span class="done">02. Crafting</span>
+            <span class="active">03. Storefront</span>
+            <span>04. Launch</span>
           </div>
         </div>
 
-      </section>
+      </div>
 
     </main>
 
-    <!-- Footer Area -->
+    <!-- Footer -->
     <footer class="footer">
-      <div class="footer-left">
-        <span>© <span id="currentYear">2026</span> SITARA ATELIER. Handcrafted with love.</span>
+      <div class="footer-copy">
+        © <span id="year">2026</span> SITARA. All rights reserved.
       </div>
-
-      <div class="social-links">
-        <a href="#instagram" class="social-link" title="Instagram" onclick="fakeSocial(event, 'Instagram')">
-          <span>Instagram</span>
-          <span class="social-arrow">↗</span>
-        </a>
-        <a href="#pinterest" class="social-link" title="Pinterest" onclick="fakeSocial(event, 'Pinterest')">
-          <span>Pinterest</span>
-          <span class="social-arrow">↗</span>
-        </a>
-        <a href="#tiktok" class="social-link" title="TikTok" onclick="fakeSocial(event, 'TikTok')">
-          <span>TikTok</span>
-          <span class="social-arrow">↗</span>
-        </a>
+      <div class="footer-links">
+        <a href="#instagram" onclick="showNotice(event, 'Instagram')">Instagram</a>
+        <span class="divider">/</span>
+        <a href="#pinterest" onclick="showNotice(event, 'Pinterest')">Pinterest</a>
+        <span class="divider">/</span>
+        <a href="#tiktok" onclick="showNotice(event, 'TikTok')">TikTok</a>
+        <span class="divider">/</span>
+        <a href="mailto:contact@newsitara.com">Contact</a>
       </div>
     </footer>
 
   </div>
 
-  <!-- Toast Notification -->
-  <div class="toast-container" id="toastContainer"></div>
+  <div class="toast" id="toast"></div>
 
   <script src="app.js"></script>
 </body>

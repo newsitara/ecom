@@ -81,37 +81,7 @@
         </div>
       </div>
 
-      <!-- Interactive Action Area -->
-      <div class="action-wrapper">
-        <button class="notify-btn" id="notifyBtn" onclick="toggleNotifyModal()">
-          <span class="btn-text">Notify Me!</span>
-        </button>
 
-        <!-- Slide-out email box -->
-        <form class="email-drawer" id="emailDrawer" onsubmit="return handleNotify(event)">
-          <div class="drawer-inner">
-            <input 
-              type="email" 
-              id="notifyEmail" 
-              placeholder="Enter your email address" 
-              required 
-              autocomplete="email"
-            />
-            <button type="submit" class="drawer-submit">
-              <span>Submit</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </button>
-          </div>
-        </form>
-
-        <div class="success-banner" id="successBanner">
-          <span class="check-icon">✓</span>
-          <span>We'll notify you the moment doors open.</span>
-        </div>
-      </div>
 
     </main>
 

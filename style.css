@@ -237,13 +237,13 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: var(--font-heading);
-  font-size: 5rem;
-  font-weight: 700;
-  line-height: 1.04;
-  letter-spacing: 0.08em;
+  font-family: var(--font-body);
+  font-size: 4.2rem;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
   color: var(--text-pure);
-  text-transform: uppercase;
+  text-transform: none; /* Not all caps */
   margin-bottom: 1.5rem;
   text-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   overflow: hidden;
@@ -269,7 +269,7 @@ html, body {
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  margin-bottom: 2.75rem;
+  margin-bottom: 2.25rem;
   opacity: 0;
   animation: fadeIn 0.9s var(--ease-cinematic) 0.5s forwards;
 }
@@ -286,11 +286,42 @@ html, body {
 }
 
 .subtitle-text {
-  font-size: 0.78rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: none;
+}
+
+/* Working Spinner Indicator */
+.working-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  margin-bottom: 0.85rem;
+}
+
+.spinning-ring {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-top-color: var(--accent-steel);
+  border-right-color: var(--accent-steel);
+  border-radius: 50%;
+  animation: spinRing 0.85s linear infinite;
+}
+
+@keyframes spinRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.working-text {
+  font-size: 0.72rem;
   font-weight: 500;
-  letter-spacing: 0.28em;
-  color: rgba(255, 255, 255, 0.8);
-  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /* Progress Bar */

@@ -6,58 +6,72 @@
   <title>SITARA — Under Construction</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Moody Blurred Background -->
+  <!-- Film Grain Texture for Cinematic Depth -->
+  <div class="grain-overlay"></div>
+
+  <!-- Interactive Cinematic Dust & Bokeh Canvas -->
+  <canvas id="bokehCanvas"></canvas>
+
+  <!-- Moody Atmospheric Blurred Orbs -->
   <div class="bg-blur-container">
-    <div class="blur-orb orb-1"></div>
-    <div class="blur-orb orb-2"></div>
-    <div class="blur-orb orb-3"></div>
-    <div class="bg-overlay"></div>
+    <div class="blur-orb orb-1" id="orb1"></div>
+    <div class="blur-orb orb-2" id="orb2"></div>
+    <div class="blur-orb orb-3" id="orb3"></div>
+    <div class="bg-vignette"></div>
   </div>
 
   <div class="page-wrapper">
 
-    <!-- Top Right Nav -->
+    <!-- Top Navigation -->
     <header class="header">
-      <span class="brand-logo">SITARA</span>
+      <div class="brand-box">
+        <span class="brand-dot"></span>
+        <span class="brand-logo">SITARA</span>
+      </div>
       <nav class="top-nav">
         <a href="#home" class="nav-item">HOME</a>
       </nav>
     </header>
 
     <!-- Center Hero Area -->
-    <main class="hero-center">
+    <main class="hero-center" id="heroArea">
 
+      <!-- Bold Title with Staggered Entrance Animation -->
       <h1 class="main-title">
-        <span>UNDER</span>
-        <span>CONSTRUCTION</span>
+        <span class="title-line line-1">UNDER</span>
+        <span class="title-line line-2">CONSTRUCTION</span>
       </h1>
 
+      <!-- Flanked Subtitle with Growing Lines -->
       <div class="subtitle-wrapper">
-        <span class="sub-line"></span>
+        <span class="sub-line left-line"></span>
         <span class="subtitle-text">SITE NEARLY READY</span>
-        <span class="sub-line"></span>
+        <span class="sub-line right-line"></span>
       </div>
 
-      <!-- Clean Progress Bar (0% to 100%) -->
+      <!-- Clean Dynamic Progress Bar with Live % Tracker -->
       <div class="progress-container">
         <div class="progress-bar-track">
-          <div class="progress-bar-fill" id="progressBar"></div>
+          <div class="progress-bar-fill" id="progressBar">
+            <span class="bar-shine-sweep"></span>
+          </div>
         </div>
         <div class="progress-labels">
-          <span>0%</span>
-          <span>100%</span>
+          <span class="label-start">0%</span>
+          <span class="label-current" id="currentPercentText">84%</span>
+          <span class="label-end">100%</span>
         </div>
       </div>
 
-      <!-- Action Button -->
+      <!-- Interactive Action Area -->
       <div class="action-wrapper">
         <button class="notify-btn" id="notifyBtn" onclick="toggleNotifyModal()">
-          Notify Me!
+          <span class="btn-text">Notify Me!</span>
         </button>
 
         <!-- Slide-out email box -->
@@ -70,9 +84,20 @@
               required 
               autocomplete="email"
             />
-            <button type="submit" class="drawer-submit">Submit</button>
+            <button type="submit" class="drawer-submit">
+              <span>Submit</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
           </div>
         </form>
+
+        <div class="success-banner" id="successBanner">
+          <span class="check-icon">✓</span>
+          <span>We'll notify you the moment doors open.</span>
+        </div>
       </div>
 
     </main>
@@ -80,7 +105,7 @@
     <!-- Bottom Socials & Copyright -->
     <footer class="footer">
       
-      <!-- Circular Outlined Social Icons -->
+      <!-- Circular Outlined Social Icons with Hover Micro-Motion -->
       <div class="social-icons">
         <a href="#instagram" class="icon-circle" title="Instagram" onclick="fakeNotice(event, 'Instagram')">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">

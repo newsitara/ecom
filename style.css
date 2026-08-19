@@ -304,24 +304,47 @@ html, body {
   animation: fadeIn 0.9s var(--ease-cinematic) 0.65s forwards;
 }
 
-/* Progress Bar (Subtle & Clean, No Labels) */
+/* Progress Bar with Spinner & Labels */
 .progress-container {
   width: 100%;
-  max-width: 260px;
+  max-width: 320px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 0.6rem;
   opacity: 0;
   animation: fadeIn 0.9s var(--ease-cinematic) 0.8s forwards;
 }
 
+.working-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+}
+
+.spinning-ring {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-top-color: var(--accent-steel);
+  border-right-color: var(--accent-steel);
+  border-radius: 50%;
+  animation: spinRing 0.85s linear infinite;
+}
+
+@keyframes spinRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 .progress-bar-track {
   width: 100%;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.1);
+  height: 6px;
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 999px;
   overflow: hidden;
   position: relative;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .progress-bar-fill {
@@ -331,7 +354,7 @@ html, body {
   border-radius: 999px;
   transition: width 1.6s var(--ease-cinematic);
   position: relative;
-  box-shadow: 0 0 10px var(--accent-steel-glow);
+  box-shadow: 0 0 14px var(--accent-steel-glow);
 }
 
 .bar-shine-sweep {
@@ -347,6 +370,22 @@ html, body {
 @keyframes shineMove {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 500;
+}
+
+.label-current {
+  color: var(--accent-steel);
+  font-weight: 600;
+  font-size: 0.75rem;
 }
 
 /* Action Button & Email Drawer */

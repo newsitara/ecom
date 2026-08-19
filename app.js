@@ -70,13 +70,28 @@ function initOrganicBokeh() {
   requestAnimationFrame(render);
 }
 
-// 2. Subtle Progress Bar Initialization (No percentage counters)
+// 2. Progress Bar Initialization (Animated to 10%)
 function initSubtleProgressBar() {
   const progressBar = document.getElementById('progressBar');
+  const percentText = document.getElementById('currentPercentText');
   if (!progressBar) return;
 
+  const target = 10;
+  let current = 0;
+
   setTimeout(() => {
-    progressBar.style.width = '42%';
+    progressBar.style.width = `${target}%`;
+
+    if (percentText) {
+      const interval = setInterval(() => {
+        current += 1;
+        if (current >= target) {
+          current = target;
+          clearInterval(interval);
+        }
+        percentText.textContent = `${current}%`;
+      }, 50);
+    }
   }, 400);
 }
 

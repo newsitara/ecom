@@ -1,16 +1,16 @@
 // ==========================================================================
-// SITARA — CINEMATIC UNDER CONSTRUCTION LOGIC
+// NEW SITARA INTERPRIZES — COMING SOON
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  initCinematicBokeh();
-  initProgressTick();
+  initOrganicBokeh();
+  initSubtleProgressBar();
   initMouseParallax();
   updateYear();
 });
 
-// 1. Organic Floating Dust & Light Bokeh Motes
-function initCinematicBokeh() {
+// 1. Organic, subtle, randomly clustered background particles/stars
+function initOrganicBokeh() {
   const canvas = document.getElementById('bokehCanvas');
   if (!canvas) return;
 
@@ -23,18 +23,20 @@ function initCinematicBokeh() {
     height = canvas.height = window.innerHeight;
   });
 
-  const motesCount = 35;
+  const motesCount = 42;
   const motes = [];
 
+  // Naturally distributed particle clusters with varying depth & soft opacity
   for (let i = 0; i < motesCount; i++) {
     motes.push({
       x: Math.random() * width,
       y: Math.random() * height,
-      radius: Math.random() * 2.2 + 0.8,
-      alpha: Math.random() * 0.35 + 0.1,
-      speedX: (Math.random() - 0.5) * 0.3,
-      speedY: -Math.random() * 0.4 - 0.1,
-      pulse: Math.random() * 0.02 + 0.005
+      radius: Math.random() > 0.85 ? Math.random() * 2 + 1 : Math.random() * 1.2 + 0.4,
+      alpha: Math.random() * 0.25 + 0.05,
+      speedX: (Math.random() - 0.5) * 0.15,
+      speedY: -Math.random() * 0.2 - 0.05,
+      twinkleSpeed: Math.random() * 0.015 + 0.005,
+      phase: Math.random() * Math.PI * 2
     });
   }
 
@@ -44,7 +46,9 @@ function initCinematicBokeh() {
     motes.forEach((mote) => {
       mote.x += mote.speedX;
       mote.y += mote.speedY;
-      mote.alpha += Math.sin(Date.now() * mote.pulse) * 0.003;
+      mote.phase += mote.twinkleSpeed;
+
+      const currentAlpha = Math.max(0.02, Math.min(0.3, mote.alpha + Math.sin(mote.phase) * 0.08));
 
       if (mote.y < -10) mote.y = height + 10;
       if (mote.x < -10) mote.x = width + 10;
@@ -53,9 +57,9 @@ function initCinematicBokeh() {
       ctx.save();
       ctx.beginPath();
       ctx.arc(mote.x, mote.y, mote.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255, 255, 255, ${Math.max(0.05, Math.min(0.4, mote.alpha))})`;
-      ctx.shadowBlur = 8;
-      ctx.shadowColor = 'rgba(255, 255, 255, 0.4)';
+      ctx.fillStyle = `rgba(255, 255, 255, ${currentAlpha})`;
+      ctx.shadowBlur = mote.radius > 1.5 ? 6 : 2;
+      ctx.shadowColor = 'rgba(255, 255, 255, 0.3)';
       ctx.fill();
       ctx.restore();
     });
@@ -66,30 +70,17 @@ function initCinematicBokeh() {
   requestAnimationFrame(render);
 }
 
-// 2. Smooth Numerical Progress Tick-Up Animation
-function initProgressTick() {
+// 2. Subtle Progress Bar Initialization (No percentage counters)
+function initSubtleProgressBar() {
   const progressBar = document.getElementById('progressBar');
-  const percentText = document.getElementById('currentPercentText');
-  if (!progressBar || !percentText) return;
-
-  const target = 10;
-  let current = 0;
+  if (!progressBar) return;
 
   setTimeout(() => {
-    progressBar.style.width = `${target}%`;
-
-    const interval = setInterval(() => {
-      current += 1;
-      if (current >= target) {
-        current = target;
-        clearInterval(interval);
-      }
-      percentText.textContent = `${current}%`;
-    }, 60);
+    progressBar.style.width = '42%';
   }, 400);
 }
 
-// 3. Subtle Mouse Parallax Depth Effect
+// 3. Subtle Mouse Parallax Depth
 function initMouseParallax() {
   const orb1 = document.getElementById('orb1');
   const orb2 = document.getElementById('orb2');
@@ -99,43 +90,16 @@ function initMouseParallax() {
     const xRatio = (e.clientX / window.innerWidth - 0.5) * 2;
     const yRatio = (e.clientY / window.innerHeight - 0.5) * 2;
 
-    if (orb1) orb1.style.transform = `translate(${xRatio * -30}px, ${yRatio * -30}px)`;
-    if (orb2) orb2.style.transform = `translate(${xRatio * 25}px, ${yRatio * 25}px)`;
-    if (orb3) orb3.style.transform = `translate(${xRatio * -15}px, ${yRatio * 15}px)`;
+    if (orb1) orb1.style.transform = `translate(${xRatio * -20}px, ${yRatio * -20}px)`;
+    if (orb2) orb2.style.transform = `translate(${xRatio * 18}px, ${yRatio * -18}px)`;
+    if (orb3) orb3.style.transform = `translate(${xRatio * -10}px, ${yRatio * 10}px)`;
   });
 }
 
-// 4. Action Button & Email Drawer Logic
-function toggleNotifyModal() {
-  const btn = document.getElementById('notifyBtn');
-  const drawer = document.getElementById('emailDrawer');
-  const input = document.getElementById('notifyEmail');
-
-  if (!drawer || !btn) return;
-
-  btn.style.display = 'none';
-  drawer.style.display = 'block';
-  if (input) input.focus();
-}
-
-function handleNotify(event) {
-  event.preventDefault();
-  const input = document.getElementById('notifyEmail');
-  const drawer = document.getElementById('emailDrawer');
-  const banner = document.getElementById('successBanner');
-
-  if (!input || !input.value.trim()) return false;
-
-  drawer.style.display = 'none';
-  if (banner) banner.style.display = 'flex';
-
-  showToast('You will be notified once the store launches.');
-  return false;
-}
-
+// 4. Social Links Toast
 function fakeNotice(event, platform) {
   event.preventDefault();
-  showToast(`SITARA ${platform} will be live with our launch.`);
+  showToast(`New Sitara ${platform} will be live with our launch.`);
 }
 
 function showToast(message) {
@@ -150,6 +114,7 @@ function showToast(message) {
   }, 3500);
 }
 
+// 5. Footer Year
 function updateYear() {
   const yearEl = document.getElementById('year');
   if (yearEl) {

@@ -269,7 +269,7 @@ html, body {
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  margin-bottom: 2.25rem;
+  margin-bottom: 1.25rem;
   opacity: 0;
   animation: fadeIn 0.9s var(--ease-cinematic) 0.5s forwards;
 }
@@ -293,57 +293,35 @@ html, body {
   text-transform: none;
 }
 
-/* Working Spinner Indicator */
-.working-indicator {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-  margin-bottom: 0.85rem;
+/* Tagline Statement */
+.tagline-text {
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 1.75rem;
+  opacity: 0;
+  animation: fadeIn 0.9s var(--ease-cinematic) 0.65s forwards;
 }
 
-.spinning-ring {
-  width: 14px;
-  height: 14px;
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  border-top-color: var(--accent-steel);
-  border-right-color: var(--accent-steel);
-  border-radius: 50%;
-  animation: spinRing 0.85s linear infinite;
-}
-
-@keyframes spinRing {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.working-text {
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-/* Progress Bar */
+/* Progress Bar (Subtle & Clean, No Labels) */
 .progress-container {
   width: 100%;
-  max-width: 340px;
+  max-width: 260px;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
-  margin-bottom: 2.5rem;
+  align-items: center;
   opacity: 0;
-  animation: fadeIn 0.9s var(--ease-cinematic) 0.7s forwards;
+  animation: fadeIn 0.9s var(--ease-cinematic) 0.8s forwards;
 }
 
 .progress-bar-track {
   width: 100%;
-  height: 8px;
-  background: rgba(255, 255, 255, 0.12);
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 999px;
   overflow: hidden;
   position: relative;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .progress-bar-fill {
@@ -353,7 +331,7 @@ html, body {
   border-radius: 999px;
   transition: width 1.6s var(--ease-cinematic);
   position: relative;
-  box-shadow: 0 0 16px var(--accent-steel-glow);
+  box-shadow: 0 0 10px var(--accent-steel-glow);
 }
 
 .bar-shine-sweep {
@@ -369,22 +347,6 @@ html, body {
 @keyframes shineMove {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
-}
-
-.progress-labels {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.55);
-  font-weight: 500;
-}
-
-.label-current {
-  color: var(--accent-steel);
-  font-weight: 600;
-  font-size: 0.75rem;
 }
 
 /* Action Button & Email Drawer */
@@ -679,18 +641,15 @@ html, body {
     width: 20px;
   }
 
-  .working-indicator {
-    gap: 0.45rem;
-    margin-bottom: 0.65rem;
-  }
-
-  .working-text {
-    font-size: 0.68rem;
+  .tagline-text {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
   }
 
   .progress-container {
-    max-width: 260px;
-    margin-bottom: 1.25rem;
+    max-width: 220px;
+    margin-bottom: 0;
   }
 
   .social-icons {

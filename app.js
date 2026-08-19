@@ -72,20 +72,20 @@ function initProgressTick() {
   const percentText = document.getElementById('currentPercentText');
   if (!progressBar || !percentText) return;
 
-  const target = 84;
+  const target = 10;
   let current = 0;
 
   setTimeout(() => {
     progressBar.style.width = `${target}%`;
 
     const interval = setInterval(() => {
-      current += 2;
+      current += 1;
       if (current >= target) {
         current = target;
         clearInterval(interval);
       }
       percentText.textContent = `${current}%`;
-    }, 35);
+    }, 60);
   }, 400);
 }
 

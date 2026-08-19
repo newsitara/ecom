@@ -1,61 +1,55 @@
 // ==========================================================================
-// SITARA ATELIER — HIGH-END LUXURY CONSOLE LOGIC
+// SITARA — UNDER CONSTRUCTION LOGIC
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  initLuxuryConsole();
-  initProgressIncrement();
+  animateProgressBar();
   updateYear();
 });
 
-const flagshipTasks = [
-  "INITIALIZING FLAGSHIP STOREFRONT",
-  "CURATING READY-TO-WEAR ARCHIVES",
-  "SYNCHRONIZING PRIVATE SALON PROTOCOLS",
-  "CALIBRATING HAUTE COUTURE SHOWROOM",
-  "FINALIZING INAUGURAL RUNWAY LOOKS",
-  "GLOBAL LAUNCH SEQUENCE IMMINENT"
-];
+// Animate progress bar fill to 78%
+function animateProgressBar() {
+  const progressBar = document.getElementById('progressBar');
+  if (!progressBar) return;
 
-function initLuxuryConsole() {
-  const taskEl = document.getElementById('consoleTask');
-  if (!taskEl) return;
-
-  let index = 0;
-
-  setInterval(() => {
-    index = (index + 1) % flagshipTasks.length;
-    taskEl.style.opacity = '0';
-
-    setTimeout(() => {
-      taskEl.textContent = flagshipTasks[index];
-      taskEl.style.opacity = '1';
-    }, 400);
-  }, 4500);
+  setTimeout(() => {
+    progressBar.style.width = '78%';
+  }, 300);
 }
 
-function initProgressIncrement() {
-  const barEl = document.getElementById('consoleBar');
-  const percentEl = document.getElementById('consolePercent');
-  if (!barEl || !percentEl) return;
+// Toggle Email Notify Input Drawer
+function toggleNotifyModal() {
+  const btn = document.getElementById('notifyBtn');
+  const drawer = document.getElementById('emailDrawer');
+  const input = document.getElementById('notifyEmail');
 
-  let currentVal = 88;
+  if (!drawer || !btn) return;
 
-  setInterval(() => {
-    if (currentVal < 98) {
-      currentVal += 1;
-    } else {
-      currentVal = 97;
-    }
-
-    barEl.style.width = `${currentVal}%`;
-    percentEl.textContent = `${currentVal}%`;
-  }, 5000);
+  btn.style.display = 'none';
+  drawer.style.display = 'block';
+  if (input) input.focus();
 }
 
-function showNotice(event, type) {
+function handleNotify(event) {
   event.preventDefault();
-  showToast(`SITARA ${type.toUpperCase()} // UNVEILING AT OFFICIAL INAUGURATION`);
+  const input = document.getElementById('notifyEmail');
+  const drawer = document.getElementById('emailDrawer');
+  const btn = document.getElementById('notifyBtn');
+
+  if (!input || !input.value.trim()) return false;
+
+  drawer.style.display = 'none';
+  btn.style.display = 'block';
+  btn.textContent = 'Subscribed ✓';
+  btn.style.background = '#48738a';
+
+  showToast('You will be notified once the site launches.');
+  return false;
+}
+
+function fakeNotice(event, platform) {
+  event.preventDefault();
+  showToast(`SITARA ${platform} will be live with our launch.`);
 }
 
 function showToast(message) {

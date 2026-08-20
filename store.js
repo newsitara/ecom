@@ -1,14 +1,14 @@
 // ==========================================================================
-// NEW SITARA INTERPRIZES — 2026 MODERN E-COMMERCE ENGINE
+// NEW SITARA INTERPRIZES — HIGH-FASHION MAISON CATALOG ENGINE
 // ==========================================================================
 
-const PRODUCTS_STORE = [
+const MAISON_CATALOG = [
   // --- FOOTWEAR & SNEAKERS ---
   {
     id: 'ns-shoe-1',
     name: 'Atelier Minimal Low-Top Sneaker',
     category: 'shoes',
-    categoryName: 'Footwear',
+    categoryName: 'Footwear & Sneakers',
     price: 220,
     tag: 'Signature Drop',
     imageFront: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop',
@@ -25,7 +25,7 @@ const PRODUCTS_STORE = [
     id: 'ns-shoe-2',
     name: 'Obsidian Chunky Technical Runner',
     category: 'shoes',
-    categoryName: 'Footwear',
+    categoryName: 'Footwear & Sneakers',
     price: 280,
     tag: 'Bestseller',
     imageFront: 'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?q=80&w=800&auto=format&fit=crop',
@@ -42,7 +42,7 @@ const PRODUCTS_STORE = [
     id: 'ns-shoe-3',
     name: 'Suede Chelsea Boot in Tobacco',
     category: 'shoes',
-    categoryName: 'Footwear',
+    categoryName: 'Footwear & Sneakers',
     price: 360,
     tag: 'Limited Edition',
     imageFront: 'https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop',
@@ -58,7 +58,7 @@ const PRODUCTS_STORE = [
     id: 'ns-shoe-4',
     name: 'Lug-Sole Derby Shoe Noir',
     category: 'shoes',
-    categoryName: 'Footwear',
+    categoryName: 'Footwear & Sneakers',
     price: 310,
     tag: 'Signature Drop',
     imageFront: 'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=800&auto=format&fit=crop',
@@ -76,7 +76,7 @@ const PRODUCTS_STORE = [
     id: 'ns-top-1',
     name: 'Obsidian 520GSM Loopback Hoodie',
     category: 'tops',
-    categoryName: 'Hoodies & Tops',
+    categoryName: 'Hoodies & Knits',
     price: 185,
     tag: 'Bestseller',
     imageFront: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop',
@@ -93,7 +93,7 @@ const PRODUCTS_STORE = [
     id: 'ns-top-2',
     name: 'Monogram Heavyweight Boxy Tee',
     category: 'tops',
-    categoryName: 'Hoodies & Tops',
+    categoryName: 'Hoodies & Knits',
     price: 95,
     tag: 'New Drop',
     imageFront: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop',
@@ -110,7 +110,7 @@ const PRODUCTS_STORE = [
     id: 'ns-top-3',
     name: 'Cashmere-Blend Minimal Knit',
     category: 'tops',
-    categoryName: 'Hoodies & Tops',
+    categoryName: 'Hoodies & Knits',
     price: 260,
     tag: 'Signature Drop',
     imageFront: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=800&auto=format&fit=crop',
@@ -127,7 +127,7 @@ const PRODUCTS_STORE = [
     id: 'ns-top-4',
     name: 'Vintage Washed Graphic Tour Tee',
     category: 'tops',
-    categoryName: 'Hoodies & Tops',
+    categoryName: 'Hoodies & Knits',
     price: 110,
     tag: 'Selling Fast',
     imageFront: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=800&auto=format&fit=crop',
@@ -143,7 +143,7 @@ const PRODUCTS_STORE = [
     id: 'ns-top-5',
     name: 'Heavy French Terry Crewneck',
     category: 'tops',
-    categoryName: 'Hoodies & Tops',
+    categoryName: 'Hoodies & Knits',
     price: 165,
     tag: 'New Drop',
     imageFront: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=800&auto=format&fit=crop',
@@ -295,7 +295,7 @@ const PRODUCTS_STORE = [
     id: 'ns-acc-1',
     name: 'Full-Grain Leather Weekender Duffle',
     category: 'accessories',
-    categoryName: 'Accessories',
+    categoryName: 'Leather & Goods',
     price: 380,
     tag: 'Signature Drop',
     imageFront: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop',
@@ -311,7 +311,7 @@ const PRODUCTS_STORE = [
     id: 'ns-acc-2',
     name: 'Monogram Engraved Cardholder',
     category: 'accessories',
-    categoryName: 'Accessories',
+    categoryName: 'Leather & Goods',
     price: 85,
     tag: 'Bestseller',
     imageFront: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=800&auto=format&fit=crop',
@@ -327,7 +327,7 @@ const PRODUCTS_STORE = [
     id: 'ns-acc-3',
     name: 'Cuban Link Chain with NS Emblem',
     category: 'accessories',
-    categoryName: 'Accessories',
+    categoryName: 'Leather & Goods',
     price: 190,
     tag: 'Limited Edition',
     imageFront: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop',
@@ -343,7 +343,7 @@ const PRODUCTS_STORE = [
     id: 'ns-acc-4',
     name: 'Structured Atelier Cotton Twill Cap',
     category: 'accessories',
-    categoryName: 'Accessories',
+    categoryName: 'Leather & Goods',
     price: 65,
     tag: 'New Drop',
     imageFront: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=800&auto=format&fit=crop',
@@ -357,113 +357,108 @@ const PRODUCTS_STORE = [
   }
 ];
 
-const DEPT_TITLES = {
-  all: { headline: 'Inaugural Collection', subtitle: 'Elevated footwear, heavyweight loopback cottons, and architectural tailoring.' },
-  shoes: { headline: 'Footwear & Sneakers', subtitle: 'Handcrafted Italian leather sneakers, chunky Vibram runners, and Goodyear welted boots.' },
-  tops: { headline: 'Hoodies & Tops', subtitle: '520 GSM loopback French terry, cashmere-blend knits, and boxy monogram tees.' },
-  bottoms: { headline: 'Pants & Denim', subtitle: 'Japanese selvedge raw denim, pleated virgin wool trousers, and modular cargo pants.' },
-  outerwear: { headline: 'Jackets & Coats', subtitle: 'Storm-resistant trenches, technical cropped bombers, and Melton wool overcoats.' },
-  accessories: { headline: 'Accessories & Leather', subtitle: 'Vegetable-tanned leather duffles, pebble grain cardholders, and 18k gold jewelry.' }
-};
-
-// Global Store State
-let currentDept = 'all';
-let currentQuickTag = 'all';
-let currentSort = 'featured';
-let currentMaxPrice = 600;
-let currentSize = 'all';
-let searchQuery = '';
-let gridCols = 4;
-let cart = JSON.parse(localStorage.getItem('ns_cart') || '[]');
-let promoDiscount = 0;
+// App State
+let activeDept = 'all';
+let activeTag = 'all';
+let activeSort = 'featured';
+let searchKeyword = '';
+let cartItems = JSON.parse(localStorage.getItem('ns_cart') || '[]');
+let promoPercent = 0;
 let modalProduct = null;
-let modalSelectedSize = '';
+let modalSize = '';
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderGrid();
+  renderMaisonGrid();
+  updatePillCounts();
   updateCartBadge();
-  renderCart();
+  renderCartFeed();
 
   if (window.lucide) window.lucide.createIcons();
 });
 
-// Grid Renderer
-function renderGrid() {
-  const feed = document.getElementById('productsFeed');
-  const countEl = document.getElementById('headerProductCount');
-  if (!feed) return;
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
 
-  let items = PRODUCTS_STORE.filter((p) => {
-    // Dept match
-    const deptMatch = currentDept === 'all' || p.category === currentDept;
+function updatePillCounts() {
+  const total = MAISON_CATALOG.length;
+  const shoes = MAISON_CATALOG.filter((p) => p.category === 'shoes').length;
+  const tops = MAISON_CATALOG.filter((p) => p.category === 'tops').length;
+  const bottoms = MAISON_CATALOG.filter((p) => p.category === 'bottoms').length;
+  const outerwear = MAISON_CATALOG.filter((p) => p.category === 'outerwear').length;
+  const accessories = MAISON_CATALOG.filter((p) => p.category === 'accessories').length;
 
-    // Quick Tag match
-    const tagMatch = currentQuickTag === 'all' || p.tag.toLowerCase().includes(currentQuickTag.toLowerCase());
+  document.getElementById('countAll').textContent = total;
+  document.getElementById('countShoes').textContent = shoes;
+  document.getElementById('countTops').textContent = tops;
+  document.getElementById('countBottoms').textContent = bottoms;
+  document.getElementById('countOuterwear').textContent = outerwear;
+  document.getElementById('countAccessories').textContent = accessories;
+}
 
-    // Price match
-    const priceMatch = p.price <= currentMaxPrice;
+function renderMaisonGrid() {
+  const grid = document.getElementById('maisonGrid');
+  if (!grid) return;
 
-    // Size match
-    const sizeMatch = currentSize === 'all' || p.sizes.includes(currentSize) || p.sizes.includes('One Size') || p.sizes.includes('Adjustable');
+  let items = MAISON_CATALOG.filter((p) => {
+    const deptMatch = activeDept === 'all' || p.category === activeDept;
+    const tagMatch = activeTag === 'all' || p.tag.toLowerCase().includes(activeTag.toLowerCase());
+    const searchMatch =
+      searchKeyword === '' ||
+      p.name.toLowerCase().includes(searchKeyword) ||
+      p.categoryName.toLowerCase().includes(searchKeyword) ||
+      p.description.toLowerCase().includes(searchKeyword);
 
-    // Search query match
-    const queryMatch =
-      searchQuery === '' ||
-      p.name.toLowerCase().includes(searchQuery) ||
-      p.categoryName.toLowerCase().includes(searchQuery) ||
-      p.description.toLowerCase().includes(searchQuery);
-
-    return deptMatch && tagMatch && priceMatch && sizeMatch && queryMatch;
+    return deptMatch && tagMatch && searchMatch;
   });
 
-  // Sort
-  if (currentSort === 'price-asc') {
+  // Sorting
+  if (activeSort === 'price-asc') {
     items.sort((a, b) => a.price - b.price);
-  } else if (currentSort === 'price-desc') {
+  } else if (activeSort === 'price-desc') {
     items.sort((a, b) => b.price - a.price);
-  } else if (currentSort === 'name-asc') {
+  } else if (activeSort === 'name-asc') {
     items.sort((a, b) => a.name.localeCompare(b.name));
   }
 
-  if (countEl) countEl.textContent = `${items.length} Items Available`;
-
   if (items.length === 0) {
-    feed.innerHTML = `
-      <div style="grid-column: 1 / -1; text-align: center; padding: 5rem 1rem; color: var(--text-muted);">
-        <i data-lucide="search-x" style="width: 48px; height: 48px; margin-bottom: 1rem; color: var(--text-main);"></i>
-        <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--text-main);">No matching pieces found</h3>
-        <p style="margin-top: 0.5rem; font-size: 0.88rem;">Try clearing your search keyword, adjusting your price limit, or selecting another department.</p>
-        <button class="btn btn-dark" onclick="resetFilters()" style="margin-top: 1.5rem;">Reset All Filters</button>
+    grid.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align: center; padding: 6rem 1rem; color: var(--slate);">
+        <i data-lucide="sparkles" style="width: 48px; height: 48px; margin-bottom: 1rem; color: var(--gold-accent);"></i>
+        <h3 style="font-family: var(--font-serif); font-size: 2rem; color: var(--noir);">No matching pieces in this view</h3>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Try clearing your search term or selecting another department.</p>
+        <button class="btn btn-black" onclick="filterByDept('all')" style="margin-top: 1.5rem; border-radius: 999px;">View All Pieces</button>
       </div>
     `;
     if (window.lucide) window.lucide.createIcons();
     return;
   }
 
-  feed.innerHTML = items
+  grid.innerHTML = items
     .map(
-      (product) => `
-    <div class="feed-product-card" data-id="${product.id}">
-      <div class="card-media-box">
-        <span class="card-micro-tag">${product.tag}</span>
-        <img src="${product.imageFront}" alt="${product.name}" class="card-primary-img" loading="lazy">
-        <img src="${product.imageBack}" alt="${product.name} back view" class="card-alt-img" loading="lazy">
+      (p) => `
+    <div class="maison-card" data-id="${p.id}">
+      <div class="card-media">
+        <span class="card-tag-pill">${p.tag}</span>
+        <img src="${p.imageFront}" alt="${p.name}" class="card-img-front" loading="lazy">
+        <img src="${p.imageBack}" alt="${p.name} alternate view" class="card-img-back" loading="lazy">
 
-        <div class="card-hover-drawer">
-          <button class="quick-view-action-btn" onclick="openQuickViewModal('${product.id}')">Quick View</button>
-          <div class="size-pill-selector-row">
-            ${product.sizes.map((s) => `<button class="size-chip-btn" onclick="quickAdd('${product.id}', '${s}')">${s}</button>`).join('')}
+        <div class="card-hover-actions">
+          <button class="btn-quick-view" onclick="openProductModal('${p.id}')">Quick View</button>
+          <div class="card-size-strip">
+            ${p.sizes.map((s) => `<button class="size-add-btn" onclick="quickAddToBag('${p.id}', '${s}')">${s}</button>`).join('')}
           </div>
         </div>
       </div>
 
-      <div class="card-content-pane">
-        <span class="card-category-label">${product.categoryName}</span>
-        <h4 class="card-title-text" onclick="openQuickViewModal('${product.id}')">${product.name}</h4>
+      <div class="card-info">
+        <span class="card-cat">${p.categoryName}</span>
+        <h4 class="card-title" onclick="openProductModal('${p.id}')">${p.name}</h4>
         
-        <div class="card-price-bottom">
-          <span class="card-price-val">$${product.price}.00</span>
-          <span class="card-stock-dot">● In Stock</span>
+        <div class="card-bottom-row">
+          <span class="card-price">$${p.price}.00</span>
+          <span class="card-stock">● Available</span>
         </div>
       </div>
     </div>
@@ -474,192 +469,108 @@ function renderGrid() {
   if (window.lucide) window.lucide.createIcons();
 }
 
-// Department Selector
-function selectDepartment(dept, btnEl) {
-  currentDept = dept;
+function filterByDept(dept, btnEl) {
+  activeDept = dept;
 
-  // Sync nav pills
-  document.querySelectorAll('.nav-dept-btn, .mob-dept-pill').forEach((btn) => {
-    if (btn.dataset.dept === dept) btn.classList.add('active');
-    else btn.classList.remove('active');
+  // Sync pill active state
+  document.querySelectorAll('.dept-pill').forEach((pill) => {
+    if (pill.dataset.dept === dept) pill.classList.add('active');
+    else pill.classList.remove('active');
   });
 
-  // Sync drawer radio
-  const radio = document.querySelector(`input[name="drawer_dept"][value="${dept}"]`);
-  if (radio) radio.checked = true;
-
-  // Sync editorial headline & subtitle
-  const info = DEPT_TITLES[dept] || DEPT_TITLES.all;
-  document.getElementById('sectionHeadline').textContent = info.headline;
-  document.getElementById('sectionSubtitle').textContent = info.subtitle;
-
-  renderGrid();
+  renderMaisonGrid();
+  scrollToSection('catalogSection');
 }
 
-function handleDrawerDeptChange(dept) {
-  selectDepartment(dept);
+function handleTagFilter(e) {
+  activeTag = e.target.value;
+  renderMaisonGrid();
 }
 
-// Quick Tags
-function setQuickTag(tag, pillEl) {
-  currentQuickTag = tag;
-  document.querySelectorAll('.quick-pill').forEach((p) => p.classList.remove('active'));
-  if (pillEl) pillEl.classList.add('active');
-  renderGrid();
+function handleSort(e) {
+  activeSort = e.target.value;
+  renderMaisonGrid();
 }
 
-// Sorting
-function handleSortChange(e) {
-  currentSort = e.target.value;
-  renderGrid();
-}
-
-// Grid Column Switcher
 function setGridColumns(cols, btnEl) {
-  gridCols = cols;
-  const feed = document.getElementById('productsFeed');
-  if (!feed) return;
+  const grid = document.getElementById('maisonGrid');
+  if (!grid) return;
 
-  feed.className = `products-grid-feed cols-${cols}`;
-  document.querySelectorAll('.view-toggle-btn').forEach((b) => b.classList.remove('active'));
+  grid.className = `maison-product-grid grid-${cols}`;
+  document.querySelectorAll('.view-btn').forEach((b) => b.classList.remove('active'));
   if (btnEl) btnEl.classList.add('active');
 }
 
-// Search
 function handleSearch(e) {
-  searchQuery = e.target.value.trim().toLowerCase();
+  searchKeyword = e.target.value.trim().toLowerCase();
   const clearBtn = document.getElementById('searchClearBtn');
-  if (clearBtn) clearBtn.style.display = searchQuery ? 'flex' : 'none';
-  renderGrid();
+  if (clearBtn) clearBtn.style.display = searchKeyword ? 'flex' : 'none';
+  renderMaisonGrid();
 }
 
-function clearLiveSearch() {
+function clearSearch() {
   const input = document.getElementById('liveSearchInput');
   if (input) input.value = '';
-  searchQuery = '';
+  searchKeyword = '';
   document.getElementById('searchClearBtn').style.display = 'none';
-  renderGrid();
-}
-
-// Filter Drawer
-function openFilterDrawer() {
-  document.getElementById('filterDrawer').classList.add('open');
-  document.getElementById('filterBackdrop').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeFilterDrawer() {
-  document.getElementById('filterDrawer').classList.remove('open');
-  document.getElementById('filterBackdrop').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function handleDrawerPrice(e) {
-  currentMaxPrice = parseInt(e.target.value, 10);
-  document.getElementById('drawerPriceLabel').textContent = `$${currentMaxPrice}`;
-  checkActiveFilterDot();
-  renderGrid();
-}
-
-function setDrawerSize(size, btnEl) {
-  currentSize = size;
-  document.querySelectorAll('#drawerSizePills .size-btn').forEach((b) => b.classList.remove('active'));
-  if (btnEl) btnEl.classList.add('active');
-  checkActiveFilterDot();
-  renderGrid();
-}
-
-function checkActiveFilterDot() {
-  const isFiltered = currentMaxPrice < 600 || currentSize !== 'all' || currentDept !== 'all';
-  const dot = document.getElementById('filterActiveDot');
-  if (dot) dot.style.display = isFiltered ? 'inline-block' : 'none';
-}
-
-function resetFilters() {
-  currentDept = 'all';
-  currentQuickTag = 'all';
-  currentSort = 'featured';
-  currentMaxPrice = 600;
-  currentSize = 'all';
-  searchQuery = '';
-
-  const searchInput = document.getElementById('liveSearchInput');
-  if (searchInput) searchInput.value = '';
-  const priceSlider = document.getElementById('drawerPriceSlider');
-  if (priceSlider) priceSlider.value = 600;
-  document.getElementById('drawerPriceLabel').textContent = '$600';
-  document.getElementById('sortSelect').value = 'featured';
-
-  document.querySelectorAll('#drawerSizePills .size-btn').forEach((b, i) => {
-    if (i === 0) b.classList.add('active');
-    else b.classList.remove('active');
-  });
-
-  document.querySelectorAll('.quick-pill').forEach((p, i) => {
-    if (i === 0) p.classList.add('active');
-    else p.classList.remove('active');
-  });
-
-  selectDepartment('all');
-  checkActiveFilterDot();
-  closeFilterDrawer();
+  renderMaisonGrid();
 }
 
 // Quick View Modal
-function openQuickViewModal(productId) {
-  const product = PRODUCTS_STORE.find((p) => p.id === productId);
+function openProductModal(productId) {
+  const product = MAISON_CATALOG.find((p) => p.id === productId);
   if (!product) return;
 
   modalProduct = product;
-  modalSelectedSize = product.sizes[0];
+  modalSize = product.sizes[0];
 
-  const modal = document.getElementById('quickModalCard');
-  const backdrop = document.getElementById('quickViewBackdrop');
-  const body = document.getElementById('quickModalBody');
+  const modal = document.getElementById('productModal');
+  const backdrop = document.getElementById('modalBackdrop');
+  const body = document.getElementById('modalSplitBody');
 
   body.innerHTML = `
-    <div class="modal-gallery-box">
-      <img src="${product.gallery[0]}" alt="${product.name}" class="modal-hero-img" id="modalHeroImg">
-      <div class="modal-thumb-strip">
+    <div class="modal-gallery-pane">
+      <img src="${product.gallery[0]}" alt="${product.name}" class="modal-featured-img" id="modalFeaturedImg">
+      <div class="modal-thumbs-row">
         ${product.gallery
           .map(
             (img, index) => `
-          <img src="${img}" alt="Thumbnail ${index + 1}" class="modal-thumb-item ${index === 0 ? 'active' : ''}" onclick="setModalHero('${img}', this)">
+          <img src="${img}" alt="Thumb" class="modal-thumb-btn ${index === 0 ? 'active' : ''}" onclick="setModalMainImg('${img}', this)">
         `
           )
           .join('')}
       </div>
     </div>
 
-    <div class="modal-details-pane">
-      <span class="modal-dept-kicker">${product.categoryName} • ${product.tag}</span>
-      <h2 class="modal-product-name">${product.name}</h2>
-      <div class="modal-price-tag">$${product.price}.00 USD</div>
-      <p class="modal-desc-body">${product.description}</p>
+    <div class="modal-info-pane">
+      <span class="modal-tag-label">${product.categoryName} • ${product.tag}</span>
+      <h2 class="modal-product-title">${product.name}</h2>
+      <div class="modal-price-val">$${product.price}.00 USD</div>
+      <p class="modal-desc-text">${product.description}</p>
 
-      <div class="modal-size-block">
-        <div class="size-head-line">
+      <div class="modal-sizes-group">
+        <div class="size-header">
           <span>SELECT SIZE</span>
-          <span style="color: var(--gold-accent); cursor: pointer;" onclick="showToast('True to size standard tailored cut.')">Size Guide ↗</span>
+          <span style="color: var(--gold-accent); cursor: pointer;" onclick="showToast('True to tailored streetwear proportions.')">Size Guide ↗</span>
         </div>
-        <div class="modal-sizes-flex">
+        <div class="modal-sizes-row">
           ${product.sizes
             .map(
               (s, i) => `
-            <button class="modal-size-pill ${i === 0 ? 'active' : ''}" onclick="setModalSizeOption('${s}', this)">${s}</button>
+            <button class="modal-size-chip ${i === 0 ? 'active' : ''}" onclick="setModalSize('${s}', this)">${s}</button>
           `
             )
             .join('')}
         </div>
       </div>
 
-      <div class="modal-specs-box">
+      <div class="modal-craft-box">
         <strong>Atelier Specifications:</strong><br>
         ${product.specs}
       </div>
 
-      <button class="btn btn-dark btn-block" onclick="addModalItemToBag()">
-        Add to Bag — $${product.price}.00
+      <button class="btn btn-black btn-block" onclick="addModalItemToCart()">
+        Add to Shopping Bag — $${product.price}.00
       </button>
     </div>
   `;
@@ -671,48 +582,48 @@ function openQuickViewModal(productId) {
   if (window.lucide) window.lucide.createIcons();
 }
 
-function setModalHero(src, thumbEl) {
-  const imgEl = document.getElementById('modalHeroImg');
-  if (imgEl) imgEl.src = src;
-  document.querySelectorAll('.modal-thumb-item').forEach((t) => t.classList.remove('active'));
+function setModalMainImg(src, thumbEl) {
+  const img = document.getElementById('modalFeaturedImg');
+  if (img) img.src = src;
+  document.querySelectorAll('.modal-thumb-btn').forEach((t) => t.classList.remove('active'));
   if (thumbEl) thumbEl.classList.add('active');
 }
 
-function setModalSizeOption(size, pillEl) {
-  modalSelectedSize = size;
-  document.querySelectorAll('.modal-size-pill').forEach((p) => p.classList.remove('active'));
-  if (pillEl) pillEl.classList.add('active');
+function setModalSize(size, chipEl) {
+  modalSize = size;
+  document.querySelectorAll('.modal-size-chip').forEach((c) => c.classList.remove('active'));
+  if (chipEl) chipEl.classList.add('active');
 }
 
-function addModalItemToBag() {
+function addModalItemToCart() {
   if (!modalProduct) return;
-  addToCart(modalProduct.id, modalSelectedSize);
-  closeQuickView();
-  openCartDrawer();
+  addToBag(modalProduct.id, modalSize);
+  closeModal();
+  toggleCartDrawer(true);
 }
 
-function closeQuickView() {
-  document.getElementById('quickModalCard').classList.remove('open');
-  document.getElementById('quickViewBackdrop').classList.remove('open');
+function closeModal() {
+  document.getElementById('productModal').classList.remove('open');
+  document.getElementById('modalBackdrop').classList.remove('open');
   document.body.style.overflow = '';
 }
 
 // Shopping Bag Engine
-function quickAdd(productId, size) {
-  addToCart(productId, size);
-  openCartDrawer();
+function quickAddToBag(productId, size) {
+  addToBag(productId, size);
+  toggleCartDrawer(true);
 }
 
-function addToCart(productId, size) {
-  const product = PRODUCTS_STORE.find((p) => p.id === productId);
+function addToBag(productId, size) {
+  const product = MAISON_CATALOG.find((p) => p.id === productId);
   if (!product) return;
 
-  const existingIndex = cart.findIndex((item) => item.id === productId && item.size === size);
+  const existing = cartItems.find((i) => i.id === productId && i.size === size);
 
-  if (existingIndex > -1) {
-    cart[existingIndex].qty += 1;
+  if (existing) {
+    existing.qty += 1;
   } else {
-    cart.push({
+    cartItems.push({
       id: product.id,
       name: product.name,
       price: product.price,
@@ -724,80 +635,80 @@ function addToCart(productId, size) {
   }
 
   saveCart();
-  renderCart();
+  renderCartFeed();
   updateCartBadge();
   showToast(`Added ${product.name} (${size}) to your bag.`);
 }
 
-function updateCartQty(productId, size, delta) {
-  const itemIndex = cart.findIndex((i) => i.id === productId && i.size === size);
-  if (itemIndex === -1) return;
+function updateItemQty(productId, size, delta) {
+  const index = cartItems.findIndex((i) => i.id === productId && i.size === size);
+  if (index === -1) return;
 
-  cart[itemIndex].qty += delta;
+  cartItems[index].qty += delta;
 
-  if (cart[itemIndex].qty <= 0) {
-    cart.splice(itemIndex, 1);
+  if (cartItems[index].qty <= 0) {
+    cartItems.splice(index, 1);
   }
 
   saveCart();
-  renderCart();
+  renderCartFeed();
   updateCartBadge();
 }
 
-function removeFromCart(productId, size) {
-  cart = cart.filter((i) => !(i.id === productId && i.size === size));
+function removeItem(productId, size) {
+  cartItems = cartItems.filter((i) => !(i.id === productId && i.size === size));
   saveCart();
-  renderCart();
+  renderCartFeed();
   updateCartBadge();
   showToast('Item removed from bag.');
 }
 
 function saveCart() {
-  localStorage.setItem('ns_cart', JSON.stringify(cart));
+  localStorage.setItem('ns_cart', JSON.stringify(cartItems));
 }
 
 function updateCartBadge() {
-  const count = cart.reduce((sum, item) => sum + item.qty, 0);
+  const count = cartItems.reduce((sum, item) => sum + item.qty, 0);
   const badge = document.getElementById('cartCountBadge');
-  const countText = document.getElementById('cartTotalItemsText');
+  const countTxt = document.getElementById('cartItemBadgeCount');
 
   if (badge) badge.textContent = count;
-  if (countText) countText.textContent = `(${count})`;
+  if (countTxt) countTxt.textContent = `(${count})`;
 }
 
-function renderCart() {
+function renderCartFeed() {
   const feed = document.getElementById('cartItemsFeed');
   if (!feed) return;
 
-  if (cart.length === 0) {
+  if (cartItems.length === 0) {
     feed.innerHTML = `
-      <div style="margin: auto; text-align: center; color: var(--text-muted); padding: 3rem 1rem;">
-        <i data-lucide="shopping-bag" style="width: 48px; height: 48px; margin-bottom: 0.75rem; opacity: 0.3;"></i>
-        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--text-main);">Your bag is empty</h4>
+      <div style="margin: auto; text-align: center; color: var(--slate); padding: 4rem 1rem;">
+        <i data-lucide="shopping-bag" style="width: 48px; height: 48px; margin-bottom: 0.75rem; opacity: 0.25;"></i>
+        <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--noir);">Your bag is currently empty</h4>
         <p style="font-size: 0.85rem; margin-top: 0.35rem;">Explore footwear, hoodies, pants, and jackets to add pieces.</p>
       </div>
     `;
-    updatePricing(0);
+    updateCheckoutPricing(0);
     if (window.lucide) window.lucide.createIcons();
     return;
   }
 
-  feed.innerHTML = cart
+  feed.innerHTML = cartItems
     .map(
       (item) => `
-    <div class="cart-item-row">
-      <img src="${item.image}" alt="${item.name}" class="cart-thumb">
-      <div class="cart-meta">
-        <h4 class="cart-name">${item.name}</h4>
-        <span class="cart-var">Size: ${item.size} • ${item.categoryName}</span>
-        <div class="cart-actions-line">
-          <div class="qty-stepper">
-            <button class="qty-step-btn" onclick="updateCartQty('${item.id}', '${item.size}', -1)">-</button>
+    <div class="cart-row">
+      <img src="${item.image}" alt="${item.name}" class="cart-row-img">
+      <div class="cart-row-info">
+        <h4 class="cart-row-title">${item.name}</h4>
+        <span class="cart-row-spec">Size: ${item.size} • ${item.categoryName}</span>
+        <div class="cart-row-bottom">
+          <div class="qty-control-box">
+            <button class="qty-btn" onclick="updateItemQty('${item.id}', '${item.size}', -1)">-</button>
             <span class="qty-val">${item.qty}</span>
-            <button class="qty-step-btn" onclick="updateCartQty('${item.id}', '${item.size}', 1)">+</button>
+            <button class="qty-btn" onclick="updateItemQty('${item.id}', '${item.size}', 1)">+</button>
           </div>
-          <span class="cart-row-price">$${item.price * item.qty}.00</span>
-          <button class="cart-del-btn" onclick="removeFromCart('${item.id}', '${item.size}')">Remove</button>
+          <span class="cart-row-price-tag">$${item.price * item.qty}.00</span>
+          <button class="cart-remove-link" onclick="removeItem('${item.id}', '${item.size}')">Remove</button>
         </div>
       </div>
     </div>
@@ -805,66 +716,66 @@ function renderCart() {
     )
     .join('');
 
-  const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-  updatePricing(subtotal);
+  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.qty, 0);
+  updateCheckoutPricing(subtotal);
 
   if (window.lucide) window.lucide.createIcons();
 }
 
-function updatePricing(subtotal) {
-  const subtotalEl = document.getElementById('mathSubtotal');
-  const discountRow = document.getElementById('mathDiscountRow');
-  const discountEl = document.getElementById('mathDiscount');
-  const shippingEl = document.getElementById('mathShipping');
-  const totalEl = document.getElementById('mathTotal');
-  const milestoneText = document.getElementById('shippingMilestoneText');
-  const milestoneFill = document.getElementById('shippingMilestoneFill');
+function updateCheckoutPricing(subtotal) {
+  const subtotalEl = document.getElementById('cartSubtotal');
+  const discountRow = document.getElementById('cartDiscountRow');
+  const discountEl = document.getElementById('cartDiscount');
+  const shippingEl = document.getElementById('cartShipping');
+  const totalEl = document.getElementById('cartTotal');
+  const msgEl = document.getElementById('trackerMessage');
+  const barEl = document.getElementById('trackerProgress');
 
   const threshold = 150;
-  const isFreeShipping = subtotal >= threshold;
-  const shippingCost = subtotal === 0 ? 0 : isFreeShipping ? 0 : 15;
+  const isFree = subtotal >= threshold;
+  const shippingCost = subtotal === 0 ? 0 : isFree ? 0 : 15;
 
-  if (milestoneFill && milestoneText) {
+  if (barEl && msgEl) {
     if (subtotal === 0) {
-      milestoneFill.style.width = '0%';
-      milestoneText.textContent = `Add $${threshold} for Free Worldwide Shipping`;
-    } else if (isFreeShipping) {
-      milestoneFill.style.width = '100%';
-      milestoneText.textContent = `✦ You've Unlocked Free Worldwide Express Shipping!`;
+      barEl.style.width = '0%';
+      msgEl.textContent = `Add $${threshold} for Free Worldwide Shipping`;
+    } else if (isFree) {
+      barEl.style.width = '100%';
+      msgEl.textContent = `✦ You've Unlocked Free Worldwide Express Shipping!`;
     } else {
       const remaining = threshold - subtotal;
       const pct = Math.min(100, (subtotal / threshold) * 100);
-      milestoneFill.style.width = `${pct}%`;
-      milestoneText.textContent = `Add $${remaining}.00 more for Free Worldwide Shipping`;
+      barEl.style.width = `${pct}%`;
+      msgEl.textContent = `Add $${remaining}.00 more for Free Worldwide Shipping`;
     }
   }
 
-  const discountAmount = subtotal * promoDiscount;
+  const discountAmount = subtotal * promoPercent;
 
-  if (promoDiscount > 0) {
+  if (promoPercent > 0) {
     if (discountRow) discountRow.style.display = 'flex';
     if (discountEl) discountEl.textContent = `-$${discountAmount.toFixed(2)}`;
   } else {
     if (discountRow) discountRow.style.display = 'none';
   }
 
-  const finalTotal = Math.max(0, subtotal - discountAmount + shippingCost);
+  const grandTotal = Math.max(0, subtotal - discountAmount + shippingCost);
 
   if (subtotalEl) subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
   if (shippingEl) shippingEl.textContent = shippingCost === 0 ? 'FREE' : `$${shippingCost.toFixed(2)}`;
-  if (totalEl) totalEl.textContent = `$${finalTotal.toFixed(2)}`;
+  if (totalEl) totalEl.textContent = `$${grandTotal.toFixed(2)} USD`;
 }
 
 function applyPromo() {
-  const input = document.getElementById('cartPromoInput');
+  const input = document.getElementById('promoInput');
   if (!input) return;
 
   const code = input.value.trim().toUpperCase();
 
   if (code === 'SITARA15' || code === 'VIP15') {
-    promoDiscount = 0.15;
-    showToast('Promo applied: 15% off your order!');
-    renderCart();
+    promoPercent = 0.15;
+    showToast('Promo applied: 15% discount on all departments!');
+    renderCartFeed();
   } else if (code === '') {
     showToast('Please enter a promo code.');
   } else {
@@ -872,31 +783,35 @@ function applyPromo() {
   }
 }
 
-function openCartDrawer() {
-  document.getElementById('cartDrawer').classList.add('open');
-  document.getElementById('cartBackdrop').classList.add('open');
-  document.body.style.overflow = 'hidden';
+function toggleCartDrawer(open) {
+  const drawer = document.getElementById('maisonCart');
+  const backdrop = document.getElementById('cartBackdrop');
+  if (!drawer || !backdrop) return;
+
+  if (open) {
+    drawer.classList.add('open');
+    backdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  } else {
+    drawer.classList.remove('open');
+    backdrop.classList.remove('open');
+    document.body.style.overflow = '';
+  }
 }
 
-function closeCartDrawer() {
-  document.getElementById('cartDrawer').classList.remove('open');
-  document.getElementById('cartBackdrop').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function triggerCheckout(method) {
-  if (cart.length === 0) {
+function processCheckout(method) {
+  if (cartItems.length === 0) {
     showToast('Your shopping bag is empty.');
     return;
   }
 
   if (method === 'whatsapp') {
-    const orderItems = cart.map((i) => `• ${i.name} (Size: ${i.size}, Qty: ${i.qty}) - $${i.price * i.qty}`).join('%0A');
-    const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-    const text = `Hello New Sitara Concierge! I would like to place an order:%0A%0A${orderItems}%0A%0AEstimated Total: $${subtotal}.00 USD%0APlease provide delivery and payment details.`;
+    const orderText = cartItems.map((i) => `• ${i.name} (${i.size}, Qty: ${i.qty}) - $${i.price * i.qty}`).join('%0A');
+    const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.qty, 0);
+    const msg = `Hello New Sitara Concierge! I want to order:%0A%0A${orderText}%0A%0ASubtotal: $${subtotal}.00 USD%0APlease arrange delivery and payment.`;
 
-    window.open(`https://wa.me/?text=${text}`, '_blank');
-    showToast('Opening WhatsApp with your order...');
+    window.open(`https://wa.me/?text=${msg}`, '_blank');
+    showToast('Opening WhatsApp with your multi-item order...');
   } else {
     showToast('🔒 Initiating 256-bit encrypted checkout...');
     setTimeout(() => {
@@ -905,18 +820,14 @@ function triggerCheckout(method) {
   }
 }
 
-function handleNewsletter(e) {
+function handleSubscribe(e) {
   e.preventDefault();
-  const input = document.getElementById('newsInput');
+  const input = document.getElementById('subscribeEmail');
   if (input && input.value) {
-    showToast('Welcome to the New Sitara Inner Circle. Check your inbox!');
+    showToast('Welcome to the New Sitara Inner Circle.');
     input.value = '';
   }
   return false;
-}
-
-function toggleMobileMenu() {
-  openFilterDrawer();
 }
 
 function showToast(message) {
@@ -924,7 +835,7 @@ function showToast(message) {
   if (!hub) return;
 
   const toast = document.createElement('div');
-  toast.className = 'toast-bubble';
+  toast.className = 'toast-pill';
   toast.innerHTML = `<span>✦</span> <span>${message}</span>`;
   hub.appendChild(toast);
 

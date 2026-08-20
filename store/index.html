@@ -3,375 +3,358 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Sitara Interprizes — Official Store</title>
+  <title>NEW SITARA — Official Maison & E-Commerce</title>
+  
+  <!-- High Fashion Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/store.css">
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/store.css?v=20260821_v3">
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body>
+<body class="maison-theme">
 
-  <!-- Top Micro Announcement -->
-  <div class="top-announcement">
-    <div class="announcement-content">
-      <span>✦ COMPLIMENTARY EXPRESS SHIPPING OVER $150</span>
-      <span class="bullet">•</span>
-      <span>INAUGURAL DROP SS26 NOW LIVE</span>
-      <span class="bullet">•</span>
-      <span>USE PROMO CODE <strong>SITARA15</strong> FOR 15% OFF</span>
-      <span class="bullet">•</span>
-      <span>HANDCRAFTED LUXURY FOOTWEAR & STREETWEAR</span>
-    </div>
-  </div>
-
-  <!-- Modern Sticky Header -->
-  <header class="site-header" id="mainHeader">
-    <div class="header-inner">
-      
-      <!-- Brand Logo -->
-      <a href="/store" class="brand-link">
-        <img src="/assets/ns%20logo.jpg" alt="New Sitara Logo" class="brand-logo-img">
-        <div class="brand-titles">
-          <span class="brand-heading">NEW SITARA</span>
-          <span class="brand-subheading">INTERPRIZES</span>
-        </div>
-      </a>
-
-      <!-- Desktop Department Navigation -->
-      <nav class="nav-departments">
-        <button class="nav-dept-btn active" data-dept="all" onclick="selectDepartment('all', this)">All</button>
-        <button class="nav-dept-btn" data-dept="shoes" onclick="selectDepartment('shoes', this)">Footwear</button>
-        <button class="nav-dept-btn" data-dept="tops" onclick="selectDepartment('tops', this)">Hoodies & Tops</button>
-        <button class="nav-dept-btn" data-dept="bottoms" onclick="selectDepartment('bottoms', this)">Pants & Denim</button>
-        <button class="nav-dept-btn" data-dept="outerwear" onclick="selectDepartment('outerwear', this)">Jackets & Coats</button>
-        <button class="nav-dept-btn" data-dept="accessories" onclick="selectDepartment('accessories', this)">Accessories</button>
-      </nav>
-
-      <!-- Right Utility Actions -->
-      <div class="header-tools">
-        
-        <!-- Interactive Search Expand -->
-        <div class="search-wrap" id="searchWrap">
-          <i data-lucide="search" class="search-icon"></i>
-          <input type="text" id="liveSearchInput" placeholder="Search shoes, hoodies, pants, outerwear..." oninput="handleSearch(event)" autocomplete="off">
-          <button class="search-clear-btn" id="searchClearBtn" onclick="clearLiveSearch()"><i data-lucide="x"></i></button>
-        </div>
-
-        <button class="icon-tool-btn bag-tool-btn" onclick="openCartDrawer()" title="Shopping Bag">
-          <i data-lucide="shopping-bag"></i>
-          <span class="bag-pill" id="cartCountBadge">0</span>
-        </button>
-
-        <button class="mobile-nav-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
-          <i data-lucide="menu"></i>
-        </button>
-
-      </div>
-
-    </div>
-
-    <!-- Mobile Scrollable Category Tabs -->
-    <div class="mobile-dept-scroll">
-      <button class="mob-dept-pill active" data-dept="all" onclick="selectDepartment('all', this)">All Pieces</button>
-      <button class="mob-dept-pill" data-dept="shoes" onclick="selectDepartment('shoes', this)">Footwear</button>
-      <button class="mob-dept-pill" data-dept="tops" onclick="selectDepartment('tops', this)">Hoodies & Tops</button>
-      <button class="mob-dept-pill" data-dept="bottoms" onclick="selectDepartment('bottoms', this)">Pants & Denim</button>
-      <button class="mob-dept-pill" data-dept="outerwear" onclick="selectDepartment('outerwear', this)">Outerwear</button>
-      <button class="mob-dept-pill" data-dept="accessories" onclick="selectDepartment('accessories', this)">Accessories</button>
-    </div>
-  </header>
-
-  <!-- Modern Hero Editorial Strip -->
-  <section class="editorial-strip">
-    <div class="editorial-container">
-      <div class="editorial-meta">
-        <span class="edition-kicker">SPRING / SUMMER 2026</span>
-        <h1 class="editorial-headline" id="sectionHeadline">Inaugural Collection</h1>
-        <p class="editorial-subline" id="sectionSubtitle">Elevated footwear, heavyweight loopback cottons, and architectural tailoring.</p>
-      </div>
-
-      <!-- Quick Category Counter -->
-      <div class="editorial-badge-row">
-        <span class="badge-count" id="headerProductCount">20 Items Available</span>
-        <span class="badge-ship">● Free Worldwide Express Over $150</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Modern Utility Filter & Control Bar -->
-  <section class="control-sticky-bar">
-    <div class="control-bar-inner">
-      
-      <!-- Filter Chips & Triggers -->
-      <div class="filter-chips-cluster">
-        
-        <!-- Filter Drawer Button -->
-        <button class="filter-toggle-btn" onclick="openFilterDrawer()">
-          <i data-lucide="sliders-horizontal"></i>
-          <span>Filters</span>
-          <span class="active-filter-dot" id="filterActiveDot" style="display:none;"></span>
-        </button>
-
-        <!-- Quick Filter Pills -->
-        <div class="quick-pill-row">
-          <button class="quick-pill active" onclick="setQuickTag('all', this)">All</button>
-          <button class="quick-pill" onclick="setQuickTag('Signature Drop', this)">Signature Drops</button>
-          <button class="quick-pill" onclick="setQuickTag('Bestseller', this)">Bestsellers</button>
-          <button class="quick-pill" onclick="setQuickTag('Limited Edition', this)">Limited Edition</button>
-          <button class="quick-pill" onclick="setQuickTag('New Drop', this)">New Drops</button>
-        </div>
-
-      </div>
-
-      <!-- Sorting & Grid Switcher -->
-      <div class="sort-and-view-tools">
-        
-        <div class="sort-dropdown-wrap">
-          <select id="sortSelect" onchange="handleSortChange(event)">
-            <option value="featured">Featured / Curated</option>
-            <option value="price-asc">Price: Low to High</option>
-            <option value="price-desc">Price: High to Low</option>
-            <option value="name-asc">Name: A to Z</option>
-          </select>
-        </div>
-
-        <div class="grid-layout-toggles">
-          <button class="view-toggle-btn" data-cols="2" onclick="setGridColumns(2, this)" title="2 Columns">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="18" rx="1"/><rect x="14" y="3" width="7" height="18" rx="1"/></svg>
-          </button>
-          <button class="view-toggle-btn active" data-cols="4" onclick="setGridColumns(4, this)" title="4 Columns">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="4" height="18" rx="1"/><rect x="8" y="3" width="4" height="18" rx="1"/><rect x="14" y="3" width="4" height="18" rx="1"/><rect x="20" y="3" width="4" height="18" rx="1"/></svg>
-          </button>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Main Product Grid Container -->
-  <main class="store-main-content">
-    <div class="store-grid-container">
-      
-      <!-- Live Product Grid -->
-      <div class="products-grid-feed cols-4" id="productsFeed">
-        <!-- Products Injected Dynamically -->
-      </div>
-
-    </div>
-  </main>
-
-  <!-- Slide-Out Filter Drawer -->
-  <div class="drawer-backdrop" id="filterBackdrop" onclick="closeFilterDrawer()"></div>
-  <aside class="slide-drawer filter-drawer" id="filterDrawer">
-    <div class="drawer-head">
-      <h3>Filter Collection</h3>
-      <button class="drawer-close-btn" onclick="closeFilterDrawer()"><i data-lucide="x"></i></button>
-    </div>
-    
-    <div class="drawer-body">
-      
-      <!-- Department Selector -->
-      <div class="filter-section">
-        <h4>Department</h4>
-        <div class="filter-radio-list">
-          <label class="custom-radio">
-            <input type="radio" name="drawer_dept" value="all" checked onchange="handleDrawerDeptChange('all')">
-            <span>All Departments</span>
-          </label>
-          <label class="custom-radio">
-            <input type="radio" name="drawer_dept" value="shoes" onchange="handleDrawerDeptChange('shoes')">
-            <span>Footwear & Sneakers</span>
-          </label>
-          <label class="custom-radio">
-            <input type="radio" name="drawer_dept" value="tops" onchange="handleDrawerDeptChange('tops')">
-            <span>Hoodies, Tops & Knits</span>
-          </label>
-          <label class="custom-radio">
-            <input type="radio" name="drawer_dept" value="bottoms" onchange="handleDrawerDeptChange('bottoms')">
-            <span>Pants, Denim & Cargo</span>
-          </label>
-          <label class="custom-radio">
-            <input type="radio" name="drawer_dept" value="outerwear" onchange="handleDrawerDeptChange('outerwear')">
-            <span>Jackets & Outerwear</span>
-          </label>
-          <label class="custom-radio">
-            <input type="radio" name="drawer_dept" value="accessories" onchange="handleDrawerDeptChange('accessories')">
-            <span>Accessories & Leather</span>
-          </label>
-        </div>
-      </div>
-
-      <!-- Price Range -->
-      <div class="filter-section">
-        <h4>Maximum Price: <span id="drawerPriceLabel">$600</span></h4>
-        <input type="range" class="modern-slider" id="drawerPriceSlider" min="50" max="600" step="10" value="600" oninput="handleDrawerPrice(event)">
-        <div class="slider-bounds">
-          <span>$50</span>
-          <span>$600</span>
-        </div>
-      </div>
-
-      <!-- Size Filter -->
-      <div class="filter-section">
-        <h4>Size</h4>
-        <div class="size-pill-grid" id="drawerSizePills">
-          <button class="size-btn active" onclick="setDrawerSize('all', this)">All</button>
-          <button class="size-btn" onclick="setDrawerSize('S', this)">S</button>
-          <button class="size-btn" onclick="setDrawerSize('M', this)">M</button>
-          <button class="size-btn" onclick="setDrawerSize('L', this)">L</button>
-          <button class="size-btn" onclick="setDrawerSize('XL', this)">XL</button>
-          <button class="size-btn" onclick="setDrawerSize('41', this)">EU 41</button>
-          <button class="size-btn" onclick="setDrawerSize('42', this)">EU 42</button>
-          <button class="size-btn" onclick="setDrawerSize('43', this)">EU 43</button>
-          <button class="size-btn" onclick="setDrawerSize('44', this)">EU 44</button>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="drawer-footer">
-      <button class="btn btn-outline" onclick="resetFilters()">Reset All</button>
-      <button class="btn btn-dark" onclick="closeFilterDrawer()">Apply Filters</button>
+  <!-- Micro Ticker -->
+  <aside class="luxury-ticker">
+    <div class="ticker-flow">
+      <span>NEW SITARA INTERPRIZES SS26</span>
+      <span>✦</span>
+      <span>COMPLIMENTARY WORLDWIDE EXPRESS ON ORDERS OVER $150</span>
+      <span>✦</span>
+      <span>USE CODE <strong>SITARA15</strong> FOR 15% OFF INAUGURAL DROP</span>
+      <span>✦</span>
+      <span>ARTISANAL FOOTWEAR & ARCHITECTURAL STREETWEAR</span>
+      <span>✦</span>
+      <span>NEW SITARA INTERPRIZES SS26</span>
+      <span>✦</span>
+      <span>COMPLIMENTARY WORLDWIDE EXPRESS ON ORDERS OVER $150</span>
     </div>
   </aside>
 
-  <!-- Modern Quick-View Product Modal -->
-  <div class="modal-backdrop" id="quickViewBackdrop" onclick="closeQuickView()"></div>
-  <div class="quick-modal-card" id="quickModalCard">
-    <button class="modal-close-icon" onclick="closeQuickView()"><i data-lucide="x"></i></button>
-    <div class="quick-modal-body" id="quickModalBody">
+  <!-- Luxury Floating Glass Header -->
+  <header class="maison-navbar" id="maisonNav">
+    <div class="nav-wrapper">
+      
+      <!-- Left: Navigation Links -->
+      <nav class="nav-links-left">
+        <button class="nav-btn active" onclick="scrollToSection('catalogSection')">Collection</button>
+        <button class="nav-btn" onclick="filterByDept('shoes')">Footwear</button>
+        <button class="nav-btn" onclick="filterByDept('tops')">Hoodies</button>
+        <button class="nav-btn" onclick="filterByDept('bottoms')">Pants</button>
+        <button class="nav-btn" onclick="filterByDept('outerwear')">Outerwear</button>
+        <button class="nav-btn" onclick="filterByDept('accessories')">Accessories</button>
+      </nav>
+
+      <!-- Center: High-Fashion Monogram & Logo -->
+      <a href="/store" class="maison-brand-center">
+        <img src="/assets/ns%20logo.jpg" alt="New Sitara Emblem" class="maison-logo-emblem">
+        <span class="maison-wordmark">NEW SITARA</span>
+      </a>
+
+      <!-- Right: Search, Currency, Bag -->
+      <div class="nav-tools-right">
+        
+        <!-- Live Expandable Search -->
+        <div class="search-box-pill">
+          <i data-lucide="search"></i>
+          <input type="text" id="liveSearchInput" placeholder="Search pieces..." oninput="handleSearch(event)" autocomplete="off">
+          <button class="clear-btn" id="searchClearBtn" onclick="clearSearch()" style="display:none;"><i data-lucide="x"></i></button>
+        </div>
+
+        <span class="currency-tag">USD ($)</span>
+
+        <!-- Shopping Bag Trigger -->
+        <button class="maison-bag-trigger" onclick="toggleCartDrawer(true)" aria-label="Open Shopping Bag">
+          <i data-lucide="shopping-bag"></i>
+          <span class="bag-count" id="cartCountBadge">0</span>
+        </button>
+
+      </div>
+
+    </div>
+  </header>
+
+  <!-- High-Fashion Lookbook Hero Banner -->
+  <section class="editorial-hero">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-kicker">INAUGURAL SS26 RELEASE</span>
+      <h1 class="hero-title">Elevated Silhouettes.<br><em>Artisanal Craft.</em></h1>
+      <p class="hero-desc">An uncompromising study in heavyweight loopback textiles, bespoke Italian footwear, and architectural streetwear.</p>
+      
+      <div class="hero-actions">
+        <button class="btn btn-hero" onclick="scrollToSection('catalogSection')">Explore Collection ↗</button>
+        <button class="btn btn-hero-ghost" onclick="scrollToSection('departmentsSection')">View Departments</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Department Portals Strip -->
+  <section class="department-portals-section" id="departmentsSection">
+    <div class="section-title-wrap">
+      <span class="sec-subtitle">EXPLORE BY DEPARTMENT</span>
+      <h2 class="sec-title">Curated Categories</h2>
+    </div>
+
+    <div class="portals-scroll-grid">
+      
+      <div class="portal-card" onclick="filterByDept('shoes')">
+        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop" alt="Footwear" class="portal-bg-img">
+        <div class="portal-overlay">
+          <span class="portal-count">4 Pieces</span>
+          <h3 class="portal-name">Footwear & Sneakers</h3>
+          <span class="portal-link">Shop Category →</span>
+        </div>
+      </div>
+
+      <div class="portal-card" onclick="filterByDept('tops')">
+        <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop" alt="Hoodies & Tops" class="portal-bg-img">
+        <div class="portal-overlay">
+          <span class="portal-count">5 Pieces</span>
+          <h3 class="portal-name">Hoodies & Knits</h3>
+          <span class="portal-link">Shop Category →</span>
+        </div>
+      </div>
+
+      <div class="portal-card" onclick="filterByDept('bottoms')">
+        <img src="https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800&auto=format&fit=crop" alt="Pants & Denim" class="portal-bg-img">
+        <div class="portal-overlay">
+          <span class="portal-count">4 Pieces</span>
+          <h3 class="portal-name">Pants & Denim</h3>
+          <span class="portal-link">Shop Category →</span>
+        </div>
+      </div>
+
+      <div class="portal-card" onclick="filterByDept('outerwear')">
+        <img src="https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop" alt="Outerwear" class="portal-bg-img">
+        <div class="portal-overlay">
+          <span class="portal-count">4 Pieces</span>
+          <h3 class="portal-name">Jackets & Coats</h3>
+          <span class="portal-link">Shop Category →</span>
+        </div>
+      </div>
+
+      <div class="portal-card" onclick="filterByDept('accessories')">
+        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop" alt="Accessories" class="portal-bg-img">
+        <div class="portal-overlay">
+          <span class="portal-count">4 Pieces</span>
+          <h3 class="portal-name">Leather & Goods</h3>
+          <span class="portal-link">Shop Category →</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Modern Floating Utility Bar -->
+  <section class="catalog-section" id="catalogSection">
+    
+    <div class="catalog-sticky-controls">
+      
+      <!-- Category Filter Pills -->
+      <div class="dept-filter-pills">
+        <button class="dept-pill active" data-dept="all" onclick="filterByDept('all', this)">All (<span id="countAll">21</span>)</button>
+        <button class="dept-pill" data-dept="shoes" onclick="filterByDept('shoes', this)">Footwear (<span id="countShoes">4</span>)</button>
+        <button class="dept-pill" data-dept="tops" onclick="filterByDept('tops', this)">Hoodies (<span id="countTops">5</span>)</button>
+        <button class="dept-pill" data-dept="bottoms" onclick="filterByDept('bottoms', this)">Pants (<span id="countBottoms">4</span>)</button>
+        <button class="dept-pill" data-dept="outerwear" onclick="filterByDept('outerwear', this)">Outerwear (<span id="countOuterwear">4</span>)</button>
+        <button class="dept-pill" data-dept="accessories" onclick="filterByDept('accessories', this)">Accessories (<span id="countAccessories">4</span>)</button>
+      </div>
+
+      <!-- Quick Filter Dropdowns & Sorter -->
+      <div class="controls-right-group">
+        
+        <!-- Quick Tag Dropdown -->
+        <select class="clean-select" id="tagFilterSelect" onchange="handleTagFilter(event)">
+          <option value="all">All Editions</option>
+          <option value="Signature Drop">Signature Drops</option>
+          <option value="Bestseller">Bestsellers</option>
+          <option value="Limited Edition">Limited Edition</option>
+          <option value="New Drop">New Drops</option>
+        </select>
+
+        <!-- Sort Select -->
+        <select class="clean-select" id="sortSelect" onchange="handleSort(event)">
+          <option value="featured">Sort: Featured</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name-asc">Name: A to Z</option>
+        </select>
+
+        <!-- Grid View 2 / 4 -->
+        <div class="grid-switchers">
+          <button class="view-btn" data-cols="2" onclick="setGridColumns(2, this)" title="2 Columns">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="18" rx="1"/><rect x="14" y="3" width="7" height="18" rx="1"/></svg>
+          </button>
+          <button class="view-btn active" data-cols="4" onclick="setGridColumns(4, this)" title="4 Columns">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="4" height="18" rx="1"/><rect x="8" y="3" width="4" height="18" rx="1"/><rect x="14" y="3" width="4" height="18" rx="1"/><rect x="20" y="3" width="4" height="18" rx="1"/></svg>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Edge-to-Edge Clean Product Grid -->
+    <div class="maison-product-grid grid-4" id="maisonGrid">
+      <!-- Injected via JavaScript -->
+    </div>
+
+  </section>
+
+  <!-- Campaign Craftsmanship Feature Strip -->
+  <section class="atelier-strip">
+    <div class="atelier-container">
+      <div class="atelier-col">
+        <span class="atelier-number">01</span>
+        <h4>Heavyweight 520 GSM</h4>
+        <p>Pre-shrunk Portuguese organic loopback terry with double-layered structured hoods and custom gold aglets.</p>
+      </div>
+      <div class="atelier-col">
+        <span class="atelier-number">02</span>
+        <h4>Italian Full-Grain Leather</h4>
+        <p>Bespoke calfskin sneakers and accessories crafted with Margom outsoles and solid brass hardware.</p>
+      </div>
+      <div class="atelier-col">
+        <span class="atelier-number">03</span>
+        <h4>Okayama Shuttle Looms</h4>
+        <p>14oz red-line Japanese selvedge denim woven with authentic copper rivets and tailored relaxed drape.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick View Product Detail Modal -->
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeModal()"></div>
+  <div class="product-modal-card" id="productModal">
+    <button class="modal-close-pill" onclick="closeModal()"><i data-lucide="x"></i></button>
+    <div class="modal-split-body" id="modalSplitBody">
       <!-- Injected via JavaScript -->
     </div>
   </div>
 
   <!-- Slide-Out Shopping Bag Drawer -->
-  <div class="drawer-backdrop" id="cartBackdrop" onclick="closeCartDrawer()"></div>
-  <aside class="slide-drawer cart-drawer" id="cartDrawer">
-    <div class="drawer-head">
-      <div class="cart-head-title">
+  <div class="cart-backdrop" id="cartBackdrop" onclick="toggleCartDrawer(false)"></div>
+  <aside class="maison-cart-drawer" id="maisonCart">
+    <div class="cart-header">
+      <div class="cart-title-row">
         <i data-lucide="shopping-bag"></i>
         <h3>Shopping Bag</h3>
-        <span class="cart-count-txt" id="cartTotalItemsText">(0)</span>
+        <span class="cart-total-badge" id="cartItemBadgeCount">(0)</span>
       </div>
-      <button class="drawer-close-btn" onclick="closeCartDrawer()"><i data-lucide="x"></i></button>
+      <button class="close-cart-btn" onclick="toggleCartDrawer(false)"><i data-lucide="x"></i></button>
     </div>
 
-    <!-- Free Shipping Milestone Progress -->
-    <div class="shipping-milestone-wrap">
-      <div class="milestone-text-row">
-        <span id="shippingMilestoneText">Add $150 for Free Worldwide Shipping</span>
-        <span class="milestone-icon">✈</span>
+    <!-- Free Worldwide Express Shipping Milestone -->
+    <div class="free-shipping-tracker">
+      <div class="tracker-text">
+        <span id="trackerMessage">Add $150 for Free Worldwide Shipping</span>
+        <span>✈</span>
       </div>
-      <div class="milestone-track">
-        <div class="milestone-fill" id="shippingMilestoneFill" style="width: 0%;"></div>
+      <div class="tracker-track">
+        <div class="tracker-progress" id="trackerProgress" style="width: 0%;"></div>
       </div>
     </div>
 
     <!-- Cart Items Feed -->
     <div class="cart-items-feed" id="cartItemsFeed">
-      <!-- Cart items injected via JS -->
+      <!-- Cart items injected via JavaScript -->
     </div>
 
     <!-- Cart Footer & Checkout -->
-    <div class="cart-drawer-footer">
-      <div class="promo-input-row">
-        <input type="text" id="cartPromoInput" placeholder="Discount Code (e.g. SITARA15)">
-        <button type="button" class="promo-apply-btn" onclick="applyPromo()">Apply</button>
+    <div class="cart-footer">
+      <div class="promo-code-box">
+        <input type="text" id="promoInput" placeholder="Promo code (e.g. SITARA15)">
+        <button type="button" onclick="applyPromo()">Apply</button>
       </div>
 
-      <div class="cart-math-summary">
+      <div class="cart-summary-math">
         <div class="math-row">
           <span>Subtotal</span>
-          <span id="mathSubtotal">$0.00</span>
+          <span id="cartSubtotal">$0.00</span>
         </div>
-        <div class="math-row discount-row" id="mathDiscountRow" style="display:none;">
+        <div class="math-row discount-row" id="cartDiscountRow" style="display:none;">
           <span>Promo Discount (15%)</span>
-          <span id="mathDiscount">-$0.00</span>
+          <span id="cartDiscount">-$0.00</span>
         </div>
         <div class="math-row">
           <span>Estimated Shipping</span>
-          <span id="mathShipping">$15.00</span>
+          <span id="cartShipping">$15.00</span>
         </div>
-        <div class="math-row total-math-row">
-          <span>Total (USD)</span>
-          <span id="mathTotal">$0.00</span>
+        <div class="math-row final-total-row">
+          <span>Total</span>
+          <span id="cartTotal">$0.00 USD</span>
         </div>
       </div>
 
-      <div class="cart-checkout-btns">
-        <button class="btn btn-dark btn-block checkout-primary-btn" onclick="triggerCheckout('card')">
-          <span>Proceed to Checkout</span>
+      <div class="checkout-actions">
+        <button class="btn btn-black btn-block" onclick="processCheckout('stripe')">
+          <span>Proceed to Secure Checkout</span>
           <i data-lucide="arrow-right"></i>
         </button>
-        <button class="btn btn-whatsapp btn-block" onclick="triggerCheckout('whatsapp')">
+        <button class="btn btn-whatsapp btn-block" onclick="processCheckout('whatsapp')">
           <i data-lucide="message-circle"></i>
-          <span>Order via WhatsApp</span>
+          <span>Order via WhatsApp Express</span>
         </button>
       </div>
-      <div class="payment-trust-strip">
-        <span>🔒 256-Bit SSL Encrypted Checkout</span>
-        <span>•</span>
-        <span>Worldwide Delivery</span>
-      </div>
+      <p class="cart-trust-note">🔒 256-Bit SSL Encrypted Bank-Grade Checkout</p>
     </div>
   </aside>
 
-  <!-- Modern Luxury Footer -->
-  <footer class="modern-footer">
+  <!-- Luxury Maison Footer -->
+  <footer class="maison-footer">
     <div class="footer-inner">
-      <div class="footer-top-grid">
+      <div class="footer-main-grid">
         
-        <div class="footer-brand-pane">
-          <div class="footer-logo">
-            <img src="/assets/ns%20logo.jpg" alt="NS" class="brand-logo-img">
-            <span class="footer-brand-title">NEW SITARA</span>
+        <div class="footer-brand-col">
+          <div class="footer-brand-header">
+            <img src="/assets/ns%20logo.jpg" alt="NS Logo" class="footer-logo-img">
+            <span class="footer-brand-name">NEW SITARA</span>
           </div>
-          <p class="footer-mission">
-            New Sitara Interprizes represents modern architectural tailoring, elevated streetwear, and uncompromising artisanal craftsmanship.
+          <p class="footer-about">
+            New Sitara Interprizes is an international luxury lifestyle maison presenting high-density textiles, tailored streetwear, and artisanal footwear.
           </p>
-          <div class="footer-social-strip">
+          <div class="footer-social-row">
             <a href="#instagram" title="Instagram" onclick="showToast('Instagram: @newsitara')"><i data-lucide="instagram"></i></a>
             <a href="#facebook" title="Facebook" onclick="showToast('Facebook: New Sitara')"><i data-lucide="facebook"></i></a>
             <a href="#twitter" title="Twitter" onclick="showToast('Twitter: @newsitara')"><i data-lucide="twitter"></i></a>
           </div>
         </div>
 
-        <div class="footer-links-pane">
+        <div class="footer-links-col">
           <h5>DEPARTMENTS</h5>
-          <a href="#" onclick="selectDepartment('shoes')">Footwear & Sneakers</a>
-          <a href="#" onclick="selectDepartment('tops')">Hoodies & Knits</a>
-          <a href="#" onclick="selectDepartment('bottoms')">Pants & Denim</a>
-          <a href="#" onclick="selectDepartment('outerwear')">Jackets & Coats</a>
-          <a href="#" onclick="selectDepartment('accessories')">Accessories & Leather</a>
+          <a href="#catalogSection" onclick="filterByDept('shoes')">Footwear & Sneakers</a>
+          <a href="#catalogSection" onclick="filterByDept('tops')">Hoodies & Knits</a>
+          <a href="#catalogSection" onclick="filterByDept('bottoms')">Pants & Denim</a>
+          <a href="#catalogSection" onclick="filterByDept('outerwear')">Jackets & Coats</a>
+          <a href="#catalogSection" onclick="filterByDept('accessories')">Leather & Accessories</a>
         </div>
 
-        <div class="footer-links-pane">
-          <h5>CLIENT ASSISTANCE</h5>
+        <div class="footer-links-col">
+          <h5>CLIENT SERVICES</h5>
           <a href="mailto:concierge@newsitara.com"><i data-lucide="mail"></i> concierge@newsitara.com</a>
-          <a href="#shipping" onclick="showToast('Express worldwide shipping via DHL/FedEx')"><i data-lucide="truck"></i> Shipping & Delivery</a>
-          <a href="#returns" onclick="showToast('14-day return window on all unworn items')"><i data-lucide="refresh-cw"></i> Returns & Exchanges</a>
-          <a href="#auth" onclick="showToast('Each piece includes verified certificate of origin')"><i data-lucide="shield-check"></i> Authenticity Guarantee</a>
+          <a href="#shipping" onclick="showToast('Complimentary DHL Express worldwide over $150')"><i data-lucide="truck"></i> Worldwide Delivery</a>
+          <a href="#returns" onclick="showToast('14-day hassle free return policy')"><i data-lucide="refresh-cw"></i> 14-Day Returns</a>
+          <a href="#sizing" onclick="showToast('All pieces cut in tailored relaxed streetwear fit')"><i data-lucide="help-circle"></i> Sizing & Fit</a>
         </div>
 
-        <div class="footer-newsletter-pane">
+        <div class="footer-newsletter-col">
           <h5>THE INNER CIRCLE</h5>
-          <p>Join for private archival release access and VIP drop invitations.</p>
-          <form class="newsletter-sub-form" onsubmit="return handleNewsletter(event)">
-            <input type="email" id="newsInput" placeholder="Enter your email" required autocomplete="email">
+          <p>Subscribe for private archival drop alerts and VIP access.</p>
+          <form class="footer-subscribe-form" onsubmit="return handleSubscribe(event)">
+            <input type="email" id="subscribeEmail" placeholder="Enter your email" required autocomplete="email">
             <button type="submit">Join ↗</button>
           </form>
-          <div class="coming-soon-backlink">
+          <div class="coming-soon-return">
             <a href="/">← Return to Coming Soon Screen</a>
           </div>
         </div>
 
       </div>
 
-      <div class="footer-bottom-bar">
+      <div class="footer-bottom-strip">
         <p>© 2026 New Sitara Interprizes. All rights reserved.</p>
-        <div class="footer-pay-methods">
+        <div class="payment-icons-strip">
           <span>VISA</span>
           <span>MASTERCARD</span>
           <span>AMEX</span>
@@ -382,9 +365,9 @@
     </div>
   </footer>
 
-  <!-- Toast Notification -->
+  <!-- Toast Notification Hub -->
   <div class="toast-hub" id="toastHub"></div>
 
-  <script src="/store.js"></script>
+  <script src="/store.js?v=20260821_v3"></script>
 </body>
 </html>

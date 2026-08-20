@@ -1,8 +1,8 @@
 // ==========================================================================
-// NEW SITARA INTERPRIZES — E-COMMERCE ENGINE & CATALOG
+// NEW SITARA INTERPRIZES — 1-PAGE UNIFIED BOUTIQUE ENGINE
 // ==========================================================================
 
-const PRODUCTS_DATA = [
+const BOUTIQUE_DATA = [
   {
     id: 'ns-001',
     name: 'Atelier Double-Breasted Trench',
@@ -18,7 +18,7 @@ const PRODUCTS_DATA = [
       'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=800&auto=format&fit=crop'
     ],
     description: 'Crafted from Italian storm-resistant gabardine with structured drop shoulders and custom engraved New Sitara gold horn buttons.',
-    specs: 'Fabric: 100% Water-repellent Cotton Gabardine • Lining: Cupro Silk • Made in Portugal • Hand-finished edges',
+    specs: '✦ 100% Water-repellent Cotton Gabardine • Cupro Silk Lining • Made in Portugal',
     sizes: ['S', 'M', 'L', 'XL']
   },
   {
@@ -35,7 +35,7 @@ const PRODUCTS_DATA = [
       'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=800&auto=format&fit=crop'
     ],
     description: 'Ultra-heavyweight 520 GSM pre-shrunk French terry. Featuring a double-layered structured hood with subtle tonal NS monogram embroidery.',
-    specs: 'Fabric: 100% Organic Heavyweight Cotton • Custom Gold Aglets • Ribbed Side Panels • Relaxed Boxy Fit',
+    specs: '✦ 100% Organic Heavyweight Cotton • Custom Gold Aglets • Relaxed Boxy Cut',
     sizes: ['S', 'M', 'L', 'XL']
   },
   {
@@ -52,7 +52,7 @@ const PRODUCTS_DATA = [
       'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?q=80&w=800&auto=format&fit=crop'
     ],
     description: 'Architectural double-pleated silhouette tailored from virgin wool blend. Features a relaxed drape through the leg and adjustable waist tabs.',
-    specs: 'Fabric: 85% Virgin Wool, 15% Mohair • Horn Button Fastening • Deep Slanted Pockets • Raw Hem Finishing',
+    specs: '✦ 85% Virgin Wool, 15% Mohair • Deep Slanted Pockets • Tailored Slouch',
     sizes: ['30', '32', '34', '36']
   },
   {
@@ -69,7 +69,7 @@ const PRODUCTS_DATA = [
       'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=800&auto=format&fit=crop'
     ],
     description: '300 GSM combed cotton jersey in washed charcoal black. High ribbed collar with embroidered gold NS emblem on chest.',
-    specs: 'Fabric: 100% Combed Compact Cotton • Pre-shrunk & Enzyme Washed • Drop Shoulder Silhouette',
+    specs: '✦ 100% Combed Compact Cotton • Pre-shrunk & Enzyme Washed',
     sizes: ['S', 'M', 'L', 'XL']
   },
   {
@@ -85,8 +85,8 @@ const PRODUCTS_DATA = [
       'https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?q=80&w=800&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=800&auto=format&fit=crop'
     ],
-    description: 'Structured nylon shell with PrimaLoft insulation, two-way heavy matte gold zipper, and exaggerated storm flap detailing.',
-    specs: 'Fabric: Italian Technical Nylon • PrimaLoft Gold Insulation • Ribbed Wool Cuffs • Heavyweight Hardware',
+    description: 'Structured technical nylon with PrimaLoft insulation, two-way heavy matte gold zipper, and storm flap detailing.',
+    specs: '✦ Italian Technical Nylon • PrimaLoft Gold Insulation • Ribbed Wool Cuffs',
     sizes: ['S', 'M', 'L', 'XL']
   },
   {
@@ -103,7 +103,7 @@ const PRODUCTS_DATA = [
       'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=800&auto=format&fit=crop'
     ],
     description: 'Heavy cotton ripstop trousers featuring bellowed cargo pockets with concealed magnetic closures and adjustable drawstring ankles.',
-    specs: 'Fabric: 100% Military-grade Cotton Ripstop • Magnetic Pocket Fasteners • Reinforced Knee Articulation',
+    specs: '✦ 100% Military-grade Cotton Ripstop • Magnetic Pocket Fasteners',
     sizes: ['30', '32', '34', '36']
   },
   {
@@ -120,7 +120,7 @@ const PRODUCTS_DATA = [
       'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=800&auto=format&fit=crop'
     ],
     description: '7-gauge seamless knit in natural un-dyed oatmeal. Incredibly soft tactile hand-feel with relaxed drop sleeves.',
-    specs: 'Fabric: 70% Extra-fine Merino, 30% Mongolian Cashmere • Seamless Tubular Construction • Hand Wash Only',
+    specs: '✦ 70% Extra-fine Merino, 30% Mongolian Cashmere • Seamless Construction',
     sizes: ['S', 'M', 'L', 'XL']
   },
   {
@@ -137,85 +137,152 @@ const PRODUCTS_DATA = [
       'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800&auto=format&fit=crop'
     ],
     description: 'Full-length tailored coat constructed from 800 GSM heavy Melton wool. Peak lapels, deep central vent, and internal passport pocket.',
-    specs: 'Fabric: 100% Heavyweight Melton Wool • Cupro Satin Lining • Hand-set Shoulder Pads • Made in Italy',
+    specs: '✦ 100% Heavyweight Melton Wool • Cupro Satin Lining • Made in Italy',
     sizes: ['S', 'M', 'L', 'XL']
   }
 ];
 
-// ==========================================================================
-// STATE MANAGEMENT
-// ==========================================================================
-let currentCategory = 'all';
-let currentSort = 'featured';
+// State
+let selectedProductId = BOUTIQUE_DATA[0].id;
+let selectedSpotlightSize = BOUTIQUE_DATA[0].sizes[0];
+let activeCategory = 'all';
+let activeSort = 'featured';
+let searchQuery = '';
 let cart = JSON.parse(localStorage.getItem('ns_cart') || '[]');
-let activePromoDiscount = 0; // percentage e.g. 0.15 for 15%
-let activeModalProduct = null;
-let activeModalSize = 'M';
+let activePromoDiscount = 0;
 
-// ==========================================================================
-// INITIALIZATION
-// ==========================================================================
 document.addEventListener('DOMContentLoaded', () => {
-  renderProducts();
+  renderSpotlightStage(BOUTIQUE_DATA[0]);
+  renderBoutiqueGrid();
   updateCartBadge();
   renderCart();
-  updateFooterYear();
 
-  if (window.lucide) {
-    window.lucide.createIcons();
-  }
+  if (window.lucide) window.lucide.createIcons();
 });
 
 // ==========================================================================
-// CATALOG RENDER & FILTER ENGINE
+// SPOTLIGHT MASTER STAGE
 // ==========================================================================
-function renderProducts() {
-  const grid = document.getElementById('productsGrid');
-  if (!grid) return;
+function renderSpotlightStage(product) {
+  selectedProductId = product.id;
+  selectedSpotlightSize = product.sizes[0];
 
-  // Filter
-  let list = PRODUCTS_DATA.filter((p) => {
-    if (currentCategory === 'all') return true;
-    return p.category === currentCategory;
-  });
+  const imgEl = document.getElementById('spotlightImg');
+  const tagEl = document.getElementById('spotlightTag');
+  const catEl = document.getElementById('spotlightCategory');
+  const titleEl = document.getElementById('spotlightTitle');
+  const priceEl = document.getElementById('spotlightPrice');
+  const btnPriceEl = document.getElementById('spotlightBtnPrice');
+  const descEl = document.getElementById('spotlightDesc');
+  const specsEl = document.getElementById('spotlightSpecs');
+  const sizeGroupEl = document.getElementById('spotlightSizeGroup');
+  const thumbStrip = document.getElementById('spotlightThumbStrip');
 
-  // Sort
-  if (currentSort === 'price-asc') {
-    list.sort((a, b) => a.price - b.price);
-  } else if (currentSort === 'price-desc') {
-    list.sort((a, b) => b.price - a.price);
-  } else if (currentSort === 'name') {
-    list.sort((a, b) => a.name.localeCompare(b.name));
+  if (imgEl) imgEl.src = product.gallery[0];
+  if (tagEl) tagEl.textContent = product.tag;
+  if (catEl) catEl.textContent = product.categoryName.toUpperCase();
+  if (titleEl) titleEl.textContent = product.name;
+  if (priceEl) priceEl.textContent = `$${product.price}.00`;
+  if (btnPriceEl) btnPriceEl.textContent = `$${product.price}.00`;
+  if (descEl) descEl.textContent = product.description;
+  if (specsEl) specsEl.innerHTML = product.specs.split('•').map((s) => `<span>${s.trim()}</span>`).join('');
+
+  if (thumbStrip) {
+    thumbStrip.innerHTML = product.gallery
+      .map(
+        (gImg, idx) => `
+      <img src="${gImg}" alt="Thumb" class="spotlight-thumb ${idx === 0 ? 'active' : ''}" onclick="setSpotlightMainImg('${gImg}', this)">
+    `
+      )
+      .join('');
   }
 
-  // Update counts
-  const countAll = document.getElementById('countAll');
-  if (countAll) countAll.textContent = PRODUCTS_DATA.length;
+  if (sizeGroupEl) {
+    sizeGroupEl.innerHTML = product.sizes
+      .map(
+        (size, idx) => `
+      <button class="spotlight-size-pill ${idx === 0 ? 'active' : ''}" onclick="setSpotlightSize('${size}', this)">${size}</button>
+    `
+      )
+      .join('');
+  }
 
-  grid.innerHTML = list
+  // Highlight card in grid
+  document.querySelectorAll('.boutique-card').forEach((card) => {
+    if (card.dataset.id === product.id) {
+      card.classList.add('selected');
+    } else {
+      card.classList.remove('selected');
+    }
+  });
+}
+
+function setSpotlightMainImg(src, thumbEl) {
+  const imgEl = document.getElementById('spotlightImg');
+  if (imgEl) imgEl.src = src;
+
+  document.querySelectorAll('.spotlight-thumb').forEach((t) => t.classList.remove('active'));
+  if (thumbEl) thumbEl.classList.add('active');
+}
+
+function setSpotlightSize(size, pillEl) {
+  selectedSpotlightSize = size;
+  document.querySelectorAll('.spotlight-size-pill').forEach((p) => p.classList.remove('active'));
+  if (pillEl) pillEl.classList.add('active');
+}
+
+function addCurrentSpotlightToCart() {
+  addToCart(selectedProductId, selectedSpotlightSize);
+  toggleCartDrawer(true);
+}
+
+// ==========================================================================
+// GRID RENDERER
+// ==========================================================================
+function renderBoutiqueGrid() {
+  const grid = document.getElementById('boutiqueGrid');
+  const countEl = document.getElementById('resultsCount');
+  if (!grid) return;
+
+  let items = BOUTIQUE_DATA.filter((p) => {
+    const matchCat = activeCategory === 'all' || p.category === activeCategory;
+    const matchQuery =
+      searchQuery === '' ||
+      p.name.toLowerCase().includes(searchQuery) ||
+      p.categoryName.toLowerCase().includes(searchQuery);
+    return matchCat && matchQuery;
+  });
+
+  if (activeSort === 'price-asc') {
+    items.sort((a, b) => a.price - b.price);
+  } else if (activeSort === 'price-desc') {
+    items.sort((a, b) => b.price - a.price);
+  }
+
+  if (countEl) {
+    countEl.textContent = `Showing ${items.length} of ${BOUTIQUE_DATA.length} pieces`;
+  }
+
+  grid.innerHTML = items
     .map(
       (product) => `
-    <div class="product-card" data-id="${product.id}">
-      <div class="card-media-wrap">
-        <span class="card-badge">${product.tag}</span>
-        <img src="${product.imageFront}" alt="${product.name}" class="product-img product-img-front" loading="lazy">
-        <img src="${product.imageBack}" alt="${product.name} alternate view" class="product-img product-img-back" loading="lazy">
-        
-        <div class="card-actions-overlay">
-          <button class="btn-quickview" onclick="openQuickView('${product.id}')">Quick View</button>
-          <div class="quick-sizes-bar">
-            ${product.sizes.map((s) => `<button class="quick-size-btn" onclick="quickAddToCart('${product.id}', '${s}')">${s}</button>`).join('')}
-          </div>
+    <div class="boutique-card ${product.id === selectedProductId ? 'selected' : ''}" data-id="${product.id}" onclick="selectProduct('${product.id}')">
+      <div class="card-thumb-wrap">
+        <span class="card-tag-badge">${product.tag}</span>
+        <img src="${product.imageFront}" alt="${product.name}" class="card-img-front" loading="lazy">
+        <img src="${product.imageBack}" alt="${product.name}" class="card-img-back" loading="lazy">
+
+        <div class="card-quick-sizes" onclick="event.stopPropagation()">
+          ${product.sizes.map((s) => `<button class="quick-size-chip" onclick="quickAdd('${product.id}', '${s}', event)">${s}</button>`).join('')}
         </div>
       </div>
 
-      <div class="card-details">
-        <span class="card-category">${product.categoryName}</span>
-        <h3 class="card-title" onclick="openQuickView('${product.id}')">${product.name}</h3>
-        
-        <div class="card-price-row">
-          <span class="card-price">$${product.price}.00</span>
-          <span class="card-stock-hint">● In Stock</span>
+      <div class="card-info-wrap">
+        <span class="card-cat">${product.categoryName}</span>
+        <h4 class="card-name">${product.name}</h4>
+        <div class="card-price-line">
+          <span class="card-price-num">$${product.price}.00</span>
+          <span class="card-active-indicator">${product.id === selectedProductId ? '● Viewing' : 'View ↗'}</span>
         </div>
       </div>
     </div>
@@ -226,138 +293,47 @@ function renderProducts() {
   if (window.lucide) window.lucide.createIcons();
 }
 
-function filterCategory(category) {
-  currentCategory = category;
+function selectProduct(productId) {
+  const prod = BOUTIQUE_DATA.find((p) => p.id === productId);
+  if (prod) {
+    renderSpotlightStage(prod);
 
-  document.querySelectorAll('.filter-pill').forEach((pill) => {
-    if (pill.dataset.category === category) {
-      pill.classList.add('active');
-    } else {
-      pill.classList.remove('active');
+    // On mobile, scroll spotlight into view
+    if (window.innerWidth <= 900) {
+      const stage = document.getElementById('spotlightStage');
+      if (stage) stage.scrollIntoView({ behavior: 'smooth' });
     }
-  });
-
-  renderProducts();
-
-  // Smooth scroll to catalog if clicked from outside
-  const catalog = document.getElementById('catalog');
-  if (catalog && window.scrollY < catalog.offsetTop - 150) {
-    catalog.scrollIntoView({ behavior: 'smooth' });
   }
 }
 
-function handleSortChange(e) {
-  currentSort = e.target.value;
-  renderProducts();
-}
-
-// ==========================================================================
-// QUICK VIEW MODAL
-// ==========================================================================
-function openQuickView(productId) {
-  const product = PRODUCTS_DATA.find((p) => p.id === productId);
-  if (!product) return;
-
-  activeModalProduct = product;
-  activeModalSize = product.sizes[0];
-
-  const modal = document.getElementById('quickViewModal');
-  const overlay = document.getElementById('quickViewOverlay');
-  const content = document.getElementById('modalProductContent');
-
-  content.innerHTML = `
-    <div class="modal-gallery-col">
-      <img src="${product.gallery[0]}" alt="${product.name}" class="modal-main-img" id="modalMainImg">
-      <div class="modal-thumbs">
-        ${product.gallery
-          .map(
-            (img, index) => `
-          <img src="${img}" alt="Thumbnail ${index + 1}" class="modal-thumb ${index === 0 ? 'active' : ''}" onclick="switchModalImage('${img}', this)">
-        `
-          )
-          .join('')}
-      </div>
-    </div>
-
-    <div class="modal-info-col">
-      <span class="modal-cat">${product.categoryName} • ${product.tag}</span>
-      <h2 class="modal-title">${product.name}</h2>
-      <div class="modal-price">$${product.price}.00 USD</div>
-      <p class="modal-desc">${product.description}</p>
-
-      <div class="modal-size-section">
-        <div class="size-header-row">
-          <span>SELECT SIZE</span>
-          <span class="size-guide-link" onclick="showToast('True to size tailored fit.')">Size Guide ↗</span>
-        </div>
-        <div class="size-pills-row">
-          ${product.sizes
-            .map(
-              (s, i) => `
-            <button class="size-pill ${i === 0 ? 'active' : ''}" onclick="selectModalSize('${s}', this)">${s}</button>
-          `
-            )
-            .join('')}
-        </div>
-      </div>
-
-      <div class="modal-craft-specs">
-        <strong>Atelier Specifications:</strong><br>
-        ${product.specs}
-      </div>
-
-      <button class="btn btn-gold btn-block" onclick="addModalProductToBag()">
-        Add to Shopping Bag — $${product.price}.00
-      </button>
-    </div>
-  `;
-
-  modal.classList.add('open');
-  overlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
-
-  if (window.lucide) window.lucide.createIcons();
-}
-
-function switchModalImage(src, thumbEl) {
-  const mainImg = document.getElementById('modalMainImg');
-  if (mainImg) mainImg.src = src;
-
-  document.querySelectorAll('.modal-thumb').forEach((t) => t.classList.remove('active'));
-  if (thumbEl) thumbEl.classList.add('active');
-}
-
-function selectModalSize(size, pillEl) {
-  activeModalSize = size;
-  document.querySelectorAll('.size-pill').forEach((p) => p.classList.remove('active'));
+function setBoutiqueCategory(cat, pillEl) {
+  activeCategory = cat;
+  document.querySelectorAll('.cat-pill').forEach((p) => p.classList.remove('active'));
   if (pillEl) pillEl.classList.add('active');
+  renderBoutiqueGrid();
 }
 
-function addModalProductToBag() {
-  if (!activeModalProduct) return;
-  addToCart(activeModalProduct.id, activeModalSize);
-  closeQuickView();
-  toggleCartDrawer(true);
+function handleBoutiqueSort(e) {
+  activeSort = e.target.value;
+  renderBoutiqueGrid();
 }
 
-function closeQuickView() {
-  const modal = document.getElementById('quickViewModal');
-  const overlay = document.getElementById('quickViewOverlay');
-  if (modal) modal.classList.remove('open');
-  if (overlay) overlay.classList.remove('open');
-  document.body.style.overflow = '';
+function handleBoutiqueSearch(e) {
+  searchQuery = e.target.value.trim().toLowerCase();
+  renderBoutiqueGrid();
 }
 
-// ==========================================================================
-// SHOPPING BAG & CART SYSTEM
-// ==========================================================================
-function quickAddToCart(productId, size) {
+function quickAdd(productId, size, event) {
+  event.stopPropagation();
   addToCart(productId, size);
   toggleCartDrawer(true);
 }
 
+// ==========================================================================
+// CART & SHOPPING BAG
+// ==========================================================================
 function addToCart(productId, size) {
-  const product = PRODUCTS_DATA.find((p) => p.id === productId);
+  const product = BOUTIQUE_DATA.find((p) => p.id === productId);
   if (!product) return;
 
   const existingIndex = cart.findIndex((item) => item.id === productId && item.size === size);
@@ -427,7 +403,7 @@ function renderCart() {
       <div class="cart-empty-state">
         <i data-lucide="shopping-bag"></i>
         <h4>Your bag is currently empty</h4>
-        <p>Explore the inaugural drop and add pieces to your collection.</p>
+        <p>Select pieces from the collection on the right.</p>
       </div>
     `;
     updatePricing(0);
@@ -473,12 +449,10 @@ function updatePricing(subtotal) {
   const shippingText = document.getElementById('shippingProgressText');
   const shippingBar = document.getElementById('shippingBarFill');
 
-  // Free shipping threshold = $150
   const threshold = 150;
   const isFreeShipping = subtotal >= threshold;
   const shippingCost = subtotal === 0 ? 0 : isFreeShipping ? 0 : 15;
 
-  // Free shipping progress bar
   if (shippingBar && shippingText) {
     if (subtotal === 0) {
       shippingBar.style.width = '0%';
@@ -494,7 +468,6 @@ function updatePricing(subtotal) {
     }
   }
 
-  // Discount
   const discountAmount = subtotal * activePromoDiscount;
 
   if (activePromoDiscount > 0) {
@@ -544,9 +517,6 @@ function toggleCartDrawer(forceOpen = false) {
   }
 }
 
-// ==========================================================================
-// CHECKOUT HANDLERS
-// ==========================================================================
 function handleCheckout(method) {
   if (cart.length === 0) {
     showToast('Your shopping bag is empty.');
@@ -554,7 +524,6 @@ function handleCheckout(method) {
   }
 
   if (method === 'whatsapp') {
-    // Format WhatsApp Order Message
     const orderItems = cart.map((i) => `• ${i.name} (Size: ${i.size}, Qty: ${i.qty}) - $${i.price * i.qty}`).join('%0A');
     const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
     const text = `Hello New Sitara Concierge! I would like to place an order:%0A%0A${orderItems}%0A%0AEstimated Total: $${subtotal}.00 USD%0APlease provide payment & delivery details.`;
@@ -562,93 +531,11 @@ function handleCheckout(method) {
     window.open(`https://wa.me/?text=${text}`, '_blank');
     showToast('Opening WhatsApp with your order summary...');
   } else {
-    // Stripe/Card simulated secure flow
     showToast('🔒 Initiating 256-bit encrypted checkout session...');
     setTimeout(() => {
       alert('New Sitara Checkout Gateway:\n\nThank you for choosing New Sitara Interprizes.\nOur payment integration will connect to your verified merchant account!');
     }, 800);
   }
-}
-
-// ==========================================================================
-// GLOBAL SEARCH MODAL
-// ==========================================================================
-function openSearchModal() {
-  const modal = document.getElementById('searchModal');
-  const overlay = document.getElementById('searchOverlay');
-  const input = document.getElementById('globalSearchInput');
-
-  if (modal && overlay) {
-    modal.classList.add('open');
-    overlay.classList.add('open');
-    if (input) {
-      input.value = '';
-      input.focus();
-    }
-  }
-  handleLiveSearch({ target: { value: '' } });
-}
-
-function closeSearchModal() {
-  const modal = document.getElementById('searchModal');
-  const overlay = document.getElementById('searchOverlay');
-  if (modal) modal.classList.remove('open');
-  if (overlay) overlay.classList.remove('open');
-}
-
-function handleLiveSearch(e) {
-  const query = e.target.value.trim().toLowerCase();
-  const box = document.getElementById('searchResultsBox');
-  if (!box) return;
-
-  const matches = PRODUCTS_DATA.filter((p) => {
-    if (!query) return true;
-    return p.name.toLowerCase().includes(query) || p.categoryName.toLowerCase().includes(query) || p.description.toLowerCase().includes(query);
-  });
-
-  if (matches.length === 0) {
-    box.innerHTML = `<p style="color: var(--text-muted); font-size: 0.85rem; padding: 1rem 0;">No matching products found for "${query}".</p>`;
-    return;
-  }
-
-  box.innerHTML = matches
-    .map(
-      (p) => `
-    <div class="search-result-item" onclick="openQuickView('${p.id}'); closeSearchModal();">
-      <img src="${p.imageFront}" alt="${p.name}" class="search-result-img">
-      <div>
-        <h4 style="font-size: 0.95rem; font-family: var(--font-serif);">${p.name}</h4>
-        <span style="font-size: 0.72rem; color: var(--gold-primary);">$${p.price}.00 • ${p.categoryName}</span>
-      </div>
-    </div>
-  `
-    )
-    .join('');
-}
-
-// ==========================================================================
-// MOBILE MENU DRAWER
-// ==========================================================================
-function toggleMobileNav() {
-  const drawer = document.getElementById('mobileNavDrawer');
-  const overlay = document.getElementById('mobileNavOverlay');
-  if (!drawer || !overlay) return;
-
-  drawer.classList.toggle('open');
-  overlay.classList.toggle('open');
-}
-
-// ==========================================================================
-// NEWSLETTER & TOASTS
-// ==========================================================================
-function handleNewsletterSubmit(e) {
-  e.preventDefault();
-  const email = document.getElementById('newsEmail');
-  if (email && email.value) {
-    showToast('Welcome to the New Sitara Inner Circle. Check your inbox for private access.');
-    email.value = '';
-  }
-  return false;
 }
 
 function showToast(message) {
@@ -665,9 +552,4 @@ function showToast(message) {
     toast.style.transform = 'translateY(10px)';
     setTimeout(() => toast.remove(), 300);
   }, 3500);
-}
-
-function updateFooterYear() {
-  const year = document.getElementById('year');
-  if (year) year.textContent = new Date().getFullYear();
 }

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Sitara Interprizes — Luxury Fashion & Ready-to-Wear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="store.css">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="marquee-track">
+      <span>✦ COMPLIMENTARY EXPRESS SHIPPING ON ORDERS OVER $150</span>
+      <span>•</span>
+      <span>INAUGURAL COLLECTION SS26 AVAILABLE NOW</span>
+      <span>•</span>
+      <span>USE CODE <strong>SITARA15</strong> FOR 15% OFF YOUR FIRST ORDER</span>
+      <span>•</span>
+      <span>✦ COMPLIMENTARY EXPRESS SHIPPING ON ORDERS OVER $150</span>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="main-header" id="navbar">
+    <div class="nav-container">
+      
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-btn" onclick="toggleMobileNav()" aria-label="Toggle Menu">
+        <i data-lucide="menu"></i>
+      </button>
+
+      <!-- Brand Monogram & Title -->
+      <a href="#" class="brand-link">
+        <img src="assets/ns%20logo.jpg" alt="New Sitara Logo" class="nav-logo-img">
+        <div class="brand-text-block">
+          <span class="brand-name">NEW SITARA</span>
+          <span class="brand-subtitle">INTERPRIZES</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="desktop-nav">
+        <a href="#catalog" class="nav-link" onclick="filterCategory('all')">Collection</a>
+        <a href="#catalog" class="nav-link" onclick="filterCategory('outerwear')">Outerwear</a>
+        <a href="#catalog" class="nav-link" onclick="filterCategory('tops')">Tops & Hoodies</a>
+        <a href="#catalog" class="nav-link" onclick="filterCategory('bottoms')">Bottoms</a>
+        <a href="#atelier" class="nav-link">The Atelier</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <button class="action-btn" onclick="openSearchModal()" title="Search Collection">
+          <i data-lucide="search"></i>
+        </button>
+        <button class="action-btn bag-btn" onclick="toggleCartDrawer()" title="Shopping Bag">
+          <i data-lucide="shopping-bag"></i>
+          <span class="cart-count-badge" id="cartCountBadge">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay" onclick="toggleMobileNav()"></div>
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <div class="mobile-nav-header">
+      <span class="mobile-nav-title">MENU</span>
+      <button class="close-btn" onclick="toggleMobileNav()"><i data-lucide="x"></i></button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="#catalog" onclick="filterCategory('all'); toggleMobileNav();">All Collection</a>
+      <a href="#catalog" onclick="filterCategory('outerwear'); toggleMobileNav();">Outerwear & Jackets</a>
+      <a href="#catalog" onclick="filterCategory('tops'); toggleMobileNav();">Tops & Hoodies</a>
+      <a href="#catalog" onclick="filterCategory('bottoms'); toggleMobileNav();">Bottoms & Trousers</a>
+      <a href="#atelier" onclick="toggleMobileNav()">The Atelier Story</a>
+    </div>
+    <div class="mobile-nav-footer">
+      <p>CLIENT CONCIERGE</p>
+      <a href="mailto:concierge@newsitara.com">concierge@newsitara.com</a>
+    </div>
+  </div>
+
+  <!-- Hero Lookbook Section -->
+  <section class="hero-section">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-tag">SS26 INAUGURAL DROP</span>
+      <h1 class="hero-title">Elevated Silhouettes.<br>Artisanal Precision.</h1>
+      <p class="hero-desc">Bespoke heavyweight textiles and architectural tailoring engineered for modern distinction.</p>
+      <div class="hero-buttons">
+        <a href="#catalog" class="btn btn-gold">Explore The Drop</a>
+        <a href="#atelier" class="btn btn-outline">Our Atelier Story</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <span>SCROLL TO DISCOVER</span>
+      <i data-lucide="chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- Category Spotlight Grid -->
+  <section class="spotlight-section">
+    <div class="section-container">
+      <div class="spotlight-grid">
+        <div class="spotlight-card" onclick="filterCategory('outerwear')">
+          <img src="https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop" alt="Outerwear" class="spotlight-img">
+          <div class="spotlight-info">
+            <span class="spotlight-cat">CURATED DROP</span>
+            <h3>Signature Outerwear</h3>
+            <span class="spotlight-cta">Explore Category ↗</span>
+          </div>
+        </div>
+
+        <div class="spotlight-card" onclick="filterCategory('tops')">
+          <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop" alt="Tops & Hoodies" class="spotlight-img">
+          <div class="spotlight-info">
+            <span class="spotlight-cat">HEAVYWEIGHT 480GSM</span>
+            <h3>Atelier Hoodies & Knits</h3>
+            <span class="spotlight-cta">Explore Category ↗</span>
+          </div>
+        </div>
+
+        <div class="spotlight-card" onclick="filterCategory('bottoms')">
+          <img src="https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=800&auto=format&fit=crop" alt="Bottoms" class="spotlight-img">
+          <div class="spotlight-info">
+            <span class="spotlight-cat">TAILORED FIT</span>
+            <h3>Pants & Trousers</h3>
+            <span class="spotlight-cta">Explore Category ↗</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Product Catalog Section -->
+  <section class="catalog-section" id="catalog">
+    <div class="section-container">
+      
+      <!-- Section Header -->
+      <div class="catalog-header">
+        <div>
+          <span class="section-subtitle">THE COLLECTION</span>
+          <h2 class="section-title">Inaugural Release</h2>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="filter-pills">
+          <button class="filter-pill active" data-category="all" onclick="filterCategory('all')">All (<span id="countAll">0</span>)</button>
+          <button class="filter-pill" data-category="outerwear" onclick="filterCategory('outerwear')">Outerwear</button>
+          <button class="filter-pill" data-category="tops" onclick="filterCategory('tops')">Tops & Knits</button>
+          <button class="filter-pill" data-category="bottoms" onclick="filterCategory('bottoms')">Bottoms</button>
+        </div>
+
+        <!-- Sort Select -->
+        <div class="catalog-sort">
+          <select id="sortSelect" onchange="handleSortChange(event)">
+            <option value="featured">Sort by: Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name">Alphabetical</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Product Cards Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Brand Atelier Heritage Section -->
+  <section class="atelier-story-section" id="atelier">
+    <div class="section-container">
+      <div class="story-grid">
+        <div class="story-image-col">
+          <div class="story-image-wrap">
+            <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1000&auto=format&fit=crop" alt="Atelier Craftsmanship" class="story-img">
+            <div class="story-badge">
+              <span class="badge-year">EST. 2026</span>
+              <span class="badge-tag">HANDCRAFTED HERITAGE</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-text-col">
+          <span class="section-subtitle">THE PHILOSOPHY</span>
+          <h2 class="story-heading">Engineered with Intention.<br>Tailored for Legacy.</h2>
+          <p class="story-paragraph">
+            At New Sitara Interprizes, every silhouette begins with raw, uncompromised materials. We source heavyweight organic Japanese cottons, Italian wools, and bespoke gold-plated hardware to create garments that outlast fleeting fashion cycles.
+          </p>
+          <p class="story-paragraph">
+            Each collection is produced in strictly limited quantities to preserve meticulous quality and individual exclusivity.
+          </p>
+
+          <div class="story-features">
+            <div class="feature-item">
+              <div class="feature-icon"><i data-lucide="shield-check"></i></div>
+              <div>
+                <h4>Heavyweight Integrity</h4>
+                <p>450–520 GSM pre-shrunk organic loopback cottons.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><i data-lucide="sparkles"></i></div>
+              <div>
+                <h4>Bespoke Hardware</h4>
+                <p>Custom cast engraved gold and matte black trims.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Value Pillars Bar -->
+  <section class="pillars-section">
+    <div class="section-container">
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <i data-lucide="truck"></i>
+          <h4>Worldwide Express</h4>
+          <p>Tracked delivery across USA, UK, Europe & Middle East.</p>
+        </div>
+        <div class="pillar-card">
+          <i data-lucide="gem"></i>
+          <h4>Exclusive Drops</h4>
+          <p>Numbered production runs with certificate of authenticity.</p>
+        </div>
+        <div class="pillar-card">
+          <i data-lucide="refresh-cw"></i>
+          <h4>Seamless Returns</h4>
+          <p>14-day hassle-free exchange & returns policy.</p>
+        </div>
+        <div class="pillar-card">
+          <i data-lucide="lock"></i>
+          <h4>Encrypted Checkout</h4>
+          <p>Bank-grade SSL security with Apple Pay, Stripe & Cards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIP Drop Newsletter Section -->
+  <section class="newsletter-section">
+    <div class="section-container">
+      <div class="newsletter-card">
+        <span class="newsletter-tag">THE INNER CIRCLE</span>
+        <h2 class="newsletter-title">Unlock Private Drops & Archival Access</h2>
+        <p class="newsletter-desc">Subscribers receive 1-hour early release access to all inaugural drops and exclusive client invitations.</p>
+        
+        <form class="newsletter-form" onsubmit="return handleNewsletterSubmit(event)">
+          <div class="newsletter-input-group">
+            <input type="email" id="newsEmail" placeholder="Enter your email address" required autocomplete="email">
+            <button type="submit" class="btn btn-gold">Join The Guestlist</button>
+          </div>
+        </form>
+        <p class="newsletter-privacy">Private invitations only. No spam ever.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Footer -->
+  <footer class="site-footer">
+    <div class="section-container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <div class="brand-box">
+            <img src="assets/ns%20logo.jpg" alt="NS Logo" class="nav-logo-img">
+            <span class="brand-name">NEW SITARA</span>
+          </div>
+          <p class="footer-about">
+            New Sitara Interprizes represents modern contemporary tailoring, elevated streetwear, and uncompromising artisanal craftsmanship.
+          </p>
+          <div class="footer-socials">
+            <a href="#instagram" title="Instagram" onclick="showToast('Instagram page opening soon')"><i data-lucide="instagram"></i></a>
+            <a href="#facebook" title="Facebook" onclick="showToast('Facebook page opening soon')"><i data-lucide="facebook"></i></a>
+            <a href="#twitter" title="Twitter" onclick="showToast('Twitter page opening soon')"><i data-lucide="twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links-col">
+          <h4>COLLECTIONS</h4>
+          <a href="#catalog" onclick="filterCategory('all')">Inaugural SS26</a>
+          <a href="#catalog" onclick="filterCategory('outerwear')">Outerwear</a>
+          <a href="#catalog" onclick="filterCategory('tops')">Tops & Knits</a>
+          <a href="#catalog" onclick="filterCategory('bottoms')">Tailored Bottoms</a>
+        </div>
+
+        <div class="footer-links-col">
+          <h4>CLIENT SERVICE</h4>
+          <a href="#help" onclick="showToast('Concierge: concierge@newsitara.com')">Concierge Help</a>
+          <a href="#shipping" onclick="showToast('Worldwide Express Delivery via DHL/FedEx')">Shipping & Duties</a>
+          <a href="#returns" onclick="showToast('14-day return window on all unworn items')">Returns & Exchanges</a>
+          <a href="#authenticity" onclick="showToast('Each garment includes verified NFC authenticity tag')">Certificate of Origin</a>
+        </div>
+
+        <div class="footer-links-col">
+          <h4>ATELIER HQ</h4>
+          <p class="footer-contact-item"><i data-lucide="mail"></i> concierge@newsitara.com</p>
+          <p class="footer-contact-item"><i data-lucide="globe"></i> Worldwide Direct Shipping</p>
+          <div class="currency-pill">
+            <span>CURRENCY: USD ($)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year">2026</span> New Sitara Interprizes. All rights reserved.</p>
+        <div class="payment-icons">
+          <span>VISA</span>
+          <span>MASTERCARD</span>
+          <span>AMEX</span>
+          <span>APPLE PAY</span>
+          <span>STRIPE</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Quick View Product Modal -->
+  <div class="modal-overlay" id="quickViewOverlay" onclick="closeQuickView()"></div>
+  <div class="quick-view-modal" id="quickViewModal">
+    <button class="modal-close-btn" onclick="closeQuickView()" aria-label="Close modal">
+      <i data-lucide="x"></i>
+    </button>
+    <div class="modal-body" id="modalProductContent">
+      <!-- Injected via JavaScript -->
+    </div>
+  </div>
+
+  <!-- Slide-out Shopping Bag Drawer -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCartDrawer()"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <div class="cart-title-wrap">
+        <i data-lucide="shopping-bag"></i>
+        <h3>Your Shopping Bag</h3>
+        <span class="cart-item-count" id="cartTotalItemsText">(0 items)</span>
+      </div>
+      <button class="close-btn" onclick="toggleCartDrawer()" aria-label="Close cart"><i data-lucide="x"></i></button>
+    </div>
+
+    <!-- Free Shipping Progress -->
+    <div class="shipping-progress-box">
+      <p id="shippingProgressText">Add $150 for Free Worldwide Shipping</p>
+      <div class="shipping-bar-track">
+        <div class="shipping-bar-fill" id="shippingBarFill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items List -->
+    <div class="cart-items-container" id="cartItemsList">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Cart Footer & Checkout -->
+    <div class="cart-footer">
+      <div class="promo-box">
+        <input type="text" id="promoInput" placeholder="Discount Code (e.g. SITARA15)">
+        <button type="button" onclick="applyPromoCode()">Apply</button>
+      </div>
+
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotalPrice">$0.00</span>
+        </div>
+        <div class="summary-row discount-row" id="discountRow" style="display: none;">
+          <span>Promo Discount (15%)</span>
+          <span id="cartDiscountPrice">-$0.00</span>
+        </div>
+        <div class="summary-row">
+          <span>Estimated Shipping</span>
+          <span id="cartShippingPrice">$15.00</span>
+        </div>
+        <div class="summary-row total-row">
+          <span>Total</span>
+          <span id="cartTotalPrice">$0.00</span>
+        </div>
+      </div>
+
+      <div class="checkout-actions">
+        <button class="btn btn-gold btn-block" onclick="handleCheckout('stripe')">
+          <i data-lucide="lock"></i> Proceed to Checkout
+        </button>
+        <button class="btn btn-outline btn-block btn-whatsapp" onclick="handleCheckout('whatsapp')">
+          <i data-lucide="message-circle"></i> Quick Order via WhatsApp
+        </button>
+      </div>
+      <p class="secure-checkout-notice">🔒 256-Bit SSL Encrypted Bank-Grade Checkout</p>
+    </div>
+  </aside>
+
+  <!-- Live Search Modal -->
+  <div class="search-overlay" id="searchOverlay" onclick="closeSearchModal()"></div>
+  <div class="search-modal" id="searchModal">
+    <div class="search-header">
+      <i data-lucide="search" class="search-icon"></i>
+      <input type="text" id="globalSearchInput" placeholder="Search collection, outerwear, hoodies, trousers..." oninput="handleLiveSearch(event)" autocomplete="off">
+      <button class="close-btn" onclick="closeSearchModal()"><i data-lucide="x"></i></button>
+    </div>
+    <div class="search-results-box" id="searchResultsBox">
+      <!-- Results injected live -->
+    </div>
+  </div>
+
+  <!-- Toast Notification System -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="store.js"></script>
+</body>
+</html>

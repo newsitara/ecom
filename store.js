@@ -1,14 +1,14 @@
 // ==========================================================================
-// NEW SITARA INTERPRIZES — FULL DEPARTMENT STORE ENGINE
+// NEW SITARA INTERPRIZES — 2026 MODERN E-COMMERCE ENGINE
 // ==========================================================================
 
-const BIG_CATALOG = [
+const PRODUCTS_STORE = [
   // --- FOOTWEAR & SNEAKERS ---
   {
     id: 'ns-shoe-1',
     name: 'Atelier Minimal Low-Top Sneaker',
     category: 'shoes',
-    categoryName: 'Footwear & Sneakers',
+    categoryName: 'Footwear',
     price: 220,
     tag: 'Signature Drop',
     imageFront: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop',
@@ -25,7 +25,7 @@ const BIG_CATALOG = [
     id: 'ns-shoe-2',
     name: 'Obsidian Chunky Technical Runner',
     category: 'shoes',
-    categoryName: 'Footwear & Sneakers',
+    categoryName: 'Footwear',
     price: 280,
     tag: 'Bestseller',
     imageFront: 'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?q=80&w=800&auto=format&fit=crop',
@@ -42,7 +42,7 @@ const BIG_CATALOG = [
     id: 'ns-shoe-3',
     name: 'Suede Chelsea Boot in Tobacco',
     category: 'shoes',
-    categoryName: 'Footwear & Sneakers',
+    categoryName: 'Footwear',
     price: 360,
     tag: 'Limited Edition',
     imageFront: 'https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop',
@@ -58,7 +58,7 @@ const BIG_CATALOG = [
     id: 'ns-shoe-4',
     name: 'Lug-Sole Derby Shoe Noir',
     category: 'shoes',
-    categoryName: 'Footwear & Sneakers',
+    categoryName: 'Footwear',
     price: 310,
     tag: 'Signature Drop',
     imageFront: 'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=800&auto=format&fit=crop',
@@ -156,12 +156,12 @@ const BIG_CATALOG = [
     sizes: ['S', 'M', 'L', 'XL']
   },
 
-  // --- PANTS & TROUSERS ---
+  // --- PANTS & DENIM ---
   {
     id: 'ns-bot-1',
     name: 'Pleated Wide-Leg Wool Trouser',
     category: 'bottoms',
-    categoryName: 'Pants & Trousers',
+    categoryName: 'Pants & Denim',
     price: 240,
     tag: 'Limited Edition',
     imageFront: 'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=800&auto=format&fit=crop',
@@ -178,7 +178,7 @@ const BIG_CATALOG = [
     id: 'ns-bot-2',
     name: 'Modular Relaxed Cargo Trouser',
     category: 'bottoms',
-    categoryName: 'Pants & Trousers',
+    categoryName: 'Pants & Denim',
     price: 210,
     tag: 'Selling Fast',
     imageFront: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=800&auto=format&fit=crop',
@@ -194,7 +194,7 @@ const BIG_CATALOG = [
     id: 'ns-bot-3',
     name: '14oz Japanese Selvedge Raw Denim',
     category: 'bottoms',
-    categoryName: 'Pants & Trousers',
+    categoryName: 'Pants & Denim',
     price: 225,
     tag: 'Signature Drop',
     imageFront: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800&auto=format&fit=crop',
@@ -210,7 +210,7 @@ const BIG_CATALOG = [
     id: 'ns-bot-4',
     name: 'Tailored Flare Slack in Noir',
     category: 'bottoms',
-    categoryName: 'Pants & Trousers',
+    categoryName: 'Pants & Denim',
     price: 195,
     tag: 'New Drop',
     imageFront: 'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?q=80&w=800&auto=format&fit=crop',
@@ -228,7 +228,7 @@ const BIG_CATALOG = [
     id: 'ns-out-1',
     name: 'Atelier Double-Breasted Trench',
     category: 'outerwear',
-    categoryName: 'Jackets & Outerwear',
+    categoryName: 'Jackets & Coats',
     price: 340,
     tag: 'Signature Drop',
     imageFront: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop',
@@ -245,7 +245,7 @@ const BIG_CATALOG = [
     id: 'ns-out-2',
     name: 'Architectural Cropped Bomber',
     category: 'outerwear',
-    categoryName: 'Jackets & Outerwear',
+    categoryName: 'Jackets & Coats',
     price: 395,
     tag: 'Exclusive Drop',
     imageFront: 'https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?q=80&w=800&auto=format&fit=crop',
@@ -261,7 +261,7 @@ const BIG_CATALOG = [
     id: 'ns-out-3',
     name: 'Overcoat in Melton Wool Noir',
     category: 'outerwear',
-    categoryName: 'Jackets & Outerwear',
+    categoryName: 'Jackets & Coats',
     price: 460,
     tag: 'Archival Piece',
     imageFront: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=800&auto=format&fit=crop',
@@ -277,7 +277,7 @@ const BIG_CATALOG = [
     id: 'ns-out-4',
     name: 'Insulated Matte Technical Puffer',
     category: 'outerwear',
-    categoryName: 'Jackets & Outerwear',
+    categoryName: 'Jackets & Coats',
     price: 380,
     tag: 'Bestseller',
     imageFront: 'https://images.unsplash.com/photo-1544923246-77307dd654cb?q=80&w=800&auto=format&fit=crop',
@@ -295,7 +295,7 @@ const BIG_CATALOG = [
     id: 'ns-acc-1',
     name: 'Full-Grain Leather Weekender Duffle',
     category: 'accessories',
-    categoryName: 'Accessories & Leather',
+    categoryName: 'Accessories',
     price: 380,
     tag: 'Signature Drop',
     imageFront: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop',
@@ -311,7 +311,7 @@ const BIG_CATALOG = [
     id: 'ns-acc-2',
     name: 'Monogram Engraved Cardholder',
     category: 'accessories',
-    categoryName: 'Accessories & Leather',
+    categoryName: 'Accessories',
     price: 85,
     tag: 'Bestseller',
     imageFront: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=800&auto=format&fit=crop',
@@ -327,7 +327,7 @@ const BIG_CATALOG = [
     id: 'ns-acc-3',
     name: 'Cuban Link Chain with NS Emblem',
     category: 'accessories',
-    categoryName: 'Accessories & Leather',
+    categoryName: 'Accessories',
     price: 190,
     tag: 'Limited Edition',
     imageFront: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop',
@@ -343,7 +343,7 @@ const BIG_CATALOG = [
     id: 'ns-acc-4',
     name: 'Structured Atelier Cotton Twill Cap',
     category: 'accessories',
-    categoryName: 'Accessories & Leather',
+    categoryName: 'Accessories',
     price: 65,
     tag: 'New Drop',
     imageFront: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=800&auto=format&fit=crop',
@@ -357,89 +357,48 @@ const BIG_CATALOG = [
   }
 ];
 
-// Department Metadata
-const DEPT_INFO = {
-  all: {
-    tag: 'FULL CATALOG',
-    title: 'The Complete Collection',
-    desc: 'Explore footwear, architectural tailoring, heavyweight textiles, and bespoke accessories.'
-  },
-  shoes: {
-    tag: 'FOOTWEAR & SNEAKERS',
-    title: 'Luxury Footwear & Runners',
-    desc: 'Handcrafted Italian leather sneakers, chunky Vibram runners, and Goodyear welted boots.'
-  },
-  tops: {
-    tag: 'HOODIES & TOPS',
-    title: 'Heavyweight Hoodies & Knits',
-    desc: '520 GSM French terry hoodies, cashmere blends, and bespoke boxy-cut tees.'
-  },
-  bottoms: {
-    tag: 'PANTS & TROUSERS',
-    title: 'Tailored Trousers & Denim',
-    desc: 'Japanese selvedge raw denim, pleated virgin wool slacks, and modular cargo trousers.'
-  },
-  outerwear: {
-    tag: 'JACKETS & OUTERWEAR',
-    title: 'Signature Outerwear & Coats',
-    desc: 'Italian storm-resistant trench coats, technical cropped bombers, and heavy Melton overcoats.'
-  },
-  accessories: {
-    tag: 'ACCESSORIES & LEATHER',
-    title: 'Bespoke Leather & Jewelry',
-    desc: 'Full-grain leather duffles, pebble grain cardholders, and 18k gold dipped jewelry.'
-  }
+const DEPT_TITLES = {
+  all: { headline: 'Inaugural Collection', subtitle: 'Elevated footwear, heavyweight loopback cottons, and architectural tailoring.' },
+  shoes: { headline: 'Footwear & Sneakers', subtitle: 'Handcrafted Italian leather sneakers, chunky Vibram runners, and Goodyear welted boots.' },
+  tops: { headline: 'Hoodies & Tops', subtitle: '520 GSM loopback French terry, cashmere-blend knits, and boxy monogram tees.' },
+  bottoms: { headline: 'Pants & Denim', subtitle: 'Japanese selvedge raw denim, pleated virgin wool trousers, and modular cargo pants.' },
+  outerwear: { headline: 'Jackets & Coats', subtitle: 'Storm-resistant trenches, technical cropped bombers, and Melton wool overcoats.' },
+  accessories: { headline: 'Accessories & Leather', subtitle: 'Vegetable-tanned leather duffles, pebble grain cardholders, and 18k gold jewelry.' }
 };
 
-// State
+// Global Store State
 let currentDept = 'all';
+let currentQuickTag = 'all';
 let currentSort = 'featured';
 let currentMaxPrice = 600;
 let currentSize = 'all';
-let filterSignature = false;
-let filterLimited = false;
 let searchQuery = '';
+let gridCols = 4;
 let cart = JSON.parse(localStorage.getItem('ns_cart') || '[]');
-let activePromoDiscount = 0;
+let promoDiscount = 0;
 let modalProduct = null;
 let modalSelectedSize = '';
 
 document.addEventListener('DOMContentLoaded', () => {
-  updateDeptCounts();
-  renderCatalog();
+  renderGrid();
   updateCartBadge();
   renderCart();
 
   if (window.lucide) window.lucide.createIcons();
 });
 
-// Update sidebar badge counts
-function updateDeptCounts() {
-  const total = BIG_CATALOG.length;
-  const shoes = BIG_CATALOG.filter((p) => p.category === 'shoes').length;
-  const tops = BIG_CATALOG.filter((p) => p.category === 'tops').length;
-  const bottoms = BIG_CATALOG.filter((p) => p.category === 'bottoms').length;
-  const outerwear = BIG_CATALOG.filter((p) => p.category === 'outerwear').length;
-  const accessories = BIG_CATALOG.filter((p) => p.category === 'accessories').length;
+// Grid Renderer
+function renderGrid() {
+  const feed = document.getElementById('productsFeed');
+  const countEl = document.getElementById('headerProductCount');
+  if (!feed) return;
 
-  document.getElementById('totalDeptCount').textContent = total;
-  document.getElementById('badgeAll').textContent = total;
-  document.getElementById('badgeShoes').textContent = shoes;
-  document.getElementById('badgeTops').textContent = tops;
-  document.getElementById('badgeBottoms').textContent = bottoms;
-  document.getElementById('badgeOuterwear').textContent = outerwear;
-  document.getElementById('badgeAccessories').textContent = accessories;
-}
+  let items = PRODUCTS_STORE.filter((p) => {
+    // Dept match
+    const deptMatch = currentDept === 'all' || p.category === currentDept;
 
-// Render Catalog Grid
-function renderCatalog() {
-  const grid = document.getElementById('productsGrid');
-  const countText = document.getElementById('catalogCountText');
-  if (!grid) return;
-
-  let list = BIG_CATALOG.filter((p) => {
-    // Category match
-    const catMatch = currentDept === 'all' || p.category === currentDept;
+    // Quick Tag match
+    const tagMatch = currentQuickTag === 'all' || p.tag.toLowerCase().includes(currentQuickTag.toLowerCase());
 
     // Price match
     const priceMatch = p.price <= currentMaxPrice;
@@ -447,73 +406,64 @@ function renderCatalog() {
     // Size match
     const sizeMatch = currentSize === 'all' || p.sizes.includes(currentSize) || p.sizes.includes('One Size') || p.sizes.includes('Adjustable');
 
-    // Edition match
-    let editionMatch = true;
-    if (filterSignature && !p.tag.toLowerCase().includes('signature')) editionMatch = false;
-    if (filterLimited && !p.tag.toLowerCase().includes('limited') && !p.tag.toLowerCase().includes('exclusive') && !p.tag.toLowerCase().includes('archival')) editionMatch = false;
-
     // Search query match
-    const searchMatch =
+    const queryMatch =
       searchQuery === '' ||
       p.name.toLowerCase().includes(searchQuery) ||
       p.categoryName.toLowerCase().includes(searchQuery) ||
       p.description.toLowerCase().includes(searchQuery);
 
-    return catMatch && priceMatch && sizeMatch && editionMatch && searchMatch;
+    return deptMatch && tagMatch && priceMatch && sizeMatch && queryMatch;
   });
 
-  // Sorting
+  // Sort
   if (currentSort === 'price-asc') {
-    list.sort((a, b) => a.price - b.price);
+    items.sort((a, b) => a.price - b.price);
   } else if (currentSort === 'price-desc') {
-    list.sort((a, b) => b.price - a.price);
+    items.sort((a, b) => b.price - a.price);
   } else if (currentSort === 'name-asc') {
-    list.sort((a, b) => a.name.localeCompare(b.name));
+    items.sort((a, b) => a.name.localeCompare(b.name));
   }
 
-  if (countText) {
-    countText.textContent = `Showing ${list.length} of ${BIG_CATALOG.length} items`;
-  }
+  if (countEl) countEl.textContent = `${items.length} Items Available`;
 
-  if (list.length === 0) {
-    grid.innerHTML = `
-      <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: var(--text-muted);">
-        <i data-lucide="package-search" style="width: 48px; height: 48px; margin-bottom: 1rem; color: var(--gold-primary);"></i>
-        <h3>No products match your current filters</h3>
-        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Try adjusting your price range, clearing search keywords, or selecting another department.</p>
-        <button class="btn btn-gold" onclick="resetAllFilters()" style="margin-top: 1.5rem;">Reset All Filters</button>
+  if (items.length === 0) {
+    feed.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align: center; padding: 5rem 1rem; color: var(--text-muted);">
+        <i data-lucide="search-x" style="width: 48px; height: 48px; margin-bottom: 1rem; color: var(--text-main);"></i>
+        <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--text-main);">No matching pieces found</h3>
+        <p style="margin-top: 0.5rem; font-size: 0.88rem;">Try clearing your search keyword, adjusting your price limit, or selecting another department.</p>
+        <button class="btn btn-dark" onclick="resetFilters()" style="margin-top: 1.5rem;">Reset All Filters</button>
       </div>
     `;
     if (window.lucide) window.lucide.createIcons();
     return;
   }
 
-  grid.innerHTML = list
+  feed.innerHTML = items
     .map(
       (product) => `
-    <div class="big-product-card" data-id="${product.id}">
-      <div class="card-media-wrapper">
-        <span class="card-badge-pill">${product.tag}</span>
-        <img src="${product.imageFront}" alt="${product.name}" class="card-img card-img-primary" loading="lazy">
-        <img src="${product.imageBack}" alt="${product.name} back view" class="card-img card-img-alt" loading="lazy">
+    <div class="feed-product-card" data-id="${product.id}">
+      <div class="card-media-box">
+        <span class="card-micro-tag">${product.tag}</span>
+        <img src="${product.imageFront}" alt="${product.name}" class="card-primary-img" loading="lazy">
+        <img src="${product.imageBack}" alt="${product.name} back view" class="card-alt-img" loading="lazy">
 
-        <div class="card-hover-actions">
-          <button class="card-quick-view-btn" onclick="openQuickViewModal('${product.id}')">Quick View</button>
-          <div class="card-sizes-row">
-            ${product.sizes
-              .map((s) => `<button class="card-size-btn" onclick="quickAddProduct('${product.id}', '${s}')">${s}</button>`)
-              .join('')}
+        <div class="card-hover-drawer">
+          <button class="quick-view-action-btn" onclick="openQuickViewModal('${product.id}')">Quick View</button>
+          <div class="size-pill-selector-row">
+            ${product.sizes.map((s) => `<button class="size-chip-btn" onclick="quickAdd('${product.id}', '${s}')">${s}</button>`).join('')}
           </div>
         </div>
       </div>
 
-      <div class="card-info-content">
-        <span class="card-dept-tag">${product.categoryName}</span>
-        <h4 class="card-product-title" onclick="openQuickViewModal('${product.id}')">${product.name}</h4>
+      <div class="card-content-pane">
+        <span class="card-category-label">${product.categoryName}</span>
+        <h4 class="card-title-text" onclick="openQuickViewModal('${product.id}')">${product.name}</h4>
         
-        <div class="card-bottom-pricing">
-          <span class="card-price-tag">$${product.price}.00</span>
-          <span class="card-stock-status">● In Stock</span>
+        <div class="card-price-bottom">
+          <span class="card-price-val">$${product.price}.00</span>
+          <span class="card-stock-dot">● In Stock</span>
         </div>
       </div>
     </div>
@@ -524,195 +474,237 @@ function renderCatalog() {
   if (window.lucide) window.lucide.createIcons();
 }
 
-// Department switch
-function filterDepartment(dept, linkEl) {
+// Department Selector
+function selectDepartment(dept, btnEl) {
   currentDept = dept;
 
   // Sync nav pills
-  document.querySelectorAll('.dept-link').forEach((btn) => {
-    if (btn.dataset.cat === dept) btn.classList.add('active');
+  document.querySelectorAll('.nav-dept-btn, .mob-dept-pill').forEach((btn) => {
+    if (btn.dataset.dept === dept) btn.classList.add('active');
     else btn.classList.remove('active');
   });
 
-  // Sync sidebar radio
-  const radio = document.querySelector(`input[name="dept_radio"][value="${dept}"]`);
+  // Sync drawer radio
+  const radio = document.querySelector(`input[name="drawer_dept"][value="${dept}"]`);
   if (radio) radio.checked = true;
 
-  // Update Hero Banner Text
-  const info = DEPT_INFO[dept] || DEPT_INFO.all;
-  document.getElementById('currentDeptTag').textContent = info.tag;
-  document.getElementById('currentDeptTitle').textContent = info.title;
-  document.getElementById('currentDeptDesc').textContent = info.desc;
+  // Sync editorial headline & subtitle
+  const info = DEPT_TITLES[dept] || DEPT_TITLES.all;
+  document.getElementById('sectionHeadline').textContent = info.headline;
+  document.getElementById('sectionSubtitle').textContent = info.subtitle;
 
-  renderCatalog();
+  renderGrid();
 }
 
-function handleSort(e) {
+function handleDrawerDeptChange(dept) {
+  selectDepartment(dept);
+}
+
+// Quick Tags
+function setQuickTag(tag, pillEl) {
+  currentQuickTag = tag;
+  document.querySelectorAll('.quick-pill').forEach((p) => p.classList.remove('active'));
+  if (pillEl) pillEl.classList.add('active');
+  renderGrid();
+}
+
+// Sorting
+function handleSortChange(e) {
   currentSort = e.target.value;
-  renderCatalog();
+  renderGrid();
 }
 
-function handlePriceSlider(e) {
-  currentMaxPrice = parseInt(e.target.value, 10);
-  document.getElementById('maxPriceLabel').textContent = `Up to $${currentMaxPrice}`;
-  renderCatalog();
-}
+// Grid Column Switcher
+function setGridColumns(cols, btnEl) {
+  gridCols = cols;
+  const feed = document.getElementById('productsFeed');
+  if (!feed) return;
 
-function filterBySize(size, btnEl) {
-  currentSize = size;
-  document.querySelectorAll('.size-chip').forEach((c) => c.classList.remove('active'));
+  feed.className = `products-grid-feed cols-${cols}`;
+  document.querySelectorAll('.view-toggle-btn').forEach((b) => b.classList.remove('active'));
   if (btnEl) btnEl.classList.add('active');
-  renderCatalog();
 }
 
-function toggleEditionFilter(type, checked) {
-  if (type === 'Signature') filterSignature = checked;
-  if (type === 'Limited') filterLimited = checked;
-  renderCatalog();
-}
-
-function handleMegaSearch(e) {
+// Search
+function handleSearch(e) {
   searchQuery = e.target.value.trim().toLowerCase();
-  const clearBtn = document.getElementById('clearSearchBtn');
+  const clearBtn = document.getElementById('searchClearBtn');
   if (clearBtn) clearBtn.style.display = searchQuery ? 'flex' : 'none';
-  renderCatalog();
+  renderGrid();
 }
 
-function clearSearch() {
-  const input = document.getElementById('megaSearchInput');
+function clearLiveSearch() {
+  const input = document.getElementById('liveSearchInput');
   if (input) input.value = '';
   searchQuery = '';
-  document.getElementById('clearSearchBtn').style.display = 'none';
-  renderCatalog();
+  document.getElementById('searchClearBtn').style.display = 'none';
+  renderGrid();
 }
 
-function resetAllFilters() {
+// Filter Drawer
+function openFilterDrawer() {
+  document.getElementById('filterDrawer').classList.add('open');
+  document.getElementById('filterBackdrop').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeFilterDrawer() {
+  document.getElementById('filterDrawer').classList.remove('open');
+  document.getElementById('filterBackdrop').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleDrawerPrice(e) {
+  currentMaxPrice = parseInt(e.target.value, 10);
+  document.getElementById('drawerPriceLabel').textContent = `$${currentMaxPrice}`;
+  checkActiveFilterDot();
+  renderGrid();
+}
+
+function setDrawerSize(size, btnEl) {
+  currentSize = size;
+  document.querySelectorAll('#drawerSizePills .size-btn').forEach((b) => b.classList.remove('active'));
+  if (btnEl) btnEl.classList.add('active');
+  checkActiveFilterDot();
+  renderGrid();
+}
+
+function checkActiveFilterDot() {
+  const isFiltered = currentMaxPrice < 600 || currentSize !== 'all' || currentDept !== 'all';
+  const dot = document.getElementById('filterActiveDot');
+  if (dot) dot.style.display = isFiltered ? 'inline-block' : 'none';
+}
+
+function resetFilters() {
   currentDept = 'all';
+  currentQuickTag = 'all';
   currentSort = 'featured';
   currentMaxPrice = 600;
   currentSize = 'all';
-  filterSignature = false;
-  filterLimited = false;
   searchQuery = '';
 
-  const input = document.getElementById('megaSearchInput');
-  if (input) input.value = '';
-  const slider = document.getElementById('priceRangeSlider');
-  if (slider) slider.value = 600;
-  document.getElementById('maxPriceLabel').textContent = 'Up to $600';
-  document.getElementById('checkSignature').checked = false;
-  document.getElementById('checkLimited').checked = false;
-  document.getElementById('sortSelector').value = 'featured';
+  const searchInput = document.getElementById('liveSearchInput');
+  if (searchInput) searchInput.value = '';
+  const priceSlider = document.getElementById('drawerPriceSlider');
+  if (priceSlider) priceSlider.value = 600;
+  document.getElementById('drawerPriceLabel').textContent = '$600';
+  document.getElementById('sortSelect').value = 'featured';
 
-  filterDepartment('all');
-  document.querySelectorAll('.size-chip').forEach((c, idx) => {
-    if (idx === 0) c.classList.add('active');
-    else c.classList.remove('active');
+  document.querySelectorAll('#drawerSizePills .size-btn').forEach((b, i) => {
+    if (i === 0) b.classList.add('active');
+    else b.classList.remove('active');
   });
+
+  document.querySelectorAll('.quick-pill').forEach((p, i) => {
+    if (i === 0) p.classList.add('active');
+    else p.classList.remove('active');
+  });
+
+  selectDepartment('all');
+  checkActiveFilterDot();
+  closeFilterDrawer();
 }
 
 // Quick View Modal
 function openQuickViewModal(productId) {
-  const product = BIG_CATALOG.find((p) => p.id === productId);
+  const product = PRODUCTS_STORE.find((p) => p.id === productId);
   if (!product) return;
 
   modalProduct = product;
   modalSelectedSize = product.sizes[0];
 
-  const modal = document.getElementById('quickViewModal');
-  const overlay = document.getElementById('quickViewOverlay');
-  const content = document.getElementById('modalProductContent');
+  const modal = document.getElementById('quickModalCard');
+  const backdrop = document.getElementById('quickViewBackdrop');
+  const body = document.getElementById('quickModalBody');
 
-  content.innerHTML = `
-    <div class="modal-gallery-col">
-      <img src="${product.gallery[0]}" alt="${product.name}" class="modal-main-img" id="modalMainImg">
-      <div class="modal-thumbs">
+  body.innerHTML = `
+    <div class="modal-gallery-box">
+      <img src="${product.gallery[0]}" alt="${product.name}" class="modal-hero-img" id="modalHeroImg">
+      <div class="modal-thumb-strip">
         ${product.gallery
           .map(
             (img, index) => `
-          <img src="${img}" alt="Thumb" class="modal-thumb ${index === 0 ? 'active' : ''}" onclick="setModalMainImg('${img}', this)">
+          <img src="${img}" alt="Thumbnail ${index + 1}" class="modal-thumb-item ${index === 0 ? 'active' : ''}" onclick="setModalHero('${img}', this)">
         `
           )
           .join('')}
       </div>
     </div>
 
-    <div class="modal-info-col">
-      <span class="modal-cat">${product.categoryName} • ${product.tag}</span>
-      <h2 class="modal-title">${product.name}</h2>
-      <div class="modal-price">$${product.price}.00 USD</div>
-      <p class="modal-desc">${product.description}</p>
+    <div class="modal-details-pane">
+      <span class="modal-dept-kicker">${product.categoryName} • ${product.tag}</span>
+      <h2 class="modal-product-name">${product.name}</h2>
+      <div class="modal-price-tag">$${product.price}.00 USD</div>
+      <p class="modal-desc-body">${product.description}</p>
 
-      <div class="modal-size-section">
-        <div class="size-header-row">
+      <div class="modal-size-block">
+        <div class="size-head-line">
           <span>SELECT SIZE</span>
-          <span style="color: var(--gold-primary); cursor: pointer;" onclick="showToast('True to size standard tailored cut.')">Size Guide ↗</span>
+          <span style="color: var(--gold-accent); cursor: pointer;" onclick="showToast('True to size standard tailored cut.')">Size Guide ↗</span>
         </div>
-        <div class="size-pills-row">
+        <div class="modal-sizes-flex">
           ${product.sizes
             .map(
               (s, i) => `
-            <button class="size-pill ${i === 0 ? 'active' : ''}" onclick="setModalSize('${s}', this)">${s}</button>
+            <button class="modal-size-pill ${i === 0 ? 'active' : ''}" onclick="setModalSizeOption('${s}', this)">${s}</button>
           `
             )
             .join('')}
         </div>
       </div>
 
-      <div class="modal-craft-specs">
+      <div class="modal-specs-box">
         <strong>Atelier Specifications:</strong><br>
         ${product.specs}
       </div>
 
-      <button class="btn btn-gold btn-block" onclick="addModalItemToCart()">
-        Add to Shopping Bag — $${product.price}.00
+      <button class="btn btn-dark btn-block" onclick="addModalItemToBag()">
+        Add to Bag — $${product.price}.00
       </button>
     </div>
   `;
 
   modal.classList.add('open');
-  overlay.classList.add('open');
+  backdrop.classList.add('open');
   document.body.style.overflow = 'hidden';
 
   if (window.lucide) window.lucide.createIcons();
 }
 
-function setModalMainImg(src, thumbEl) {
-  const imgEl = document.getElementById('modalMainImg');
+function setModalHero(src, thumbEl) {
+  const imgEl = document.getElementById('modalHeroImg');
   if (imgEl) imgEl.src = src;
-  document.querySelectorAll('.modal-thumb').forEach((t) => t.classList.remove('active'));
+  document.querySelectorAll('.modal-thumb-item').forEach((t) => t.classList.remove('active'));
   if (thumbEl) thumbEl.classList.add('active');
 }
 
-function setModalSize(size, pillEl) {
+function setModalSizeOption(size, pillEl) {
   modalSelectedSize = size;
-  document.querySelectorAll('.size-pill').forEach((p) => p.classList.remove('active'));
+  document.querySelectorAll('.modal-size-pill').forEach((p) => p.classList.remove('active'));
   if (pillEl) pillEl.classList.add('active');
 }
 
-function addModalItemToCart() {
+function addModalItemToBag() {
   if (!modalProduct) return;
   addToCart(modalProduct.id, modalSelectedSize);
   closeQuickView();
-  toggleCartDrawer(true);
+  openCartDrawer();
 }
 
 function closeQuickView() {
-  const modal = document.getElementById('quickViewModal');
-  const overlay = document.getElementById('quickViewOverlay');
-  if (modal) modal.classList.remove('open');
-  if (overlay) overlay.classList.remove('open');
+  document.getElementById('quickModalCard').classList.remove('open');
+  document.getElementById('quickViewBackdrop').classList.remove('open');
   document.body.style.overflow = '';
 }
 
 // Shopping Bag Engine
-function quickAddProduct(id, size) {
-  addToCart(id, size);
-  toggleCartDrawer(true);
+function quickAdd(productId, size) {
+  addToCart(productId, size);
+  openCartDrawer();
 }
 
 function addToCart(productId, size) {
-  const product = BIG_CATALOG.find((p) => p.id === productId);
+  const product = PRODUCTS_STORE.find((p) => p.id === productId);
   if (!product) return;
 
   const existingIndex = cart.findIndex((item) => item.id === productId && item.size === size);
@@ -757,7 +749,7 @@ function removeFromCart(productId, size) {
   saveCart();
   renderCart();
   updateCartBadge();
-  showToast('Item removed from shopping bag.');
+  showToast('Item removed from bag.');
 }
 
 function saveCart() {
@@ -770,19 +762,19 @@ function updateCartBadge() {
   const countText = document.getElementById('cartTotalItemsText');
 
   if (badge) badge.textContent = count;
-  if (countText) countText.textContent = `(${count} ${count === 1 ? 'item' : 'items'})`;
+  if (countText) countText.textContent = `(${count})`;
 }
 
 function renderCart() {
-  const container = document.getElementById('cartItemsList');
-  if (!container) return;
+  const feed = document.getElementById('cartItemsFeed');
+  if (!feed) return;
 
   if (cart.length === 0) {
-    container.innerHTML = `
-      <div class="cart-empty-state">
-        <i data-lucide="shopping-bag"></i>
-        <h4>Your bag is currently empty</h4>
-        <p>Explore footwear, hoodies, pants, and accessories to add pieces to your order.</p>
+    feed.innerHTML = `
+      <div style="margin: auto; text-align: center; color: var(--text-muted); padding: 3rem 1rem;">
+        <i data-lucide="shopping-bag" style="width: 48px; height: 48px; margin-bottom: 0.75rem; opacity: 0.3;"></i>
+        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--text-main);">Your bag is empty</h4>
+        <p style="font-size: 0.85rem; margin-top: 0.35rem;">Explore footwear, hoodies, pants, and jackets to add pieces.</p>
       </div>
     `;
     updatePricing(0);
@@ -790,22 +782,22 @@ function renderCart() {
     return;
   }
 
-  container.innerHTML = cart
+  feed.innerHTML = cart
     .map(
       (item) => `
-    <div class="cart-item-card">
-      <img src="${item.image}" alt="${item.name}" class="cart-item-img">
-      <div class="cart-item-info">
-        <h4 class="cart-item-title">${item.name}</h4>
-        <span class="cart-item-variant">Size: ${item.size} • ${item.categoryName}</span>
-        <div class="cart-qty-row">
-          <div class="qty-control">
-            <button class="qty-btn" onclick="updateCartQty('${item.id}', '${item.size}', -1)">-</button>
-            <span class="qty-number">${item.qty}</span>
-            <button class="qty-btn" onclick="updateCartQty('${item.id}', '${item.size}', 1)">+</button>
+    <div class="cart-item-row">
+      <img src="${item.image}" alt="${item.name}" class="cart-thumb">
+      <div class="cart-meta">
+        <h4 class="cart-name">${item.name}</h4>
+        <span class="cart-var">Size: ${item.size} • ${item.categoryName}</span>
+        <div class="cart-actions-line">
+          <div class="qty-stepper">
+            <button class="qty-step-btn" onclick="updateCartQty('${item.id}', '${item.size}', -1)">-</button>
+            <span class="qty-val">${item.qty}</span>
+            <button class="qty-step-btn" onclick="updateCartQty('${item.id}', '${item.size}', 1)">+</button>
           </div>
-          <span class="cart-item-price">$${item.price * item.qty}.00</span>
-          <button class="cart-remove-btn" onclick="removeFromCart('${item.id}', '${item.size}')">Remove</button>
+          <span class="cart-row-price">$${item.price * item.qty}.00</span>
+          <button class="cart-del-btn" onclick="removeFromCart('${item.id}', '${item.size}')">Remove</button>
         </div>
       </div>
     </div>
@@ -820,36 +812,36 @@ function renderCart() {
 }
 
 function updatePricing(subtotal) {
-  const subtotalEl = document.getElementById('cartSubtotalPrice');
-  const discountRow = document.getElementById('discountRow');
-  const discountEl = document.getElementById('cartDiscountPrice');
-  const shippingEl = document.getElementById('cartShippingPrice');
-  const totalEl = document.getElementById('cartTotalPrice');
-  const shippingText = document.getElementById('shippingProgressText');
-  const shippingBar = document.getElementById('shippingBarFill');
+  const subtotalEl = document.getElementById('mathSubtotal');
+  const discountRow = document.getElementById('mathDiscountRow');
+  const discountEl = document.getElementById('mathDiscount');
+  const shippingEl = document.getElementById('mathShipping');
+  const totalEl = document.getElementById('mathTotal');
+  const milestoneText = document.getElementById('shippingMilestoneText');
+  const milestoneFill = document.getElementById('shippingMilestoneFill');
 
   const threshold = 150;
   const isFreeShipping = subtotal >= threshold;
   const shippingCost = subtotal === 0 ? 0 : isFreeShipping ? 0 : 15;
 
-  if (shippingBar && shippingText) {
+  if (milestoneFill && milestoneText) {
     if (subtotal === 0) {
-      shippingBar.style.width = '0%';
-      shippingText.textContent = `Add $${threshold} for Free Worldwide Shipping`;
+      milestoneFill.style.width = '0%';
+      milestoneText.textContent = `Add $${threshold} for Free Worldwide Shipping`;
     } else if (isFreeShipping) {
-      shippingBar.style.width = '100%';
-      shippingText.textContent = `✦ You've Unlocked Free Worldwide Express Shipping!`;
+      milestoneFill.style.width = '100%';
+      milestoneText.textContent = `✦ You've Unlocked Free Worldwide Express Shipping!`;
     } else {
       const remaining = threshold - subtotal;
       const pct = Math.min(100, (subtotal / threshold) * 100);
-      shippingBar.style.width = `${pct}%`;
-      shippingText.textContent = `Add $${remaining}.00 more for Free Worldwide Shipping`;
+      milestoneFill.style.width = `${pct}%`;
+      milestoneText.textContent = `Add $${remaining}.00 more for Free Worldwide Shipping`;
     }
   }
 
-  const discountAmount = subtotal * activePromoDiscount;
+  const discountAmount = subtotal * promoDiscount;
 
-  if (activePromoDiscount > 0) {
+  if (promoDiscount > 0) {
     if (discountRow) discountRow.style.display = 'flex';
     if (discountEl) discountEl.textContent = `-$${discountAmount.toFixed(2)}`;
   } else {
@@ -860,18 +852,18 @@ function updatePricing(subtotal) {
 
   if (subtotalEl) subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
   if (shippingEl) shippingEl.textContent = shippingCost === 0 ? 'FREE' : `$${shippingCost.toFixed(2)}`;
-  if (totalEl) totalEl.textContent = `$${finalTotal.toFixed(2)} USD`;
+  if (totalEl) totalEl.textContent = `$${finalTotal.toFixed(2)}`;
 }
 
-function applyPromoCode() {
-  const input = document.getElementById('promoInput');
+function applyPromo() {
+  const input = document.getElementById('cartPromoInput');
   if (!input) return;
 
   const code = input.value.trim().toUpperCase();
 
   if (code === 'SITARA15' || code === 'VIP15') {
-    activePromoDiscount = 0.15;
-    showToast('Promo code applied: 15% discount on all departments!');
+    promoDiscount = 0.15;
+    showToast('Promo applied: 15% off your order!');
     renderCart();
   } else if (code === '') {
     showToast('Please enter a promo code.');
@@ -880,23 +872,19 @@ function applyPromoCode() {
   }
 }
 
-function toggleCartDrawer(forceOpen = false) {
-  const drawer = document.getElementById('cartDrawer');
-  const overlay = document.getElementById('cartOverlay');
-  if (!drawer || !overlay) return;
-
-  if (forceOpen || !drawer.classList.contains('open')) {
-    drawer.classList.add('open');
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  } else {
-    drawer.classList.remove('open');
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
+function openCartDrawer() {
+  document.getElementById('cartDrawer').classList.add('open');
+  document.getElementById('cartBackdrop').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 
-function handleCheckout(method) {
+function closeCartDrawer() {
+  document.getElementById('cartDrawer').classList.remove('open');
+  document.getElementById('cartBackdrop').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function triggerCheckout(method) {
   if (cart.length === 0) {
     showToast('Your shopping bag is empty.');
     return;
@@ -908,9 +896,9 @@ function handleCheckout(method) {
     const text = `Hello New Sitara Concierge! I would like to place an order:%0A%0A${orderItems}%0A%0AEstimated Total: $${subtotal}.00 USD%0APlease provide delivery and payment details.`;
 
     window.open(`https://wa.me/?text=${text}`, '_blank');
-    showToast('Opening WhatsApp with your multi-item order...');
+    showToast('Opening WhatsApp with your order...');
   } else {
-    showToast('🔒 Initiating 256-bit encrypted checkout gateway...');
+    showToast('🔒 Initiating 256-bit encrypted checkout...');
     setTimeout(() => {
       alert('New Sitara Checkout Gateway:\n\nThank you for choosing New Sitara Interprizes.\nYour multi-department order is ready to process with Stripe & Cards!');
     }, 800);
@@ -919,22 +907,26 @@ function handleCheckout(method) {
 
 function handleNewsletter(e) {
   e.preventDefault();
-  const input = document.getElementById('footerEmail');
+  const input = document.getElementById('newsInput');
   if (input && input.value) {
-    showToast('You have joined the New Sitara Inner Circle. Check your inbox!');
+    showToast('Welcome to the New Sitara Inner Circle. Check your inbox!');
     input.value = '';
   }
   return false;
 }
 
+function toggleMobileMenu() {
+  openFilterDrawer();
+}
+
 function showToast(message) {
-  const container = document.getElementById('toastContainer');
-  if (!container) return;
+  const hub = document.getElementById('toastHub');
+  if (!hub) return;
 
   const toast = document.createElement('div');
-  toast.className = 'custom-toast';
+  toast.className = 'toast-bubble';
   toast.innerHTML = `<span>✦</span> <span>${message}</span>`;
-  container.appendChild(toast);
+  hub.appendChild(toast);
 
   setTimeout(() => {
     toast.style.opacity = '0';

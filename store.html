@@ -3,349 +3,387 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Sitara Interprizes — Department Store & Ready-to-Wear</title>
+  <title>New Sitara Interprizes — Official Store</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/store.css">
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
-  <!-- Top Announcement Bar -->
-  <div class="announcement-bar">
-    <div class="marquee-track">
-      <span>✦ COMPLIMENTARY EXPRESS WORLDWIDE SHIPPING ON ORDERS OVER $150</span>
-      <span>•</span>
-      <span>NEW SEASON SS26 ARRIVALS ACROSS ALL DEPARTMENTS</span>
-      <span>•</span>
-      <span>USE CODE <strong>SITARA15</strong> FOR 15% OFF YOUR ENTIRE ORDER</span>
-      <span>•</span>
-      <span>✦ COMPLIMENTARY EXPRESS WORLDWIDE SHIPPING ON ORDERS OVER $150</span>
+  <!-- Top Micro Announcement -->
+  <div class="top-announcement">
+    <div class="announcement-content">
+      <span>✦ COMPLIMENTARY EXPRESS SHIPPING OVER $150</span>
+      <span class="bullet">•</span>
+      <span>INAUGURAL DROP SS26 NOW LIVE</span>
+      <span class="bullet">•</span>
+      <span>USE PROMO CODE <strong>SITARA15</strong> FOR 15% OFF</span>
+      <span class="bullet">•</span>
+      <span>HANDCRAFTED LUXURY FOOTWEAR & STREETWEAR</span>
     </div>
   </div>
 
-  <!-- Main Navigation Header with Mega Departments -->
-  <header class="ecom-header">
-    
-    <!-- Top Row: Monogram, Search, Actions -->
-    <div class="header-main-row">
+  <!-- Modern Sticky Header -->
+  <header class="site-header" id="mainHeader">
+    <div class="header-inner">
       
       <!-- Brand Logo -->
-      <a href="/store" class="brand-unit">
-        <img src="/assets/ns%20logo.jpg" alt="NS Logo" class="brand-monogram">
-        <div class="brand-title-wrap">
-          <span class="brand-main">NEW SITARA</span>
-          <span class="brand-sub">INTERPRIZES</span>
+      <a href="/store" class="brand-link">
+        <img src="/assets/ns%20logo.jpg" alt="New Sitara Logo" class="brand-logo-img">
+        <div class="brand-titles">
+          <span class="brand-heading">NEW SITARA</span>
+          <span class="brand-subheading">INTERPRIZES</span>
         </div>
       </a>
 
-      <!-- Big Search Bar -->
-      <div class="header-search-bar">
-        <i data-lucide="search"></i>
-        <input type="text" id="megaSearchInput" placeholder="Search across footwear, hoodies, pants, outerwear, accessories..." oninput="handleMegaSearch(event)" autocomplete="off">
-        <button class="clear-search-btn" id="clearSearchBtn" onclick="clearSearch()" style="display:none;"><i data-lucide="x"></i></button>
-      </div>
+      <!-- Desktop Department Navigation -->
+      <nav class="nav-departments">
+        <button class="nav-dept-btn active" data-dept="all" onclick="selectDepartment('all', this)">All</button>
+        <button class="nav-dept-btn" data-dept="shoes" onclick="selectDepartment('shoes', this)">Footwear</button>
+        <button class="nav-dept-btn" data-dept="tops" onclick="selectDepartment('tops', this)">Hoodies & Tops</button>
+        <button class="nav-dept-btn" data-dept="bottoms" onclick="selectDepartment('bottoms', this)">Pants & Denim</button>
+        <button class="nav-dept-btn" data-dept="outerwear" onclick="selectDepartment('outerwear', this)">Jackets & Coats</button>
+        <button class="nav-dept-btn" data-dept="accessories" onclick="selectDepartment('accessories', this)">Accessories</button>
+      </nav>
 
-      <!-- User & Cart Actions -->
-      <div class="header-actions">
-        <div class="currency-switch">
-          <span>USD ($)</span>
+      <!-- Right Utility Actions -->
+      <div class="header-tools">
+        
+        <!-- Interactive Search Expand -->
+        <div class="search-wrap" id="searchWrap">
+          <i data-lucide="search" class="search-icon"></i>
+          <input type="text" id="liveSearchInput" placeholder="Search shoes, hoodies, pants, outerwear..." oninput="handleSearch(event)" autocomplete="off">
+          <button class="search-clear-btn" id="searchClearBtn" onclick="clearLiveSearch()"><i data-lucide="x"></i></button>
         </div>
-        <button class="header-icon-btn bag-btn" onclick="toggleCartDrawer()" title="Shopping Bag">
+
+        <button class="icon-tool-btn bag-tool-btn" onclick="openCartDrawer()" title="Shopping Bag">
           <i data-lucide="shopping-bag"></i>
-          <span class="bag-count-pill" id="cartCountBadge">0</span>
+          <span class="bag-pill" id="cartCountBadge">0</span>
         </button>
+
+        <button class="mobile-nav-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+          <i data-lucide="menu"></i>
+        </button>
+
       </div>
 
     </div>
 
-    <!-- Bottom Row: Department Navigation Links -->
-    <nav class="department-nav-row">
-      <button class="dept-link active" data-cat="all" onclick="filterDepartment('all', this)">All Collection (<span id="totalDeptCount">0</span>)</button>
-      <button class="dept-link" data-cat="shoes" onclick="filterDepartment('shoes', this)">Footwear & Sneakers</button>
-      <button class="dept-link" data-cat="tops" onclick="filterDepartment('tops', this)">Hoodies & Tops</button>
-      <button class="dept-link" data-cat="bottoms" onclick="filterDepartment('bottoms', this)">Pants & Trousers</button>
-      <button class="dept-link" data-cat="outerwear" onclick="filterDepartment('outerwear', this)">Jackets & Outerwear</button>
-      <button class="dept-link" data-cat="accessories" onclick="filterDepartment('accessories', this)">Accessories & Leather</button>
-    </nav>
-
+    <!-- Mobile Scrollable Category Tabs -->
+    <div class="mobile-dept-scroll">
+      <button class="mob-dept-pill active" data-dept="all" onclick="selectDepartment('all', this)">All Pieces</button>
+      <button class="mob-dept-pill" data-dept="shoes" onclick="selectDepartment('shoes', this)">Footwear</button>
+      <button class="mob-dept-pill" data-dept="tops" onclick="selectDepartment('tops', this)">Hoodies & Tops</button>
+      <button class="mob-dept-pill" data-dept="bottoms" onclick="selectDepartment('bottoms', this)">Pants & Denim</button>
+      <button class="mob-dept-pill" data-dept="outerwear" onclick="selectDepartment('outerwear', this)">Outerwear</button>
+      <button class="mob-dept-pill" data-dept="accessories" onclick="selectDepartment('accessories', this)">Accessories</button>
+    </div>
   </header>
 
-  <!-- Department Hero Banner -->
-  <section class="department-hero">
-    <div class="dept-hero-content">
-      <span class="dept-hero-tag" id="currentDeptTag">FULL CATALOG</span>
-      <h1 class="dept-hero-title" id="currentDeptTitle">The Complete Collection</h1>
-      <p class="dept-hero-desc" id="currentDeptDesc">Explore elevated footwear, architectural tailoring, heavyweight textiles, and bespoke accessories.</p>
+  <!-- Modern Hero Editorial Strip -->
+  <section class="editorial-strip">
+    <div class="editorial-container">
+      <div class="editorial-meta">
+        <span class="edition-kicker">SPRING / SUMMER 2026</span>
+        <h1 class="editorial-headline" id="sectionHeadline">Inaugural Collection</h1>
+        <p class="editorial-subline" id="sectionSubtitle">Elevated footwear, heavyweight loopback cottons, and architectural tailoring.</p>
+      </div>
+
+      <!-- Quick Category Counter -->
+      <div class="editorial-badge-row">
+        <span class="badge-count" id="headerProductCount">20 Items Available</span>
+        <span class="badge-ship">● Free Worldwide Express Over $150</span>
+      </div>
     </div>
   </section>
 
-  <!-- Big E-Commerce Shop Layout -->
-  <main class="ecom-main-layout">
-    
-    <!-- Left Sidebar: Multi-Facet Filters -->
-    <aside class="ecom-filters-sidebar">
+  <!-- Modern Utility Filter & Control Bar -->
+  <section class="control-sticky-bar">
+    <div class="control-bar-inner">
       
-      <div class="filter-sidebar-header">
-        <h3>Filter & Refine</h3>
-        <button class="reset-filters-btn" onclick="resetAllFilters()">Reset All</button>
-      </div>
-
-      <!-- Categories Filter Accordion -->
-      <div class="filter-group">
-        <h4 class="filter-group-title">Departments</h4>
-        <div class="filter-options-list">
-          <label class="filter-checkbox-item">
-            <input type="radio" name="dept_radio" value="all" checked onchange="filterDepartment('all')">
-            <span>All Departments</span>
-            <span class="count-badge" id="badgeAll">0</span>
-          </label>
-          <label class="filter-checkbox-item">
-            <input type="radio" name="dept_radio" value="shoes" onchange="filterDepartment('shoes')">
-            <span>Footwear & Sneakers</span>
-            <span class="count-badge" id="badgeShoes">0</span>
-          </label>
-          <label class="filter-checkbox-item">
-            <input type="radio" name="dept_radio" value="tops" onchange="filterDepartment('tops')">
-            <span>Hoodies, Tops & Knits</span>
-            <span class="count-badge" id="badgeTops">0</span>
-          </label>
-          <label class="filter-checkbox-item">
-            <input type="radio" name="dept_radio" value="bottoms" onchange="filterDepartment('bottoms')">
-            <span>Pants, Denim & Cargo</span>
-            <span class="count-badge" id="badgeBottoms">0</span>
-          </label>
-          <label class="filter-checkbox-item">
-            <input type="radio" name="dept_radio" value="outerwear" onchange="filterDepartment('outerwear')">
-            <span>Jackets & Outerwear</span>
-            <span class="count-badge" id="badgeOuterwear">0</span>
-          </label>
-          <label class="filter-checkbox-item">
-            <input type="radio" name="dept_radio" value="accessories" onchange="filterDepartment('accessories')">
-            <span>Accessories & Leather</span>
-            <span class="count-badge" id="badgeAccessories">0</span>
-          </label>
-        </div>
-      </div>
-
-      <!-- Price Range Filter -->
-      <div class="filter-group">
-        <h4 class="filter-group-title">Price Range</h4>
-        <div class="price-slider-box">
-          <input type="range" id="priceRangeSlider" min="50" max="600" step="10" value="600" oninput="handlePriceSlider(event)">
-          <div class="price-range-labels">
-            <span>$50</span>
-            <span class="current-price-val" id="maxPriceLabel">Up to $600</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Size Filter Chips -->
-      <div class="filter-group">
-        <h4 class="filter-group-title">Size</h4>
-        <div class="size-filter-chips" id="sizeFilterChips">
-          <button class="size-chip active" data-size="all" onclick="filterBySize('all', this)">All</button>
-          <button class="size-chip" data-size="S" onclick="filterBySize('S', this)">S</button>
-          <button class="size-chip" data-size="M" onclick="filterBySize('M', this)">M</button>
-          <button class="size-chip" data-size="L" onclick="filterBySize('L', this)">L</button>
-          <button class="size-chip" data-size="XL" onclick="filterBySize('XL', this)">XL</button>
-          <button class="size-chip" data-size="41" onclick="filterBySize('41', this)">EU 41</button>
-          <button class="size-chip" data-size="42" onclick="filterBySize('42', this)">EU 42</button>
-          <button class="size-chip" data-size="43" onclick="filterBySize('43', this)">EU 43</button>
-          <button class="size-chip" data-size="44" onclick="filterBySize('44', this)">EU 44</button>
-        </div>
-      </div>
-
-      <!-- Availability / Badges -->
-      <div class="filter-group">
-        <h4 class="filter-group-title">Edition Type</h4>
-        <div class="filter-options-list">
-          <label class="filter-checkbox-item">
-            <input type="checkbox" id="checkSignature" onchange="toggleEditionFilter('Signature', this.checked)">
-            <span>Signature Edition</span>
-          </label>
-          <label class="filter-checkbox-item">
-            <input type="checkbox" id="checkLimited" onchange="toggleEditionFilter('Limited', this.checked)">
-            <span>Limited Drop</span>
-          </label>
-        </div>
-      </div>
-
-    </aside>
-
-    <!-- Right Product Showcase Grid Area -->
-    <section class="ecom-catalog-area">
-      
-      <!-- Catalog Control Bar -->
-      <div class="catalog-control-bar">
+      <!-- Filter Chips & Triggers -->
+      <div class="filter-chips-cluster">
         
-        <div class="catalog-results-info">
-          <span id="catalogCountText">Showing 20 products</span>
+        <!-- Filter Drawer Button -->
+        <button class="filter-toggle-btn" onclick="openFilterDrawer()">
+          <i data-lucide="sliders-horizontal"></i>
+          <span>Filters</span>
+          <span class="active-filter-dot" id="filterActiveDot" style="display:none;"></span>
+        </button>
+
+        <!-- Quick Filter Pills -->
+        <div class="quick-pill-row">
+          <button class="quick-pill active" onclick="setQuickTag('all', this)">All</button>
+          <button class="quick-pill" onclick="setQuickTag('Signature Drop', this)">Signature Drops</button>
+          <button class="quick-pill" onclick="setQuickTag('Bestseller', this)">Bestsellers</button>
+          <button class="quick-pill" onclick="setQuickTag('Limited Edition', this)">Limited Edition</button>
+          <button class="quick-pill" onclick="setQuickTag('New Drop', this)">New Drops</button>
         </div>
 
-        <div class="catalog-sorting-tools">
-          <label for="sortSelector">Sort By:</label>
-          <select id="sortSelector" onchange="handleSort(event)">
-            <option value="featured">Featured / New Releases</option>
+      </div>
+
+      <!-- Sorting & Grid Switcher -->
+      <div class="sort-and-view-tools">
+        
+        <div class="sort-dropdown-wrap">
+          <select id="sortSelect" onchange="handleSortChange(event)">
+            <option value="featured">Featured / Curated</option>
             <option value="price-asc">Price: Low to High</option>
             <option value="price-desc">Price: High to Low</option>
-            <option value="name-asc">Alphabetical (A - Z)</option>
+            <option value="name-asc">Name: A to Z</option>
           </select>
         </div>
 
+        <div class="grid-layout-toggles">
+          <button class="view-toggle-btn" data-cols="2" onclick="setGridColumns(2, this)" title="2 Columns">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="18" rx="1"/><rect x="14" y="3" width="7" height="18" rx="1"/></svg>
+          </button>
+          <button class="view-toggle-btn active" data-cols="4" onclick="setGridColumns(4, this)" title="4 Columns">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="4" height="18" rx="1"/><rect x="8" y="3" width="4" height="18" rx="1"/><rect x="14" y="3" width="4" height="18" rx="1"/><rect x="20" y="3" width="4" height="18" rx="1"/></svg>
+          </button>
+        </div>
+
       </div>
 
-      <!-- Big 4-Column Responsive Products Grid -->
-      <div class="big-products-grid" id="productsGrid">
-        <!-- Products Injected Dynamically via JS -->
+    </div>
+  </section>
+
+  <!-- Main Product Grid Container -->
+  <main class="store-main-content">
+    <div class="store-grid-container">
+      
+      <!-- Live Product Grid -->
+      <div class="products-grid-feed cols-4" id="productsFeed">
+        <!-- Products Injected Dynamically -->
       </div>
 
-    </section>
-
+    </div>
   </main>
 
-  <!-- Quick View Product Detail Modal -->
-  <div class="modal-overlay" id="quickViewOverlay" onclick="closeQuickView()"></div>
-  <div class="quick-view-modal" id="quickViewModal">
-    <button class="modal-close-btn" onclick="closeQuickView()" aria-label="Close modal">
-      <i data-lucide="x"></i>
-    </button>
-    <div class="modal-body" id="modalProductContent">
-      <!-- Injected dynamically -->
+  <!-- Slide-Out Filter Drawer -->
+  <div class="drawer-backdrop" id="filterBackdrop" onclick="closeFilterDrawer()"></div>
+  <aside class="slide-drawer filter-drawer" id="filterDrawer">
+    <div class="drawer-head">
+      <h3>Filter Collection</h3>
+      <button class="drawer-close-btn" onclick="closeFilterDrawer()"><i data-lucide="x"></i></button>
+    </div>
+    
+    <div class="drawer-body">
+      
+      <!-- Department Selector -->
+      <div class="filter-section">
+        <h4>Department</h4>
+        <div class="filter-radio-list">
+          <label class="custom-radio">
+            <input type="radio" name="drawer_dept" value="all" checked onchange="handleDrawerDeptChange('all')">
+            <span>All Departments</span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="drawer_dept" value="shoes" onchange="handleDrawerDeptChange('shoes')">
+            <span>Footwear & Sneakers</span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="drawer_dept" value="tops" onchange="handleDrawerDeptChange('tops')">
+            <span>Hoodies, Tops & Knits</span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="drawer_dept" value="bottoms" onchange="handleDrawerDeptChange('bottoms')">
+            <span>Pants, Denim & Cargo</span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="drawer_dept" value="outerwear" onchange="handleDrawerDeptChange('outerwear')">
+            <span>Jackets & Outerwear</span>
+          </label>
+          <label class="custom-radio">
+            <input type="radio" name="drawer_dept" value="accessories" onchange="handleDrawerDeptChange('accessories')">
+            <span>Accessories & Leather</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Price Range -->
+      <div class="filter-section">
+        <h4>Maximum Price: <span id="drawerPriceLabel">$600</span></h4>
+        <input type="range" class="modern-slider" id="drawerPriceSlider" min="50" max="600" step="10" value="600" oninput="handleDrawerPrice(event)">
+        <div class="slider-bounds">
+          <span>$50</span>
+          <span>$600</span>
+        </div>
+      </div>
+
+      <!-- Size Filter -->
+      <div class="filter-section">
+        <h4>Size</h4>
+        <div class="size-pill-grid" id="drawerSizePills">
+          <button class="size-btn active" onclick="setDrawerSize('all', this)">All</button>
+          <button class="size-btn" onclick="setDrawerSize('S', this)">S</button>
+          <button class="size-btn" onclick="setDrawerSize('M', this)">M</button>
+          <button class="size-btn" onclick="setDrawerSize('L', this)">L</button>
+          <button class="size-btn" onclick="setDrawerSize('XL', this)">XL</button>
+          <button class="size-btn" onclick="setDrawerSize('41', this)">EU 41</button>
+          <button class="size-btn" onclick="setDrawerSize('42', this)">EU 42</button>
+          <button class="size-btn" onclick="setDrawerSize('43', this)">EU 43</button>
+          <button class="size-btn" onclick="setDrawerSize('44', this)">EU 44</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="drawer-footer">
+      <button class="btn btn-outline" onclick="resetFilters()">Reset All</button>
+      <button class="btn btn-dark" onclick="closeFilterDrawer()">Apply Filters</button>
+    </div>
+  </aside>
+
+  <!-- Modern Quick-View Product Modal -->
+  <div class="modal-backdrop" id="quickViewBackdrop" onclick="closeQuickView()"></div>
+  <div class="quick-modal-card" id="quickModalCard">
+    <button class="modal-close-icon" onclick="closeQuickView()"><i data-lucide="x"></i></button>
+    <div class="quick-modal-body" id="quickModalBody">
+      <!-- Injected via JavaScript -->
     </div>
   </div>
 
   <!-- Slide-Out Shopping Bag Drawer -->
-  <div class="cart-overlay" id="cartOverlay" onclick="toggleCartDrawer()"></div>
-  <aside class="cart-drawer" id="cartDrawer">
-    <div class="cart-header">
-      <div class="cart-title-wrap">
+  <div class="drawer-backdrop" id="cartBackdrop" onclick="closeCartDrawer()"></div>
+  <aside class="slide-drawer cart-drawer" id="cartDrawer">
+    <div class="drawer-head">
+      <div class="cart-head-title">
         <i data-lucide="shopping-bag"></i>
-        <h3>Your Shopping Bag</h3>
-        <span class="cart-item-count" id="cartTotalItemsText">(0 items)</span>
+        <h3>Shopping Bag</h3>
+        <span class="cart-count-txt" id="cartTotalItemsText">(0)</span>
       </div>
-      <button class="close-btn" onclick="toggleCartDrawer()" aria-label="Close cart"><i data-lucide="x"></i></button>
+      <button class="drawer-close-btn" onclick="closeCartDrawer()"><i data-lucide="x"></i></button>
     </div>
 
-    <!-- Free Shipping Progress -->
-    <div class="shipping-progress-box">
-      <p id="shippingProgressText">Add $150 for Free Worldwide Shipping</p>
-      <div class="shipping-bar-track">
-        <div class="shipping-bar-fill" id="shippingBarFill" style="width: 0%;"></div>
+    <!-- Free Shipping Milestone Progress -->
+    <div class="shipping-milestone-wrap">
+      <div class="milestone-text-row">
+        <span id="shippingMilestoneText">Add $150 for Free Worldwide Shipping</span>
+        <span class="milestone-icon">✈</span>
+      </div>
+      <div class="milestone-track">
+        <div class="milestone-fill" id="shippingMilestoneFill" style="width: 0%;"></div>
       </div>
     </div>
 
-    <!-- Cart Items List -->
-    <div class="cart-items-container" id="cartItemsList">
-      <!-- Injected via JavaScript -->
+    <!-- Cart Items Feed -->
+    <div class="cart-items-feed" id="cartItemsFeed">
+      <!-- Cart items injected via JS -->
     </div>
 
     <!-- Cart Footer & Checkout -->
-    <div class="cart-footer">
-      <div class="promo-box">
-        <input type="text" id="promoInput" placeholder="Discount Code (e.g. SITARA15)">
-        <button type="button" onclick="applyPromoCode()">Apply</button>
+    <div class="cart-drawer-footer">
+      <div class="promo-input-row">
+        <input type="text" id="cartPromoInput" placeholder="Discount Code (e.g. SITARA15)">
+        <button type="button" class="promo-apply-btn" onclick="applyPromo()">Apply</button>
       </div>
 
-      <div class="cart-summary">
-        <div class="summary-row">
+      <div class="cart-math-summary">
+        <div class="math-row">
           <span>Subtotal</span>
-          <span id="cartSubtotalPrice">$0.00</span>
+          <span id="mathSubtotal">$0.00</span>
         </div>
-        <div class="summary-row discount-row" id="discountRow" style="display: none;">
+        <div class="math-row discount-row" id="mathDiscountRow" style="display:none;">
           <span>Promo Discount (15%)</span>
-          <span id="cartDiscountPrice">-$0.00</span>
+          <span id="mathDiscount">-$0.00</span>
         </div>
-        <div class="summary-row">
+        <div class="math-row">
           <span>Estimated Shipping</span>
-          <span id="cartShippingPrice">$15.00</span>
+          <span id="mathShipping">$15.00</span>
         </div>
-        <div class="summary-row total-row">
-          <span>Total</span>
-          <span id="cartTotalPrice">$0.00</span>
+        <div class="math-row total-math-row">
+          <span>Total (USD)</span>
+          <span id="mathTotal">$0.00</span>
         </div>
       </div>
 
-      <div class="checkout-actions">
-        <button class="btn btn-gold btn-block" onclick="handleCheckout('stripe')">
-          <i data-lucide="lock"></i> Proceed to Secure Checkout
+      <div class="cart-checkout-btns">
+        <button class="btn btn-dark btn-block checkout-primary-btn" onclick="triggerCheckout('card')">
+          <span>Proceed to Checkout</span>
+          <i data-lucide="arrow-right"></i>
         </button>
-        <button class="btn btn-outline btn-block btn-whatsapp" onclick="handleCheckout('whatsapp')">
-          <i data-lucide="message-circle"></i> Quick Order via WhatsApp
+        <button class="btn btn-whatsapp btn-block" onclick="triggerCheckout('whatsapp')">
+          <i data-lucide="message-circle"></i>
+          <span>Order via WhatsApp</span>
         </button>
       </div>
-      <p class="secure-checkout-notice">🔒 256-Bit SSL Encrypted Bank-Grade Checkout</p>
+      <div class="payment-trust-strip">
+        <span>🔒 256-Bit SSL Encrypted Checkout</span>
+        <span>•</span>
+        <span>Worldwide Delivery</span>
+      </div>
     </div>
   </aside>
 
-  <!-- Big E-Commerce Luxury Footer -->
-  <footer class="big-ecom-footer">
-    <div class="footer-container">
-      
-      <div class="footer-grid">
-        <div class="footer-col brand-col">
-          <div class="footer-brand">
-            <img src="/assets/ns%20logo.jpg" alt="NS Logo" class="brand-monogram">
-            <span class="brand-main">NEW SITARA</span>
+  <!-- Modern Luxury Footer -->
+  <footer class="modern-footer">
+    <div class="footer-inner">
+      <div class="footer-top-grid">
+        
+        <div class="footer-brand-pane">
+          <div class="footer-logo">
+            <img src="/assets/ns%20logo.jpg" alt="NS" class="brand-logo-img">
+            <span class="footer-brand-title">NEW SITARA</span>
           </div>
-          <p class="footer-desc">
-            New Sitara Interprizes is a luxury lifestyle & apparel department store engineered with artisanal craftsmanship, heavyweight textiles, and contemporary silhouettes.
+          <p class="footer-mission">
+            New Sitara Interprizes represents modern architectural tailoring, elevated streetwear, and uncompromising artisanal craftsmanship.
           </p>
-          <div class="footer-socials">
+          <div class="footer-social-strip">
             <a href="#instagram" title="Instagram" onclick="showToast('Instagram: @newsitara')"><i data-lucide="instagram"></i></a>
             <a href="#facebook" title="Facebook" onclick="showToast('Facebook: New Sitara')"><i data-lucide="facebook"></i></a>
             <a href="#twitter" title="Twitter" onclick="showToast('Twitter: @newsitara')"><i data-lucide="twitter"></i></a>
           </div>
         </div>
 
-        <div class="footer-col">
-          <h4>DEPARTMENTS</h4>
-          <a href="#" onclick="filterDepartment('shoes')">Footwear & Sneakers</a>
-          <a href="#" onclick="filterDepartment('tops')">Hoodies & Sweats</a>
-          <a href="#" onclick="filterDepartment('bottoms')">Trousers & Denim</a>
-          <a href="#" onclick="filterDepartment('outerwear')">Jackets & Coats</a>
-          <a href="#" onclick="filterDepartment('accessories')">Leather & Accessories</a>
+        <div class="footer-links-pane">
+          <h5>DEPARTMENTS</h5>
+          <a href="#" onclick="selectDepartment('shoes')">Footwear & Sneakers</a>
+          <a href="#" onclick="selectDepartment('tops')">Hoodies & Knits</a>
+          <a href="#" onclick="selectDepartment('bottoms')">Pants & Denim</a>
+          <a href="#" onclick="selectDepartment('outerwear')">Jackets & Coats</a>
+          <a href="#" onclick="selectDepartment('accessories')">Accessories & Leather</a>
         </div>
 
-        <div class="footer-col">
-          <h4>CLIENT CONCIERGE</h4>
+        <div class="footer-links-pane">
+          <h5>CLIENT ASSISTANCE</h5>
           <a href="mailto:concierge@newsitara.com"><i data-lucide="mail"></i> concierge@newsitara.com</a>
-          <a href="#shipping" onclick="showToast('Worldwide Express shipping via DHL/FedEx')"><i data-lucide="truck"></i> Worldwide Delivery</a>
-          <a href="#returns" onclick="showToast('14-day return window on all unworn items')"><i data-lucide="refresh-cw"></i> 14-Day Returns</a>
-          <a href="#size-guide" onclick="showToast('All garments cut in tailored relaxed proportions')"><i data-lucide="help-circle"></i> Sizing & Fit Guide</a>
+          <a href="#shipping" onclick="showToast('Express worldwide shipping via DHL/FedEx')"><i data-lucide="truck"></i> Shipping & Delivery</a>
+          <a href="#returns" onclick="showToast('14-day return window on all unworn items')"><i data-lucide="refresh-cw"></i> Returns & Exchanges</a>
+          <a href="#auth" onclick="showToast('Each piece includes verified certificate of origin')"><i data-lucide="shield-check"></i> Authenticity Guarantee</a>
         </div>
 
-        <div class="footer-col newsletter-col">
-          <h4>JOIN THE INNER CIRCLE</h4>
-          <p>Receive private drop notifications and 1-hour early access to archival releases.</p>
-          <form class="footer-newsletter-form" onsubmit="return handleNewsletter(event)">
-            <input type="email" id="footerEmail" placeholder="Enter your email" required autocomplete="email">
-            <button type="submit" class="btn btn-gold">Join</button>
+        <div class="footer-newsletter-pane">
+          <h5>THE INNER CIRCLE</h5>
+          <p>Join for private archival release access and VIP drop invitations.</p>
+          <form class="newsletter-sub-form" onsubmit="return handleNewsletter(event)">
+            <input type="email" id="newsInput" placeholder="Enter your email" required autocomplete="email">
+            <button type="submit">Join ↗</button>
           </form>
-          <div class="footer-tagline">
+          <div class="coming-soon-backlink">
             <a href="/">← Return to Coming Soon Screen</a>
           </div>
         </div>
+
       </div>
 
-      <div class="footer-bottom-row">
+      <div class="footer-bottom-bar">
         <p>© 2026 New Sitara Interprizes. All rights reserved.</p>
-        <div class="payment-badges">
+        <div class="footer-pay-methods">
           <span>VISA</span>
           <span>MASTERCARD</span>
           <span>AMEX</span>
           <span>APPLE PAY</span>
           <span>STRIPE</span>
-          <span>CASH ON DELIVERY</span>
         </div>
       </div>
-
     </div>
   </footer>
 
-  <!-- Toast Notification System -->
-  <div class="toast-container" id="toastContainer"></div>
+  <!-- Toast Notification -->
+  <div class="toast-hub" id="toastHub"></div>
 
   <script src="/store.js"></script>
 </body>

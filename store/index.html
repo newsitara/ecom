@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Sitara Interprizes — Inaugural Collection SS26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/store.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Top Glassmorphic Master Header -->
+  <header class="boutique-header">
+    <div class="header-inner">
+      
+      <!-- Brand Monogram -->
+      <a href="/store" class="brand-unit">
+        <img src="/assets/ns%20logo.jpg" alt="NS Logo" class="brand-monogram">
+        <div class="brand-title-wrap">
+          <span class="brand-main">NEW SITARA</span>
+          <span class="brand-sub">INTERPRIZES • SS26</span>
+        </div>
+      </a>
+
+      <!-- Category Filter Pills Bar (All in 1 Header) -->
+      <nav class="category-nav">
+        <button class="cat-pill active" data-category="all" onclick="setBoutiqueCategory('all', this)">All Pieces (<span id="totalCount">8</span>)</button>
+        <button class="cat-pill" data-category="outerwear" onclick="setBoutiqueCategory('outerwear', this)">Outerwear</button>
+        <button class="cat-pill" data-category="tops" onclick="setBoutiqueCategory('tops', this)">Tops & Hoodies</button>
+        <button class="cat-pill" data-category="bottoms" onclick="setBoutiqueCategory('bottoms', this)">Bottoms</button>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="header-right-tools">
+        
+        <!-- Live Filter / Search Input -->
+        <div class="inline-search">
+          <i data-lucide="search"></i>
+          <input type="text" id="storeSearchInput" placeholder="Quick find..." oninput="handleBoutiqueSearch(event)" autocomplete="off">
+        </div>
+
+        <!-- Sort Select -->
+        <div class="inline-sort">
+          <select id="boutiqueSort" onchange="handleBoutiqueSort(event)">
+            <option value="featured">Featured</option>
+            <option value="price-asc">Price: Low - High</option>
+            <option value="price-desc">Price: High - Low</option>
+          </select>
+        </div>
+
+        <!-- Shopping Bag Trigger -->
+        <button class="bag-trigger-btn" onclick="toggleCartDrawer()">
+          <i data-lucide="shopping-bag"></i>
+          <span class="bag-label">BAG</span>
+          <span class="bag-counter" id="cartCountBadge">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Unified 1-Page Master-Detail Stage -->
+  <main class="boutique-master-stage">
+    
+    <!-- Left Column: Sticky Featured Spotlight Stage -->
+    <section class="stage-spotlight" id="spotlightStage">
+      <div class="spotlight-media-box">
+        <span class="spotlight-tag" id="spotlightTag">SIGNATURE DROP</span>
+        <img src="https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1000&auto=format&fit=crop" alt="Featured Garment" class="spotlight-image" id="spotlightImg">
+        <div class="spotlight-gallery-thumbs" id="spotlightThumbStrip">
+          <!-- Thumbnails injected via JS -->
+        </div>
+      </div>
+
+      <div class="spotlight-details-box">
+        <div class="spotlight-header-row">
+          <div>
+            <span class="spotlight-category" id="spotlightCategory">OUTERWEAR</span>
+            <h2 class="spotlight-title" id="spotlightTitle">Atelier Double-Breasted Trench</h2>
+          </div>
+          <div class="spotlight-price" id="spotlightPrice">$340.00</div>
+        </div>
+
+        <p class="spotlight-desc" id="spotlightDesc">
+          Crafted from Italian storm-resistant gabardine with structured drop shoulders and custom engraved New Sitara gold horn buttons.
+        </p>
+
+        <div class="spotlight-specs-card" id="spotlightSpecs">
+          <span>✦ Fabric: 100% Water-repellent Cotton Gabardine</span>
+          <span>✦ Cupro Silk Lining • Made in Portugal</span>
+        </div>
+
+        <!-- Interactive Size Selector & Add to Bag -->
+        <div class="spotlight-action-row">
+          <div class="spotlight-sizes" id="spotlightSizeGroup">
+            <!-- Injected via JS -->
+          </div>
+          <button class="btn btn-gold spotlight-buy-btn" id="spotlightAddBtn" onclick="addCurrentSpotlightToCart()">
+            Add to Bag — <span id="spotlightBtnPrice">$340.00</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Column: Interactive Product Collection Stream -->
+    <section class="stage-collection">
+      <div class="collection-header-row">
+        <h3 class="collection-heading">SS26 Inaugural Release</h3>
+        <span class="items-found-label" id="resultsCount">Showing 8 of 8 items</span>
+      </div>
+
+      <div class="boutique-products-grid" id="boutiqueGrid">
+        <!-- Injected via JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Boutique Footer Bar -->
+  <footer class="boutique-bottom-bar">
+    <div class="bottom-bar-inner">
+      <div class="bottom-left">
+        <span>© 2026 NEW SITARA INTERPRIZES</span>
+        <span class="dot-sep">•</span>
+        <span>FREE WORLDWIDE SHIPPING OVER $150</span>
+      </div>
+      <div class="bottom-center">
+        <span>PROMO CODE: <strong>SITARA15</strong> FOR 15% OFF</span>
+      </div>
+      <div class="bottom-right">
+        <a href="mailto:concierge@newsitara.com"><i data-lucide="mail"></i> concierge@newsitara.com</a>
+        <span class="dot-sep">•</span>
+        <a href="index.html">Coming Soon Page ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-Out Shopping Bag Drawer -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCartDrawer()"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <div class="cart-title-wrap">
+        <i data-lucide="shopping-bag"></i>
+        <h3>Your Shopping Bag</h3>
+        <span class="cart-item-count" id="cartTotalItemsText">(0 items)</span>
+      </div>
+      <button class="close-btn" onclick="toggleCartDrawer()" aria-label="Close cart"><i data-lucide="x"></i></button>
+    </div>
+
+    <!-- Free Shipping Progress -->
+    <div class="shipping-progress-box">
+      <p id="shippingProgressText">Add $150 for Free Worldwide Shipping</p>
+      <div class="shipping-bar-track">
+        <div class="shipping-bar-fill" id="shippingBarFill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items List -->
+    <div class="cart-items-container" id="cartItemsList">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Cart Footer & Checkout -->
+    <div class="cart-footer">
+      <div class="promo-box">
+        <input type="text" id="promoInput" placeholder="Discount Code (e.g. SITARA15)">
+        <button type="button" onclick="applyPromoCode()">Apply</button>
+      </div>
+
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotalPrice">$0.00</span>
+        </div>
+        <div class="summary-row discount-row" id="discountRow" style="display: none;">
+          <span>Promo Discount (15%)</span>
+          <span id="cartDiscountPrice">-$0.00</span>
+        </div>
+        <div class="summary-row">
+          <span>Estimated Shipping</span>
+          <span id="cartShippingPrice">$15.00</span>
+        </div>
+        <div class="summary-row total-row">
+          <span>Total</span>
+          <span id="cartTotalPrice">$0.00</span>
+        </div>
+      </div>
+
+      <div class="checkout-actions">
+        <button class="btn btn-gold btn-block" onclick="handleCheckout('stripe')">
+          <i data-lucide="lock"></i> Proceed to Checkout
+        </button>
+        <button class="btn btn-outline btn-block btn-whatsapp" onclick="handleCheckout('whatsapp')">
+          <i data-lucide="message-circle"></i> Quick Order via WhatsApp
+        </button>
+      </div>
+      <p class="secure-checkout-notice">🔒 256-Bit SSL Encrypted Bank-Grade Checkout</p>
+    </div>
+  </aside>
+
+  <!-- Toast Notification System -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="/store.js"></script>
+</body>
+</html>

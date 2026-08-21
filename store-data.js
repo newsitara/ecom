@@ -434,48 +434,21 @@ const DEFAULT_PRODUCTS = [
   }
 ];
 
-const DEFAULT_ORDERS = [
-  {
-    id: 'ORD-9842',
-    date: '2026-08-21',
-    customer: 'Alexander Wright',
-    email: 'a.wright@gmail.com',
-    items: [
-      { name: 'Studio Boxy Heavyweight Tee', size: 'L', qty: 2, price: 85 },
-      { name: '14oz Okayama Japanese Selvedge Denim', size: '32', qty: 1, price: 240 }
-    ],
-    total: 410,
-    status: 'Processing',
-    paymentMethod: 'Stripe Card'
-  },
-  {
-    id: 'ORD-9841',
-    date: '2026-08-20',
-    customer: 'Marcus Vance',
-    email: 'marcus.v@outlook.com',
-    items: [
-      { name: '520GSM Loopback Heavyweight Hoodie', size: 'XL', qty: 1, price: 185 },
-      { name: 'Minimal Italian Leather Low-Top Sneaker', size: '43', qty: 1, price: 220 }
-    ],
-    total: 405,
-    status: 'Delivered',
-    paymentMethod: 'WhatsApp Express'
-  }
-];
+// Clean Zero-State: Orders start empty until real customers place them!
+const DEFAULT_ORDERS = [];
 
+// Clean Zero-State: Official Promo starts with 0 usage!
 const DEFAULT_PROMOS = [
-  { code: 'SITARA15', discount: 15, active: true, usageCount: 42 },
-  { code: 'VIP20', discount: 20, active: true, usageCount: 18 },
-  { code: 'LAUNCH10', discount: 10, active: true, usageCount: 89 }
+  { code: 'SITARA15', discount: 15, active: true, usageCount: 0 }
 ];
 
 // Data Layer Service API
 const DataStore = {
   // --- CATEGORIES ---
   getCategories() {
-    const raw = localStorage.getItem('sitara_categories');
+    const raw = localStorage.getItem('sitara_categories_v2');
     if (!raw) {
-      localStorage.setItem('sitara_categories', JSON.stringify(DEFAULT_CATEGORIES));
+      localStorage.setItem('sitara_categories_v2', JSON.stringify(DEFAULT_CATEGORIES));
       return DEFAULT_CATEGORIES;
     }
     try {
@@ -494,22 +467,22 @@ const DataStore = {
       cat.id = cat.id || 'cat-' + Date.now();
       cats.push(cat);
     }
-    localStorage.setItem('sitara_categories', JSON.stringify(cats));
+    localStorage.setItem('sitara_categories_v2', JSON.stringify(cats));
     return cats;
   },
 
   deleteCategory(catId) {
     let cats = this.getCategories();
     cats = cats.filter((c) => c.id !== catId);
-    localStorage.setItem('sitara_categories', JSON.stringify(cats));
+    localStorage.setItem('sitara_categories_v2', JSON.stringify(cats));
     return cats;
   },
 
   // --- PRODUCTS ---
   getProducts() {
-    const raw = localStorage.getItem('sitara_products');
+    const raw = localStorage.getItem('sitara_products_v2');
     if (!raw) {
-      localStorage.setItem('sitara_products', JSON.stringify(DEFAULT_PRODUCTS));
+      localStorage.setItem('sitara_products_v2', JSON.stringify(DEFAULT_PRODUCTS));
       return DEFAULT_PRODUCTS;
     }
     try {
@@ -528,22 +501,22 @@ const DataStore = {
       prod.id = prod.id || 'ns-prod-' + Date.now();
       prods.unshift(prod);
     }
-    localStorage.setItem('sitara_products', JSON.stringify(prods));
+    localStorage.setItem('sitara_products_v2', JSON.stringify(prods));
     return prods;
   },
 
   deleteProduct(prodId) {
     let prods = this.getProducts();
     prods = prods.filter((p) => p.id !== prodId);
-    localStorage.setItem('sitara_products', JSON.stringify(prods));
+    localStorage.setItem('sitara_products_v2', JSON.stringify(prods));
     return prods;
   },
 
-  // --- ORDERS ---
+  // --- ORDERS (Clean Real Zero-State) ---
   getOrders() {
-    const raw = localStorage.getItem('sitara_orders');
+    const raw = localStorage.getItem('sitara_orders_v2');
     if (!raw) {
-      localStorage.setItem('sitara_orders', JSON.stringify(DEFAULT_ORDERS));
+      localStorage.setItem('sitara_orders_v2', JSON.stringify(DEFAULT_ORDERS));
       return DEFAULT_ORDERS;
     }
     try {
@@ -558,7 +531,7 @@ const DataStore = {
     order.id = 'ORD-' + Math.floor(1000 + Math.random() * 9000);
     order.date = new Date().toISOString().split('T')[0];
     orders.unshift(order);
-    localStorage.setItem('sitara_orders', JSON.stringify(orders));
+    localStorage.setItem('sitara_orders_v2', JSON.stringify(orders));
     return order;
   },
 
@@ -567,16 +540,16 @@ const DataStore = {
     const ord = orders.find((o) => o.id === orderId);
     if (ord) {
       ord.status = status;
-      localStorage.setItem('sitara_orders', JSON.stringify(orders));
+      localStorage.setItem('sitara_orders_v2', JSON.stringify(orders));
     }
     return orders;
   },
 
-  // --- PROMOS ---
+  // --- PROMOS (Clean Real Zero-State) ---
   getPromos() {
-    const raw = localStorage.getItem('sitara_promos');
+    const raw = localStorage.getItem('sitara_promos_v2');
     if (!raw) {
-      localStorage.setItem('sitara_promos', JSON.stringify(DEFAULT_PROMOS));
+      localStorage.setItem('sitara_promos_v2', JSON.stringify(DEFAULT_PROMOS));
       return DEFAULT_PROMOS;
     }
     try {
@@ -594,23 +567,23 @@ const DataStore = {
     } else {
       promos.unshift(promo);
     }
-    localStorage.setItem('sitara_promos', JSON.stringify(promos));
+    localStorage.setItem('sitara_promos_v2', JSON.stringify(promos));
     return promos;
   },
 
   deletePromo(code) {
     let promos = this.getPromos();
     promos = promos.filter((p) => p.code.toUpperCase() !== code.toUpperCase());
-    localStorage.setItem('sitara_promos', JSON.stringify(promos));
+    localStorage.setItem('sitara_promos_v2', JSON.stringify(promos));
     return promos;
   },
 
   // --- SYSTEM RESET ---
   resetAllDefaults() {
-    localStorage.setItem('sitara_categories', JSON.stringify(DEFAULT_CATEGORIES));
-    localStorage.setItem('sitara_products', JSON.stringify(DEFAULT_PRODUCTS));
-    localStorage.setItem('sitara_orders', JSON.stringify(DEFAULT_ORDERS));
-    localStorage.setItem('sitara_promos', JSON.stringify(DEFAULT_PROMOS));
+    localStorage.setItem('sitara_categories_v2', JSON.stringify(DEFAULT_CATEGORIES));
+    localStorage.setItem('sitara_products_v2', JSON.stringify(DEFAULT_PRODUCTS));
+    localStorage.setItem('sitara_orders_v2', JSON.stringify(DEFAULT_ORDERS));
+    localStorage.setItem('sitara_promos_v2', JSON.stringify(DEFAULT_PROMOS));
   }
 };
 

@@ -1,5 +1,5 @@
 // ==========================================================================
-// NEW SITARA — STOREFRONT INTERACTIVE ENGINE
+// NEW SITARA — STOREFRONT & CHECKOUT ENGINE
 // ==========================================================================
 
 let activeCategory = 'all';
@@ -9,6 +9,7 @@ let cartItems = JSON.parse(localStorage.getItem('sitara_cart') || '[]');
 let activePromoDiscount = 0;
 let modalActiveProduct = null;
 let modalSelectedSize = '';
+let lastPlacedOrder = null;
 
 document.addEventListener('DOMContentLoaded', () => {
   initStore();
@@ -305,7 +306,7 @@ function toggleMobileMenu(open) {
 }
 
 // ==========================================================================
-// 3. PRODUCT DETAIL MODAL (BOTTOM SHEET ON MOBILE)
+// 3. PRODUCT DETAIL MODAL
 // ==========================================================================
 function openProductModal(productId) {
   const products = DataStore.getProducts();
@@ -414,7 +415,7 @@ function closeProductModal() {
 }
 
 // ==========================================================================
-// 4. SHOPPING BAG ENGINE & ORDER SYNCHRONIZATION
+// 4. SHOPPING BAG ENGINE
 // ==========================================================================
 function addItemToBag(productId, size) {
   const products = DataStore.getProducts();
@@ -609,9 +610,75 @@ function toggleCartDrawer(open) {
   }
 }
 
-function executeCheckout(method) {
+// ==========================================================================
+// 5. FULL CHECKOUT FLOW & TRACKING GENERATION
+// ==========================================================================
+function openCheckoutModal() {
   if (cartItems.length === 0) {
     showToast('Your shopping bag is empty.');
+    return;
+  }
+
+  toggleCartDrawer(false);
+
+  // Render mini items
+  const miniList = document.getElementById('chkItemsList');
+  if (miniList) {
+    miniList.innerHTML = cartItems
+      .map(
+        (i) => `
+      <div class="chk-item-row">
+        <img src="${i.image}" alt="${i.name}" class="chk-item-img">
+        <div class="chk-item-details">
+          <div class="chk-item-title">${i.name}</div>
+          <div class="chk-item-meta">Size: ${i.size} • Qty: ${i.qty}</div>
+        </div>
+        <div class="chk-item-price">$${i.price * i.qty}.00</div>
+      </div>
+    `
+      )
+      .join('');
+  }
+
+  // Calculate totals
+  const subtotal = cartItems.reduce((sum, i) => sum + i.price * i.qty, 0);
+  const discountAmount = subtotal * activePromoDiscount;
+  const isFree = subtotal >= 150;
+  const shipping = isFree ? 0 : 15;
+  const grandTotal = Math.max(0, subtotal - discountAmount + shipping);
+
+  document.getElementById('chkSubtotalVal').textContent = `$${subtotal.toFixed(2)}`;
+  
+  const discRow = document.getElementById('chkDiscountRow');
+  const discVal = document.getElementById('chkDiscountVal');
+  if (activePromoDiscount > 0) {
+    discRow.style.display = 'flex';
+    discVal.textContent = `-$${discountAmount.toFixed(2)}`;
+  } else {
+    discRow.style.display = 'none';
+  }
+
+  document.getElementById('chkShippingVal').textContent = shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)}`;
+  document.getElementById('chkTotalVal').textContent = `$${grandTotal.toFixed(2)} USD`;
+
+  document.getElementById('checkoutModal').classList.add('open');
+  document.getElementById('checkoutBackdrop').classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function closeCheckoutModal() {
+  document.getElementById('checkoutModal').classList.remove('open');
+  document.getElementById('checkoutBackdrop').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handlePlaceOrder(e) {
+  e.preventDefault();
+
+  if (cartItems.length === 0) {
+    showToast('Your bag is empty.');
     return;
   }
 
@@ -619,37 +686,82 @@ function executeCheckout(method) {
   const discountAmount = subtotal * activePromoDiscount;
   const isFree = subtotal >= 150;
   const shipping = isFree ? 0 : 15;
-  const grandTotal = Math.max(0, subtotal - discountAmount + shipping);
+  const grandTotal = Math.round(Math.max(0, subtotal - discountAmount + shipping));
 
-  // Automatically record order in DataStore for Admin
-  const orderRecord = {
-    customer: 'VIP Online Client',
-    email: 'client@newsitara.com',
-    items: cartItems.map((i) => ({ name: i.name, size: i.size, qty: i.qty, price: i.price })),
-    total: Math.round(grandTotal),
-    status: 'Pending',
-    paymentMethod: method === 'whatsapp' ? 'WhatsApp Express' : 'Stripe Card'
+  const selectedPayEl = document.querySelector('input[name="payMethod"]:checked');
+  const paymentMethod = selectedPayEl ? selectedPayEl.value : 'Stripe Card';
+
+  const orderData = {
+    fullName: document.getElementById('chkFullName').value.trim(),
+    email: document.getElementById('chkEmail').value.trim(),
+    phone: document.getElementById('chkPhone').value.trim(),
+    street: document.getElementById('chkStreet').value.trim(),
+    apartment: document.getElementById('chkApartment').value.trim(),
+    city: document.getElementById('chkCity').value.trim(),
+    state: document.getElementById('chkState').value.trim(),
+    postalCode: document.getElementById('chkPostal').value.trim(),
+    country: document.getElementById('chkCountry').value,
+    items: [...cartItems],
+    subtotal: subtotal,
+    discount: discountAmount,
+    shipping: shipping,
+    total: grandTotal,
+    paymentMethod: paymentMethod
   };
 
-  DataStore.addOrder(orderRecord);
+  // Submit order to DataStore (Generates unique Tracking ID)
+  const createdOrder = DataStore.addOrder(orderData);
+  lastPlacedOrder = createdOrder;
 
-  if (method === 'whatsapp') {
-    const lines = cartItems.map((i) => `• ${i.name} (Size: ${i.size}, Qty: ${i.qty}) - $${i.price * i.qty}`).join('%0A');
-    const msg = `Hello New Sitara Concierge! I want to order:%0A%0A${lines}%0A%0ATotal: $${grandTotal.toFixed(2)} USD%0APlease arrange delivery and confirmation.`;
+  // Clear Bag
+  cartItems = [];
+  saveCart();
+  renderCartFeed();
+  updateCartBadge();
 
-    window.open(`https://wa.me/?text=${msg}`, '_blank');
-    showToast('Redirecting to WhatsApp with your order summary...');
-  } else {
-    showToast('🔒 Initiating bank-grade checkout gateway...');
-    setTimeout(() => {
-      alert(`New Sitara Order Received!\n\nOrder #${orderRecord.id}\nTotal: $${grandTotal.toFixed(2)} USD\n\nYour order has been logged into the Merchant Admin system!`);
-      cartItems = [];
-      saveCart();
-      renderCartFeed();
-      updateCartBadge();
-      toggleCartDrawer(false);
-    }, 600);
-  }
+  // Close Checkout Modal & Open Order Receipt
+  closeCheckoutModal();
+  openOrderReceiptModal(createdOrder);
+}
+
+function openOrderReceiptModal(order) {
+  document.getElementById('receiptTrackingId').textContent = order.trackingId;
+  document.getElementById('btnTrackShipmentLink').href = `/track?id=${order.trackingId}`;
+
+  document.getElementById('receiptModal').classList.add('open');
+  document.getElementById('receiptBackdrop').classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function copyReceiptTrackingId() {
+  if (!lastPlacedOrder) return;
+  navigator.clipboard.writeText(lastPlacedOrder.trackingId);
+  showToast(`Tracking ID ${lastPlacedOrder.trackingId} copied to clipboard!`);
+}
+
+function sendOrderReceiptToWhatsApp() {
+  if (!lastPlacedOrder) return;
+
+  const o = lastPlacedOrder;
+  const itemsText = (o.items || []).map((i) => `• ${i.name} (Size: ${i.size}, Qty: ${i.qty})`).join('%0A');
+  const trackUrl = `https://www.newsitara.com/track?id=${o.trackingId}`;
+
+  const msg = `*NEW SITARA ORDER RECEIPT*%0A%0A*Tracking ID:* ${o.trackingId}%0A*Customer:* ${o.customer?.fullName || 'Client'}%0A*Total:* $${o.total}.00 USD%0A*Payment:* ${o.paymentMethod}%0A%0A*Garments:*%0A${itemsText}%0A%0A*Track Shipment Live:*%0A${trackUrl}`;
+
+  window.open(`https://wa.me/?text=${msg}`, '_blank');
+}
+
+function closeReceiptModalAndShop() {
+  document.getElementById('receiptModal').classList.remove('open');
+  document.getElementById('receiptBackdrop').classList.remove('open');
+  document.body.style.overflow = '';
+  scrollToSection('catalogSection');
+}
+
+function executeQuickWhatsApp() {
+  openCheckoutModal();
 }
 
 function handleSubscribe(e) {

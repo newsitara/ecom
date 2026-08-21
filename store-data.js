@@ -1,5 +1,5 @@
 // ==========================================================================
-// NEW SITARA — UNIFIED PERSISTENT DATA LAYER (STORE & ADMIN)
+// NEW SITARA — UNIFIED PERSISTENT DATA LAYER & TRACKING ENGINE
 // ==========================================================================
 
 const DEFAULT_CATEGORIES = [
@@ -437,7 +437,7 @@ const DEFAULT_PRODUCTS = [
 // Clean Zero-State: Orders start empty until real customers place them!
 const DEFAULT_ORDERS = [];
 
-// Clean Zero-State: Official Promo starts with 0 usage!
+// Clean Zero-State: Official Promo
 const DEFAULT_PROMOS = [
   { code: 'SITARA15', discount: 15, active: true, usageCount: 0 }
 ];
@@ -468,6 +468,7 @@ const DataStore = {
       cats.push(cat);
     }
     localStorage.setItem('sitara_categories_v3', JSON.stringify(cats));
+    this.syncWithCloud('categories', cats);
     return cats;
   },
 
@@ -480,9 +481,9 @@ const DataStore = {
 
   // --- PRODUCTS ---
   getProducts() {
-    const raw = localStorage.getItem('sitara_products_v2');
+    const raw = localStorage.getItem('sitara_products_v3');
     if (!raw) {
-      localStorage.setItem('sitara_products_v2', JSON.stringify(DEFAULT_PRODUCTS));
+      localStorage.setItem('sitara_products_v3', JSON.stringify(DEFAULT_PRODUCTS));
       return DEFAULT_PRODUCTS;
     }
     try {
@@ -501,22 +502,23 @@ const DataStore = {
       prod.id = prod.id || 'ns-prod-' + Date.now();
       prods.unshift(prod);
     }
-    localStorage.setItem('sitara_products_v2', JSON.stringify(prods));
+    localStorage.setItem('sitara_products_v3', JSON.stringify(prods));
+    this.syncWithCloud('products', prods);
     return prods;
   },
 
   deleteProduct(prodId) {
     let prods = this.getProducts();
     prods = prods.filter((p) => p.id !== prodId);
-    localStorage.setItem('sitara_products_v2', JSON.stringify(prods));
+    localStorage.setItem('sitara_products_v3', JSON.stringify(prods));
     return prods;
   },
 
-  // --- ORDERS (Clean Real Zero-State) ---
+  // --- ORDERS (With Full Customer Address & Tracking Generation) ---
   getOrders() {
-    const raw = localStorage.getItem('sitara_orders_v2');
+    const raw = localStorage.getItem('sitara_orders_v3');
     if (!raw) {
-      localStorage.setItem('sitara_orders_v2', JSON.stringify(DEFAULT_ORDERS));
+      localStorage.setItem('sitara_orders_v3', JSON.stringify(DEFAULT_ORDERS));
       return DEFAULT_ORDERS;
     }
     try {
@@ -526,13 +528,61 @@ const DataStore = {
     }
   },
 
-  addOrder(order) {
+  addOrder(orderData) {
     const orders = this.getOrders();
-    order.id = 'ORD-' + Math.floor(1000 + Math.random() * 9000);
-    order.date = new Date().toISOString().split('T')[0];
-    orders.unshift(order);
-    localStorage.setItem('sitara_orders_v2', JSON.stringify(orders));
-    return order;
+    
+    // Generate Unique Tracking ID (e.g. NS-TRK-74829)
+    const randomDigits = Math.floor(10000 + Math.random() * 90000);
+    const trackingId = `NS-TRK-${randomDigits}`;
+
+    const newOrder = {
+      id: trackingId,
+      trackingId: trackingId,
+      createdAt: new Date().toISOString(),
+      date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+      time: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
+      customer: {
+        fullName: orderData.fullName || 'VIP Customer',
+        email: orderData.email || '',
+        phone: orderData.phone || '',
+        street: orderData.street || '',
+        apartment: orderData.apartment || '',
+        city: orderData.city || '',
+        state: orderData.state || '',
+        postalCode: orderData.postalCode || '',
+        country: orderData.country || 'United States'
+      },
+      items: orderData.items || [],
+      subtotal: orderData.subtotal || 0,
+      discount: orderData.discount || 0,
+      shipping: orderData.shipping || 0,
+      total: orderData.total || 0,
+      status: 'Processing', // Steps: 'Processing' -> 'Tailoring & Prep' -> 'Shipped' -> 'Delivered'
+      paymentMethod: orderData.paymentMethod || 'Card',
+      courier: {
+        name: orderData.courierName || 'DHL Express Worldwide',
+        trackingRef: orderData.courierRef || `DHL-${randomDigits}`,
+        estimatedDelivery: '3–5 Business Days'
+      }
+    };
+
+    orders.unshift(newOrder);
+    localStorage.setItem('sitara_orders_v3', JSON.stringify(orders));
+    this.syncWithCloud('orders', orders);
+    return newOrder;
+  },
+
+  trackOrder(query) {
+    if (!query) return null;
+    const cleanQuery = query.trim().toUpperCase();
+    const orders = this.getOrders();
+
+    return orders.find(
+      (o) =>
+        (o.id && o.id.toUpperCase() === cleanQuery) ||
+        (o.trackingId && o.trackingId.toUpperCase() === cleanQuery) ||
+        (o.customer && o.customer.email && o.customer.email.toUpperCase() === cleanQuery)
+    );
   },
 
   updateOrderStatus(orderId, status) {
@@ -540,16 +590,32 @@ const DataStore = {
     const ord = orders.find((o) => o.id === orderId);
     if (ord) {
       ord.status = status;
-      localStorage.setItem('sitara_orders_v2', JSON.stringify(orders));
+      localStorage.setItem('sitara_orders_v3', JSON.stringify(orders));
+      this.syncWithCloud('orders', orders);
     }
     return orders;
   },
 
-  // --- PROMOS (Clean Real Zero-State) ---
+  updateCourierInfo(orderId, courierName, courierRef) {
+    const orders = this.getOrders();
+    const ord = orders.find((o) => o.id === orderId);
+    if (ord) {
+      ord.courier = {
+        ...(ord.courier || {}),
+        name: courierName || ord.courier?.name || 'Express Courier',
+        trackingRef: courierRef || ord.courier?.trackingRef || 'N/A'
+      };
+      localStorage.setItem('sitara_orders_v3', JSON.stringify(orders));
+      this.syncWithCloud('orders', orders);
+    }
+    return orders;
+  },
+
+  // --- PROMOS ---
   getPromos() {
-    const raw = localStorage.getItem('sitara_promos_v2');
+    const raw = localStorage.getItem('sitara_promos_v3');
     if (!raw) {
-      localStorage.setItem('sitara_promos_v2', JSON.stringify(DEFAULT_PROMOS));
+      localStorage.setItem('sitara_promos_v3', JSON.stringify(DEFAULT_PROMOS));
       return DEFAULT_PROMOS;
     }
     try {
@@ -567,23 +633,56 @@ const DataStore = {
     } else {
       promos.unshift(promo);
     }
-    localStorage.setItem('sitara_promos_v2', JSON.stringify(promos));
+    localStorage.setItem('sitara_promos_v3', JSON.stringify(promos));
     return promos;
   },
 
   deletePromo(code) {
     let promos = this.getPromos();
     promos = promos.filter((p) => p.code.toUpperCase() !== code.toUpperCase());
-    localStorage.setItem('sitara_promos_v2', JSON.stringify(promos));
+    localStorage.setItem('sitara_promos_v3', JSON.stringify(promos));
     return promos;
+  },
+
+  // --- SUPABASE CLOUD SYNC CONNECTOR ---
+  getCloudConfig() {
+    return {
+      url: localStorage.getItem('sitara_supabase_url') || '',
+      key: localStorage.getItem('sitara_supabase_key') || ''
+    };
+  },
+
+  saveCloudConfig(url, key) {
+    localStorage.setItem('sitara_supabase_url', url.trim());
+    localStorage.setItem('sitara_supabase_key', key.trim());
+  },
+
+  async syncWithCloud(table, data) {
+    const { url, key } = this.getCloudConfig();
+    if (!url || !key) return; // Local fallback mode
+
+    try {
+      await fetch(`${url}/rest/v1/${table}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': key,
+          'Authorization': `Bearer ${key}`,
+          'Prefer': 'resolution=merge-duplicates'
+        },
+        body: JSON.stringify(data)
+      });
+    } catch (err) {
+      console.warn('Cloud sync offline:', err);
+    }
   },
 
   // --- SYSTEM RESET ---
   resetAllDefaults() {
     localStorage.setItem('sitara_categories_v3', JSON.stringify(DEFAULT_CATEGORIES));
-    localStorage.setItem('sitara_products_v2', JSON.stringify(DEFAULT_PRODUCTS));
-    localStorage.setItem('sitara_orders_v2', JSON.stringify(DEFAULT_ORDERS));
-    localStorage.setItem('sitara_promos_v2', JSON.stringify(DEFAULT_PROMOS));
+    localStorage.setItem('sitara_products_v3', JSON.stringify(DEFAULT_PRODUCTS));
+    localStorage.setItem('sitara_orders_v3', JSON.stringify(DEFAULT_ORDERS));
+    localStorage.setItem('sitara_promos_v3', JSON.stringify(DEFAULT_PROMOS));
   }
 };
 

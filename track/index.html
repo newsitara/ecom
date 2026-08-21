@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Track Your Order — NEW SITARA</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/track.css?v=20260822_trk">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="track-theme">
+
+  <!-- Micro Announcement Bar -->
+  <aside class="store-announcement">
+    <div class="announcement-track">
+      <span>✦ 24/7 LIVE ORDER TRACKING & GLOBAL COURIER DISPATCH</span>
+      <span>•</span>
+      <span>READY-TO-WEAR APPAREL & ARTISANAL FOOTWEAR</span>
+      <span>•</span>
+      <span>✦ 24/7 LIVE ORDER TRACKING & GLOBAL COURIER DISPATCH</span>
+      <span>•</span>
+      <span>READY-TO-WEAR APPAREL & ARTISANAL FOOTWEAR</span>
+    </div>
+  </aside>
+
+  <!-- Modern Floating Header -->
+  <header class="track-navbar">
+    <div class="nav-container">
+      <a href="/store" class="nav-back-link">
+        <i data-lucide="arrow-left"></i>
+        <span>Return to Store</span>
+      </a>
+
+      <a href="/store" class="brand-center">
+        <span class="brand-logotype">NEW SITARA</span>
+      </a>
+
+      <div class="nav-actions-right">
+        <a href="/admin" class="nav-admin-link">
+          <i data-lucide="shield"></i>
+          <span class="desktop-only">Admin Portal</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Tracking Container -->
+  <main class="track-main-layout">
+    
+    <!-- Hero Header & Search Form -->
+    <section class="track-hero">
+      <span class="track-badge">REAL-TIME ORDER DISPATCH</span>
+      <h1 class="track-title">Track Your Shipment</h1>
+      <p class="track-subtitle">Enter your New Sitara Tracking ID or order email to view live atelier preparation and courier status.</p>
+
+      <form class="track-search-card" onsubmit="handleTrackSearch(event)">
+        <div class="search-input-wrap">
+          <i data-lucide="search"></i>
+          <input type="text" id="trackInput" placeholder="Enter Tracking ID (e.g. NS-TRK-84920) or Email..." autocomplete="off" required>
+        </div>
+        <button type="submit" class="btn btn-track-submit">
+          <span>Locate Order</span>
+          <i data-lucide="arrow-right"></i>
+        </button>
+      </form>
+    </section>
+
+    <!-- Tracking Results Area -->
+    <section class="track-results-pane" id="trackResultsPane">
+      
+      <!-- Initial State Hint -->
+      <div class="track-zero-hint" id="trackZeroHint">
+        <div class="hint-icon"><i data-lucide="package"></i></div>
+        <h3>Looking for your order?</h3>
+        <p>Your unique Tracking ID was provided upon checkout completion (e.g. <code>NS-TRK-XXXXX</code>) and sent to your email.</p>
+      </div>
+
+      <!-- Live Order Status Card (Injected dynamically) -->
+      <div class="order-status-card" id="orderStatusCard" style="display:none;">
+        
+        <!-- Order Header Bar -->
+        <div class="order-card-header">
+          <div class="order-id-group">
+            <span class="order-pill">ACTIVE SHIPMENT</span>
+            <h2 class="order-tracking-num" id="resTrackingId">NS-TRK-XXXXX</h2>
+            <span class="order-date-text" id="resOrderDate">Placed on Aug 22, 2026</span>
+          </div>
+
+          <div class="order-status-badge-wrap">
+            <span class="live-status-pill" id="resStatusBadge">Processing</span>
+            <span class="courier-pill" id="resCourierPill">DHL Express Worldwide</span>
+          </div>
+        </div>
+
+        <!-- Visual 4-Step Progress Stepper -->
+        <div class="progress-stepper-container">
+          <div class="stepper-track">
+            <div class="stepper-fill-bar" id="stepperFillBar" style="width: 25%;"></div>
+          </div>
+
+          <div class="stepper-nodes-row">
+            
+            <!-- Step 1 -->
+            <div class="step-node completed" id="stepNode1">
+              <div class="node-icon-circle"><i data-lucide="check"></i></div>
+              <div class="node-text">
+                <strong>Order Confirmed</strong>
+                <span id="step1Time">Payment Verified</span>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-node active" id="stepNode2">
+              <div class="node-icon-circle"><i data-lucide="scissors"></i></div>
+              <div class="node-text">
+                <strong>Atelier Prep & QC</strong>
+                <span>Quality Inspection</span>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-node" id="stepNode3">
+              <div class="node-icon-circle"><i data-lucide="plane"></i></div>
+              <div class="node-text">
+                <strong>Dispatched</strong>
+                <span id="step3Courier">Courier Handover</span>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step-node" id="stepNode4">
+              <div class="node-icon-circle"><i data-lucide="home"></i></div>
+              <div class="node-text">
+                <strong>Delivered</strong>
+                <span>Doorstep Arrival</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Order Information Split Grid -->
+        <div class="order-info-split">
+          
+          <!-- Left: Ordered Apparel Pieces -->
+          <div class="info-pane items-pane">
+            <h4 class="pane-headline">Garment Package Contents</h4>
+            <div class="order-items-list" id="resItemsList">
+              <!-- Injected dynamically -->
+            </div>
+          </div>
+
+          <!-- Right: Shipping Destination & Financials -->
+          <div class="info-pane destination-pane">
+            <h4 class="pane-headline">Delivery Destination</h4>
+            <div class="address-box" id="resAddressBox">
+              <!-- Injected dynamically -->
+            </div>
+
+            <h4 class="pane-headline" style="margin-top: 1.5rem;">Payment & Total</h4>
+            <div class="financial-summary-box">
+              <div class="fin-line"><span>Payment Method</span><strong id="resPayMethod">Stripe Card</strong></div>
+              <div class="fin-line"><span>Shipping Method</span><span id="resShipMethod">Express (Complimentary)</span></div>
+              <div class="fin-line total-fin-line"><span>Grand Total</span><strong id="resGrandTotal">$0.00 USD</strong></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Support & Concierge Footer -->
+        <div class="order-card-footer">
+          <div class="concierge-text">
+            <i data-lucide="headset"></i>
+            <div>
+              <strong>Need tailoring adjustments or delivery support?</strong>
+              <p>Our client concierge is ready to assist you 24/7.</p>
+            </div>
+          </div>
+          <button class="btn btn-whatsapp-concierge" onclick="contactConcierge()">
+            <i data-lucide="message-circle"></i>
+            <span>Chat on WhatsApp</span>
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Modern Compact Footer -->
+  <footer class="compact-footer">
+    <div class="footer-wrap">
+      <div class="footer-bottom-row">
+        <p class="copyright-text">© 2026 New Sitara Interprizes. All rights reserved.</p>
+        <div class="footer-links-inline">
+          <a href="/store">Collection Store</a>
+          <span>•</span>
+          <a href="/admin">Merchant Admin</a>
+          <span>•</span>
+          <a href="mailto:concierge@newsitara.com">Contact Concierge</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Persistent Data Layer & Tracking Script -->
+  <script src="/store-data.js"></script>
+  <script src="/track.js?v=20260822_trk"></script>
+</body>
+</html>

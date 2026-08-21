@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="/store.css?v=20260822_revamp">
+  <link rel="stylesheet" href="/store.css?v=20260822_checkout">
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="store-theme">
@@ -22,7 +22,7 @@
       <span>•</span>
       <span>USE PROMO CODE <strong>SITARA15</strong> FOR 15% OFF INAUGURAL DROP</span>
       <span>•</span>
-      <span>READY-TO-WEAR APPAREL & ARTISANAL FOOTWEAR</span>
+      <span>LIVE GLOBAL ORDER TRACKING AVAILABLE AT /TRACK</span>
       <span>•</span>
       <span>✦ FREE WORLDWIDE EXPRESS SHIPPING ON ORDERS OVER $150</span>
       <span>•</span>
@@ -39,7 +39,7 @@
         <i data-lucide="menu"></i>
       </button>
 
-      <!-- Desktop Category Links -->
+      <!-- Desktop Category & Track Links -->
       <nav class="nav-links-left desktop-only" id="desktopNavLinks">
         <!-- Injected dynamically via JS from DataStore -->
       </nav>
@@ -49,9 +49,15 @@
         <span class="brand-logotype">NEW SITARA</span>
       </a>
 
-      <!-- Right Actions: Search & Bag -->
+      <!-- Right Actions: Search, Track & Bag -->
       <div class="nav-actions-right">
         
+        <!-- Track Order Link -->
+        <a href="/track" class="nav-track-link desktop-only" title="Track Order">
+          <i data-lucide="map-pin"></i>
+          <span>Track Order</span>
+        </a>
+
         <!-- Desktop Search Input -->
         <div class="nav-search-box desktop-only">
           <i data-lucide="search"></i>
@@ -97,6 +103,7 @@
     </div>
 
     <div class="mob-drawer-footer">
+      <a href="/track" class="mob-track-link"><i data-lucide="map-pin"></i> Track Your Shipment</a>
       <a href="/admin" class="mob-admin-link"><i data-lucide="shield"></i> Merchant Admin Portal</a>
       <a href="/" class="mob-coming-soon-link">← Return to Coming Soon Screen</a>
     </div>
@@ -182,6 +189,209 @@
     </div>
   </div>
 
+  <!-- Full Checkout Flow Modal (Shipping Details & Payment Selection) -->
+  <div class="modal-backdrop" id="checkoutBackdrop" onclick="closeCheckoutModal()"></div>
+  <div class="checkout-modal" id="checkoutModal">
+    <div class="modal-drag-bar mobile-only"></div>
+    <div class="checkout-modal-head">
+      <div class="head-left">
+        <i data-lucide="lock"></i>
+        <h3>Secure Checkout</h3>
+      </div>
+      <button class="modal-close-btn" onclick="closeCheckoutModal()"><i data-lucide="x"></i></button>
+    </div>
+
+    <form class="checkout-form-grid" id="checkoutForm" onsubmit="handlePlaceOrder(event)">
+      
+      <!-- Left Column: Shipping & Payment -->
+      <div class="checkout-left-pane">
+        
+        <!-- Contact Information -->
+        <div class="form-section">
+          <h4 class="form-section-title">1. Contact Information</h4>
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label>Full Name *</label>
+              <input type="text" id="chkFullName" class="form-input" placeholder="e.g. John Doe" required>
+            </div>
+            <div class="form-group flex-1">
+              <label>Phone / WhatsApp *</label>
+              <input type="tel" id="chkPhone" class="form-input" placeholder="+1 (555) 000-0000" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address (For Tracking & Invoices) *</label>
+            <input type="email" id="chkEmail" class="form-input" placeholder="john.doe@example.com" required>
+          </div>
+        </div>
+
+        <!-- Shipping Address -->
+        <div class="form-section">
+          <h4 class="form-section-title">2. Shipping Destination</h4>
+          <div class="form-group">
+            <label>Street Address *</label>
+            <input type="text" id="chkStreet" class="form-input" placeholder="123 Luxury Boulevard" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label>Apartment, Suite, Unit</label>
+              <input type="text" id="chkApartment" class="form-input" placeholder="Apt 4B (Optional)">
+            </div>
+            <div class="form-group flex-2">
+              <label>City *</label>
+              <input type="text" id="chkCity" class="form-input" placeholder="New York" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label>State / Province</label>
+              <input type="text" id="chkState" class="form-input" placeholder="NY">
+            </div>
+            <div class="form-group flex-1">
+              <label>Postal Code *</label>
+              <input type="text" id="chkPostal" class="form-input" placeholder="10001" required>
+            </div>
+            <div class="form-group flex-1">
+              <label>Country *</label>
+              <select id="chkCountry" class="form-input">
+                <option value="United States">United States</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Canada">Canada</option>
+                <option value="United Arab Emirates">United Arab Emirates</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="Australia">Australia</option>
+                <option value="Germany">Germany</option>
+                <option value="France">France</option>
+                <option value="Other Worldwide">Other Worldwide</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Method Selection -->
+        <div class="form-section">
+          <h4 class="form-section-title">3. Payment Method</h4>
+          
+          <div class="payment-options-grid">
+            
+            <label class="pay-option-card">
+              <input type="radio" name="payMethod" value="Stripe Card" checked>
+              <div class="pay-option-content">
+                <div class="pay-option-title">
+                  <i data-lucide="credit-card"></i>
+                  <span>Credit / Debit Card (Stripe Gateway)</span>
+                </div>
+                <p class="pay-option-desc">Encrypted 256-bit instant checkout via Visa, Mastercard, AMEX.</p>
+              </div>
+            </label>
+
+            <label class="pay-option-card">
+              <input type="radio" name="payMethod" value="Cash on Delivery">
+              <div class="pay-option-content">
+                <div class="pay-option-title">
+                  <i data-lucide="banknote"></i>
+                  <span>Cash on Delivery (COD)</span>
+                </div>
+                <p class="pay-option-desc">Pay cash directly to the courier upon doorstep inspection & delivery.</p>
+              </div>
+            </label>
+
+            <label class="pay-option-card">
+              <input type="radio" name="payMethod" value="Bank Wire / Transfer">
+              <div class="pay-option-content">
+                <div class="pay-option-title">
+                  <i data-lucide="landmark"></i>
+                  <span>Direct Bank Wire Transfer</span>
+                </div>
+                <p class="pay-option-desc">Receive official Maison bank coordinates for wire dispatch.</p>
+              </div>
+            </label>
+
+            <label class="pay-option-card">
+              <input type="radio" name="payMethod" value="WhatsApp Express">
+              <div class="pay-option-content">
+                <div class="pay-option-title">
+                  <i data-lucide="message-circle"></i>
+                  <span>WhatsApp Express Concierge</span>
+                </div>
+                <p class="pay-option-desc">Complete order confirmation and payment directly via WhatsApp chat.</p>
+              </div>
+            </label>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Order Summary & Place Order -->
+      <div class="checkout-right-pane">
+        <h4 class="form-section-title">Order Summary</h4>
+        
+        <div class="checkout-mini-items" id="chkItemsList">
+          <!-- Injected dynamically -->
+        </div>
+
+        <div class="checkout-totals-box">
+          <div class="chk-math-line"><span>Subtotal</span><strong id="chkSubtotalVal">$0.00</strong></div>
+          <div class="chk-math-line discount-line" id="chkDiscountRow" style="display:none;"><span>Promo Discount</span><strong id="chkDiscountVal">-$0.00</strong></div>
+          <div class="chk-math-line"><span>Worldwide Shipping</span><span id="chkShippingVal">FREE</span></div>
+          <div class="chk-math-line grand-total-line"><span>Total Due</span><strong id="chkTotalVal">$0.00 USD</strong></div>
+        </div>
+
+        <button type="submit" class="btn btn-dark btn-block btn-place-order" id="btnPlaceOrder">
+          <span>Complete Order & Get Tracking ID</span>
+          <i data-lucide="arrow-right"></i>
+        </button>
+
+        <p class="checkout-security-notice">
+          🔒 By placing your order, you agree to New Sitara Terms & Conditions and receive an instant Tracking ID.
+        </p>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Order Success & Tracking Receipt Modal -->
+  <div class="modal-backdrop" id="receiptBackdrop"></div>
+  <div class="receipt-modal" id="receiptModal">
+    <div class="receipt-card-inner">
+      <div class="receipt-badge-icon"><i data-lucide="check-circle-2"></i></div>
+      
+      <span class="receipt-sup-tag">ORDER CONFIRMED & VERIFIED</span>
+      <h2 class="receipt-title">Thank you for your order!</h2>
+      <p class="receipt-msg">Your order has been registered in the New Sitara Atelier. Your personal Tracking ID has been generated below:</p>
+
+      <!-- Copyable Tracking Box -->
+      <div class="tracking-copy-box">
+        <div class="trk-label">YOUR LIVE TRACKING ID:</div>
+        <div class="trk-id-row">
+          <code id="receiptTrackingId">NS-TRK-XXXXX</code>
+          <button type="button" class="btn-copy-trk" onclick="copyReceiptTrackingId()">
+            <i data-lucide="copy"></i>
+            <span>Copy</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="receipt-actions">
+        <a href="/track" id="btnTrackShipmentLink" class="btn btn-dark btn-block">
+          <i data-lucide="map-pin"></i>
+          <span>Track Your Shipment Now ↗</span>
+        </a>
+        <button type="button" class="btn btn-whatsapp btn-block" onclick="sendOrderReceiptToWhatsApp()">
+          <i data-lucide="message-circle"></i>
+          <span>Send Order Confirmation to WhatsApp</span>
+        </button>
+        <button type="button" class="btn btn-hero-light btn-block" onclick="closeReceiptModalAndShop()">
+          Continue Shopping
+        </button>
+      </div>
+
+    </div>
+  </div>
+
   <!-- Slide-Out Shopping Bag Drawer -->
   <div class="cart-backdrop" id="cartBackdrop" onclick="toggleCartDrawer(false)"></div>
   <aside class="store-cart-drawer" id="storeCart">
@@ -237,11 +447,11 @@
       </div>
 
       <div class="cart-action-buttons">
-        <button class="btn btn-dark btn-block" onclick="executeCheckout('card')">
+        <button class="btn btn-dark btn-block" onclick="openCheckoutModal()">
           <span>Proceed to Checkout</span>
           <i data-lucide="arrow-right"></i>
         </button>
-        <button class="btn btn-whatsapp btn-block" onclick="executeCheckout('whatsapp')">
+        <button class="btn btn-whatsapp btn-block" onclick="executeQuickWhatsApp()">
           <i data-lucide="message-circle"></i>
           <span>Order via WhatsApp Express</span>
         </button>
@@ -260,10 +470,10 @@
       <i data-lucide="search"></i>
       <span>Search</span>
     </button>
-    <button class="mob-tab" onclick="toggleMobileMenu(true)">
-      <i data-lucide="layers"></i>
-      <span>Categories</span>
-    </button>
+    <a href="/track" class="mob-tab">
+      <i data-lucide="map-pin"></i>
+      <span>Track</span>
+    </a>
     <button class="mob-tab" onclick="toggleCartDrawer(true)">
       <div class="mob-bag-badge-wrap">
         <i data-lucide="shopping-bag"></i>
@@ -297,9 +507,10 @@
           </div>
         </div>
 
-        <!-- Client Care -->
+        <!-- Client Care & Tracking -->
         <div class="footer-links-pane">
           <h6>CLIENT CARE</h6>
+          <a href="/track"><i data-lucide="map-pin"></i> Live Order Tracking</a>
           <a href="mailto:concierge@newsitara.com"><i data-lucide="mail"></i> concierge@newsitara.com</a>
           <a href="#shipping" onclick="showToast('Complimentary DHL Express worldwide over $150')"><i data-lucide="truck"></i> Worldwide Delivery</a>
           <a href="#returns" onclick="showToast('14-day return & exchange window')"><i data-lucide="refresh-cw"></i> 14-Day Returns</a>
@@ -336,6 +547,6 @@
 
   <!-- Persistent Data Layer & Store Engine -->
   <script src="/store-data.js"></script>
-  <script src="/store.js?v=20260822_revamp"></script>
+  <script src="/store.js?v=20260822_checkout"></script>
 </body>
 </html>

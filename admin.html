@@ -299,14 +299,14 @@
             <table class="admin-table">
               <thead>
                 <tr>
-                  <th>Order ID</th>
-                  <th>Customer</th>
+                  <th>Tracking ID</th>
+                  <th>Customer & WhatsApp</th>
+                  <th>Delivery Address</th>
                   <th>Date</th>
                   <th>Items Ordered</th>
-                  <th>Payment</th>
                   <th>Total</th>
-                  <th>Status</th>
-                  <th>Update Status</th>
+                  <th>Order Status</th>
+                  <th style="text-align: right;">Courier Dispatch</th>
                 </tr>
               </thead>
               <tbody id="ordersTableBody">
@@ -350,32 +350,55 @@
       </section>
 
       <!-- ===================================================================
-           TAB 6: SETTINGS & SYSTEM BACKUP
+           TAB 6: SETTINGS & CLOUD DATABASE
            =================================================================== -->
       <section class="tab-pane" id="tab-settings">
         <div class="pane-header">
           <div>
-            <h1 class="pane-title">Catalog System Settings</h1>
-            <p class="pane-desc">Manage store data backups, synchronization, and default fixtures.</p>
+            <h1 class="pane-title">Store & Cloud Database Settings</h1>
+            <p class="pane-desc">Connect Supabase PostgreSQL cloud sync, manage backups, and configure store fixtures.</p>
           </div>
         </div>
 
         <div class="settings-grid">
+          
+          <!-- Cloud Database Sync -->
           <div class="dash-card">
-            <h3>🔄 Reset to Default Catalog</h3>
-            <p style="font-size: 0.85rem; color: #666; margin: 0.5rem 0 1.25rem; line-height: 1.6;">
-              Restores the default 25+ luxury clothing pieces across all 7 apparel departments. Useful for testing fresh clean data.
+            <h3>⚡ Supabase Cloud PostgreSQL Sync</h3>
+            <p style="font-size: 0.82rem; color: #8F9CAE; margin: 0.4rem 0 1rem; line-height: 1.5;">
+              Connect your free Supabase project to automatically sync products and customer orders across all phones and devices globally.
             </p>
-            <button class="btn btn-danger" onclick="confirmResetDefaults()">Reset All Sample Data</button>
+            <form onsubmit="handleSaveCloudConfig(event)">
+              <div class="form-group">
+                <label>Supabase Project URL</label>
+                <input type="url" id="cfgSupabaseUrl" class="form-input" placeholder="https://xyzcompany.supabase.co">
+              </div>
+              <div class="form-group">
+                <label>Supabase Anon Public API Key</label>
+                <input type="password" id="cfgSupabaseKey" class="form-input" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...">
+              </div>
+              <button type="submit" class="btn btn-primary btn-sm">Save & Connect Cloud DB</button>
+            </form>
           </div>
 
+          <!-- JSON Backup -->
           <div class="dash-card">
-            <h3>📦 Export Catalog Data JSON</h3>
-            <p style="font-size: 0.85rem; color: #666; margin: 0.5rem 0 1.25rem; line-height: 1.6;">
-              Download a complete JSON backup of all your customized products, categories, orders, and promo codes.
+            <h3>📦 Export Store Data JSON</h3>
+            <p style="font-size: 0.82rem; color: #8F9CAE; margin: 0.4rem 0 1.25rem; line-height: 1.5;">
+              Download an encrypted JSON backup containing your entire catalog, customer orders, categories, and active promotions.
             </p>
-            <button class="btn btn-outline" onclick="exportDataJson()">Download JSON Backup</button>
+            <button class="btn btn-outline" onclick="exportDataJson()"><i data-lucide="download"></i> Download JSON Backup</button>
           </div>
+
+          <!-- Reset Defaults -->
+          <div class="dash-card">
+            <h3>🔄 Restore Clean Sample Catalog</h3>
+            <p style="font-size: 0.82rem; color: #8F9CAE; margin: 0.4rem 0 1.25rem; line-height: 1.5;">
+              Restores the default luxury clothing catalog with zero fake orders.
+            </p>
+            <button class="btn btn-danger" onclick="confirmResetDefaults()">Reset Catalog Fixtures</button>
+          </div>
+
         </div>
       </section>
 
@@ -514,6 +537,44 @@
       <div class="modal-actions">
         <button type="button" class="btn btn-outline" onclick="closePromoModal()">Cancel</button>
         <button type="submit" class="btn btn-primary">Create Promo</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- =======================================================================
+       MODAL: DISPATCH COURIER & TRACKING INFO
+       ======================================================================= -->
+  <div class="admin-modal-backdrop" id="courierModalBackdrop" onclick="closeCourierModal()"></div>
+  <div class="admin-modal modal-sm" id="courierModal">
+    <div class="modal-head">
+      <h3>Dispatch Courier & Tracking</h3>
+      <button class="btn-modal-close" onclick="closeCourierModal()"><i data-lucide="x"></i></button>
+    </div>
+
+    <form id="courierForm" onsubmit="handleSaveCourier(event)">
+      <input type="hidden" id="courierOrderId">
+
+      <div class="form-group">
+        <label for="courierName">Courier Partner *</label>
+        <select id="courierName" class="form-input">
+          <option value="DHL Express Worldwide">DHL Express Worldwide</option>
+          <option value="FedEx International Priority">FedEx International Priority</option>
+          <option value="UPS Worldwide Saver">UPS Worldwide Saver</option>
+          <option value="TCS Express Courier">TCS Express Courier</option>
+          <option value="Leopards Courier Service">Leopards Courier Service</option>
+          <option value="Royal Mail International">Royal Mail International</option>
+          <option value="Direct Atelier Courier">Direct Atelier Courier</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="courierTrackingRef">External Tracking / Waybill Number *</label>
+        <input type="text" id="courierTrackingRef" class="form-input uppercase-input" placeholder="e.g. DHL-983210492" required>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-outline" onclick="closeCourierModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save & Mark as Shipped</button>
       </div>
     </form>
   </div>

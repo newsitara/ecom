@@ -438,7 +438,7 @@ function confirmDeleteCategory(catId) {
 }
 
 // ==========================================================================
-// 4. ORDERS HUB
+// 4. ORDERS HUB WITH TRACKING & WHATSAPP
 // ==========================================================================
 function renderOrdersTable() {
   const orders = DataStore.getOrders();
@@ -446,48 +446,106 @@ function renderOrdersTable() {
   if (!tbody) return;
 
   if (orders.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding: 3rem;">No customer orders found.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding: 3rem; color: #888;">No customer orders placed yet. Orders placed on the storefront will appear here instantly.</td></tr>`;
     return;
   }
 
   tbody.innerHTML = orders
-    .map(
-      (o) => `
-    <tr>
-      <td><strong style="color:#FFF;">${o.id}</strong></td>
-      <td>
-        <div style="font-weight:700; color:#FFF;">${o.customer}</div>
-        <div style="font-size:0.72rem; color:#777;">${o.email || 'N/A'}</div>
-      </td>
-      <td>${o.date}</td>
-      <td>
-        <div style="font-size:0.75rem; color:#CCC;">
-          ${(o.items || []).map((i) => `• ${i.name} (${i.size} × ${i.qty})`).join('<br>')}
-        </div>
-      </td>
-      <td><span style="font-size:0.75rem; color:#AAA;">${o.paymentMethod || 'Stripe'}</span></td>
-      <td><strong style="font-size:0.95rem; color:#FFF;">$${o.total}.00</strong></td>
-      <td><span class="status-pill ${getStatusClass(o.status)}">${o.status}</span></td>
-      <td>
-        <select class="admin-select" style="padding:0.25rem 0.5rem; font-size:0.75rem;" onchange="handleOrderStatusChange('${o.id}', this.value)">
-          <option value="Pending" ${o.status === 'Pending' ? 'selected' : ''}>Pending</option>
-          <option value="Processing" ${o.status === 'Processing' ? 'selected' : ''}>Processing</option>
-          <option value="Shipped" ${o.status === 'Shipped' ? 'selected' : ''}>Shipped</option>
-          <option value="Delivered" ${o.status === 'Delivered' ? 'selected' : ''}>Delivered</option>
-          <option value="Cancelled" ${o.status === 'Cancelled' ? 'selected' : ''}>Cancelled</option>
-        </select>
-      </td>
-    </tr>
-  `
-    )
+    .map((o) => {
+      const c = o.customer || {};
+      const fullAddr = `${c.street || ''}${c.apartment ? ', ' + c.apartment : ''}, ${c.city || ''}, ${c.state || ''} ${c.postalCode || ''}, ${c.country || ''}`;
+      const cleanPhone = (c.phone || '').replace(/[^0-9+]/g, '');
+      const waLink = cleanPhone ? `https://wa.me/${cleanPhone}?text=Hello%20${encodeURIComponent(c.fullName || 'Client')},%20regarding%20your%20New%20Sitara%20Order%20${o.trackingId || o.id}...` : '#';
+
+      return `
+      <tr>
+        <td>
+          <a href="/track?id=${o.trackingId || o.id}" target="_blank" style="color: #60A5FA; font-weight:800; text-decoration:underline;">${o.trackingId || o.id} ↗</a>
+        </td>
+        <td>
+          <div style="font-weight:700; color:#FFF;">${c.fullName || o.customer || 'VIP Client'}</div>
+          <div style="font-size:0.72rem; color:#888;">${c.email || o.email || 'N/A'}</div>
+          ${
+            cleanPhone
+              ? `<a href="${waLink}" target="_blank" style="display:inline-flex; align-items:center; gap:0.25rem; font-size:0.72rem; color:#25D366; font-weight:700; margin-top:0.2rem;">
+                  <span>💬 Chat on WhatsApp</span>
+                </a>`
+              : ''
+          }
+        </td>
+        <td>
+          <div style="font-size:0.75rem; color:#DDD; max-width: 220px; line-height:1.4;">${fullAddr}</div>
+        </td>
+        <td>${o.date || 'Aug 22, 2026'}</td>
+        <td>
+          <div style="font-size:0.75rem; color:#CCC;">
+            ${(o.items || []).map((i) => `• ${i.name} (${i.size} × ${i.qty})`).join('<br>')}
+          </div>
+        </td>
+        <td><strong style="font-size:0.95rem; color:#FFF;">$${o.total}.00</strong></td>
+        <td>
+          <select class="admin-select" style="padding:0.25rem 0.5rem; font-size:0.75rem;" onchange="handleOrderStatusChange('${o.id}', this.value)">
+            <option value="Processing" ${o.status === 'Processing' ? 'selected' : ''}>Processing</option>
+            <option value="Tailoring & Prep" ${o.status === 'Tailoring & Prep' ? 'selected' : ''}>Tailoring & Prep</option>
+            <option value="Shipped" ${o.status === 'Shipped' ? 'selected' : ''}>Shipped</option>
+            <option value="Delivered" ${o.status === 'Delivered' ? 'selected' : ''}>Delivered</option>
+            <option value="Cancelled" ${o.status === 'Cancelled' ? 'selected' : ''}>Cancelled</option>
+          </select>
+        </td>
+        <td style="text-align: right;">
+          <button class="btn btn-sm btn-outline" onclick="openCourierModal('${o.id}')" title="Assign Courier Partner">
+            <i data-lucide="plane"></i> Dispatch
+          </button>
+        </td>
+      </tr>
+    `;
+    })
     .join('');
+
+  if (window.lucide) window.lucide.createIcons();
 }
 
 function handleOrderStatusChange(orderId, newStatus) {
   DataStore.updateOrderStatus(orderId, newStatus);
   renderOrdersTable();
   renderOverview();
-  showAdminToast(`Order ${orderId} marked as ${newStatus}.`);
+  showAdminToast(`Order ${orderId} status set to ${newStatus}`);
+}
+
+// Courier Dispatch Modal
+function openCourierModal(orderId) {
+  const orders = DataStore.getOrders();
+  const ord = orders.find((o) => o.id === orderId);
+  if (!ord) return;
+
+  document.getElementById('courierOrderId').value = ord.id;
+  if (ord.courier) {
+    document.getElementById('courierName').value = ord.courier.name || 'DHL Express Worldwide';
+    document.getElementById('courierTrackingRef').value = ord.courier.trackingRef || '';
+  }
+
+  document.getElementById('courierModal').classList.add('open');
+  document.getElementById('courierModalBackdrop').classList.add('open');
+}
+
+function closeCourierModal() {
+  document.getElementById('courierModal').classList.remove('open');
+  document.getElementById('courierModalBackdrop').classList.remove('open');
+}
+
+function handleSaveCourier(e) {
+  e.preventDefault();
+  const orderId = document.getElementById('courierOrderId').value;
+  const name = document.getElementById('courierName').value;
+  const ref = document.getElementById('courierTrackingRef').value.trim().toUpperCase();
+
+  DataStore.updateCourierInfo(orderId, name, ref);
+  DataStore.updateOrderStatus(orderId, 'Shipped');
+
+  closeCourierModal();
+  renderOrdersTable();
+  renderOverview();
+  showAdminToast(`Courier dispatched: ${name} (${ref})`);
 }
 
 // ==========================================================================
@@ -555,8 +613,17 @@ function confirmDeletePromo(code) {
 }
 
 // ==========================================================================
-// 6. SETTINGS & UTILITIES
+// 6. SETTINGS & CLOUD DATABASE
 // ==========================================================================
+function handleSaveCloudConfig(e) {
+  e.preventDefault();
+  const url = document.getElementById('cfgSupabaseUrl').value.trim();
+  const key = document.getElementById('cfgSupabaseKey').value.trim();
+
+  DataStore.saveCloudConfig(url, key);
+  showAdminToast('Supabase Cloud Database credentials connected!');
+}
+
 function confirmResetDefaults() {
   if (confirm('Reset entire catalog to default sample pieces? Any custom pieces created will be overwritten.')) {
     DataStore.resetAllDefaults();

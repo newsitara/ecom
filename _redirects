@@ -1,3 +1,2 @@
-# Clean URL Rewrites for Netlify
-/store    /store.html   200!
-/shop     /store.html   200!
+/store    /store.html   200
+/shop     /store.html   200

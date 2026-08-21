@@ -1,5 +1,5 @@
 // ==========================================================================
-// NEW SITARA INTERPRIZES — HIGH-FASHION MAISON CATALOG ENGINE
+// NEW SITARA INTERPRIZES — MOBILE-FIRST MAISON CATALOG ENGINE
 // ==========================================================================
 
 const MAISON_CATALOG = [
@@ -151,149 +151,149 @@ const MAISON_CATALOG = [
     gallery: [
       'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=800&auto=format&fit=crop'
     ],
-    description: '480 GSM loopback cotton crewneck featuring ribbed side gussets and flatlock seam construction.',
-    specs: '✦ 100% Organic Heavyweight Cotton • Flatlock Stitching • Made in Portugal',
+    description: 'Relaxed drop-shoulder silhouette in chalk white with rib knit hems and raglan sleeve construction.',
+    specs: '✦ 480 GSM Cotton • Raglan Sleeves • Ribbed Cuffs',
     sizes: ['S', 'M', 'L', 'XL']
   },
 
   // --- PANTS & DENIM ---
   {
-    id: 'ns-bot-1',
-    name: 'Pleated Wide-Leg Wool Trouser',
+    id: 'ns-bottom-1',
+    name: '14oz Okayama Selvedge Denim',
     category: 'bottoms',
     categoryName: 'Pants & Denim',
     price: 240,
-    tag: 'Limited Edition',
-    imageFront: 'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Architectural double-pleated silhouette tailored from virgin wool blend. Features a relaxed drape through the leg and adjustable waist tabs.',
-    specs: '✦ 85% Virgin Wool, 15% Mohair • Deep Slanted Pockets • Tailored Slouch',
-    sizes: ['30', '32', '34', '36']
-  },
-  {
-    id: 'ns-bot-2',
-    name: 'Modular Relaxed Cargo Trouser',
-    category: 'bottoms',
-    categoryName: 'Pants & Denim',
-    price: 210,
-    tag: 'Selling Fast',
-    imageFront: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Heavy cotton ripstop trousers featuring bellowed cargo pockets with concealed magnetic closures and adjustable drawstring ankles.',
-    specs: '✦ 100% Military-grade Cotton Ripstop • Magnetic Pocket Fasteners',
-    sizes: ['30', '32', '34', '36']
-  },
-  {
-    id: 'ns-bot-3',
-    name: '14oz Japanese Selvedge Raw Denim',
-    category: 'bottoms',
-    categoryName: 'Pants & Denim',
-    price: 225,
     tag: 'Signature Drop',
     imageFront: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800&auto=format&fit=crop',
     imageBack: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800&auto=format&fit=crop',
     gallery: [
-      'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800&auto=format&fit=crop'
     ],
-    description: 'Woven on vintage shuttle looms in Okayama, Japan. 14oz red-line selvedge with custom engraved copper rivets and embossed leather patch.',
-    specs: '✦ 100% Kurabo Japanese Cotton • Red-line Selvedge ID • Straight Relaxed Leg',
+    description: 'Woven on vintage shuttle looms in Kojima, Japan. Red-line selvedge ID, custom copper donut buttons, and relaxed straight drape.',
+    specs: '✦ 14oz Japanese Selvedge Cotton • Button Fly • Raw Indigo Finish',
     sizes: ['30', '32', '34', '36']
   },
   {
-    id: 'ns-bot-4',
-    name: 'Tailored Flare Slack in Noir',
+    id: 'ns-bottom-2',
+    name: 'Architectural Pleated Trouser',
+    category: 'bottoms',
+    categoryName: 'Pants & Denim',
+    price: 210,
+    tag: 'Bestseller',
+    imageFront: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=800&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800&auto=format&fit=crop',
+    gallery: [
+      'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=800&auto=format&fit=crop'
+    ],
+    description: 'Double front pleats with a wide flowing leg cut from Italian virgin tropical wool blend with hidden waist adjusters.',
+    specs: '✦ 60% Wool, 40% Viscose • Double Pleated • Internal Hook Closure',
+    sizes: ['30', '32', '34', '36']
+  },
+  {
+    id: 'ns-bottom-3',
+    name: 'Heavyweight Utility Cargo Trouser',
     category: 'bottoms',
     categoryName: 'Pants & Denim',
     price: 195,
     tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=800&auto=format&fit=crop',
+    imageFront: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=800&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800&auto=format&fit=crop',
     gallery: [
-      'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?q=80&w=800&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=800&auto=format&fit=crop'
     ],
-    description: 'Flattering split-hem bootcut trousers constructed with subtle elastane stretch for all-day comfort.',
-    specs: '✦ 96% Tropical Wool, 4% Elastane • Hidden Zip Hem Splits',
-    sizes: ['30', '32', '34', '36']
+    description: 'Heavy cotton ripstop with gusseted dual 3D cargo pockets, reinforced articulated knee panels, and cinch hems.',
+    specs: '✦ 340 GSM Cotton Ripstop • Cobra-style Buckles • Adjustable Hem Cords',
+    sizes: ['S', 'M', 'L', 'XL']
+  },
+  {
+    id: 'ns-bottom-4',
+    name: 'Relaxed Tailored Lounge Pant',
+    category: 'bottoms',
+    categoryName: 'Pants & Denim',
+    price: 155,
+    tag: 'Selling Fast',
+    imageFront: 'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=800&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=800&auto=format&fit=crop',
+    gallery: [
+      'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=800&auto=format&fit=crop'
+    ],
+    description: 'Encased elastic drawstring waistband with pin-tuck center crease for casual comfort with elevated tailoring.',
+    specs: '✦ Compact Interlock Cotton Knit • Metal-tipped Drawcords',
+    sizes: ['S', 'M', 'L', 'XL']
   },
 
-  // --- JACKETS & OUTERWEAR ---
+  // --- OUTERWEAR & JACKETS ---
   {
-    id: 'ns-out-1',
-    name: 'Atelier Double-Breasted Trench',
+    id: 'ns-outer-1',
+    name: 'Double-Breasted Cashmere Trench',
     category: 'outerwear',
     categoryName: 'Jackets & Coats',
-    price: 340,
+    price: 490,
     tag: 'Signature Drop',
     imageFront: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?q=80&w=800&auto=format&fit=crop',
     gallery: [
       'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?q=80&w=800&auto=format&fit=crop'
     ],
-    description: 'Crafted from Italian storm-resistant gabardine with structured drop shoulders and custom engraved New Sitara gold horn buttons.',
-    specs: '✦ 100% Water-repellent Cotton Gabardine • Cupro Silk Lining • Made in Portugal',
+    description: 'Full-length architectural wool coat with horn buttons, storm flap, and removable self-tie waist belt.',
+    specs: '✦ 80% Virgin Wool, 20% Cashmere • Horn Buttons • Cupro Lining',
     sizes: ['S', 'M', 'L', 'XL']
   },
   {
-    id: 'ns-out-2',
-    name: 'Architectural Cropped Bomber',
+    id: 'ns-outer-2',
+    name: 'Bomber Jacket in Matte Nappa Leather',
     category: 'outerwear',
     categoryName: 'Jackets & Coats',
-    price: 395,
-    tag: 'Exclusive Drop',
-    imageFront: 'https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=800&auto=format&fit=crop',
+    price: 450,
+    tag: 'Limited Edition',
+    imageFront: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=800&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop',
     gallery: [
-      'https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?q=80&w=800&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=800&auto=format&fit=crop'
     ],
-    description: 'Structured technical nylon with PrimaLoft insulation, two-way heavy matte gold zipper, and storm flap detailing.',
-    specs: '✦ Italian Technical Nylon • PrimaLoft Gold Insulation • Ribbed Wool Cuffs',
-    sizes: ['S', 'M', 'L', 'XL']
+    description: 'Supple lambskin nappa leather bomber featuring 2-way RiRi zip closure and wool rib knit collar and cuffs.',
+    specs: '✦ 100% Full-Grain Lambskin • RiRi Swiss Hardware • Satin Bemberg Interior',
+    sizes: ['M', 'L', 'XL']
   },
   {
-    id: 'ns-out-3',
-    name: 'Overcoat in Melton Wool Noir',
+    id: 'ns-outer-3',
+    name: 'Technical Waterproof Shell Jacket',
     category: 'outerwear',
     categoryName: 'Jackets & Coats',
-    price: 460,
-    tag: 'Archival Piece',
-    imageFront: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800&auto=format&fit=crop',
+    price: 290,
+    tag: 'New Drop',
+    imageFront: 'https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=800&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop',
     gallery: [
-      'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=800&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=800&auto=format&fit=crop'
     ],
-    description: 'Full-length tailored coat constructed from 800 GSM heavy Melton wool. Peak lapels, deep central vent, and internal passport pocket.',
-    specs: '✦ 100% Heavyweight Melton Wool • Cupro Satin Lining • Made in Italy',
+    description: '3-layer laminated waterproof nylon with fully taped interior seams, magnetic storm flap, and FIDLOCK cord adjusters.',
+    specs: '✦ 20,000mm Waterproof Membrane • Taped Seams • FIDLOCK Magnetic Snaps',
     sizes: ['S', 'M', 'L', 'XL']
   },
   {
-    id: 'ns-out-4',
-    name: 'Insulated Matte Technical Puffer',
+    id: 'ns-outer-4',
+    name: 'Overdyed Heavy Denim Trucker',
     category: 'outerwear',
     categoryName: 'Jackets & Coats',
-    price: 380,
+    price: 220,
     tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1544923246-77307dd654cb?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?q=80&w=800&auto=format&fit=crop',
+    imageFront: 'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?q=80&w=800&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=800&auto=format&fit=crop',
     gallery: [
-      'https://images.unsplash.com/photo-1544923246-77307dd654cb?q=80&w=800&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?q=80&w=800&auto=format&fit=crop'
     ],
-    description: '700-fill responsible goose down jacket with waterproof storm zippers and detachable hood.',
-    specs: '✦ 700-Fill Goose Down • Matte Ripstop Shell • Storm Zip Placket',
+    description: 'Boxy cropped type-3 trucker jacket in deep mineral wash with custom branded shank buttons.',
+    specs: '✦ 13.5oz Cotton Denim • Branded Metal Hardware • Drop Shoulder Cut',
     sizes: ['S', 'M', 'L', 'XL']
   },
 
   // --- ACCESSORIES & LEATHER ---
   {
     id: 'ns-acc-1',
-    name: 'Full-Grain Leather Weekender Duffle',
+    name: 'Atelier Leather Weekend Duffle',
     category: 'accessories',
     categoryName: 'Leather & Goods',
     price: 380,
@@ -389,12 +389,24 @@ function updatePillCounts() {
   const outerwear = MAISON_CATALOG.filter((p) => p.category === 'outerwear').length;
   const accessories = MAISON_CATALOG.filter((p) => p.category === 'accessories').length;
 
-  document.getElementById('countAll').textContent = total;
-  document.getElementById('countShoes').textContent = shoes;
-  document.getElementById('countTops').textContent = tops;
-  document.getElementById('countBottoms').textContent = bottoms;
-  document.getElementById('countOuterwear').textContent = outerwear;
-  document.getElementById('countAccessories').textContent = accessories;
+  const setT = (id, val) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val;
+  };
+
+  setT('countAll', total);
+  setT('countShoes', shoes);
+  setT('countTops', tops);
+  setT('countBottoms', bottoms);
+  setT('countOuterwear', outerwear);
+  setT('countAccessories', accessories);
+
+  setT('mobCountAll', total);
+  setT('mobCountShoes', shoes);
+  setT('mobCountTops', tops);
+  setT('mobCountBottoms', bottoms);
+  setT('mobCountOuterwear', outerwear);
+  setT('mobCountAccessories', accessories);
 }
 
 function renderMaisonGrid() {
@@ -424,11 +436,11 @@ function renderMaisonGrid() {
 
   if (items.length === 0) {
     grid.innerHTML = `
-      <div style="grid-column: 1 / -1; text-align: center; padding: 6rem 1rem; color: var(--slate);">
-        <i data-lucide="sparkles" style="width: 48px; height: 48px; margin-bottom: 1rem; color: var(--gold-accent);"></i>
-        <h3 style="font-family: var(--font-serif); font-size: 2rem; color: var(--noir);">No matching pieces in this view</h3>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Try clearing your search term or selecting another department.</p>
-        <button class="btn btn-black" onclick="filterByDept('all')" style="margin-top: 1.5rem; border-radius: 999px;">View All Pieces</button>
+      <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: var(--slate);">
+        <i data-lucide="sparkles" style="width: 44px; height: 44px; margin-bottom: 1rem; color: var(--gold-accent);"></i>
+        <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--noir);">No matching pieces</h3>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Try selecting another category or clearing search.</p>
+        <button class="btn btn-black" onclick="filterByDept('all')" style="margin-top: 1.25rem; border-radius: 999px;">View All</button>
       </div>
     `;
     if (window.lucide) window.lucide.createIcons();
@@ -439,15 +451,21 @@ function renderMaisonGrid() {
     .map(
       (p) => `
     <div class="maison-card" data-id="${p.id}">
-      <div class="card-media">
+      <div class="card-media" onclick="openProductModal('${p.id}')">
         <span class="card-tag-pill">${p.tag}</span>
         <img src="${p.imageFront}" alt="${p.name}" class="card-img-front" loading="lazy">
         <img src="${p.imageBack}" alt="${p.name} alternate view" class="card-img-back" loading="lazy">
 
+        <!-- Mobile Tap Add -->
+        <button class="card-mob-quick-add" onclick="event.stopPropagation(); openProductModal('${p.id}')" aria-label="Add ${p.name}">
+          <i data-lucide="plus"></i>
+        </button>
+
+        <!-- Desktop Hover Strip -->
         <div class="card-hover-actions">
-          <button class="btn-quick-view" onclick="openProductModal('${p.id}')">Quick View</button>
+          <button class="btn-quick-view" onclick="event.stopPropagation(); openProductModal('${p.id}')">Quick View</button>
           <div class="card-size-strip">
-            ${p.sizes.map((s) => `<button class="size-add-btn" onclick="quickAddToBag('${p.id}', '${s}')">${s}</button>`).join('')}
+            ${p.sizes.map((s) => `<button class="size-add-btn" onclick="event.stopPropagation(); quickAddToBag('${p.id}', '${s}')">${s}</button>`).join('')}
           </div>
         </div>
       </div>
@@ -458,7 +476,7 @@ function renderMaisonGrid() {
         
         <div class="card-bottom-row">
           <span class="card-price">$${p.price}.00</span>
-          <span class="card-stock">● Available</span>
+          <span class="card-stock">● In Stock</span>
         </div>
       </div>
     </div>
@@ -472,10 +490,15 @@ function renderMaisonGrid() {
 function filterByDept(dept, btnEl) {
   activeDept = dept;
 
-  // Sync pill active state
+  // Sync desktop pills
   document.querySelectorAll('.dept-pill').forEach((pill) => {
     if (pill.dataset.dept === dept) pill.classList.add('active');
     else pill.classList.remove('active');
+  });
+
+  // Sync mobile drawer links
+  document.querySelectorAll('.mob-nav-link').forEach((link) => {
+    link.classList.remove('active');
   });
 
   renderMaisonGrid();
@@ -492,13 +515,52 @@ function handleSort(e) {
   renderMaisonGrid();
 }
 
-function setGridColumns(cols, btnEl) {
+function toggleMobileGrid(cols, btnEl) {
   const grid = document.getElementById('maisonGrid');
   if (!grid) return;
 
   grid.className = `maison-product-grid grid-${cols}`;
   document.querySelectorAll('.view-btn').forEach((b) => b.classList.remove('active'));
   if (btnEl) btnEl.classList.add('active');
+}
+
+// Mobile Nav Drawer Toggle
+function toggleMobileMenu(open) {
+  const drawer = document.getElementById('mobNavDrawer');
+  const backdrop = document.getElementById('mobNavBackdrop');
+  if (!drawer || !backdrop) return;
+
+  if (open) {
+    drawer.classList.add('open');
+    backdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  } else {
+    drawer.classList.remove('open');
+    backdrop.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+// Mobile Search Bar Toggle
+function toggleMobileSearchBar(forceOpen) {
+  const bar = document.getElementById('mobileSearchBar');
+  if (!bar) return;
+
+  if (forceOpen === undefined) {
+    bar.classList.toggle('open');
+  } else if (forceOpen) {
+    bar.classList.add('open');
+    const inp = document.getElementById('mobileSearchInput');
+    if (inp) inp.focus();
+  } else {
+    bar.classList.remove('open');
+  }
+}
+
+function handleMobileSearch(e) {
+  searchKeyword = e.target.value.trim().toLowerCase();
+  renderMaisonGrid();
+  scrollToSection('catalogSection');
 }
 
 function handleSearch(e) {
@@ -570,7 +632,7 @@ function openProductModal(productId) {
       </div>
 
       <button class="btn btn-black btn-block" onclick="addModalItemToCart()">
-        Add to Shopping Bag — $${product.price}.00
+        Add to Bag — $${product.price}.00
       </button>
     </div>
   `;
@@ -671,9 +733,11 @@ function updateCartBadge() {
   const count = cartItems.reduce((sum, item) => sum + item.qty, 0);
   const badge = document.getElementById('cartCountBadge');
   const countTxt = document.getElementById('cartItemBadgeCount');
+  const mobTabBadge = document.getElementById('mobTabBadge');
 
   if (badge) badge.textContent = count;
   if (countTxt) countTxt.textContent = `(${count})`;
+  if (mobTabBadge) mobTabBadge.textContent = count;
 }
 
 function renderCartFeed() {
@@ -682,10 +746,10 @@ function renderCartFeed() {
 
   if (cartItems.length === 0) {
     feed.innerHTML = `
-      <div style="margin: auto; text-align: center; color: var(--slate); padding: 4rem 1rem;">
-        <i data-lucide="shopping-bag" style="width: 48px; height: 48px; margin-bottom: 0.75rem; opacity: 0.25;"></i>
-        <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--noir);">Your bag is currently empty</h4>
-        <p style="font-size: 0.85rem; margin-top: 0.35rem;">Explore footwear, hoodies, pants, and jackets to add pieces.</p>
+      <div style="margin: auto; text-align: center; color: var(--slate); padding: 3.5rem 1rem;">
+        <i data-lucide="shopping-bag" style="width: 44px; height: 44px; margin-bottom: 0.75rem; opacity: 0.25;"></i>
+        <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--noir);">Your bag is empty</h4>
+        <p style="font-size: 0.8rem; margin-top: 0.35rem;">Discover our latest pieces across all departments.</p>
       </div>
     `;
     updateCheckoutPricing(0);
@@ -738,7 +802,7 @@ function updateCheckoutPricing(subtotal) {
   if (barEl && msgEl) {
     if (subtotal === 0) {
       barEl.style.width = '0%';
-      msgEl.textContent = `Add $${threshold} for Free Worldwide Shipping`;
+      msgEl.textContent = `Add $${threshold} for Free Worldwide Express`;
     } else if (isFree) {
       barEl.style.width = '100%';
       msgEl.textContent = `✦ You've Unlocked Free Worldwide Express Shipping!`;
@@ -746,7 +810,7 @@ function updateCheckoutPricing(subtotal) {
       const remaining = threshold - subtotal;
       const pct = Math.min(100, (subtotal / threshold) * 100);
       barEl.style.width = `${pct}%`;
-      msgEl.textContent = `Add $${remaining}.00 more for Free Worldwide Shipping`;
+      msgEl.textContent = `Add $${remaining}.00 more for Free Worldwide Express`;
     }
   }
 

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>New Sitara — Merchant & Catalog Administration</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/admin.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="admin-body">
+
+  <!-- Mobile Top Bar -->
+  <header class="admin-mobile-topbar">
+    <button class="menu-toggle-btn" onclick="toggleSidebar(true)">
+      <i data-lucide="menu"></i>
+    </button>
+    <div class="mobile-brand">
+      <span class="brand-text">NEW SITARA</span>
+      <span class="brand-badge">ADMIN</span>
+    </div>
+    <a href="/store" class="btn-live-store-sm" target="_blank" title="View Store">
+      <i data-lucide="external-link"></i>
+    </a>
+  </header>
+
+  <!-- Sidebar Overlay on Mobile -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar(false)"></div>
+
+  <!-- Admin Sidebar -->
+  <aside class="admin-sidebar" id="adminSidebar">
+    <div class="sidebar-head">
+      <div class="sidebar-brand">
+        <div class="logo-box">NS</div>
+        <div class="brand-meta">
+          <span class="brand-title">NEW SITARA</span>
+          <span class="brand-edition">COMMERCE CMS</span>
+        </div>
+      </div>
+      <button class="sidebar-close-btn" onclick="toggleSidebar(false)"><i data-lucide="x"></i></button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">MAIN NAVIGATION</div>
+      
+      <button class="nav-item active" data-tab="overview" onclick="switchTab('overview')">
+        <i data-lucide="layout-dashboard"></i>
+        <span>Overview</span>
+      </button>
+
+      <button class="nav-item" data-tab="products" onclick="switchTab('products')">
+        <i data-lucide="package"></i>
+        <span>Products</span>
+        <span class="nav-badge" id="sidebarProductCount">0</span>
+      </button>
+
+      <button class="nav-item" data-tab="categories" onclick="switchTab('categories')">
+        <i data-lucide="layers"></i>
+        <span>Categories</span>
+        <span class="nav-badge" id="sidebarCategoryCount">0</span>
+      </button>
+
+      <button class="nav-item" data-tab="orders" onclick="switchTab('orders')">
+        <i data-lucide="shopping-cart"></i>
+        <span>Orders</span>
+        <span class="nav-badge" id="sidebarOrderCount">0</span>
+      </button>
+
+      <button class="nav-item" data-tab="promos" onclick="switchTab('promos')">
+        <i data-lucide="tag"></i>
+        <span>Promo Codes</span>
+      </button>
+
+      <div class="nav-section-label">CONFIGURATION</div>
+
+      <button class="nav-item" data-tab="settings" onclick="switchTab('settings')">
+        <i data-lucide="settings"></i>
+        <span>Store Settings</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-foot">
+      <a href="/store" class="btn-store-bridge" target="_blank">
+        <span>View Live Store</span>
+        <i data-lucide="external-link"></i>
+      </a>
+      <div class="system-status-indicator">
+        <span class="status-dot"></span>
+        <span>Local Database Synced</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Admin Main Workspace -->
+  <main class="admin-main">
+
+    <!-- Top Action Bar -->
+    <header class="admin-topbar">
+      <div class="topbar-search">
+        <i data-lucide="search"></i>
+        <input type="text" id="adminGlobalSearch" placeholder="Search products, orders, categories..." oninput="handleGlobalSearch(event)">
+      </div>
+
+      <div class="topbar-actions">
+        <button class="btn btn-outline" onclick="openNewCategoryModal()">
+          <i data-lucide="folder-plus"></i>
+          <span>+ Category</span>
+        </button>
+        <button class="btn btn-primary" onclick="openNewProductModal()">
+          <i data-lucide="plus"></i>
+          <span>+ Add Product</span>
+        </button>
+        <a href="/store" class="btn-view-store" target="_blank">
+          <i data-lucide="eye"></i>
+          <span class="desktop-only">Storefront</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Content Tabs Container -->
+    <div class="admin-content-pane">
+
+      <!-- ===================================================================
+           TAB 1: OVERVIEW DASHBOARD
+           =================================================================== -->
+      <section class="tab-pane active" id="tab-overview">
+        <div class="pane-header">
+          <div>
+            <h1 class="pane-title">Commerce Overview</h1>
+            <p class="pane-desc">Real-time catalog performance, revenue metrics, and inventory health.</p>
+          </div>
+          <button class="btn btn-sm btn-outline" onclick="refreshDashboard()"><i data-lucide="refresh-cw"></i> Refresh</button>
+        </div>
+
+        <!-- Metric KPI Cards -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-icon-wrap icon-gold"><i data-lucide="dollar-sign"></i></div>
+            <div class="kpi-body">
+              <span class="kpi-label">Estimated Revenue</span>
+              <h3 class="kpi-val" id="kpiRevenue">$0.00</h3>
+              <span class="kpi-sub positive">● Live from Orders</span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-icon-wrap icon-blue"><i data-lucide="package"></i></div>
+            <div class="kpi-body">
+              <span class="kpi-label">Total Catalog Pieces</span>
+              <h3 class="kpi-val" id="kpiProducts">0</h3>
+              <span class="kpi-sub">Across all departments</span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-icon-wrap icon-purple"><i data-lucide="layers"></i></div>
+            <div class="kpi-body">
+              <span class="kpi-label">Active Categories</span>
+              <h3 class="kpi-val" id="kpiCategories">0</h3>
+              <span class="kpi-sub">Ready-to-Wear divisions</span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-icon-wrap icon-green"><i data-lucide="shopping-bag"></i></div>
+            <div class="kpi-body">
+              <span class="kpi-label">Orders Logged</span>
+              <h3 class="kpi-val" id="kpiOrders">0</h3>
+              <span class="kpi-sub">Checkout & WhatsApp</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Split Rows -->
+        <div class="dash-split-row">
+          
+          <!-- Recent Orders Table -->
+          <div class="dash-card">
+            <div class="dash-card-head">
+              <h3>Recent Client Orders</h3>
+              <button class="link-btn" onclick="switchTab('orders')">View All →</button>
+            </div>
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Order</th>
+                    <th>Customer</th>
+                    <th>Date</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="dashRecentOrdersTable">
+                  <!-- Injected via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Category Breakdown -->
+          <div class="dash-card">
+            <div class="dash-card-head">
+              <h3>Apparel Category Density</h3>
+              <button class="link-btn" onclick="switchTab('categories')">Manage →</button>
+            </div>
+            <div class="category-stat-list" id="dashCategoryList">
+              <!-- Injected via JS -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           TAB 2: PRODUCTS MANAGER
+           =================================================================== -->
+      <section class="tab-pane" id="tab-products">
+        <div class="pane-header">
+          <div>
+            <h1 class="pane-title">Product Catalog</h1>
+            <p class="pane-desc">Manage, edit, categorize, and price all pieces in your storefront.</p>
+          </div>
+          <button class="btn btn-primary" onclick="openNewProductModal()"><i data-lucide="plus"></i> Add New Product</button>
+        </div>
+
+        <!-- Filter & Search Toolbar -->
+        <div class="table-toolbar">
+          <div class="toolbar-search">
+            <i data-lucide="search"></i>
+            <input type="text" id="productFilterInput" placeholder="Filter pieces by name or tag..." oninput="filterProductsTable()">
+          </div>
+          <div class="toolbar-filters">
+            <select class="admin-select" id="productCategoryFilter" onchange="filterProductsTable()">
+              <option value="all">All Categories</option>
+              <!-- Dynamic Category Options -->
+            </select>
+          </div>
+        </div>
+
+        <!-- Products Table -->
+        <div class="dash-card table-card">
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th style="width: 70px;">Media</th>
+                  <th>Product Title</th>
+                  <th>Category</th>
+                  <th>Price (USD)</th>
+                  <th>Sizes</th>
+                  <th>Edition / Tag</th>
+                  <th>Status</th>
+                  <th style="text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="productsTableBody">
+                <!-- Injected via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           TAB 3: CATEGORIES MANAGER
+           =================================================================== -->
+      <section class="tab-pane" id="tab-categories">
+        <div class="pane-header">
+          <div>
+            <h1 class="pane-title">Apparel Categories</h1>
+            <p class="pane-desc">Configure departments (T-Shirts, Hoodies, Pants, Shorts, Shoes, Outerwear, Accessories).</p>
+          </div>
+          <button class="btn btn-primary" onclick="openNewCategoryModal()"><i data-lucide="folder-plus"></i> Add Category</button>
+        </div>
+
+        <div class="categories-grid" id="categoriesGrid">
+          <!-- Injected via JS -->
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           TAB 4: ORDERS HUB
+           =================================================================== -->
+      <section class="tab-pane" id="tab-orders">
+        <div class="pane-header">
+          <div>
+            <h1 class="pane-title">Client Orders</h1>
+            <p class="pane-desc">Track and update customer transactions and fulfillment statuses.</p>
+          </div>
+        </div>
+
+        <div class="dash-card table-card">
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer</th>
+                  <th>Date</th>
+                  <th>Items Ordered</th>
+                  <th>Payment</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                  <th>Update Status</th>
+                </tr>
+              </thead>
+              <tbody id="ordersTableBody">
+                <!-- Injected via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           TAB 5: PROMO CODES
+           =================================================================== -->
+      <section class="tab-pane" id="tab-promos">
+        <div class="pane-header">
+          <div>
+            <h1 class="pane-title">Promotion & Coupon Engine</h1>
+            <p class="pane-desc">Generate percentage discount coupons for drops, launches, and VIP customers.</p>
+          </div>
+          <button class="btn btn-primary" onclick="openNewPromoModal()"><i data-lucide="tag"></i> Create Promo Code</button>
+        </div>
+
+        <div class="dash-card table-card">
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Code</th>
+                  <th>Discount Percentage</th>
+                  <th>Status</th>
+                  <th>Usage Count</th>
+                  <th style="text-align: right;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="promosTableBody">
+                <!-- Injected via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           TAB 6: SETTINGS & SYSTEM BACKUP
+           =================================================================== -->
+      <section class="tab-pane" id="tab-settings">
+        <div class="pane-header">
+          <div>
+            <h1 class="pane-title">Catalog System Settings</h1>
+            <p class="pane-desc">Manage store data backups, synchronization, and default fixtures.</p>
+          </div>
+        </div>
+
+        <div class="settings-grid">
+          <div class="dash-card">
+            <h3>🔄 Reset to Default Catalog</h3>
+            <p style="font-size: 0.85rem; color: #666; margin: 0.5rem 0 1.25rem; line-height: 1.6;">
+              Restores the default 25+ luxury clothing pieces across all 7 apparel departments. Useful for testing fresh clean data.
+            </p>
+            <button class="btn btn-danger" onclick="confirmResetDefaults()">Reset All Sample Data</button>
+          </div>
+
+          <div class="dash-card">
+            <h3>📦 Export Catalog Data JSON</h3>
+            <p style="font-size: 0.85rem; color: #666; margin: 0.5rem 0 1.25rem; line-height: 1.6;">
+              Download a complete JSON backup of all your customized products, categories, orders, and promo codes.
+            </p>
+            <button class="btn btn-outline" onclick="exportDataJson()">Download JSON Backup</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- =======================================================================
+       MODAL: ADD / EDIT PRODUCT
+       ======================================================================= -->
+  <div class="admin-modal-backdrop" id="productModalBackdrop" onclick="closeProductModal()"></div>
+  <div class="admin-modal" id="productModal">
+    <div class="modal-head">
+      <h3 id="productModalTitle">Add New Product</h3>
+      <button class="btn-modal-close" onclick="closeProductModal()"><i data-lucide="x"></i></button>
+    </div>
+
+    <form id="productForm" onsubmit="handleSaveProduct(event)">
+      <input type="hidden" id="editProductId">
+
+      <div class="form-row">
+        <div class="form-group flex-2">
+          <label for="prodName">Product Title *</label>
+          <input type="text" id="prodName" class="form-input" placeholder="e.g. 520GSM Loopback Heavy Hoodie" required>
+        </div>
+        <div class="form-group flex-1">
+          <label for="prodPrice">Price (USD) *</label>
+          <input type="number" id="prodPrice" class="form-input" placeholder="185" min="1" step="1" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group flex-1">
+          <label for="prodCategory">Apparel Category *</label>
+          <select id="prodCategory" class="form-input" required>
+            <!-- Injected via JS -->
+          </select>
+        </div>
+        <div class="form-group flex-1">
+          <label for="prodTag">Tag / Badge</label>
+          <input type="text" id="prodTag" class="form-input" placeholder="e.g. Bestseller, Signature Drop, New Drop">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group flex-1">
+          <label for="prodImgFront">Front Image URL *</label>
+          <input type="url" id="prodImgFront" class="form-input" placeholder="https://images.unsplash.com/..." required oninput="previewImage('frontPreview', this.value)">
+          <div class="img-preview-box" id="frontPreview"></div>
+        </div>
+        <div class="form-group flex-1">
+          <label for="prodImgBack">Back / Hover Image URL</label>
+          <input type="url" id="prodImgBack" class="form-input" placeholder="https://images.unsplash.com/..." oninput="previewImage('backPreview', this.value)">
+          <div class="img-preview-box" id="backPreview"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="prodSizes">Available Sizes (Comma-separated) *</label>
+        <input type="text" id="prodSizes" class="form-input" placeholder="S, M, L, XL or 40, 41, 42, 43, 44 or One Size" required>
+      </div>
+
+      <div class="form-group">
+        <label for="prodSpecs">Atelier Specifications</label>
+        <input type="text" id="prodSpecs" class="form-input" placeholder="✦ 100% Organic Heavyweight Cotton • Pre-shrunk • Relaxed Cut">
+      </div>
+
+      <div class="form-group">
+        <label for="prodDesc">Description *</label>
+        <textarea id="prodDesc" class="form-input form-textarea" rows="3" placeholder="Detailed garment description and tactile notes..." required></textarea>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-outline" onclick="closeProductModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="btnSaveProduct">Save Product</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- =======================================================================
+       MODAL: ADD / EDIT CATEGORY
+       ======================================================================= -->
+  <div class="admin-modal-backdrop" id="categoryModalBackdrop" onclick="closeCategoryModal()"></div>
+  <div class="admin-modal modal-sm" id="categoryModal">
+    <div class="modal-head">
+      <h3 id="categoryModalTitle">Add New Category</h3>
+      <button class="btn-modal-close" onclick="closeCategoryModal()"><i data-lucide="x"></i></button>
+    </div>
+
+    <form id="categoryForm" onsubmit="handleSaveCategory(event)">
+      <input type="hidden" id="editCategoryId">
+
+      <div class="form-group">
+        <label for="catName">Category Name *</label>
+        <input type="text" id="catName" class="form-input" placeholder="e.g. Shorts & Bottoms, Caps & Hats" required>
+      </div>
+
+      <div class="form-group">
+        <label for="catDesc">Description</label>
+        <input type="text" id="catDesc" class="form-input" placeholder="Short description for portal cards...">
+      </div>
+
+      <div class="form-group">
+        <label for="catImage">Cover Image URL *</label>
+        <input type="url" id="catImage" class="form-input" placeholder="https://images.unsplash.com/..." required oninput="previewImage('catPreview', this.value)">
+        <div class="img-preview-box" id="catPreview"></div>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-outline" onclick="closeCategoryModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Category</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- =======================================================================
+       MODAL: ADD PROMO CODE
+       ======================================================================= -->
+  <div class="admin-modal-backdrop" id="promoModalBackdrop" onclick="closePromoModal()"></div>
+  <div class="admin-modal modal-sm" id="promoModal">
+    <div class="modal-head">
+      <h3>Create Promo Code</h3>
+      <button class="btn-modal-close" onclick="closePromoModal()"><i data-lucide="x"></i></button>
+    </div>
+
+    <form id="promoForm" onsubmit="handleSavePromo(event)">
+      <div class="form-group">
+        <label for="promoCode">Promo Code Name *</label>
+        <input type="text" id="promoCode" class="form-input uppercase-input" placeholder="e.g. SUMMER25" required>
+      </div>
+
+      <div class="form-group">
+        <label for="promoDiscount">Discount Percentage (%) *</label>
+        <input type="number" id="promoDiscount" class="form-input" placeholder="20" min="1" max="90" required>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-outline" onclick="closePromoModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Create Promo</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Admin Toast Hub -->
+  <div class="admin-toast-hub" id="adminToastHub"></div>
+
+  <!-- Data Layer & Admin Controller -->
+  <script src="/store-data.js"></script>
+  <script src="/admin.js"></script>
+</body>
+</html>

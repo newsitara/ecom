@@ -1,431 +1,164 @@
 // ==========================================================================
-// NEW SITARA INTERPRIZES — MOBILE-FIRST MAISON CATALOG ENGINE
+// NEW SITARA — STOREFRONT INTERACTIVE ENGINE
 // ==========================================================================
 
-const MAISON_CATALOG = [
-  // --- FOOTWEAR & SNEAKERS ---
-  {
-    id: 'ns-shoe-1',
-    name: 'Atelier Minimal Low-Top Sneaker',
-    category: 'shoes',
-    categoryName: 'Footwear & Sneakers',
-    price: 220,
-    tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Handcrafted in Italy from full-grain calfskin leather with Margom rubber cupsole and gold foil NS insignia on tongue.',
-    specs: '✦ 100% Full-Grain Italian Calfskin • Margom Rubber Cupsole • Waxed Cotton Laces',
-    sizes: ['40', '41', '42', '43', '44', '45']
-  },
-  {
-    id: 'ns-shoe-2',
-    name: 'Obsidian Chunky Technical Runner',
-    category: 'shoes',
-    categoryName: 'Footwear & Sneakers',
-    price: 280,
-    tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Multi-layered suede and breathable nylon mesh upper with exaggerated sculpted EVA midsole and Vibram traction outsole.',
-    specs: '✦ Italian Suede & Ballistic Mesh • Vibram Rubber Outsole • Cushion Ortholite Footbed',
-    sizes: ['41', '42', '43', '44', '45']
-  },
-  {
-    id: 'ns-shoe-3',
-    name: 'Suede Chelsea Boot in Tobacco',
-    category: 'shoes',
-    categoryName: 'Footwear & Sneakers',
-    price: 360,
-    tag: 'Limited Edition',
-    imageFront: 'https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Blake-stitched ankle Chelsea boot crafted from water-resistant calf suede with tonal elastic side gussets and pull tabs.',
-    specs: '✦ Premium Suede Calfskin • Leather Stacked Heel • Goodyear Welted',
-    sizes: ['40', '41', '42', '43', '44']
-  },
-  {
-    id: 'ns-shoe-4',
-    name: 'Lug-Sole Derby Shoe Noir',
-    category: 'shoes',
-    categoryName: 'Footwear & Sneakers',
-    price: 310,
-    tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'High-shine brushed calf leather derby with exaggerated commando lug sole and hand-stitched welt.',
-    specs: '✦ Brushed Box Calf Leather • Commando Rubber Lug Sole • Waxed Laces',
-    sizes: ['41', '42', '43', '44', '45']
-  },
-
-  // --- HOODIES & TOPS ---
-  {
-    id: 'ns-top-1',
-    name: 'Obsidian 520GSM Loopback Hoodie',
-    category: 'tops',
-    categoryName: 'Hoodies & Knits',
-    price: 185,
-    tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Ultra-heavyweight 520 GSM pre-shrunk French terry. Featuring a double-layered structured hood with subtle tonal NS monogram embroidery.',
-    specs: '✦ 100% Organic Heavyweight Cotton • Custom Gold Aglets • Relaxed Boxy Cut',
-    sizes: ['S', 'M', 'L', 'XL']
-  },
-  {
-    id: 'ns-top-2',
-    name: 'Monogram Heavyweight Boxy Tee',
-    category: 'tops',
-    categoryName: 'Hoodies & Knits',
-    price: 95,
-    tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: '300 GSM combed cotton jersey in washed charcoal black. High ribbed collar with embroidered gold NS emblem on chest.',
-    specs: '✦ 100% Combed Compact Cotton • Pre-shrunk & Enzyme Washed',
-    sizes: ['S', 'M', 'L', 'XL']
-  },
-  {
-    id: 'ns-top-3',
-    name: 'Cashmere-Blend Minimal Knit',
-    category: 'tops',
-    categoryName: 'Hoodies & Knits',
-    price: 260,
-    tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: '7-gauge seamless knit in natural un-dyed oatmeal. Incredibly soft tactile hand-feel with relaxed drop sleeves.',
-    specs: '✦ 70% Extra-fine Merino, 30% Mongolian Cashmere • Seamless Construction',
-    sizes: ['S', 'M', 'L', 'XL']
-  },
-  {
-    id: 'ns-top-4',
-    name: 'Vintage Washed Graphic Tour Tee',
-    category: 'tops',
-    categoryName: 'Hoodies & Knits',
-    price: 110,
-    tag: 'Selling Fast',
-    imageFront: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Sun-faded distressed wash with hand-screenprinted New Sitara typography and cracked ink patina.',
-    specs: '✦ 280 GSM Single Jersey • Hand-Distressed Collars • Boxy Dropped Fit',
-    sizes: ['S', 'M', 'L', 'XL']
-  },
-  {
-    id: 'ns-top-5',
-    name: 'Heavy French Terry Crewneck',
-    category: 'tops',
-    categoryName: 'Hoodies & Knits',
-    price: 165,
-    tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Relaxed drop-shoulder silhouette in chalk white with rib knit hems and raglan sleeve construction.',
-    specs: '✦ 480 GSM Cotton • Raglan Sleeves • Ribbed Cuffs',
-    sizes: ['S', 'M', 'L', 'XL']
-  },
-
-  // --- PANTS & DENIM ---
-  {
-    id: 'ns-bottom-1',
-    name: '14oz Okayama Selvedge Denim',
-    category: 'bottoms',
-    categoryName: 'Pants & Denim',
-    price: 240,
-    tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Woven on vintage shuttle looms in Kojima, Japan. Red-line selvedge ID, custom copper donut buttons, and relaxed straight drape.',
-    specs: '✦ 14oz Japanese Selvedge Cotton • Button Fly • Raw Indigo Finish',
-    sizes: ['30', '32', '34', '36']
-  },
-  {
-    id: 'ns-bottom-2',
-    name: 'Architectural Pleated Trouser',
-    category: 'bottoms',
-    categoryName: 'Pants & Denim',
-    price: 210,
-    tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Double front pleats with a wide flowing leg cut from Italian virgin tropical wool blend with hidden waist adjusters.',
-    specs: '✦ 60% Wool, 40% Viscose • Double Pleated • Internal Hook Closure',
-    sizes: ['30', '32', '34', '36']
-  },
-  {
-    id: 'ns-bottom-3',
-    name: 'Heavyweight Utility Cargo Trouser',
-    category: 'bottoms',
-    categoryName: 'Pants & Denim',
-    price: 195,
-    tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Heavy cotton ripstop with gusseted dual 3D cargo pockets, reinforced articulated knee panels, and cinch hems.',
-    specs: '✦ 340 GSM Cotton Ripstop • Cobra-style Buckles • Adjustable Hem Cords',
-    sizes: ['S', 'M', 'L', 'XL']
-  },
-  {
-    id: 'ns-bottom-4',
-    name: 'Relaxed Tailored Lounge Pant',
-    category: 'bottoms',
-    categoryName: 'Pants & Denim',
-    price: 155,
-    tag: 'Selling Fast',
-    imageFront: 'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Encased elastic drawstring waistband with pin-tuck center crease for casual comfort with elevated tailoring.',
-    specs: '✦ Compact Interlock Cotton Knit • Metal-tipped Drawcords',
-    sizes: ['S', 'M', 'L', 'XL']
-  },
-
-  // --- OUTERWEAR & JACKETS ---
-  {
-    id: 'ns-outer-1',
-    name: 'Double-Breasted Cashmere Trench',
-    category: 'outerwear',
-    categoryName: 'Jackets & Coats',
-    price: 490,
-    tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Full-length architectural wool coat with horn buttons, storm flap, and removable self-tie waist belt.',
-    specs: '✦ 80% Virgin Wool, 20% Cashmere • Horn Buttons • Cupro Lining',
-    sizes: ['S', 'M', 'L', 'XL']
-  },
-  {
-    id: 'ns-outer-2',
-    name: 'Bomber Jacket in Matte Nappa Leather',
-    category: 'outerwear',
-    categoryName: 'Jackets & Coats',
-    price: 450,
-    tag: 'Limited Edition',
-    imageFront: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Supple lambskin nappa leather bomber featuring 2-way RiRi zip closure and wool rib knit collar and cuffs.',
-    specs: '✦ 100% Full-Grain Lambskin • RiRi Swiss Hardware • Satin Bemberg Interior',
-    sizes: ['M', 'L', 'XL']
-  },
-  {
-    id: 'ns-outer-3',
-    name: 'Technical Waterproof Shell Jacket',
-    category: 'outerwear',
-    categoryName: 'Jackets & Coats',
-    price: 290,
-    tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: '3-layer laminated waterproof nylon with fully taped interior seams, magnetic storm flap, and FIDLOCK cord adjusters.',
-    specs: '✦ 20,000mm Waterproof Membrane • Taped Seams • FIDLOCK Magnetic Snaps',
-    sizes: ['S', 'M', 'L', 'XL']
-  },
-  {
-    id: 'ns-outer-4',
-    name: 'Overdyed Heavy Denim Trucker',
-    category: 'outerwear',
-    categoryName: 'Jackets & Coats',
-    price: 220,
-    tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Boxy cropped type-3 trucker jacket in deep mineral wash with custom branded shank buttons.',
-    specs: '✦ 13.5oz Cotton Denim • Branded Metal Hardware • Drop Shoulder Cut',
-    sizes: ['S', 'M', 'L', 'XL']
-  },
-
-  // --- ACCESSORIES & LEATHER ---
-  {
-    id: 'ns-acc-1',
-    name: 'Atelier Leather Weekend Duffle',
-    category: 'accessories',
-    categoryName: 'Leather & Goods',
-    price: 380,
-    tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Generous 45L travel duffle crafted from vegetable-tanned full-grain leather with solid brass hardware.',
-    specs: '✦ 100% Vegetable-Tanned Italian Leather • Solid Brass Hardware • YKK Excella Zips',
-    sizes: ['One Size']
-  },
-  {
-    id: 'ns-acc-2',
-    name: 'Monogram Engraved Cardholder',
-    category: 'accessories',
-    categoryName: 'Leather & Goods',
-    price: 85,
-    tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Slimline 4-slot cardholder in pebble grain calfskin with central note compartment and gold foil stamp.',
-    specs: '✦ Pebble Grain Calfskin • RFID Shielding • Hand-painted Edges',
-    sizes: ['One Size']
-  },
-  {
-    id: 'ns-acc-3',
-    name: 'Cuban Link Chain with NS Emblem',
-    category: 'accessories',
-    categoryName: 'Leather & Goods',
-    price: 190,
-    tag: 'Limited Edition',
-    imageFront: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: '8mm custom diamond-cut curb chain finished in 18k champagne gold plating with custom clasp lock.',
-    specs: '✦ 316L Stainless Steel Base • 18K Champagne Gold Dip • Micro-etched Clasp',
-    sizes: ['50cm', '55cm']
-  },
-  {
-    id: 'ns-acc-4',
-    name: 'Structured Atelier Cotton Twill Cap',
-    category: 'accessories',
-    categoryName: 'Leather & Goods',
-    price: 65,
-    tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: '6-panel structured cap in heavy Japanese cotton twill with antique brass buckle and 3D embroidered NS emblem.',
-    specs: '✦ 100% Japanese Cotton Twill • Antique Brass Buckle Closure',
-    sizes: ['Adjustable']
-  }
-];
-
-// App State
-let activeDept = 'all';
-let activeTag = 'all';
+let activeCategory = 'all';
 let activeSort = 'featured';
 let searchKeyword = '';
-let cartItems = JSON.parse(localStorage.getItem('ns_cart') || '[]');
-let promoPercent = 0;
-let modalProduct = null;
-let modalSize = '';
+let cartItems = JSON.parse(localStorage.getItem('sitara_cart') || '[]');
+let activePromoDiscount = 0;
+let modalActiveProduct = null;
+let modalSelectedSize = '';
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderMaisonGrid();
-  updatePillCounts();
+  initStore();
+});
+
+function initStore() {
+  renderCategoryNavigation();
+  renderCategoryPortals();
+  renderFilterPills();
+  renderFooterCategories();
+  renderProductsGrid();
   updateCartBadge();
   renderCartFeed();
 
   if (window.lucide) window.lucide.createIcons();
-});
+}
 
 function scrollToSection(id) {
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: 'smooth' });
 }
 
-function updatePillCounts() {
-  const total = MAISON_CATALOG.length;
-  const shoes = MAISON_CATALOG.filter((p) => p.category === 'shoes').length;
-  const tops = MAISON_CATALOG.filter((p) => p.category === 'tops').length;
-  const bottoms = MAISON_CATALOG.filter((p) => p.category === 'bottoms').length;
-  const outerwear = MAISON_CATALOG.filter((p) => p.category === 'outerwear').length;
-  const accessories = MAISON_CATALOG.filter((p) => p.category === 'accessories').length;
+// ==========================================================================
+// 1. DYNAMIC CATEGORY NAVIGATION & PORTALS
+// ==========================================================================
+function renderCategoryNavigation() {
+  const categories = DataStore.getCategories();
+  const products = DataStore.getProducts();
 
-  const setT = (id, val) => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = val;
-  };
+  // Desktop Left Nav Links
+  const desktopNav = document.getElementById('desktopNavLinks');
+  if (desktopNav) {
+    desktopNav.innerHTML = `
+      <button class="nav-link-btn ${activeCategory === 'all' ? 'active' : ''}" onclick="filterByCategory('all')">Collection</button>
+      ${categories
+        .slice(0, 5)
+        .map(
+          (c) => `
+        <button class="nav-link-btn ${activeCategory === (c.slug || c.id) ? 'active' : ''}" onclick="filterByCategory('${c.slug || c.id}')">${c.name.split('&')[0].trim()}</button>
+      `
+        )
+        .join('')}
+    `;
+  }
 
-  setT('countAll', total);
-  setT('countShoes', shoes);
-  setT('countTops', tops);
-  setT('countBottoms', bottoms);
-  setT('countOuterwear', outerwear);
-  setT('countAccessories', accessories);
-
-  setT('mobCountAll', total);
-  setT('mobCountShoes', shoes);
-  setT('mobCountTops', tops);
-  setT('mobCountBottoms', bottoms);
-  setT('mobCountOuterwear', outerwear);
-  setT('mobCountAccessories', accessories);
+  // Mobile Drawer Links
+  const mobLinks = document.getElementById('mobDrawerLinks');
+  if (mobLinks) {
+    mobLinks.innerHTML = `
+      <button class="mob-category-btn ${activeCategory === 'all' ? 'active' : ''}" onclick="filterByCategory('all'); toggleMobileMenu(false);">
+        <span>All Collection</span>
+        <span class="mob-count-badge">${products.length}</span>
+      </button>
+      ${categories
+        .map((c) => {
+          const count = products.filter((p) => p.category === (c.slug || c.id)).length;
+          return `
+          <button class="mob-category-btn ${activeCategory === (c.slug || c.id) ? 'active' : ''}" onclick="filterByCategory('${c.slug || c.id}'); toggleMobileMenu(false);">
+            <span>${c.name}</span>
+            <span class="mob-count-badge">${count}</span>
+          </button>
+        `;
+        })
+        .join('')}
+    `;
+  }
 }
 
-function renderMaisonGrid() {
-  const grid = document.getElementById('maisonGrid');
+function renderCategoryPortals() {
+  const categories = DataStore.getCategories();
+  const products = DataStore.getProducts();
+  const row = document.getElementById('categoriesRow');
+  if (!row) return;
+
+  row.innerHTML = categories
+    .map((c) => {
+      const count = products.filter((p) => p.category === (c.slug || c.id)).length;
+      return `
+      <div class="category-card" onclick="filterByCategory('${c.slug || c.id}')">
+        <img src="${c.image}" alt="${c.name}" class="cat-bg-image" loading="lazy">
+        <div class="cat-card-overlay">
+          <span class="cat-count-text">${count} Pieces</span>
+          <h3 class="cat-title-text">${c.name}</h3>
+          <span class="cat-link-text">Explore Department →</span>
+        </div>
+      </div>
+    `;
+    })
+    .join('');
+}
+
+function renderFilterPills() {
+  const categories = DataStore.getCategories();
+  const products = DataStore.getProducts();
+  const row = document.getElementById('filterPillsRow');
+  if (!row) return;
+
+  row.innerHTML = `
+    <button class="filter-pill ${activeCategory === 'all' ? 'active' : ''}" data-cat="all" onclick="filterByCategory('all', this)">
+      All (${products.length})
+    </button>
+    ${categories
+      .map((c) => {
+        const count = products.filter((p) => p.category === (c.slug || c.id)).length;
+        const catKey = c.slug || c.id;
+        return `
+        <button class="filter-pill ${activeCategory === catKey ? 'active' : ''}" data-cat="${catKey}" onclick="filterByCategory('${catKey}', this)">
+          ${c.name.split('&')[0].trim()} (${count})
+        </button>
+      `;
+      })
+      .join('')}
+  `;
+}
+
+function renderFooterCategories() {
+  const categories = DataStore.getCategories();
+  const list = document.getElementById('footerCategoriesList');
+  if (!list) return;
+
+  list.innerHTML = categories
+    .map(
+      (c) => `
+    <a href="#catalogSection" onclick="filterByCategory('${c.slug || c.id}')">${c.name}</a>
+  `
+    )
+    .join('');
+}
+
+// ==========================================================================
+// 2. PRODUCT CATALOG GRID & FILTERING
+// ==========================================================================
+function renderProductsGrid() {
+  const grid = document.getElementById('productsGrid');
   if (!grid) return;
 
-  let items = MAISON_CATALOG.filter((p) => {
-    const deptMatch = activeDept === 'all' || p.category === activeDept;
-    const tagMatch = activeTag === 'all' || p.tag.toLowerCase().includes(activeTag.toLowerCase());
+  const products = DataStore.getProducts();
+
+  let items = products.filter((p) => {
+    const catMatch = activeCategory === 'all' || p.category === activeCategory;
     const searchMatch =
       searchKeyword === '' ||
       p.name.toLowerCase().includes(searchKeyword) ||
-      p.categoryName.toLowerCase().includes(searchKeyword) ||
-      p.description.toLowerCase().includes(searchKeyword);
+      (p.categoryName && p.categoryName.toLowerCase().includes(searchKeyword)) ||
+      (p.description && p.description.toLowerCase().includes(searchKeyword));
 
-    return deptMatch && tagMatch && searchMatch;
+    return catMatch && searchMatch;
   });
 
-  // Sorting
+  // Sort
   if (activeSort === 'price-asc') {
     items.sort((a, b) => a.price - b.price);
   } else if (activeSort === 'price-desc') {
@@ -436,11 +169,11 @@ function renderMaisonGrid() {
 
   if (items.length === 0) {
     grid.innerHTML = `
-      <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: var(--slate);">
-        <i data-lucide="sparkles" style="width: 44px; height: 44px; margin-bottom: 1rem; color: var(--gold-accent);"></i>
-        <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--noir);">No matching pieces</h3>
-        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Try selecting another category or clearing search.</p>
-        <button class="btn btn-black" onclick="filterByDept('all')" style="margin-top: 1.25rem; border-radius: 999px;">View All</button>
+      <div style="grid-column: 1 / -1; text-align: center; padding: 4.5rem 1rem; color: var(--text-muted);">
+        <i data-lucide="sparkles" style="width: 44px; height: 44px; margin-bottom: 1rem; color: var(--accent-blue);"></i>
+        <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: var(--text-main); font-weight:800;">No pieces found in this category</h3>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Try clearing your search or exploring our other apparel divisions.</p>
+        <button class="btn btn-dark" onclick="filterByCategory('all')" style="margin-top: 1.25rem; border-radius: 999px;">View All Collection</button>
       </div>
     `;
     if (window.lucide) window.lucide.createIcons();
@@ -450,33 +183,35 @@ function renderMaisonGrid() {
   grid.innerHTML = items
     .map(
       (p) => `
-    <div class="maison-card" data-id="${p.id}">
+    <div class="store-card" data-id="${p.id}">
       <div class="card-media" onclick="openProductModal('${p.id}')">
-        <span class="card-tag-pill">${p.tag}</span>
+        ${p.tag ? `<span class="card-tag">${p.tag}</span>` : ''}
         <img src="${p.imageFront}" alt="${p.name}" class="card-img-front" loading="lazy">
-        <img src="${p.imageBack}" alt="${p.name} alternate view" class="card-img-back" loading="lazy">
+        <img src="${p.imageBack || p.imageFront}" alt="${p.name} alternate view" class="card-img-back" loading="lazy">
 
-        <!-- Mobile Tap Add -->
-        <button class="card-mob-quick-add" onclick="event.stopPropagation(); openProductModal('${p.id}')" aria-label="Add ${p.name}">
+        <!-- Mobile Floating Plus Action -->
+        <button class="card-mob-btn" onclick="event.stopPropagation(); openProductModal('${p.id}')" aria-label="Quick View ${p.name}">
           <i data-lucide="plus"></i>
         </button>
 
-        <!-- Desktop Hover Strip -->
-        <div class="card-hover-actions">
-          <button class="btn-quick-view" onclick="event.stopPropagation(); openProductModal('${p.id}')">Quick View</button>
-          <div class="card-size-strip">
-            ${p.sizes.map((s) => `<button class="size-add-btn" onclick="event.stopPropagation(); quickAddToBag('${p.id}', '${s}')">${s}</button>`).join('')}
+        <!-- Desktop Hover Quick Strip -->
+        <div class="card-hover-drawer">
+          <button class="btn-card-quick" onclick="event.stopPropagation(); openProductModal('${p.id}')">Quick View</button>
+          <div class="card-sizes-row">
+            ${(Array.isArray(p.sizes) ? p.sizes : [p.sizes])
+              .map((s) => `<button class="size-pill-btn" onclick="event.stopPropagation(); quickAddFromCard('${p.id}', '${s}')">${s}</button>`)
+              .join('')}
           </div>
         </div>
       </div>
 
-      <div class="card-info">
-        <span class="card-cat">${p.categoryName}</span>
-        <h4 class="card-title" onclick="openProductModal('${p.id}')">${p.name}</h4>
+      <div class="card-content">
+        <span class="card-category-label">${p.categoryName || p.category}</span>
+        <h4 class="card-heading" onclick="openProductModal('${p.id}')">${p.name}</h4>
         
-        <div class="card-bottom-row">
-          <span class="card-price">$${p.price}.00</span>
-          <span class="card-stock">● In Stock</span>
+        <div class="card-meta-row">
+          <span class="card-price-tag">$${p.price}.00</span>
+          <span class="card-stock-tag">● In Stock</span>
         </div>
       </div>
     </div>
@@ -487,44 +222,72 @@ function renderMaisonGrid() {
   if (window.lucide) window.lucide.createIcons();
 }
 
-function filterByDept(dept, btnEl) {
-  activeDept = dept;
+function filterByCategory(catSlug, btnEl) {
+  activeCategory = catSlug;
 
-  // Sync desktop pills
-  document.querySelectorAll('.dept-pill').forEach((pill) => {
-    if (pill.dataset.dept === dept) pill.classList.add('active');
+  // Sync pills
+  document.querySelectorAll('.filter-pill').forEach((pill) => {
+    if (pill.dataset.cat === catSlug) pill.classList.add('active');
     else pill.classList.remove('active');
   });
 
-  // Sync mobile drawer links
-  document.querySelectorAll('.mob-nav-link').forEach((link) => {
-    link.classList.remove('active');
-  });
-
-  renderMaisonGrid();
+  // Sync desktop left links
+  renderCategoryNavigation();
+  renderProductsGrid();
   scrollToSection('catalogSection');
-}
-
-function handleTagFilter(e) {
-  activeTag = e.target.value;
-  renderMaisonGrid();
 }
 
 function handleSort(e) {
   activeSort = e.target.value;
-  renderMaisonGrid();
+  renderProductsGrid();
 }
 
-function toggleMobileGrid(cols, btnEl) {
-  const grid = document.getElementById('maisonGrid');
+function setCatalogGrid(cols, btnEl) {
+  const grid = document.getElementById('productsGrid');
   if (!grid) return;
 
-  grid.className = `maison-product-grid grid-${cols}`;
-  document.querySelectorAll('.view-btn').forEach((b) => b.classList.remove('active'));
+  grid.className = `products-grid grid-${cols}`;
+  document.querySelectorAll('.grid-btn').forEach((b) => b.classList.remove('active'));
   if (btnEl) btnEl.classList.add('active');
 }
 
-// Mobile Nav Drawer Toggle
+// Search
+function handleSearch(e) {
+  searchKeyword = e.target.value.trim().toLowerCase();
+  const clearBtn = document.getElementById('searchClearBtn');
+  if (clearBtn) clearBtn.style.display = searchKeyword ? 'flex' : 'none';
+  renderProductsGrid();
+}
+
+function handleMobileSearch(e) {
+  searchKeyword = e.target.value.trim().toLowerCase();
+  renderProductsGrid();
+  scrollToSection('catalogSection');
+}
+
+function clearSearch() {
+  const inp = document.getElementById('storeSearchInput');
+  if (inp) inp.value = '';
+  searchKeyword = '';
+  document.getElementById('searchClearBtn').style.display = 'none';
+  renderProductsGrid();
+}
+
+function toggleMobileSearchBar(forceOpen) {
+  const strip = document.getElementById('mobileSearchStrip');
+  if (!strip) return;
+
+  if (forceOpen === undefined) {
+    strip.classList.toggle('open');
+  } else if (forceOpen) {
+    strip.classList.add('open');
+    const inp = document.getElementById('mobileSearchInput');
+    if (inp) inp.focus();
+  } else {
+    strip.classList.remove('open');
+  }
+}
+
 function toggleMobileMenu(open) {
   const drawer = document.getElementById('mobNavDrawer');
   const backdrop = document.getElementById('mobNavBackdrop');
@@ -541,98 +304,73 @@ function toggleMobileMenu(open) {
   }
 }
 
-// Mobile Search Bar Toggle
-function toggleMobileSearchBar(forceOpen) {
-  const bar = document.getElementById('mobileSearchBar');
-  if (!bar) return;
-
-  if (forceOpen === undefined) {
-    bar.classList.toggle('open');
-  } else if (forceOpen) {
-    bar.classList.add('open');
-    const inp = document.getElementById('mobileSearchInput');
-    if (inp) inp.focus();
-  } else {
-    bar.classList.remove('open');
-  }
-}
-
-function handleMobileSearch(e) {
-  searchKeyword = e.target.value.trim().toLowerCase();
-  renderMaisonGrid();
-  scrollToSection('catalogSection');
-}
-
-function handleSearch(e) {
-  searchKeyword = e.target.value.trim().toLowerCase();
-  const clearBtn = document.getElementById('searchClearBtn');
-  if (clearBtn) clearBtn.style.display = searchKeyword ? 'flex' : 'none';
-  renderMaisonGrid();
-}
-
-function clearSearch() {
-  const input = document.getElementById('liveSearchInput');
-  if (input) input.value = '';
-  searchKeyword = '';
-  document.getElementById('searchClearBtn').style.display = 'none';
-  renderMaisonGrid();
-}
-
-// Quick View Modal
+// ==========================================================================
+// 3. PRODUCT DETAIL MODAL (BOTTOM SHEET ON MOBILE)
+// ==========================================================================
 function openProductModal(productId) {
-  const product = MAISON_CATALOG.find((p) => p.id === productId);
+  const products = DataStore.getProducts();
+  const product = products.find((p) => p.id === productId);
   if (!product) return;
 
-  modalProduct = product;
-  modalSize = product.sizes[0];
+  modalActiveProduct = product;
+  const sizes = Array.isArray(product.sizes) ? product.sizes : [product.sizes];
+  modalSelectedSize = sizes[0] || 'One Size';
 
   const modal = document.getElementById('productModal');
   const backdrop = document.getElementById('modalBackdrop');
-  const body = document.getElementById('modalSplitBody');
+  const body = document.getElementById('modalGridBody');
+
+  const gallery = [product.imageFront, product.imageBack].filter(Boolean);
 
   body.innerHTML = `
-    <div class="modal-gallery-pane">
-      <img src="${product.gallery[0]}" alt="${product.name}" class="modal-featured-img" id="modalFeaturedImg">
+    <div class="modal-media-pane">
+      <img src="${product.imageFront}" alt="${product.name}" class="modal-main-image" id="modalMainImg">
       <div class="modal-thumbs-row">
-        ${product.gallery
+        ${gallery
           .map(
             (img, index) => `
-          <img src="${img}" alt="Thumb" class="modal-thumb-btn ${index === 0 ? 'active' : ''}" onclick="setModalMainImg('${img}', this)">
+          <img src="${img}" alt="Thumb" class="modal-thumb ${index === 0 ? 'active' : ''}" onclick="setModalImage('${img}', this)">
         `
           )
           .join('')}
       </div>
     </div>
 
-    <div class="modal-info-pane">
-      <span class="modal-tag-label">${product.categoryName} • ${product.tag}</span>
-      <h2 class="modal-product-title">${product.name}</h2>
-      <div class="modal-price-val">$${product.price}.00 USD</div>
-      <p class="modal-desc-text">${product.description}</p>
+    <div class="modal-details-pane">
+      <span class="modal-cat-tag">${product.categoryName || product.category}</span>
+      <h2 class="modal-title">${product.name}</h2>
+      <div class="modal-price">$${product.price}.00 USD</div>
+      <p class="modal-description">${product.description || ''}</p>
 
-      <div class="modal-sizes-group">
-        <div class="size-header">
+      <div class="modal-sizes-box">
+        <div class="size-pick-label">
           <span>SELECT SIZE</span>
-          <span style="color: var(--gold-accent); cursor: pointer;" onclick="showToast('True to tailored streetwear proportions.')">Size Guide ↗</span>
+          <span style="color: var(--accent-blue); cursor: pointer;" onclick="showToast('Cut in tailored relaxed streetwear fit.')">Size Guide ↗</span>
         </div>
-        <div class="modal-sizes-row">
-          ${product.sizes
+        <div class="modal-chips-row">
+          ${sizes
             .map(
               (s, i) => `
-            <button class="modal-size-chip ${i === 0 ? 'active' : ''}" onclick="setModalSize('${s}', this)">${s}</button>
+            <button class="size-chip-btn ${i === 0 ? 'active' : ''}" onclick="selectModalSize('${s}', this)">${s}</button>
           `
             )
             .join('')}
         </div>
       </div>
 
-      <div class="modal-craft-box">
-        <strong>Atelier Specifications:</strong><br>
-        ${product.specs}
-      </div>
+      ${
+        product.specs
+          ? `
+        <div class="modal-specs-box">
+          <strong>Garment Specifications:</strong><br>
+          ${product.specs}
+        </div>
+      `
+          : ''
+      }
 
-      <button class="btn btn-black btn-block" onclick="addModalItemToCart()">
-        Add to Bag — $${product.price}.00
+      <button class="btn btn-dark btn-block" onclick="addModalItemToCart()">
+        Add to Shopping Bag — $${product.price}.00
       </button>
     </div>
   `;
@@ -644,41 +382,44 @@ function openProductModal(productId) {
   if (window.lucide) window.lucide.createIcons();
 }
 
-function setModalMainImg(src, thumbEl) {
-  const img = document.getElementById('modalFeaturedImg');
-  if (img) img.src = src;
-  document.querySelectorAll('.modal-thumb-btn').forEach((t) => t.classList.remove('active'));
+function setModalImage(src, thumbEl) {
+  const main = document.getElementById('modalMainImg');
+  if (main) main.src = src;
+  document.querySelectorAll('.modal-thumb').forEach((t) => t.classList.remove('active'));
   if (thumbEl) thumbEl.classList.add('active');
 }
 
-function setModalSize(size, chipEl) {
-  modalSize = size;
-  document.querySelectorAll('.modal-size-chip').forEach((c) => c.classList.remove('active'));
+function selectModalSize(size, chipEl) {
+  modalSelectedSize = size;
+  document.querySelectorAll('.size-chip-btn').forEach((c) => c.classList.remove('active'));
   if (chipEl) chipEl.classList.add('active');
 }
 
 function addModalItemToCart() {
-  if (!modalProduct) return;
-  addToBag(modalProduct.id, modalSize);
-  closeModal();
+  if (!modalActiveProduct) return;
+  addItemToBag(modalActiveProduct.id, modalSelectedSize);
+  closeProductModal();
   toggleCartDrawer(true);
 }
 
-function closeModal() {
+function quickAddFromCard(productId, size) {
+  addItemToBag(productId, size);
+  toggleCartDrawer(true);
+}
+
+function closeProductModal() {
   document.getElementById('productModal').classList.remove('open');
   document.getElementById('modalBackdrop').classList.remove('open');
   document.body.style.overflow = '';
 }
 
-// Shopping Bag Engine
-function quickAddToBag(productId, size) {
-  addToBag(productId, size);
-  toggleCartDrawer(true);
-}
-
-function addToBag(productId, size) {
-  const product = MAISON_CATALOG.find((p) => p.id === productId);
-  if (!product) return;
+// ==========================================================================
+// 4. SHOPPING BAG ENGINE & ORDER SYNCHRONIZATION
+// ==========================================================================
+function addItemToBag(productId, size) {
+  const products = DataStore.getProducts();
+  const prod = products.find((p) => p.id === productId);
+  if (!prod) return;
 
   const existing = cartItems.find((i) => i.id === productId && i.size === size);
 
@@ -686,12 +427,12 @@ function addToBag(productId, size) {
     existing.qty += 1;
   } else {
     cartItems.push({
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      image: product.imageFront,
+      id: prod.id,
+      name: prod.name,
+      price: prod.price,
+      image: prod.imageFront,
       size: size,
-      categoryName: product.categoryName,
+      categoryName: prod.categoryName || prod.category,
       qty: 1
     });
   }
@@ -699,17 +440,17 @@ function addToBag(productId, size) {
   saveCart();
   renderCartFeed();
   updateCartBadge();
-  showToast(`Added ${product.name} (${size}) to your bag.`);
+  showToast(`Added ${prod.name} (${size}) to bag.`);
 }
 
-function updateItemQty(productId, size, delta) {
-  const index = cartItems.findIndex((i) => i.id === productId && i.size === size);
-  if (index === -1) return;
+function updateCartQty(productId, size, delta) {
+  const idx = cartItems.findIndex((i) => i.id === productId && i.size === size);
+  if (idx === -1) return;
 
-  cartItems[index].qty += delta;
+  cartItems[idx].qty += delta;
 
-  if (cartItems[index].qty <= 0) {
-    cartItems.splice(index, 1);
+  if (cartItems[idx].qty <= 0) {
+    cartItems.splice(idx, 1);
   }
 
   saveCart();
@@ -717,62 +458,62 @@ function updateItemQty(productId, size, delta) {
   updateCartBadge();
 }
 
-function removeItem(productId, size) {
+function removeCartItem(productId, size) {
   cartItems = cartItems.filter((i) => !(i.id === productId && i.size === size));
   saveCart();
   renderCartFeed();
   updateCartBadge();
-  showToast('Item removed from bag.');
+  showToast('Item removed.');
 }
 
 function saveCart() {
-  localStorage.setItem('ns_cart', JSON.stringify(cartItems));
+  localStorage.setItem('sitara_cart', JSON.stringify(cartItems));
 }
 
 function updateCartBadge() {
-  const count = cartItems.reduce((sum, item) => sum + item.qty, 0);
+  const count = cartItems.reduce((sum, i) => sum + i.qty, 0);
   const badge = document.getElementById('cartCountBadge');
-  const countTxt = document.getElementById('cartItemBadgeCount');
-  const mobTabBadge = document.getElementById('mobTabBadge');
+  const countTxt = document.getElementById('cartItemCountText');
+  const mobBadge = document.getElementById('mobBagBadge');
 
   if (badge) badge.textContent = count;
   if (countTxt) countTxt.textContent = `(${count})`;
-  if (mobTabBadge) mobTabBadge.textContent = count;
+  if (mobBadge) mobBadge.textContent = count;
 }
 
 function renderCartFeed() {
-  const feed = document.getElementById('cartItemsFeed');
-  if (!feed) return;
+  const container = document.getElementById('cartItemsContainer');
+  if (!container) return;
 
   if (cartItems.length === 0) {
-    feed.innerHTML = `
-      <div style="margin: auto; text-align: center; color: var(--slate); padding: 3.5rem 1rem;">
-        <i data-lucide="shopping-bag" style="width: 44px; height: 44px; margin-bottom: 0.75rem; opacity: 0.25;"></i>
-        <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--noir);">Your bag is empty</h4>
-        <p style="font-size: 0.8rem; margin-top: 0.35rem;">Discover our latest pieces across all departments.</p>
+    container.innerHTML = `
+      <div style="margin: auto; text-align: center; color: var(--text-muted); padding: 3rem 1rem;">
+        <i data-lucide="shopping-bag" style="width: 44px; height: 44px; margin-bottom: 0.75rem; opacity: 0.3;"></i>
+        <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--text-main);">Your bag is empty</h4>
+        <p style="font-size: 0.82rem; margin-top: 0.35rem;">Explore apparel, footwear, and accessories to add pieces.</p>
       </div>
     `;
-    updateCheckoutPricing(0);
+    updatePricing(0);
     if (window.lucide) window.lucide.createIcons();
     return;
   }
 
-  feed.innerHTML = cartItems
+  container.innerHTML = cartItems
     .map(
       (item) => `
-    <div class="cart-row">
-      <img src="${item.image}" alt="${item.name}" class="cart-row-img">
-      <div class="cart-row-info">
-        <h4 class="cart-row-title">${item.name}</h4>
-        <span class="cart-row-spec">Size: ${item.size} • ${item.categoryName}</span>
-        <div class="cart-row-bottom">
-          <div class="qty-control-box">
-            <button class="qty-btn" onclick="updateItemQty('${item.id}', '${item.size}', -1)">-</button>
-            <span class="qty-val">${item.qty}</span>
-            <button class="qty-btn" onclick="updateItemQty('${item.id}', '${item.size}', 1)">+</button>
+    <div class="cart-item-row">
+      <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+      <div class="cart-item-details">
+        <h4 class="cart-item-title">${item.name}</h4>
+        <span class="cart-item-meta">Size: ${item.size} • ${item.categoryName}</span>
+        <div class="cart-item-bottom">
+          <div class="stepper-box">
+            <button class="stepper-btn" onclick="updateCartQty('${item.id}', '${item.size}', -1)">-</button>
+            <span class="stepper-val">${item.qty}</span>
+            <button class="stepper-btn" onclick="updateCartQty('${item.id}', '${item.size}', 1)">+</button>
           </div>
-          <span class="cart-row-price-tag">$${item.price * item.qty}.00</span>
-          <button class="cart-remove-link" onclick="removeItem('${item.id}', '${item.size}')">Remove</button>
+          <span class="cart-item-price">$${item.price * item.qty}.00</span>
+          <button class="remove-btn" onclick="removeCartItem('${item.id}', '${item.size}')">Remove</button>
         </div>
       </div>
     </div>
@@ -780,75 +521,80 @@ function renderCartFeed() {
     )
     .join('');
 
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.qty, 0);
-  updateCheckoutPricing(subtotal);
+  const subtotal = cartItems.reduce((sum, i) => sum + i.price * i.qty, 0);
+  updatePricing(subtotal);
 
   if (window.lucide) window.lucide.createIcons();
 }
 
-function updateCheckoutPricing(subtotal) {
-  const subtotalEl = document.getElementById('cartSubtotal');
-  const discountRow = document.getElementById('cartDiscountRow');
-  const discountEl = document.getElementById('cartDiscount');
-  const shippingEl = document.getElementById('cartShipping');
-  const totalEl = document.getElementById('cartTotal');
-  const msgEl = document.getElementById('trackerMessage');
-  const barEl = document.getElementById('trackerProgress');
+function updatePricing(subtotal) {
+  const subEl = document.getElementById('cartSubtotalVal');
+  const discRow = document.getElementById('cartDiscountLine');
+  const discEl = document.getElementById('cartDiscountVal');
+  const shipEl = document.getElementById('cartShippingVal');
+  const totalEl = document.getElementById('cartGrandTotalVal');
+  const meterMsg = document.getElementById('shippingMeterMessage');
+  const meterFill = document.getElementById('shippingMeterFill');
 
   const threshold = 150;
   const isFree = subtotal >= threshold;
-  const shippingCost = subtotal === 0 ? 0 : isFree ? 0 : 15;
+  const shipping = subtotal === 0 ? 0 : isFree ? 0 : 15;
 
-  if (barEl && msgEl) {
+  if (meterFill && meterMsg) {
     if (subtotal === 0) {
-      barEl.style.width = '0%';
-      msgEl.textContent = `Add $${threshold} for Free Worldwide Express`;
+      meterFill.style.width = '0%';
+      meterMsg.textContent = `Add $${threshold} for Free Worldwide Express`;
     } else if (isFree) {
-      barEl.style.width = '100%';
-      msgEl.textContent = `✦ You've Unlocked Free Worldwide Express Shipping!`;
+      meterFill.style.width = '100%';
+      meterMsg.textContent = `✦ You've Unlocked Free Worldwide Express Shipping!`;
     } else {
       const remaining = threshold - subtotal;
       const pct = Math.min(100, (subtotal / threshold) * 100);
-      barEl.style.width = `${pct}%`;
-      msgEl.textContent = `Add $${remaining}.00 more for Free Worldwide Express`;
+      meterFill.style.width = `${pct}%`;
+      meterMsg.textContent = `Add $${remaining}.00 more for Free Worldwide Express`;
     }
   }
 
-  const discountAmount = subtotal * promoPercent;
+  const discountAmount = subtotal * activePromoDiscount;
 
-  if (promoPercent > 0) {
-    if (discountRow) discountRow.style.display = 'flex';
-    if (discountEl) discountEl.textContent = `-$${discountAmount.toFixed(2)}`;
+  if (activePromoDiscount > 0) {
+    if (discRow) discRow.style.display = 'flex';
+    if (discEl) discEl.textContent = `-$${discountAmount.toFixed(2)}`;
   } else {
-    if (discountRow) discountRow.style.display = 'none';
+    if (discRow) discRow.style.display = 'none';
   }
 
-  const grandTotal = Math.max(0, subtotal - discountAmount + shippingCost);
+  const grandTotal = Math.max(0, subtotal - discountAmount + shipping);
 
-  if (subtotalEl) subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
-  if (shippingEl) shippingEl.textContent = shippingCost === 0 ? 'FREE' : `$${shippingCost.toFixed(2)}`;
+  if (subEl) subEl.textContent = `$${subtotal.toFixed(2)}`;
+  if (shipEl) shipEl.textContent = shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)}`;
   if (totalEl) totalEl.textContent = `$${grandTotal.toFixed(2)} USD`;
 }
 
-function applyPromo() {
-  const input = document.getElementById('promoInput');
-  if (!input) return;
+function applyPromoCode() {
+  const inp = document.getElementById('cartPromoInput');
+  if (!inp) return;
 
-  const code = input.value.trim().toUpperCase();
+  const code = inp.value.trim().toUpperCase();
+  const promos = DataStore.getPromos();
+  const found = promos.find((p) => p.code.toUpperCase() === code && p.active);
 
-  if (code === 'SITARA15' || code === 'VIP15') {
-    promoPercent = 0.15;
-    showToast('Promo applied: 15% discount on all departments!');
+  if (found) {
+    activePromoDiscount = found.discount / 100;
+    found.usageCount = (found.usageCount || 0) + 1;
+    DataStore.savePromo(found);
+
+    showToast(`Promo code applied: ${found.discount}% OFF!`);
     renderCartFeed();
   } else if (code === '') {
     showToast('Please enter a promo code.');
   } else {
-    showToast('Invalid promo code. Try SITARA15');
+    showToast('Invalid or expired promo code. Try SITARA15');
   }
 }
 
 function toggleCartDrawer(open) {
-  const drawer = document.getElementById('maisonCart');
+  const drawer = document.getElementById('storeCart');
   const backdrop = document.getElementById('cartBackdrop');
   if (!drawer || !backdrop) return;
 
@@ -863,49 +609,71 @@ function toggleCartDrawer(open) {
   }
 }
 
-function processCheckout(method) {
+function executeCheckout(method) {
   if (cartItems.length === 0) {
     showToast('Your shopping bag is empty.');
     return;
   }
 
+  const subtotal = cartItems.reduce((sum, i) => sum + i.price * i.qty, 0);
+  const discountAmount = subtotal * activePromoDiscount;
+  const isFree = subtotal >= 150;
+  const shipping = isFree ? 0 : 15;
+  const grandTotal = Math.max(0, subtotal - discountAmount + shipping);
+
+  // Automatically record order in DataStore for Admin
+  const orderRecord = {
+    customer: 'VIP Online Client',
+    email: 'client@newsitara.com',
+    items: cartItems.map((i) => ({ name: i.name, size: i.size, qty: i.qty, price: i.price })),
+    total: Math.round(grandTotal),
+    status: 'Pending',
+    paymentMethod: method === 'whatsapp' ? 'WhatsApp Express' : 'Stripe Card'
+  };
+
+  DataStore.addOrder(orderRecord);
+
   if (method === 'whatsapp') {
-    const orderText = cartItems.map((i) => `• ${i.name} (${i.size}, Qty: ${i.qty}) - $${i.price * i.qty}`).join('%0A');
-    const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.qty, 0);
-    const msg = `Hello New Sitara Concierge! I want to order:%0A%0A${orderText}%0A%0ASubtotal: $${subtotal}.00 USD%0APlease arrange delivery and payment.`;
+    const lines = cartItems.map((i) => `• ${i.name} (Size: ${i.size}, Qty: ${i.qty}) - $${i.price * i.qty}`).join('%0A');
+    const msg = `Hello New Sitara Concierge! I want to order:%0A%0A${lines}%0A%0ATotal: $${grandTotal.toFixed(2)} USD%0APlease arrange delivery and confirmation.`;
 
     window.open(`https://wa.me/?text=${msg}`, '_blank');
-    showToast('Opening WhatsApp with your multi-item order...');
+    showToast('Redirecting to WhatsApp with your order summary...');
   } else {
-    showToast('🔒 Initiating 256-bit encrypted checkout...');
+    showToast('🔒 Initiating bank-grade checkout gateway...');
     setTimeout(() => {
-      alert('New Sitara Checkout Gateway:\n\nThank you for choosing New Sitara Interprizes.\nYour multi-department order is ready to process with Stripe & Cards!');
-    }, 800);
+      alert(`New Sitara Order Received!\n\nOrder #${orderRecord.id}\nTotal: $${grandTotal.toFixed(2)} USD\n\nYour order has been logged into the Merchant Admin system!`);
+      cartItems = [];
+      saveCart();
+      renderCartFeed();
+      updateCartBadge();
+      toggleCartDrawer(false);
+    }, 600);
   }
 }
 
 function handleSubscribe(e) {
   e.preventDefault();
-  const input = document.getElementById('subscribeEmail');
-  if (input && input.value) {
+  const inp = document.getElementById('subscribeInput');
+  if (inp && inp.value) {
     showToast('Welcome to the New Sitara Inner Circle.');
-    input.value = '';
+    inp.value = '';
   }
   return false;
 }
 
 function showToast(message) {
-  const hub = document.getElementById('toastHub');
+  const hub = document.getElementById('storeToastHub');
   if (!hub) return;
 
-  const toast = document.createElement('div');
-  toast.className = 'toast-pill';
-  toast.innerHTML = `<span>✦</span> <span>${message}</span>`;
-  hub.appendChild(toast);
+  const t = document.createElement('div');
+  t.className = 'store-toast';
+  t.innerHTML = `<span>✦</span> <span>${message}</span>`;
+  hub.appendChild(t);
 
   setTimeout(() => {
-    toast.style.opacity = '0';
-    toast.style.transform = 'translateY(10px)';
-    setTimeout(() => toast.remove(), 300);
-  }, 3500);
+    t.style.opacity = '0';
+    t.style.transform = 'translateY(10px)';
+    setTimeout(() => t.remove(), 250);
+  }, 3000);
 }

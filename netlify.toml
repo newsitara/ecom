@@ -1,0 +1,19 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/store"
+  to = "/store.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/shop"
+  to = "/store.html"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

@@ -1,7 +1,10 @@
 {
+  "version": 2,
   "cleanUrls": true,
-  "rewrites": [
-    { "source": "/store", "destination": "/store.html" },
-    { "source": "/shop", "destination": "/store.html" }
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/store", "dest": "/store.html" },
+    { "src": "/shop", "dest": "/store.html" },
+    { "src": "/(.*)", "dest": "/$1" }
   ]
 }

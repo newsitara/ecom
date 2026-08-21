@@ -22,7 +22,7 @@ const DEFAULT_CATEGORIES = [
     name: 'Pants & Trousers',
     slug: 'pants',
     description: 'Japanese selvedge denim, double-pleated virgin wool trousers, and cargos.',
-    image: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800&auto=format&fit=crop'
   },
   {
     id: 'shorts',
@@ -446,9 +446,9 @@ const DEFAULT_PROMOS = [
 const DataStore = {
   // --- CATEGORIES ---
   getCategories() {
-    const raw = localStorage.getItem('sitara_categories_v2');
+    const raw = localStorage.getItem('sitara_categories_v3');
     if (!raw) {
-      localStorage.setItem('sitara_categories_v2', JSON.stringify(DEFAULT_CATEGORIES));
+      localStorage.setItem('sitara_categories_v3', JSON.stringify(DEFAULT_CATEGORIES));
       return DEFAULT_CATEGORIES;
     }
     try {
@@ -467,14 +467,14 @@ const DataStore = {
       cat.id = cat.id || 'cat-' + Date.now();
       cats.push(cat);
     }
-    localStorage.setItem('sitara_categories_v2', JSON.stringify(cats));
+    localStorage.setItem('sitara_categories_v3', JSON.stringify(cats));
     return cats;
   },
 
   deleteCategory(catId) {
     let cats = this.getCategories();
     cats = cats.filter((c) => c.id !== catId);
-    localStorage.setItem('sitara_categories_v2', JSON.stringify(cats));
+    localStorage.setItem('sitara_categories_v3', JSON.stringify(cats));
     return cats;
   },
 
@@ -580,7 +580,7 @@ const DataStore = {
 
   // --- SYSTEM RESET ---
   resetAllDefaults() {
-    localStorage.setItem('sitara_categories_v2', JSON.stringify(DEFAULT_CATEGORIES));
+    localStorage.setItem('sitara_categories_v3', JSON.stringify(DEFAULT_CATEGORIES));
     localStorage.setItem('sitara_products_v2', JSON.stringify(DEFAULT_PRODUCTS));
     localStorage.setItem('sitara_orders_v2', JSON.stringify(DEFAULT_ORDERS));
     localStorage.setItem('sitara_promos_v2', JSON.stringify(DEFAULT_PROMOS));

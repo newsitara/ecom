@@ -60,7 +60,7 @@ function renderCurrencyDropdown() {
   const codeEl = document.getElementById('activeCurrencyCode');
   const dropdown = document.getElementById('currencyDropdown');
 
-  if (flagEl) flagEl.textContent = active.flag || '🌐';
+  if (flagEl) flagEl.textContent = active.symbol ? active.symbol.trim() : '$';
   if (codeEl) codeEl.textContent = active.code;
 
   if (dropdown) {
@@ -69,10 +69,10 @@ function renderCurrencyDropdown() {
         (c) => `
         <button type="button" class="currency-opt-btn ${c.code === active.code ? 'active' : ''}" onclick="selectCurrency('${c.code}', event)">
           <div class="currency-opt-left">
-            <span>${c.flag || '🌐'}</span>
-            <span>${c.code}</span>
+            <span class="currency-symbol-pill">${c.symbol.trim()}</span>
+            <span class="currency-code-bold">${c.code}</span>
           </div>
-          <span class="currency-rate-sub">${c.symbol} • ${c.name}</span>
+          <span class="currency-rate-sub">${c.name}</span>
         </button>
       `
       )

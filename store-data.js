@@ -8,49 +8,49 @@ const DEFAULT_CATEGORIES = [
     name: 'T-Shirts & Tops',
     slug: 't-shirts',
     description: 'Heavyweight graphic tees, minimal boxy cuts, and luxury cotton basics.',
-    image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1000&auto=format&fit=crop'
   },
   {
     id: 'hoodies',
     name: 'Hoodies & Sweatshirts',
     slug: 'hoodies',
     description: '520 GSM loopback French terry hoodies and structured crewnecks.',
-    image: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1000&auto=format&fit=crop'
   },
   {
     id: 'pants',
     name: 'Pants & Trousers',
     slug: 'pants',
     description: 'Japanese selvedge denim, double-pleated virgin wool trousers, and cargos.',
-    image: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=1000&auto=format&fit=crop'
   },
   {
     id: 'shorts',
     name: 'Shorts & Bottoms',
     slug: 'shorts',
     description: 'Heavyweight fleece sweatshorts, technical nylon cargo shorts, and tailored linen shorts.',
-    image: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=1000&auto=format&fit=crop'
   },
   {
     id: 'outerwear',
     name: 'Jackets & Outerwear',
     slug: 'outerwear',
     description: 'Cashmere wool trench coats, lambskin bombers, and technical shells.',
-    image: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1000&auto=format&fit=crop'
   },
   {
     id: 'shoes',
     name: 'Shoes & Footwear',
     slug: 'shoes',
     description: 'Italian calfskin minimal sneakers, chunky technical runners, and Chelsea boots.',
-    image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1000&auto=format&fit=crop'
   },
   {
     id: 'accessories',
     name: 'Belts & Accessories',
     slug: 'accessories',
     description: 'Italian leather belts, monogram cardholders, silver curb chains, and twill caps.',
-    image: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=1000&auto=format&fit=crop'
   }
 ];
 

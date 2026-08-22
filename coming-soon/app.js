@@ -70,13 +70,13 @@ function initOrganicBokeh() {
   requestAnimationFrame(render);
 }
 
-// 2. Progress Bar Initialization (Animated to 10%)
+// 2. Progress Bar Initialization (Animated to 37%)
 function initSubtleProgressBar() {
   const progressBar = document.getElementById('progressBar');
   const percentText = document.getElementById('currentPercentText');
   if (!progressBar) return;
 
-  const target = 10;
+  const target = 37;
   let current = 0;
 
   setTimeout(() => {

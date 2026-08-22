@@ -2,192 +2,194 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEW SITARA — Official Maison & E-Commerce</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>NEW SITARA — Contemporary Apparel & Goods</title>
   
-  <!-- High Fashion Typography -->
+  <!-- High-Fashion Editorial Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="/store.css?v=20260821_v3">
+  <link rel="stylesheet" href="/store.css?v=20260822_checkout">
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="maison-theme">
+<body class="store-theme">
 
-  <!-- Micro Ticker -->
-  <aside class="luxury-ticker">
-    <div class="ticker-flow">
-      <span>NEW SITARA INTERPRIZES SS26</span>
-      <span>✦</span>
-      <span>COMPLIMENTARY WORLDWIDE EXPRESS ON ORDERS OVER $150</span>
-      <span>✦</span>
-      <span>USE CODE <strong>SITARA15</strong> FOR 15% OFF INAUGURAL DROP</span>
-      <span>✦</span>
-      <span>ARTISANAL FOOTWEAR & ARCHITECTURAL STREETWEAR</span>
-      <span>✦</span>
-      <span>NEW SITARA INTERPRIZES SS26</span>
-      <span>✦</span>
-      <span>COMPLIMENTARY WORLDWIDE EXPRESS ON ORDERS OVER $150</span>
+  <!-- Micro Announcement Bar -->
+  <aside class="store-announcement">
+    <div class="announcement-track">
+      <span>✦ FREE WORLDWIDE EXPRESS SHIPPING ON ORDERS OVER $150</span>
+      <span>•</span>
+      <span>USE PROMO CODE <strong>SITARA15</strong> FOR 15% OFF INAUGURAL DROP</span>
+      <span>•</span>
+      <span>LIVE GLOBAL ORDER TRACKING AVAILABLE AT /TRACK</span>
+      <span>•</span>
+      <span>✦ FREE WORLDWIDE EXPRESS SHIPPING ON ORDERS OVER $150</span>
+      <span>•</span>
+      <span>USE PROMO CODE <strong>SITARA15</strong> FOR 15% OFF</span>
     </div>
   </aside>
 
-  <!-- Luxury Floating Glass Header -->
-  <header class="maison-navbar" id="maisonNav">
-    <div class="nav-wrapper">
+  <!-- Modern Floating Header -->
+  <header class="store-navbar" id="storeNav">
+    <div class="nav-container">
       
-      <!-- Left: Navigation Links -->
-      <nav class="nav-links-left">
-        <button class="nav-btn active" onclick="scrollToSection('catalogSection')">Collection</button>
-        <button class="nav-btn" onclick="filterByDept('shoes')">Footwear</button>
-        <button class="nav-btn" onclick="filterByDept('tops')">Hoodies</button>
-        <button class="nav-btn" onclick="filterByDept('bottoms')">Pants</button>
-        <button class="nav-btn" onclick="filterByDept('outerwear')">Outerwear</button>
-        <button class="nav-btn" onclick="filterByDept('accessories')">Accessories</button>
+      <!-- Mobile Left Menu Toggle -->
+      <button class="mobile-menu-btn mobile-only" onclick="toggleMobileMenu(true)" aria-label="Open Navigation Menu">
+        <i data-lucide="menu"></i>
+      </button>
+
+      <!-- Desktop Category & Track Links -->
+      <nav class="nav-links-left desktop-only" id="desktopNavLinks">
+        <!-- Injected dynamically via JS from DataStore -->
       </nav>
 
-      <!-- Center: High-Fashion Monogram & Logo -->
-      <a href="/store" class="maison-brand-center">
-        <img src="/assets/ns%20logo.jpg" alt="New Sitara Emblem" class="maison-logo-emblem">
-        <span class="maison-wordmark">NEW SITARA</span>
+      <!-- Center Brand Logo -->
+      <a href="/store" class="brand-center">
+        <span class="brand-logotype">NEW SITARA</span>
       </a>
 
-      <!-- Right: Search, Currency, Bag -->
-      <div class="nav-tools-right">
+      <!-- Right Actions: Currency, Wishlist, Search, Track & Bag -->
+      <div class="nav-actions-right">
         
-        <!-- Live Expandable Search -->
-        <div class="search-box-pill">
+        <!-- Multi-Currency Selector -->
+        <div class="currency-picker-wrap" id="currencyPickerWrap">
+          <button type="button" class="currency-btn" id="currencyToggleBtn" onclick="toggleCurrencyDropdown(event)" aria-label="Select Currency">
+            <span id="activeCurrencyFlag">🇺🇸</span>
+            <span id="activeCurrencyCode">USD</span>
+            <i data-lucide="chevron-down" class="chevron-icon"></i>
+          </button>
+          <div class="currency-dropdown" id="currencyDropdown">
+            <!-- Injected dynamically via JS -->
+          </div>
+        </div>
+
+        <!-- Track Order Link -->
+        <a href="/track" class="nav-track-link desktop-only" title="Track Order">
+          <i data-lucide="map-pin"></i>
+          <span>Track Order</span>
+        </a>
+
+        <!-- Desktop Search Input -->
+        <div class="nav-search-box desktop-only">
           <i data-lucide="search"></i>
-          <input type="text" id="liveSearchInput" placeholder="Search pieces..." oninput="handleSearch(event)" autocomplete="off">
+          <input type="text" id="storeSearchInput" placeholder="Search apparel, footwear, accessories..." oninput="handleSearch(event)" autocomplete="off">
           <button class="clear-btn" id="searchClearBtn" onclick="clearSearch()" style="display:none;"><i data-lucide="x"></i></button>
         </div>
 
-        <span class="currency-tag">USD ($)</span>
+        <!-- Wishlist Button -->
+        <button class="store-wishlist-btn" onclick="toggleWishlistDrawer(true)" aria-label="View Saved Items" title="Wishlist">
+          <i data-lucide="heart"></i>
+          <span class="wishlist-pill" id="wishlistCountBadge">0</span>
+        </button>
+
+        <!-- Mobile Search Trigger -->
+        <button class="icon-btn mobile-only" onclick="toggleMobileSearchBar()" aria-label="Search">
+          <i data-lucide="search"></i>
+        </button>
 
         <!-- Shopping Bag Trigger -->
-        <button class="maison-bag-trigger" onclick="toggleCartDrawer(true)" aria-label="Open Shopping Bag">
+        <button class="store-bag-btn" onclick="toggleCartDrawer(true)" aria-label="View Shopping Bag">
           <i data-lucide="shopping-bag"></i>
-          <span class="bag-count" id="cartCountBadge">0</span>
+          <span class="bag-pill" id="cartCountBadge">0</span>
         </button>
 
       </div>
 
     </div>
+
+    <!-- Mobile Expandable Search Bar -->
+    <div class="mobile-search-strip" id="mobileSearchStrip">
+      <div class="mobile-search-wrap">
+        <i data-lucide="search"></i>
+        <input type="text" id="mobileSearchInput" placeholder="Search all apparel & goods..." oninput="handleMobileSearch(event)" autocomplete="off">
+        <button class="close-search-btn" onclick="toggleMobileSearchBar(false)"><i data-lucide="x"></i></button>
+      </div>
+    </div>
   </header>
 
-  <!-- High-Fashion Lookbook Hero Banner -->
-  <section class="editorial-hero">
-    <div class="hero-bg-overlay"></div>
-    <div class="hero-content">
-      <span class="hero-kicker">INAUGURAL SS26 RELEASE</span>
-      <h1 class="hero-title">Elevated Silhouettes.<br><em>Artisanal Craft.</em></h1>
-      <p class="hero-desc">An uncompromising study in heavyweight loopback textiles, bespoke Italian footwear, and architectural streetwear.</p>
+  <!-- Mobile Slide-In Navigation Drawer -->
+  <div class="mobile-drawer-backdrop" id="mobNavBackdrop" onclick="toggleMobileMenu(false)"></div>
+  <aside class="mobile-nav-drawer" id="mobNavDrawer">
+    <div class="mob-drawer-header">
+      <span class="mob-drawer-title">NEW SITARA</span>
+      <button class="mob-drawer-close" onclick="toggleMobileMenu(false)"><i data-lucide="x"></i></button>
+    </div>
+
+    <div class="mob-drawer-body" id="mobDrawerLinks">
+      <!-- Injected dynamically via JS from DataStore -->
+    </div>
+
+    <div class="mob-drawer-footer">
+      <a href="/track" class="mob-track-link"><i data-lucide="map-pin"></i> Track Your Shipment</a>
+      <a href="/admin" class="mob-admin-link"><i data-lucide="shield"></i> Merchant Admin Portal</a>
+      <a href="/" class="mob-coming-soon-link">← Return to Coming Soon Screen</a>
+    </div>
+  </aside>
+
+  <!-- Clean Editorial Hero Banner -->
+  <section class="store-hero">
+    <div class="hero-inner">
+      <span class="hero-capsule">INAUGURAL SS26 COLLECTION</span>
+      <h1 class="hero-headline">Artisanal Ready-to-Wear.<br><em>Modern High-Street.</em></h1>
+      <p class="hero-subtext">Heavyweight French terry, Okayama shuttle-loom denim, and bespoke Italian leather craftsmanship.</p>
       
-      <div class="hero-actions">
-        <button class="btn btn-hero" onclick="scrollToSection('catalogSection')">Explore Collection ↗</button>
-        <button class="btn btn-hero-ghost" onclick="scrollToSection('departmentsSection')">View Departments</button>
+      <div class="hero-cta-row">
+        <button class="btn btn-hero-dark" onclick="scrollToSection('catalogSection')">Shop All Pieces ↗</button>
+        <button class="btn btn-hero-light" onclick="scrollToSection('categoriesSection')">Browse Categories</button>
       </div>
     </div>
   </section>
 
-  <!-- Visual Department Portals Strip -->
-  <section class="department-portals-section" id="departmentsSection">
-    <div class="section-title-wrap">
-      <span class="sec-subtitle">EXPLORE BY DEPARTMENT</span>
-      <h2 class="sec-title">Curated Categories</h2>
+  <!-- Dynamic Category Portals (Swipeable on Mobile, Grid on Desktop) -->
+  <section class="categories-section" id="categoriesSection">
+    <div class="section-header">
+      <span class="section-tag">CURATED APPAREL</span>
+      <h2 class="section-heading">Browse by Category</h2>
     </div>
 
-    <div class="portals-scroll-grid">
-      
-      <div class="portal-card" onclick="filterByDept('shoes')">
-        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop" alt="Footwear" class="portal-bg-img">
-        <div class="portal-overlay">
-          <span class="portal-count">4 Pieces</span>
-          <h3 class="portal-name">Footwear & Sneakers</h3>
-          <span class="portal-link">Shop Category →</span>
-        </div>
-      </div>
-
-      <div class="portal-card" onclick="filterByDept('tops')">
-        <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop" alt="Hoodies & Tops" class="portal-bg-img">
-        <div class="portal-overlay">
-          <span class="portal-count">5 Pieces</span>
-          <h3 class="portal-name">Hoodies & Knits</h3>
-          <span class="portal-link">Shop Category →</span>
-        </div>
-      </div>
-
-      <div class="portal-card" onclick="filterByDept('bottoms')">
-        <img src="https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800&auto=format&fit=crop" alt="Pants & Denim" class="portal-bg-img">
-        <div class="portal-overlay">
-          <span class="portal-count">4 Pieces</span>
-          <h3 class="portal-name">Pants & Denim</h3>
-          <span class="portal-link">Shop Category →</span>
-        </div>
-      </div>
-
-      <div class="portal-card" onclick="filterByDept('outerwear')">
-        <img src="https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop" alt="Outerwear" class="portal-bg-img">
-        <div class="portal-overlay">
-          <span class="portal-count">4 Pieces</span>
-          <h3 class="portal-name">Jackets & Coats</h3>
-          <span class="portal-link">Shop Category →</span>
-        </div>
-      </div>
-
-      <div class="portal-card" onclick="filterByDept('accessories')">
-        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop" alt="Accessories" class="portal-bg-img">
-        <div class="portal-overlay">
-          <span class="portal-count">4 Pieces</span>
-          <h3 class="portal-name">Leather & Goods</h3>
-          <span class="portal-link">Shop Category →</span>
-        </div>
-      </div>
-
+    <div class="categories-scroll-row" id="categoriesRow">
+      <!-- Injected dynamically via JS from DataStore -->
     </div>
   </section>
 
-  <!-- Modern Floating Utility Bar -->
+  <!-- Main Catalog & Sticky Filter Controls -->
   <section class="catalog-section" id="catalogSection">
     
-    <div class="catalog-sticky-controls">
+    <div class="catalog-controls-sticky">
       
-      <!-- Category Filter Pills -->
-      <div class="dept-filter-pills">
-        <button class="dept-pill active" data-dept="all" onclick="filterByDept('all', this)">All (<span id="countAll">21</span>)</button>
-        <button class="dept-pill" data-dept="shoes" onclick="filterByDept('shoes', this)">Footwear (<span id="countShoes">4</span>)</button>
-        <button class="dept-pill" data-dept="tops" onclick="filterByDept('tops', this)">Hoodies (<span id="countTops">5</span>)</button>
-        <button class="dept-pill" data-dept="bottoms" onclick="filterByDept('bottoms', this)">Pants (<span id="countBottoms">4</span>)</button>
-        <button class="dept-pill" data-dept="outerwear" onclick="filterByDept('outerwear', this)">Outerwear (<span id="countOuterwear">4</span>)</button>
-        <button class="dept-pill" data-dept="accessories" onclick="filterByDept('accessories', this)">Accessories (<span id="countAccessories">4</span>)</button>
+      <!-- Category Filter Pills (Horizontal Touch Swipe) -->
+      <div class="filter-pills-row" id="filterPillsRow">
+        <!-- Injected dynamically via JS from DataStore -->
       </div>
 
-      <!-- Quick Filter Dropdowns & Sorter -->
-      <div class="controls-right-group">
+      <!-- Sorters & Grid Controls -->
+      <div class="controls-right">
         
-        <!-- Quick Tag Dropdown -->
-        <select class="clean-select" id="tagFilterSelect" onchange="handleTagFilter(event)">
-          <option value="all">All Editions</option>
-          <option value="Signature Drop">Signature Drops</option>
-          <option value="Bestseller">Bestsellers</option>
-          <option value="Limited Edition">Limited Edition</option>
-          <option value="New Drop">New Drops</option>
+        <!-- Advanced Filter Toggle Button -->
+        <button class="filter-toggle-btn" id="filterToggleBtn" onclick="toggleAdvancedFilterPanel()">
+          <i data-lucide="sliders-horizontal"></i>
+          <span>Filter & Refine</span>
+          <span class="filter-count-badge" id="filterCountBadge" style="display:none;">0</span>
+        </button>
+
+        <select class="store-select" id="sortSelect" onchange="handleSort(event)">
+          <option value="featured">Featured</option>
+          <option value="price-asc">Price: Low - High</option>
+          <option value="price-desc">Price: High - Low</option>
+          <option value="rating-desc">Highest Rated ★</option>
+          <option value="name-asc">A - Z Alphabetical</option>
         </select>
 
-        <!-- Sort Select -->
-        <select class="clean-select" id="sortSelect" onchange="handleSort(event)">
-          <option value="featured">Sort: Featured</option>
-          <option value="price-asc">Price: Low to High</option>
-          <option value="price-desc">Price: High to Low</option>
-          <option value="name-asc">Name: A to Z</option>
-        </select>
-
-        <!-- Grid View 2 / 4 -->
-        <div class="grid-switchers">
-          <button class="view-btn" data-cols="2" onclick="setGridColumns(2, this)" title="2 Columns">
+        <!-- Grid View Switcher -->
+        <div class="grid-toggles">
+          <button class="grid-btn" id="btnGrid1" onclick="setCatalogGrid(1, this)" title="1 Column Feed">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          </button>
+          <button class="grid-btn active" id="btnGrid2" onclick="setCatalogGrid(2, this)" title="Grid Feed">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="18" rx="1"/><rect x="14" y="3" width="7" height="18" rx="1"/></svg>
           </button>
-          <button class="view-btn active" data-cols="4" onclick="setGridColumns(4, this)" title="4 Columns">
+          <button class="grid-btn desktop-only" id="btnGrid4" onclick="setCatalogGrid(4, this)" title="4 Column Wide">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="4" height="18" rx="1"/><rect x="8" y="3" width="4" height="18" rx="1"/><rect x="14" y="3" width="4" height="18" rx="1"/><rect x="20" y="3" width="4" height="18" rx="1"/></svg>
           </button>
         </div>
@@ -196,165 +198,456 @@
 
     </div>
 
-    <!-- Edge-to-Edge Clean Product Grid -->
-    <div class="maison-product-grid grid-4" id="maisonGrid">
-      <!-- Injected via JavaScript -->
+    <!-- Advanced Filter & Refine Drawer Panel -->
+    <div class="advanced-filter-panel" id="advancedFilterPanel">
+      
+      <!-- Price Range Filter -->
+      <div class="filter-group">
+        <div class="filter-group-title">
+          <span>Max Price Filter</span>
+          <span id="filterPriceDisplay">$800</span>
+        </div>
+        <div class="price-range-inputs">
+          <input type="range" id="priceRangeSlider" min="50" max="800" step="10" value="800" class="price-slider-track" oninput="handlePriceRangeChange(this.value)">
+          <div class="price-labels-row">
+            <span id="priceMinLabel">$50</span>
+            <span id="priceMaxLabel">$800+</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Size Filter -->
+      <div class="filter-group">
+        <div class="filter-group-title">
+          <span>Size Availability</span>
+        </div>
+        <div class="size-filter-chips">
+          <button class="size-chip-btn active" data-size="all" onclick="handleSizeFilter('all', this)">All</button>
+          <button class="size-chip-btn" data-size="S" onclick="handleSizeFilter('S', this)">S</button>
+          <button class="size-chip-btn" data-size="M" onclick="handleSizeFilter('M', this)">M</button>
+          <button class="size-chip-btn" data-size="L" onclick="handleSizeFilter('L', this)">L</button>
+          <button class="size-chip-btn" data-size="XL" onclick="handleSizeFilter('XL', this)">XL</button>
+          <button class="size-chip-btn" data-size="XXL" onclick="handleSizeFilter('XXL', this)">XXL</button>
+        </div>
+      </div>
+
+      <!-- In Stock Only -->
+      <div class="filter-group">
+        <div class="filter-group-title">
+          <span>Inventory Filter</span>
+        </div>
+        <label class="stock-toggle-label">
+          <input type="checkbox" id="chkInStockOnly" onchange="handleStockFilterChange(this.checked)">
+          <span>In-Stock Ready to Ship Only</span>
+        </label>
+      </div>
+
+      <!-- Actions -->
+      <div class="filter-actions-col">
+        <button type="button" class="btn-clear-filters" onclick="resetAdvancedFilters()">Reset All Filters</button>
+      </div>
+
+    </div>
+
+    <!-- Product Grid -->
+    <div class="products-grid grid-4" id="productsGrid">
+      <!-- Injected dynamically via JS from DataStore -->
     </div>
 
   </section>
 
-  <!-- Campaign Craftsmanship Feature Strip -->
-  <section class="atelier-strip">
-    <div class="atelier-container">
-      <div class="atelier-col">
-        <span class="atelier-number">01</span>
-        <h4>Heavyweight 520 GSM</h4>
-        <p>Pre-shrunk Portuguese organic loopback terry with double-layered structured hoods and custom gold aglets.</p>
-      </div>
-      <div class="atelier-col">
-        <span class="atelier-number">02</span>
-        <h4>Italian Full-Grain Leather</h4>
-        <p>Bespoke calfskin sneakers and accessories crafted with Margom outsoles and solid brass hardware.</p>
-      </div>
-      <div class="atelier-col">
-        <span class="atelier-number">03</span>
-        <h4>Okayama Shuttle Looms</h4>
-        <p>14oz red-line Japanese selvedge denim woven with authentic copper rivets and tailored relaxed drape.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Quick View Product Detail Modal -->
-  <div class="modal-backdrop" id="modalBackdrop" onclick="closeModal()"></div>
-  <div class="product-modal-card" id="productModal">
-    <button class="modal-close-pill" onclick="closeModal()"><i data-lucide="x"></i></button>
-    <div class="modal-split-body" id="modalSplitBody">
-      <!-- Injected via JavaScript -->
+  <!-- Quick View Modal (Bottom Sheet on Mobile) -->
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeProductModal()"></div>
+  <div class="product-modal" id="productModal">
+    <div class="modal-drag-bar mobile-only"></div>
+    <button class="modal-close-btn" onclick="closeProductModal()" aria-label="Close modal"><i data-lucide="x"></i></button>
+    <div class="modal-grid-body" id="modalGridBody">
+      <!-- Injected dynamically via JS -->
     </div>
   </div>
 
-  <!-- Slide-Out Shopping Bag Drawer -->
-  <div class="cart-backdrop" id="cartBackdrop" onclick="toggleCartDrawer(false)"></div>
-  <aside class="maison-cart-drawer" id="maisonCart">
-    <div class="cart-header">
-      <div class="cart-title-row">
-        <i data-lucide="shopping-bag"></i>
-        <h3>Shopping Bag</h3>
-        <span class="cart-total-badge" id="cartItemBadgeCount">(0)</span>
+  <!-- Full Checkout Flow Modal (Shipping Details & Payment Selection) -->
+  <div class="modal-backdrop" id="checkoutBackdrop" onclick="closeCheckoutModal()"></div>
+  <div class="checkout-modal" id="checkoutModal">
+    <div class="modal-drag-bar mobile-only"></div>
+    <div class="checkout-modal-head">
+      <div class="head-left">
+        <i data-lucide="lock"></i>
+        <h3>Secure Checkout</h3>
       </div>
-      <button class="close-cart-btn" onclick="toggleCartDrawer(false)"><i data-lucide="x"></i></button>
+      <button class="modal-close-btn" onclick="closeCheckoutModal()"><i data-lucide="x"></i></button>
     </div>
 
-    <!-- Free Worldwide Express Shipping Milestone -->
-    <div class="free-shipping-tracker">
-      <div class="tracker-text">
-        <span id="trackerMessage">Add $150 for Free Worldwide Shipping</span>
-        <span>✈</span>
-      </div>
-      <div class="tracker-track">
-        <div class="tracker-progress" id="trackerProgress" style="width: 0%;"></div>
-      </div>
-    </div>
-
-    <!-- Cart Items Feed -->
-    <div class="cart-items-feed" id="cartItemsFeed">
-      <!-- Cart items injected via JavaScript -->
-    </div>
-
-    <!-- Cart Footer & Checkout -->
-    <div class="cart-footer">
-      <div class="promo-code-box">
-        <input type="text" id="promoInput" placeholder="Promo code (e.g. SITARA15)">
-        <button type="button" onclick="applyPromo()">Apply</button>
-      </div>
-
-      <div class="cart-summary-math">
-        <div class="math-row">
-          <span>Subtotal</span>
-          <span id="cartSubtotal">$0.00</span>
+    <form class="checkout-form-grid" id="checkoutForm" onsubmit="handlePlaceOrder(event)">
+      
+      <!-- Left Column: Shipping & Payment -->
+      <div class="checkout-left-pane">
+        
+        <!-- Contact Information -->
+        <div class="form-section">
+          <h4 class="form-section-title">1. Contact Information</h4>
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label>Full Name *</label>
+              <input type="text" id="chkFullName" class="form-input" placeholder="e.g. John Doe" required>
+            </div>
+            <div class="form-group flex-1">
+              <label>Phone / WhatsApp *</label>
+              <input type="tel" id="chkPhone" class="form-input" placeholder="+1 (555) 000-0000" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address (For Tracking & Invoices) *</label>
+            <input type="email" id="chkEmail" class="form-input" placeholder="john.doe@example.com" required>
+          </div>
         </div>
-        <div class="math-row discount-row" id="cartDiscountRow" style="display:none;">
-          <span>Promo Discount (15%)</span>
-          <span id="cartDiscount">-$0.00</span>
+
+        <!-- Shipping Address -->
+        <div class="form-section">
+          <h4 class="form-section-title">2. Shipping Destination</h4>
+          <div class="form-group">
+            <label>Street Address *</label>
+            <input type="text" id="chkStreet" class="form-input" placeholder="123 Luxury Boulevard" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label>Apartment, Suite, Unit</label>
+              <input type="text" id="chkApartment" class="form-input" placeholder="Apt 4B (Optional)">
+            </div>
+            <div class="form-group flex-2">
+              <label>City *</label>
+              <input type="text" id="chkCity" class="form-input" placeholder="New York" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label>State / Province</label>
+              <input type="text" id="chkState" class="form-input" placeholder="NY">
+            </div>
+            <div class="form-group flex-1">
+              <label>Postal Code *</label>
+              <input type="text" id="chkPostal" class="form-input" placeholder="10001" required>
+            </div>
+            <div class="form-group flex-1">
+              <label>Country *</label>
+              <select id="chkCountry" class="form-input">
+                <option value="United States">United States</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Canada">Canada</option>
+                <option value="United Arab Emirates">United Arab Emirates</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="Australia">Australia</option>
+                <option value="Germany">Germany</option>
+                <option value="France">France</option>
+                <option value="Other Worldwide">Other Worldwide</option>
+              </select>
+            </div>
+          </div>
         </div>
-        <div class="math-row">
-          <span>Estimated Shipping</span>
-          <span id="cartShipping">$15.00</span>
+
+        <!-- Payment Method Selection -->
+        <div class="form-section">
+          <h4 class="form-section-title">3. Payment Method</h4>
+          
+          <div class="payment-options-grid">
+            
+            <label class="pay-option-card">
+              <input type="radio" name="payMethod" value="Stripe Card" checked>
+              <div class="pay-option-content">
+                <div class="pay-option-title">
+                  <i data-lucide="credit-card"></i>
+                  <span>Credit / Debit Card (Stripe Gateway)</span>
+                </div>
+                <p class="pay-option-desc">Encrypted 256-bit instant checkout via Visa, Mastercard, AMEX.</p>
+              </div>
+            </label>
+
+            <label class="pay-option-card">
+              <input type="radio" name="payMethod" value="Cash on Delivery">
+              <div class="pay-option-content">
+                <div class="pay-option-title">
+                  <i data-lucide="banknote"></i>
+                  <span>Cash on Delivery (COD)</span>
+                </div>
+                <p class="pay-option-desc">Pay cash directly to the courier upon doorstep inspection & delivery.</p>
+              </div>
+            </label>
+
+            <label class="pay-option-card">
+              <input type="radio" name="payMethod" value="Bank Wire / Transfer">
+              <div class="pay-option-content">
+                <div class="pay-option-title">
+                  <i data-lucide="landmark"></i>
+                  <span>Direct Bank Wire Transfer</span>
+                </div>
+                <p class="pay-option-desc">Receive official Maison bank coordinates for wire dispatch.</p>
+              </div>
+            </label>
+
+            <label class="pay-option-card">
+              <input type="radio" name="payMethod" value="WhatsApp Express">
+              <div class="pay-option-content">
+                <div class="pay-option-title">
+                  <i data-lucide="message-circle"></i>
+                  <span>WhatsApp Express Concierge</span>
+                </div>
+                <p class="pay-option-desc">Complete order confirmation and payment directly via WhatsApp chat.</p>
+              </div>
+            </label>
+
+          </div>
         </div>
-        <div class="math-row final-total-row">
-          <span>Total</span>
-          <span id="cartTotal">$0.00 USD</span>
-        </div>
+
       </div>
 
-      <div class="checkout-actions">
-        <button class="btn btn-black btn-block" onclick="processCheckout('stripe')">
-          <span>Proceed to Secure Checkout</span>
+      <!-- Right Column: Order Summary & Place Order -->
+      <div class="checkout-right-pane">
+        <h4 class="form-section-title">Order Summary</h4>
+        
+        <div class="checkout-mini-items" id="chkItemsList">
+          <!-- Injected dynamically -->
+        </div>
+
+        <div class="checkout-totals-box">
+          <div class="chk-math-line"><span>Subtotal</span><strong id="chkSubtotalVal">$0.00</strong></div>
+          <div class="chk-math-line discount-line" id="chkDiscountRow" style="display:none;"><span>Promo Discount</span><strong id="chkDiscountVal">-$0.00</strong></div>
+          <div class="chk-math-line"><span>Worldwide Shipping</span><span id="chkShippingVal">FREE</span></div>
+          <div class="chk-math-line grand-total-line"><span>Total Due</span><strong id="chkTotalVal">$0.00 USD</strong></div>
+        </div>
+
+        <button type="submit" class="btn btn-dark btn-block btn-place-order" id="btnPlaceOrder">
+          <span>Complete Order & Get Tracking ID</span>
           <i data-lucide="arrow-right"></i>
         </button>
-        <button class="btn btn-whatsapp btn-block" onclick="processCheckout('whatsapp')">
+
+        <p class="checkout-security-notice">
+          🔒 By placing your order, you agree to New Sitara Terms & Conditions and receive an instant Tracking ID.
+        </p>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Order Success & Tracking Receipt Modal -->
+  <div class="modal-backdrop" id="receiptBackdrop"></div>
+  <div class="receipt-modal" id="receiptModal">
+    <div class="receipt-card-inner">
+      <div class="receipt-badge-icon"><i data-lucide="check-circle-2"></i></div>
+      
+      <span class="receipt-sup-tag">ORDER CONFIRMED & VERIFIED</span>
+      <h2 class="receipt-title">Thank you for your order!</h2>
+      <p class="receipt-msg">Your order has been registered in the New Sitara Atelier. Your personal Tracking ID has been generated below:</p>
+
+      <!-- Copyable Tracking Box -->
+      <div class="tracking-copy-box">
+        <div class="trk-label">YOUR LIVE TRACKING ID:</div>
+        <div class="trk-id-row">
+          <code id="receiptTrackingId">NS-TRK-XXXXX</code>
+          <button type="button" class="btn-copy-trk" onclick="copyReceiptTrackingId()">
+            <i data-lucide="copy"></i>
+            <span>Copy</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="receipt-actions">
+        <a href="/track" id="btnTrackShipmentLink" class="btn btn-dark btn-block">
+          <i data-lucide="map-pin"></i>
+          <span>Track Your Shipment Now ↗</span>
+        </a>
+        <button type="button" class="btn btn-outline btn-block" onclick="window.print()" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: #FFF; border: 1px solid var(--border-dark); color: var(--text-main); font-weight: 700; padding: 0.75rem; border-radius: 8px; cursor: pointer;">
+          <i data-lucide="printer"></i>
+          <span>Print Official Receipt / PDF</span>
+        </button>
+        <button type="button" class="btn btn-whatsapp btn-block" onclick="sendOrderReceiptToWhatsApp()">
+          <i data-lucide="message-circle"></i>
+          <span>Send Order Confirmation to WhatsApp</span>
+        </button>
+        <button type="button" class="btn btn-hero-light btn-block" onclick="closeReceiptModalAndShop()">
+          Continue Shopping
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Slide-Out Saved Items / Wishlist Drawer -->
+  <div class="cart-backdrop" id="wishlistBackdrop" onclick="toggleWishlistDrawer(false)"></div>
+  <aside class="store-cart-drawer wishlist-drawer" id="storeWishlistDrawer">
+    <div class="cart-head">
+      <div class="cart-head-title">
+        <i data-lucide="heart" style="color: #EF4444; fill: #EF4444;"></i>
+        <h3>Saved Pieces</h3>
+        <span class="cart-badge-count" id="wishlistItemCountText">(0)</span>
+      </div>
+      <button class="cart-close-btn" onclick="toggleWishlistDrawer(false)"><i data-lucide="x"></i></button>
+    </div>
+
+    <!-- Wishlist Items Feed -->
+    <div class="wishlist-items-container" id="wishlistItemsContainer">
+      <!-- Injected dynamically via JS -->
+    </div>
+
+    <!-- Wishlist Footer -->
+    <div class="cart-checkout-box wishlist-footer-box">
+      <button class="btn btn-dark btn-block" onclick="moveAllWishlistToBag()">
+        <i data-lucide="shopping-bag"></i>
+        <span>Move All In-Stock to Bag</span>
+      </button>
+      <button class="btn btn-hero-light btn-block" onclick="clearAllWishlist()">
+        Clear Saved Items
+      </button>
+    </div>
+  </aside>
+
+  <!-- Slide-Out Shopping Bag Drawer -->
+  <div class="cart-backdrop" id="cartBackdrop" onclick="toggleCartDrawer(false)"></div>
+  <aside class="store-cart-drawer" id="storeCart">
+    <div class="cart-head">
+      <div class="cart-head-title">
+        <i data-lucide="shopping-bag"></i>
+        <h3>Shopping Bag</h3>
+        <span class="cart-badge-count" id="cartItemCountText">(0)</span>
+      </div>
+      <button class="cart-close-btn" onclick="toggleCartDrawer(false)"><i data-lucide="x"></i></button>
+    </div>
+
+    <!-- Free Worldwide Express Tracker -->
+    <div class="cart-shipping-meter">
+      <div class="meter-text">
+        <span id="shippingMeterMessage">Add $150 for Free Worldwide Express</span>
+        <span>✈</span>
+      </div>
+      <div class="meter-bar-track">
+        <div class="meter-bar-fill" id="shippingMeterFill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Cart Feed -->
+    <div class="cart-items-container" id="cartItemsContainer">
+      <!-- Injected dynamically via JS -->
+    </div>
+
+    <!-- Cart Checkout Box -->
+    <div class="cart-checkout-box">
+      <div class="promo-input-group">
+        <input type="text" id="cartPromoInput" placeholder="Promo code (e.g. SITARA15)">
+        <button type="button" onclick="applyPromoCode()">Apply</button>
+      </div>
+
+      <div class="cart-math-breakdown">
+        <div class="math-line">
+          <span>Subtotal</span>
+          <span id="cartSubtotalVal">$0.00</span>
+        </div>
+        <div class="math-line discount-line" id="cartDiscountLine" style="display:none;">
+          <span>Discount (15%)</span>
+          <span id="cartDiscountVal">-$0.00</span>
+        </div>
+        <div class="math-line">
+          <span>Worldwide Shipping</span>
+          <span id="cartShippingVal">$15.00</span>
+        </div>
+        <div class="math-line total-line">
+          <span>Estimated Total</span>
+          <span id="cartGrandTotalVal">$0.00 USD</span>
+        </div>
+      </div>
+
+      <div class="cart-action-buttons">
+        <button class="btn btn-dark btn-block" onclick="openCheckoutModal()">
+          <span>Proceed to Checkout</span>
+          <i data-lucide="arrow-right"></i>
+        </button>
+        <button class="btn btn-whatsapp btn-block" onclick="executeQuickWhatsApp()">
           <i data-lucide="message-circle"></i>
           <span>Order via WhatsApp Express</span>
         </button>
       </div>
-      <p class="cart-trust-note">🔒 256-Bit SSL Encrypted Bank-Grade Checkout</p>
+      <p class="cart-trust-footer">🔒 256-Bit SSL Encrypted Bank-Grade Checkout</p>
     </div>
   </aside>
 
-  <!-- Luxury Maison Footer -->
-  <footer class="maison-footer">
-    <div class="footer-inner">
-      <div class="footer-main-grid">
-        
-        <div class="footer-brand-col">
-          <div class="footer-brand-header">
-            <img src="/assets/ns%20logo.jpg" alt="NS Logo" class="footer-logo-img">
-            <span class="footer-brand-name">NEW SITARA</span>
-          </div>
-          <p class="footer-about">
-            New Sitara Interprizes is an international luxury lifestyle maison presenting high-density textiles, tailored streetwear, and artisanal footwear.
-          </p>
-          <div class="footer-social-row">
+  <!-- Mobile Bottom Quick Navigation Bar -->
+  <nav class="mobile-bottom-bar mobile-only">
+    <button class="mob-tab active" onclick="scrollToSection('catalogSection')">
+      <i data-lucide="grid"></i>
+      <span>Shop</span>
+    </button>
+    <button class="mob-tab" onclick="toggleMobileSearchBar(true)">
+      <i data-lucide="search"></i>
+      <span>Search</span>
+    </button>
+    <button class="mob-tab" onclick="toggleWishlistDrawer(true)">
+      <div class="mob-bag-badge-wrap">
+        <i data-lucide="heart"></i>
+        <span class="mob-bag-pill" id="mobWishlistBadge" style="background:#EF4444;">0</span>
+      </div>
+      <span>Saved</span>
+    </button>
+    <a href="/track" class="mob-tab">
+      <i data-lucide="map-pin"></i>
+      <span>Track</span>
+    </a>
+    <button class="mob-tab" onclick="toggleCartDrawer(true)">
+      <div class="mob-bag-badge-wrap">
+        <i data-lucide="shopping-bag"></i>
+        <span class="mob-bag-pill" id="mobBagBadge">0</span>
+      </div>
+      <span>Bag</span>
+    </button>
+  </nav>
+
+  <!-- Modern Compact Minimal Footer -->
+  <footer class="compact-footer">
+    <div class="footer-wrap">
+      
+      <div class="footer-top-row">
+        <!-- Brand & Mission -->
+        <div class="footer-brand-pane">
+          <span class="footer-brand-title">NEW SITARA</span>
+          <p class="footer-brand-tagline">Contemporary apparel maison designed with artisanal craftsmanship, heavyweight loopback cotton, and tailored streetwear silhouettes.</p>
+          <div class="footer-socials">
             <a href="#instagram" title="Instagram" onclick="showToast('Instagram: @newsitara')"><i data-lucide="instagram"></i></a>
             <a href="#facebook" title="Facebook" onclick="showToast('Facebook: New Sitara')"><i data-lucide="facebook"></i></a>
             <a href="#twitter" title="Twitter" onclick="showToast('Twitter: @newsitara')"><i data-lucide="twitter"></i></a>
           </div>
         </div>
 
-        <div class="footer-links-col">
-          <h5>DEPARTMENTS</h5>
-          <a href="#catalogSection" onclick="filterByDept('shoes')">Footwear & Sneakers</a>
-          <a href="#catalogSection" onclick="filterByDept('tops')">Hoodies & Knits</a>
-          <a href="#catalogSection" onclick="filterByDept('bottoms')">Pants & Denim</a>
-          <a href="#catalogSection" onclick="filterByDept('outerwear')">Jackets & Coats</a>
-          <a href="#catalogSection" onclick="filterByDept('accessories')">Leather & Accessories</a>
-        </div>
-
-        <div class="footer-links-col">
-          <h5>CLIENT SERVICES</h5>
-          <a href="mailto:concierge@newsitara.com"><i data-lucide="mail"></i> concierge@newsitara.com</a>
-          <a href="#shipping" onclick="showToast('Complimentary DHL Express worldwide over $150')"><i data-lucide="truck"></i> Worldwide Delivery</a>
-          <a href="#returns" onclick="showToast('14-day hassle free return policy')"><i data-lucide="refresh-cw"></i> 14-Day Returns</a>
-          <a href="#sizing" onclick="showToast('All pieces cut in tailored relaxed streetwear fit')"><i data-lucide="help-circle"></i> Sizing & Fit</a>
-        </div>
-
-        <div class="footer-newsletter-col">
-          <h5>THE INNER CIRCLE</h5>
-          <p>Subscribe for private archival drop alerts and VIP access.</p>
-          <form class="footer-subscribe-form" onsubmit="return handleSubscribe(event)">
-            <input type="email" id="subscribeEmail" placeholder="Enter your email" required autocomplete="email">
-            <button type="submit">Join ↗</button>
-          </form>
-          <div class="coming-soon-return">
-            <a href="/">← Return to Coming Soon Screen</a>
+        <!-- Quick Categories -->
+        <div class="footer-links-pane">
+          <h6>COLLECTION</h6>
+          <div class="footer-links-grid" id="footerCategoriesList">
+            <!-- Injected dynamically via JS -->
           </div>
         </div>
 
+        <!-- Client Care & Tracking -->
+        <div class="footer-links-pane">
+          <h6>CLIENT CARE</h6>
+          <a href="/track"><i data-lucide="map-pin"></i> Live Order Tracking</a>
+          <a href="mailto:concierge@newsitara.com"><i data-lucide="mail"></i> concierge@newsitara.com</a>
+          <a href="#shipping" onclick="showToast('Complimentary DHL Express worldwide over $150')"><i data-lucide="truck"></i> Worldwide Delivery</a>
+          <a href="#returns" onclick="showToast('14-day return & exchange window')"><i data-lucide="refresh-cw"></i> 14-Day Returns</a>
+          <a href="/admin"><i data-lucide="shield"></i> Merchant Admin Portal</a>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-newsletter-pane">
+          <h6>NEWSLETTER</h6>
+          <p>Get private archival drop notifications and VIP release access.</p>
+          <form class="footer-form" onsubmit="return handleSubscribe(event)">
+            <input type="email" id="subscribeInput" placeholder="Enter email address" required autocomplete="email">
+            <button type="submit">Join</button>
+          </form>
+        </div>
       </div>
 
-      <div class="footer-bottom-strip">
-        <p>© 2026 New Sitara Interprizes. All rights reserved.</p>
-        <div class="payment-icons-strip">
+      <div class="footer-bottom-row">
+        <p class="copyright-text">© 2026 New Sitara Interprizes. All rights reserved.</p>
+        <div class="payment-badges">
           <span>VISA</span>
           <span>MASTERCARD</span>
           <span>AMEX</span>
@@ -362,12 +655,15 @@
           <span>STRIPE</span>
         </div>
       </div>
+
     </div>
   </footer>
 
   <!-- Toast Notification Hub -->
-  <div class="toast-hub" id="toastHub"></div>
+  <div class="store-toast-hub" id="storeToastHub"></div>
 
-  <script src="/store.js?v=20260821_v3"></script>
+  <!-- Persistent Data Layer & Store Engine -->
+  <script src="/store-data.js"></script>
+  <script src="/store.js?v=20260822_checkout"></script>
 </body>
 </html>

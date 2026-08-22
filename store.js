@@ -1,434 +1,282 @@
 // ==========================================================================
-// NEW SITARA INTERPRIZES — HIGH-FASHION MAISON CATALOG ENGINE
+// NEW SITARA — STOREFRONT & CHECKOUT ENGINE
 // ==========================================================================
 
-const MAISON_CATALOG = [
-  // --- FOOTWEAR & SNEAKERS ---
-  {
-    id: 'ns-shoe-1',
-    name: 'Atelier Minimal Low-Top Sneaker',
-    category: 'shoes',
-    categoryName: 'Footwear & Sneakers',
-    price: 220,
-    tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Handcrafted in Italy from full-grain calfskin leather with Margom rubber cupsole and gold foil NS insignia on tongue.',
-    specs: '✦ 100% Full-Grain Italian Calfskin • Margom Rubber Cupsole • Waxed Cotton Laces',
-    sizes: ['40', '41', '42', '43', '44', '45']
-  },
-  {
-    id: 'ns-shoe-2',
-    name: 'Obsidian Chunky Technical Runner',
-    category: 'shoes',
-    categoryName: 'Footwear & Sneakers',
-    price: 280,
-    tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Multi-layered suede and breathable nylon mesh upper with exaggerated sculpted EVA midsole and Vibram traction outsole.',
-    specs: '✦ Italian Suede & Ballistic Mesh • Vibram Rubber Outsole • Cushion Ortholite Footbed',
-    sizes: ['41', '42', '43', '44', '45']
-  },
-  {
-    id: 'ns-shoe-3',
-    name: 'Suede Chelsea Boot in Tobacco',
-    category: 'shoes',
-    categoryName: 'Footwear & Sneakers',
-    price: 360,
-    tag: 'Limited Edition',
-    imageFront: 'https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Blake-stitched ankle Chelsea boot crafted from water-resistant calf suede with tonal elastic side gussets and pull tabs.',
-    specs: '✦ Premium Suede Calfskin • Leather Stacked Heel • Goodyear Welted',
-    sizes: ['40', '41', '42', '43', '44']
-  },
-  {
-    id: 'ns-shoe-4',
-    name: 'Lug-Sole Derby Shoe Noir',
-    category: 'shoes',
-    categoryName: 'Footwear & Sneakers',
-    price: 310,
-    tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'High-shine brushed calf leather derby with exaggerated commando lug sole and hand-stitched welt.',
-    specs: '✦ Brushed Box Calf Leather • Commando Rubber Lug Sole • Waxed Laces',
-    sizes: ['41', '42', '43', '44', '45']
-  },
-
-  // --- HOODIES & TOPS ---
-  {
-    id: 'ns-top-1',
-    name: 'Obsidian 520GSM Loopback Hoodie',
-    category: 'tops',
-    categoryName: 'Hoodies & Knits',
-    price: 185,
-    tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Ultra-heavyweight 520 GSM pre-shrunk French terry. Featuring a double-layered structured hood with subtle tonal NS monogram embroidery.',
-    specs: '✦ 100% Organic Heavyweight Cotton • Custom Gold Aglets • Relaxed Boxy Cut',
-    sizes: ['S', 'M', 'L', 'XL']
-  },
-  {
-    id: 'ns-top-2',
-    name: 'Monogram Heavyweight Boxy Tee',
-    category: 'tops',
-    categoryName: 'Hoodies & Knits',
-    price: 95,
-    tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: '300 GSM combed cotton jersey in washed charcoal black. High ribbed collar with embroidered gold NS emblem on chest.',
-    specs: '✦ 100% Combed Compact Cotton • Pre-shrunk & Enzyme Washed',
-    sizes: ['S', 'M', 'L', 'XL']
-  },
-  {
-    id: 'ns-top-3',
-    name: 'Cashmere-Blend Minimal Knit',
-    category: 'tops',
-    categoryName: 'Hoodies & Knits',
-    price: 260,
-    tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: '7-gauge seamless knit in natural un-dyed oatmeal. Incredibly soft tactile hand-feel with relaxed drop sleeves.',
-    specs: '✦ 70% Extra-fine Merino, 30% Mongolian Cashmere • Seamless Construction',
-    sizes: ['S', 'M', 'L', 'XL']
-  },
-  {
-    id: 'ns-top-4',
-    name: 'Vintage Washed Graphic Tour Tee',
-    category: 'tops',
-    categoryName: 'Hoodies & Knits',
-    price: 110,
-    tag: 'Selling Fast',
-    imageFront: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Sun-faded distressed wash with hand-screenprinted New Sitara typography and cracked ink patina.',
-    specs: '✦ 280 GSM Single Jersey • Hand-Distressed Collars • Boxy Dropped Fit',
-    sizes: ['S', 'M', 'L', 'XL']
-  },
-  {
-    id: 'ns-top-5',
-    name: 'Heavy French Terry Crewneck',
-    category: 'tops',
-    categoryName: 'Hoodies & Knits',
-    price: 165,
-    tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: '480 GSM loopback cotton crewneck featuring ribbed side gussets and flatlock seam construction.',
-    specs: '✦ 100% Organic Heavyweight Cotton • Flatlock Stitching • Made in Portugal',
-    sizes: ['S', 'M', 'L', 'XL']
-  },
-
-  // --- PANTS & DENIM ---
-  {
-    id: 'ns-bot-1',
-    name: 'Pleated Wide-Leg Wool Trouser',
-    category: 'bottoms',
-    categoryName: 'Pants & Denim',
-    price: 240,
-    tag: 'Limited Edition',
-    imageFront: 'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Architectural double-pleated silhouette tailored from virgin wool blend. Features a relaxed drape through the leg and adjustable waist tabs.',
-    specs: '✦ 85% Virgin Wool, 15% Mohair • Deep Slanted Pockets • Tailored Slouch',
-    sizes: ['30', '32', '34', '36']
-  },
-  {
-    id: 'ns-bot-2',
-    name: 'Modular Relaxed Cargo Trouser',
-    category: 'bottoms',
-    categoryName: 'Pants & Denim',
-    price: 210,
-    tag: 'Selling Fast',
-    imageFront: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Heavy cotton ripstop trousers featuring bellowed cargo pockets with concealed magnetic closures and adjustable drawstring ankles.',
-    specs: '✦ 100% Military-grade Cotton Ripstop • Magnetic Pocket Fasteners',
-    sizes: ['30', '32', '34', '36']
-  },
-  {
-    id: 'ns-bot-3',
-    name: '14oz Japanese Selvedge Raw Denim',
-    category: 'bottoms',
-    categoryName: 'Pants & Denim',
-    price: 225,
-    tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Woven on vintage shuttle looms in Okayama, Japan. 14oz red-line selvedge with custom engraved copper rivets and embossed leather patch.',
-    specs: '✦ 100% Kurabo Japanese Cotton • Red-line Selvedge ID • Straight Relaxed Leg',
-    sizes: ['30', '32', '34', '36']
-  },
-  {
-    id: 'ns-bot-4',
-    name: 'Tailored Flare Slack in Noir',
-    category: 'bottoms',
-    categoryName: 'Pants & Denim',
-    price: 195,
-    tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Flattering split-hem bootcut trousers constructed with subtle elastane stretch for all-day comfort.',
-    specs: '✦ 96% Tropical Wool, 4% Elastane • Hidden Zip Hem Splits',
-    sizes: ['30', '32', '34', '36']
-  },
-
-  // --- JACKETS & OUTERWEAR ---
-  {
-    id: 'ns-out-1',
-    name: 'Atelier Double-Breasted Trench',
-    category: 'outerwear',
-    categoryName: 'Jackets & Coats',
-    price: 340,
-    tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Crafted from Italian storm-resistant gabardine with structured drop shoulders and custom engraved New Sitara gold horn buttons.',
-    specs: '✦ 100% Water-repellent Cotton Gabardine • Cupro Silk Lining • Made in Portugal',
-    sizes: ['S', 'M', 'L', 'XL']
-  },
-  {
-    id: 'ns-out-2',
-    name: 'Architectural Cropped Bomber',
-    category: 'outerwear',
-    categoryName: 'Jackets & Coats',
-    price: 395,
-    tag: 'Exclusive Drop',
-    imageFront: 'https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Structured technical nylon with PrimaLoft insulation, two-way heavy matte gold zipper, and storm flap detailing.',
-    specs: '✦ Italian Technical Nylon • PrimaLoft Gold Insulation • Ribbed Wool Cuffs',
-    sizes: ['S', 'M', 'L', 'XL']
-  },
-  {
-    id: 'ns-out-3',
-    name: 'Overcoat in Melton Wool Noir',
-    category: 'outerwear',
-    categoryName: 'Jackets & Coats',
-    price: 460,
-    tag: 'Archival Piece',
-    imageFront: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Full-length tailored coat constructed from 800 GSM heavy Melton wool. Peak lapels, deep central vent, and internal passport pocket.',
-    specs: '✦ 100% Heavyweight Melton Wool • Cupro Satin Lining • Made in Italy',
-    sizes: ['S', 'M', 'L', 'XL']
-  },
-  {
-    id: 'ns-out-4',
-    name: 'Insulated Matte Technical Puffer',
-    category: 'outerwear',
-    categoryName: 'Jackets & Coats',
-    price: 380,
-    tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1544923246-77307dd654cb?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1544923246-77307dd654cb?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: '700-fill responsible goose down jacket with waterproof storm zippers and detachable hood.',
-    specs: '✦ 700-Fill Goose Down • Matte Ripstop Shell • Storm Zip Placket',
-    sizes: ['S', 'M', 'L', 'XL']
-  },
-
-  // --- ACCESSORIES & LEATHER ---
-  {
-    id: 'ns-acc-1',
-    name: 'Full-Grain Leather Weekender Duffle',
-    category: 'accessories',
-    categoryName: 'Leather & Goods',
-    price: 380,
-    tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Generous 45L travel duffle crafted from vegetable-tanned full-grain leather with solid brass hardware.',
-    specs: '✦ 100% Vegetable-Tanned Italian Leather • Solid Brass Hardware • YKK Excella Zips',
-    sizes: ['One Size']
-  },
-  {
-    id: 'ns-acc-2',
-    name: 'Monogram Engraved Cardholder',
-    category: 'accessories',
-    categoryName: 'Leather & Goods',
-    price: 85,
-    tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: 'Slimline 4-slot cardholder in pebble grain calfskin with central note compartment and gold foil stamp.',
-    specs: '✦ Pebble Grain Calfskin • RFID Shielding • Hand-painted Edges',
-    sizes: ['One Size']
-  },
-  {
-    id: 'ns-acc-3',
-    name: 'Cuban Link Chain with NS Emblem',
-    category: 'accessories',
-    categoryName: 'Leather & Goods',
-    price: 190,
-    tag: 'Limited Edition',
-    imageFront: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: '8mm custom diamond-cut curb chain finished in 18k champagne gold plating with custom clasp lock.',
-    specs: '✦ 316L Stainless Steel Base • 18K Champagne Gold Dip • Micro-etched Clasp',
-    sizes: ['50cm', '55cm']
-  },
-  {
-    id: 'ns-acc-4',
-    name: 'Structured Atelier Cotton Twill Cap',
-    category: 'accessories',
-    categoryName: 'Leather & Goods',
-    price: 65,
-    tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=800&auto=format&fit=crop'
-    ],
-    description: '6-panel structured cap in heavy Japanese cotton twill with antique brass buckle and 3D embroidered NS emblem.',
-    specs: '✦ 100% Japanese Cotton Twill • Antique Brass Buckle Closure',
-    sizes: ['Adjustable']
-  }
-];
-
-// App State
-let activeDept = 'all';
-let activeTag = 'all';
+let activeCategory = 'all';
 let activeSort = 'featured';
 let searchKeyword = '';
-let cartItems = JSON.parse(localStorage.getItem('ns_cart') || '[]');
-let promoPercent = 0;
-let modalProduct = null;
-let modalSize = '';
+let cartItems = JSON.parse(localStorage.getItem('sitara_cart') || '[]');
+let activePromoDiscount = 0;
+let modalActiveProduct = null;
+let modalSelectedSize = '';
+let lastPlacedOrder = null;
+
+// Advanced Filtering & Reviews State
+let activeSizeFilter = 'all';
+let activeMaxPrice = 800;
+let activeInStockOnly = false;
+let selectedReviewRating = 5;
+let activeModalTab = 'details';
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderMaisonGrid();
-  updatePillCounts();
+  initStore();
+});
+
+function initStore() {
+  renderCurrencyDropdown();
+  renderCategoryNavigation();
+  renderCategoryPortals();
+  renderFilterPills();
+  renderFooterCategories();
+  renderProductsGrid();
   updateCartBadge();
   renderCartFeed();
+  updateWishlistBadge();
+
+  // Close dropdowns on outside click
+  document.addEventListener('click', (e) => {
+    const wrap = document.getElementById('currencyPickerWrap');
+    if (wrap && !wrap.contains(e.target)) {
+      wrap.classList.remove('open');
+    }
+  });
 
   if (window.lucide) window.lucide.createIcons();
-});
+}
 
 function scrollToSection(id) {
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: 'smooth' });
 }
 
-function updatePillCounts() {
-  const total = MAISON_CATALOG.length;
-  const shoes = MAISON_CATALOG.filter((p) => p.category === 'shoes').length;
-  const tops = MAISON_CATALOG.filter((p) => p.category === 'tops').length;
-  const bottoms = MAISON_CATALOG.filter((p) => p.category === 'bottoms').length;
-  const outerwear = MAISON_CATALOG.filter((p) => p.category === 'outerwear').length;
-  const accessories = MAISON_CATALOG.filter((p) => p.category === 'accessories').length;
+// ==========================================================================
+// 1. MULTI-CURRENCY ENGINE
+// ==========================================================================
+function renderCurrencyDropdown() {
+  const currencies = DataStore.getCurrencies();
+  const active = DataStore.getActiveCurrency();
 
-  document.getElementById('countAll').textContent = total;
-  document.getElementById('countShoes').textContent = shoes;
-  document.getElementById('countTops').textContent = tops;
-  document.getElementById('countBottoms').textContent = bottoms;
-  document.getElementById('countOuterwear').textContent = outerwear;
-  document.getElementById('countAccessories').textContent = accessories;
+  const flagEl = document.getElementById('activeCurrencyFlag');
+  const codeEl = document.getElementById('activeCurrencyCode');
+  const dropdown = document.getElementById('currencyDropdown');
+
+  if (flagEl) flagEl.textContent = active.flag || '🌐';
+  if (codeEl) codeEl.textContent = active.code;
+
+  if (dropdown) {
+    dropdown.innerHTML = Object.values(currencies)
+      .map(
+        (c) => `
+        <button type="button" class="currency-opt-btn ${c.code === active.code ? 'active' : ''}" onclick="selectCurrency('${c.code}', event)">
+          <div class="currency-opt-left">
+            <span>${c.flag || '🌐'}</span>
+            <span>${c.code}</span>
+          </div>
+          <span class="currency-rate-sub">${c.symbol} • ${c.name}</span>
+        </button>
+      `
+      )
+      .join('');
+  }
 }
 
-function renderMaisonGrid() {
-  const grid = document.getElementById('maisonGrid');
+function toggleCurrencyDropdown(e) {
+  if (e) e.stopPropagation();
+  const wrap = document.getElementById('currencyPickerWrap');
+  if (wrap) wrap.classList.toggle('open');
+}
+
+function selectCurrency(code, e) {
+  if (e) e.stopPropagation();
+  DataStore.setActiveCurrency(code);
+  const wrap = document.getElementById('currencyPickerWrap');
+  if (wrap) wrap.classList.remove('open');
+
+  renderCurrencyDropdown();
+  renderProductsGrid();
+  renderCartFeed();
+  if (document.getElementById('storeWishlistDrawer')?.classList.contains('open')) {
+    renderWishlistFeed();
+  }
+  if (modalActiveProduct && document.getElementById('productModal')?.classList.contains('open')) {
+    openProductModal(modalActiveProduct.id);
+  }
+
+  showToast(`Currency changed to ${code} (${DataStore.getActiveCurrency().symbol})`);
+}
+
+// ==========================================================================
+// 1. DYNAMIC CATEGORY NAVIGATION & PORTALS
+// ==========================================================================
+function renderCategoryNavigation() {
+  const categories = DataStore.getCategories();
+  const products = DataStore.getProducts();
+
+  // Desktop Left Nav Links
+  const desktopNav = document.getElementById('desktopNavLinks');
+  if (desktopNav) {
+    desktopNav.innerHTML = `
+      <button class="nav-link-btn ${activeCategory === 'all' ? 'active' : ''}" onclick="filterByCategory('all')">Collection</button>
+      ${categories
+        .slice(0, 5)
+        .map(
+          (c) => `
+        <button class="nav-link-btn ${activeCategory === (c.slug || c.id) ? 'active' : ''}" onclick="filterByCategory('${c.slug || c.id}')">${c.name.split('&')[0].trim()}</button>
+      `
+        )
+        .join('')}
+    `;
+  }
+
+  // Mobile Drawer Links
+  const mobLinks = document.getElementById('mobDrawerLinks');
+  if (mobLinks) {
+    mobLinks.innerHTML = `
+      <button class="mob-category-btn ${activeCategory === 'all' ? 'active' : ''}" onclick="filterByCategory('all'); toggleMobileMenu(false);">
+        <span>All Collection</span>
+        <span class="mob-count-badge">${products.length}</span>
+      </button>
+      ${categories
+        .map((c) => {
+          const count = products.filter((p) => p.category === (c.slug || c.id)).length;
+          return `
+          <button class="mob-category-btn ${activeCategory === (c.slug || c.id) ? 'active' : ''}" onclick="filterByCategory('${c.slug || c.id}'); toggleMobileMenu(false);">
+            <span>${c.name}</span>
+            <span class="mob-count-badge">${count}</span>
+          </button>
+        `;
+        })
+        .join('')}
+    `;
+  }
+}
+
+function renderCategoryPortals() {
+  const categories = DataStore.getCategories();
+  const products = DataStore.getProducts();
+  const row = document.getElementById('categoriesRow');
+  if (!row) return;
+
+  row.innerHTML = categories
+    .map((c) => {
+      const count = products.filter((p) => p.category === (c.slug || c.id)).length;
+      return `
+      <div class="category-card" onclick="filterByCategory('${c.slug || c.id}')">
+        <img src="${c.image}" alt="${c.name}" class="cat-bg-image" loading="lazy">
+        <div class="cat-card-overlay">
+          <span class="cat-count-text">${count} Pieces</span>
+          <h3 class="cat-title-text">${c.name}</h3>
+          <span class="cat-link-text">Explore Department →</span>
+        </div>
+      </div>
+    `;
+    })
+    .join('');
+}
+
+function renderFilterPills() {
+  const categories = DataStore.getCategories();
+  const products = DataStore.getProducts();
+  const row = document.getElementById('filterPillsRow');
+  if (!row) return;
+
+  row.innerHTML = `
+    <button class="filter-pill ${activeCategory === 'all' ? 'active' : ''}" data-cat="all" onclick="filterByCategory('all', this)">
+      All (${products.length})
+    </button>
+    ${categories
+      .map((c) => {
+        const count = products.filter((p) => p.category === (c.slug || c.id)).length;
+        const catKey = c.slug || c.id;
+        return `
+        <button class="filter-pill ${activeCategory === catKey ? 'active' : ''}" data-cat="${catKey}" onclick="filterByCategory('${catKey}', this)">
+          ${c.name.split('&')[0].trim()} (${count})
+        </button>
+      `;
+      })
+      .join('')}
+  `;
+}
+
+function renderFooterCategories() {
+  const categories = DataStore.getCategories();
+  const list = document.getElementById('footerCategoriesList');
+  if (!list) return;
+
+  list.innerHTML = categories
+    .map(
+      (c) => `
+    <a href="#catalogSection" onclick="filterByCategory('${c.slug || c.id}')">${c.name}</a>
+  `
+    )
+    .join('');
+}
+
+// ==========================================================================
+// 3. PRODUCT CATALOG GRID & ADVANCED FILTERING
+// ==========================================================================
+function renderProductsGrid() {
+  const grid = document.getElementById('productsGrid');
   if (!grid) return;
 
-  let items = MAISON_CATALOG.filter((p) => {
-    const deptMatch = activeDept === 'all' || p.category === activeDept;
-    const tagMatch = activeTag === 'all' || p.tag.toLowerCase().includes(activeTag.toLowerCase());
+  const products = DataStore.getProducts();
+
+  let items = products.filter((p) => {
+    const catMatch = activeCategory === 'all' || p.category === activeCategory;
     const searchMatch =
       searchKeyword === '' ||
       p.name.toLowerCase().includes(searchKeyword) ||
-      p.categoryName.toLowerCase().includes(searchKeyword) ||
-      p.description.toLowerCase().includes(searchKeyword);
+      (p.categoryName && p.categoryName.toLowerCase().includes(searchKeyword)) ||
+      (p.description && p.description.toLowerCase().includes(searchKeyword));
 
-    return deptMatch && tagMatch && searchMatch;
+    const priceMatch = (p.price || 0) <= activeMaxPrice;
+
+    const sizesArr = Array.isArray(p.sizes) ? p.sizes : [p.sizes];
+    const sizeMatch = activeSizeFilter === 'all' || sizesArr.includes(activeSizeFilter);
+
+    const stockMatch = !activeInStockOnly || p.inStock;
+
+    return catMatch && searchMatch && priceMatch && sizeMatch && stockMatch;
   });
 
-  // Sorting
+  // Sort
   if (activeSort === 'price-asc') {
     items.sort((a, b) => a.price - b.price);
   } else if (activeSort === 'price-desc') {
     items.sort((a, b) => b.price - a.price);
+  } else if (activeSort === 'rating-desc') {
+    items.sort((a, b) => {
+      const rA = DataStore.getProductRating(a.id).average;
+      const rB = DataStore.getProductRating(b.id).average;
+      return rB - rA;
+    });
   } else if (activeSort === 'name-asc') {
     items.sort((a, b) => a.name.localeCompare(b.name));
   }
 
+  // Update filter count badge
+  let activeFilterCount = 0;
+  if (activeSizeFilter !== 'all') activeFilterCount++;
+  if (activeMaxPrice < 800) activeFilterCount++;
+  if (activeInStockOnly) activeFilterCount++;
+
+  const countBadge = document.getElementById('filterCountBadge');
+  if (countBadge) {
+    if (activeFilterCount > 0) {
+      countBadge.style.display = 'inline-block';
+      countBadge.textContent = activeFilterCount;
+    } else {
+      countBadge.style.display = 'none';
+    }
+  }
+
   if (items.length === 0) {
     grid.innerHTML = `
-      <div style="grid-column: 1 / -1; text-align: center; padding: 6rem 1rem; color: var(--slate);">
-        <i data-lucide="sparkles" style="width: 48px; height: 48px; margin-bottom: 1rem; color: var(--gold-accent);"></i>
-        <h3 style="font-family: var(--font-serif); font-size: 2rem; color: var(--noir);">No matching pieces in this view</h3>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Try clearing your search term or selecting another department.</p>
-        <button class="btn btn-black" onclick="filterByDept('all')" style="margin-top: 1.5rem; border-radius: 999px;">View All Pieces</button>
+      <div style="grid-column: 1 / -1; text-align: center; padding: 4.5rem 1rem; color: var(--text-muted);">
+        <i data-lucide="sparkles" style="width: 44px; height: 44px; margin-bottom: 1rem; color: var(--accent-blue);"></i>
+        <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: var(--text-main); font-weight:800;">No matching pieces found</h3>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Try resetting your filters or exploring our other apparel divisions.</p>
+        <button class="btn btn-dark" onclick="resetAdvancedFilters()" style="margin-top: 1.25rem; border-radius: 999px;">Reset Filters & Show All</button>
       </div>
     `;
     if (window.lucide) window.lucide.createIcons();
@@ -436,142 +284,524 @@ function renderMaisonGrid() {
   }
 
   grid.innerHTML = items
-    .map(
-      (p) => `
-    <div class="maison-card" data-id="${p.id}">
-      <div class="card-media">
-        <span class="card-tag-pill">${p.tag}</span>
-        <img src="${p.imageFront}" alt="${p.name}" class="card-img-front" loading="lazy">
-        <img src="${p.imageBack}" alt="${p.name} alternate view" class="card-img-back" loading="lazy">
+    .map((p) => {
+      const isSaved = DataStore.isInWishlist(p.id);
+      const rating = DataStore.getProductRating(p.id);
+      const stars = '★'.repeat(Math.round(rating.average)) + '☆'.repeat(5 - Math.round(rating.average));
+      const formattedPrice = DataStore.formatPrice(p.price);
 
-        <div class="card-hover-actions">
-          <button class="btn-quick-view" onclick="openProductModal('${p.id}')">Quick View</button>
-          <div class="card-size-strip">
-            ${p.sizes.map((s) => `<button class="size-add-btn" onclick="quickAddToBag('${p.id}', '${s}')">${s}</button>`).join('')}
+      return `
+      <div class="store-card" data-id="${p.id}">
+        <div class="card-media" onclick="openProductModal('${p.id}')">
+          ${p.tag ? `<span class="card-tag">${p.tag}</span>` : ''}
+          
+          <!-- Wishlist Heart Button -->
+          <button type="button" class="card-wishlist-btn ${isSaved ? 'active' : ''}" onclick="event.stopPropagation(); handleCardWishlistToggle('${p.id}', this)" aria-label="Save to Wishlist">
+            <i data-lucide="heart"></i>
+          </button>
+
+          <img src="${p.imageFront}" alt="${p.name}" class="card-img-front" loading="lazy">
+          <img src="${p.imageBack || p.imageFront}" alt="${p.name} alternate view" class="card-img-back" loading="lazy">
+
+          <!-- Mobile Floating Plus Action -->
+          <button class="card-mob-btn" onclick="event.stopPropagation(); openProductModal('${p.id}')" aria-label="Quick View ${p.name}">
+            <i data-lucide="plus"></i>
+          </button>
+
+          <!-- Desktop Hover Quick Strip -->
+          <div class="card-hover-drawer">
+            <button class="btn-card-quick" onclick="event.stopPropagation(); openProductModal('${p.id}')">Quick View</button>
+            <div class="card-sizes-row">
+              ${(Array.isArray(p.sizes) ? p.sizes : [p.sizes])
+                .map((s) => `<button class="size-pill-btn" onclick="event.stopPropagation(); quickAddFromCard('${p.id}', '${s}')">${s}</button>`)
+                .join('')}
+            </div>
+          </div>
+        </div>
+
+        <div class="card-content">
+          <span class="card-category-label">${p.categoryName || p.category}</span>
+          <h4 class="card-heading" onclick="openProductModal('${p.id}')">${p.name}</h4>
+          
+          <div class="card-rating-row" onclick="event.stopPropagation(); openProductModal('${p.id}'); switchModalTab('reviews');">
+            <span class="card-rating-stars">${stars}</span>
+            <span class="card-rating-count">${rating.average.toFixed(1)} (${rating.count || 'New'})</span>
+          </div>
+
+          <div class="card-meta-row" style="margin-top: 0.35rem;">
+            <span class="card-price-tag">${formattedPrice}</span>
+            <span class="card-stock-tag" style="color: ${p.inStock ? 'var(--accent-green)' : '#EF4444'};">
+              ● ${p.inStock ? 'In Stock' : 'Pre-order'}
+            </span>
           </div>
         </div>
       </div>
-
-      <div class="card-info">
-        <span class="card-cat">${p.categoryName}</span>
-        <h4 class="card-title" onclick="openProductModal('${p.id}')">${p.name}</h4>
-        
-        <div class="card-bottom-row">
-          <span class="card-price">$${p.price}.00</span>
-          <span class="card-stock">● Available</span>
-        </div>
-      </div>
-    </div>
-  `
-    )
+    `;
+    })
     .join('');
 
   if (window.lucide) window.lucide.createIcons();
 }
 
-function filterByDept(dept, btnEl) {
-  activeDept = dept;
+// ==========================================================================
+// 4. ADVANCED FILTER & REFINE CONTROLS
+// ==========================================================================
+function toggleAdvancedFilterPanel() {
+  const panel = document.getElementById('advancedFilterPanel');
+  const btn = document.getElementById('filterToggleBtn');
+  if (!panel) return;
 
-  // Sync pill active state
-  document.querySelectorAll('.dept-pill').forEach((pill) => {
-    if (pill.dataset.dept === dept) pill.classList.add('active');
+  panel.classList.toggle('open');
+  if (btn) btn.classList.toggle('active');
+}
+
+function handlePriceRangeChange(val) {
+  activeMaxPrice = parseInt(val, 10);
+  const display = document.getElementById('filterPriceDisplay');
+  if (display) {
+    display.textContent = DataStore.formatPrice(activeMaxPrice);
+  }
+  renderProductsGrid();
+}
+
+function handleSizeFilter(size, btnEl) {
+  activeSizeFilter = size;
+  document.querySelectorAll('.size-filter-chips .size-chip-btn').forEach((b) => b.classList.remove('active'));
+  if (btnEl) btnEl.classList.add('active');
+  renderProductsGrid();
+}
+
+function handleStockFilterChange(inStockOnly) {
+  activeInStockOnly = inStockOnly;
+  renderProductsGrid();
+}
+
+function resetAdvancedFilters() {
+  activeCategory = 'all';
+  activeSizeFilter = 'all';
+  activeMaxPrice = 800;
+  activeInStockOnly = false;
+  searchKeyword = '';
+
+  const slider = document.getElementById('priceRangeSlider');
+  if (slider) slider.value = 800;
+  const priceDisp = document.getElementById('filterPriceDisplay');
+  if (priceDisp) priceDisp.textContent = DataStore.formatPrice(800);
+
+  const stockChk = document.getElementById('chkInStockOnly');
+  if (stockChk) stockChk.checked = false;
+
+  document.querySelectorAll('.size-filter-chips .size-chip-btn').forEach((b) => {
+    if (b.dataset.size === 'all') b.classList.add('active');
+    else b.classList.remove('active');
+  });
+
+  const searchInp = document.getElementById('storeSearchInput');
+  if (searchInp) searchInp.value = '';
+
+  renderFilterPills();
+  renderCategoryNavigation();
+  renderProductsGrid();
+  showToast('Filters reset to default.');
+}
+
+// ==========================================================================
+// 5. WISHLIST / SAVED ITEMS SYSTEM
+// ==========================================================================
+function handleCardWishlistToggle(productId, btnEl) {
+  const isNowSaved = DataStore.toggleWishlist(productId);
+  const products = DataStore.getProducts();
+  const prod = products.find((p) => p.id === productId);
+
+  if (btnEl) {
+    if (isNowSaved) {
+      btnEl.classList.add('active');
+    } else {
+      btnEl.classList.remove('active');
+    }
+  }
+
+  updateWishlistBadge();
+  if (isNowSaved) {
+    showToast(`Saved "${prod?.name || 'Item'}" to your Wishlist.`);
+  } else {
+    showToast(`Removed "${prod?.name || 'Item'}" from Wishlist.`);
+  }
+
+  if (document.getElementById('storeWishlistDrawer')?.classList.contains('open')) {
+    renderWishlistFeed();
+  }
+}
+
+function toggleWishlistDrawer(open) {
+  const drawer = document.getElementById('storeWishlistDrawer');
+  const backdrop = document.getElementById('wishlistBackdrop');
+  if (!drawer || !backdrop) return;
+
+  if (open) {
+    renderWishlistFeed();
+    drawer.classList.add('open');
+    backdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  } else {
+    drawer.classList.remove('open');
+    backdrop.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+function updateWishlistBadge() {
+  const wishlist = DataStore.getWishlist();
+  const badge = document.getElementById('wishlistCountBadge');
+  const mobBadge = document.getElementById('mobWishlistBadge');
+  const textCount = document.getElementById('wishlistItemCountText');
+
+  if (badge) badge.textContent = wishlist.length;
+  if (mobBadge) mobBadge.textContent = wishlist.length;
+  if (textCount) textCount.textContent = `(${wishlist.length})`;
+}
+
+function renderWishlistFeed() {
+  const container = document.getElementById('wishlistItemsContainer');
+  if (!container) return;
+
+  const wishlist = DataStore.getWishlist();
+  const products = DataStore.getProducts();
+  const savedProds = products.filter((p) => wishlist.includes(p.id));
+
+  if (savedProds.length === 0) {
+    container.innerHTML = `
+      <div style="margin: auto; text-align: center; color: var(--text-muted); padding: 3.5rem 1rem;">
+        <i data-lucide="heart" style="width: 44px; height: 44px; margin-bottom: 0.75rem; color: #EF4444; opacity: 0.35;"></i>
+        <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--text-main);">No saved pieces yet</h4>
+        <p style="font-size: 0.82rem; margin-top: 0.35rem;">Click the heart icon on any piece to save it for later.</p>
+        <button class="btn btn-dark" onclick="toggleWishlistDrawer(false); scrollToSection('catalogSection')" style="margin-top: 1.25rem; border-radius: 999px; font-size: 0.75rem;">
+          Explore Collection ↗
+        </button>
+      </div>
+    `;
+    if (window.lucide) window.lucide.createIcons();
+    return;
+  }
+
+  container.innerHTML = savedProds
+    .map((p) => {
+      const formattedPrice = DataStore.formatPrice(p.price);
+      const firstSize = (Array.isArray(p.sizes) ? p.sizes[0] : p.sizes) || 'M';
+
+      return `
+      <div class="wishlist-item-row">
+        <img src="${p.imageFront}" alt="${p.name}" class="wishlist-item-img">
+        <div class="wishlist-item-info">
+          <h4 class="wishlist-item-title">${p.name}</h4>
+          <span class="wishlist-item-cat">${p.categoryName || p.category}</span>
+          <span class="wishlist-item-price">${formattedPrice}</span>
+        </div>
+        <div class="wishlist-item-actions">
+          <button type="button" class="btn-wishlist-move" onclick="moveWishlistItemToBag('${p.id}', '${firstSize}')">
+            <i data-lucide="shopping-bag"></i>
+            <span>Move to Bag</span>
+          </button>
+          <button type="button" class="btn-wishlist-del" onclick="handleCardWishlistToggle('${p.id}')">
+            Remove
+          </button>
+        </div>
+      </div>
+    `;
+    })
+    .join('');
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function moveWishlistItemToBag(productId, size) {
+  addItemToBag(productId, size);
+  DataStore.toggleWishlist(productId);
+  updateWishlistBadge();
+  renderWishlistFeed();
+  renderProductsGrid();
+}
+
+function moveAllWishlistToBag() {
+  const wishlist = DataStore.getWishlist();
+  const products = DataStore.getProducts();
+
+  wishlist.forEach((id) => {
+    const p = products.find((x) => x.id === id);
+    if (p) {
+      const size = (Array.isArray(p.sizes) ? p.sizes[0] : p.sizes) || 'M';
+      addItemToBag(p.id, size);
+    }
+  });
+
+  DataStore.clearWishlist();
+  updateWishlistBadge();
+  toggleWishlistDrawer(false);
+  toggleCartDrawer(true);
+  renderProductsGrid();
+  showToast('All saved pieces moved to your shopping bag.');
+}
+
+function clearAllWishlist() {
+  DataStore.clearWishlist();
+  updateWishlistBadge();
+  renderWishlistFeed();
+  renderProductsGrid();
+  showToast('Wishlist cleared.');
+}
+
+function filterByCategory(catSlug, btnEl) {
+  activeCategory = catSlug;
+
+  // Sync pills
+  document.querySelectorAll('.filter-pill').forEach((pill) => {
+    if (pill.dataset.cat === catSlug) pill.classList.add('active');
     else pill.classList.remove('active');
   });
 
-  renderMaisonGrid();
+  // Sync desktop left links
+  renderCategoryNavigation();
+  renderProductsGrid();
   scrollToSection('catalogSection');
-}
-
-function handleTagFilter(e) {
-  activeTag = e.target.value;
-  renderMaisonGrid();
 }
 
 function handleSort(e) {
   activeSort = e.target.value;
-  renderMaisonGrid();
+  renderProductsGrid();
 }
 
-function setGridColumns(cols, btnEl) {
-  const grid = document.getElementById('maisonGrid');
+function setCatalogGrid(cols, btnEl) {
+  const grid = document.getElementById('productsGrid');
   if (!grid) return;
 
-  grid.className = `maison-product-grid grid-${cols}`;
-  document.querySelectorAll('.view-btn').forEach((b) => b.classList.remove('active'));
+  grid.className = `products-grid grid-${cols}`;
+  document.querySelectorAll('.grid-btn').forEach((b) => b.classList.remove('active'));
   if (btnEl) btnEl.classList.add('active');
 }
 
+// Search
 function handleSearch(e) {
   searchKeyword = e.target.value.trim().toLowerCase();
   const clearBtn = document.getElementById('searchClearBtn');
   if (clearBtn) clearBtn.style.display = searchKeyword ? 'flex' : 'none';
-  renderMaisonGrid();
+  renderProductsGrid();
+}
+
+function handleMobileSearch(e) {
+  searchKeyword = e.target.value.trim().toLowerCase();
+  renderProductsGrid();
+  scrollToSection('catalogSection');
 }
 
 function clearSearch() {
-  const input = document.getElementById('liveSearchInput');
-  if (input) input.value = '';
+  const inp = document.getElementById('storeSearchInput');
+  if (inp) inp.value = '';
   searchKeyword = '';
   document.getElementById('searchClearBtn').style.display = 'none';
-  renderMaisonGrid();
+  renderProductsGrid();
 }
 
-// Quick View Modal
+function toggleMobileSearchBar(forceOpen) {
+  const strip = document.getElementById('mobileSearchStrip');
+  if (!strip) return;
+
+  if (forceOpen === undefined) {
+    strip.classList.toggle('open');
+  } else if (forceOpen) {
+    strip.classList.add('open');
+    const inp = document.getElementById('mobileSearchInput');
+    if (inp) inp.focus();
+  } else {
+    strip.classList.remove('open');
+  }
+}
+
+function toggleMobileMenu(open) {
+  const drawer = document.getElementById('mobNavDrawer');
+  const backdrop = document.getElementById('mobNavBackdrop');
+  if (!drawer || !backdrop) return;
+
+  if (open) {
+    drawer.classList.add('open');
+    backdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  } else {
+    drawer.classList.remove('open');
+    backdrop.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+// ==========================================================================
+// 6. PRODUCT DETAIL MODAL & REVIEWS SYSTEM
+// ==========================================================================
 function openProductModal(productId) {
-  const product = MAISON_CATALOG.find((p) => p.id === productId);
+  const products = DataStore.getProducts();
+  const product = products.find((p) => p.id === productId);
   if (!product) return;
 
-  modalProduct = product;
-  modalSize = product.sizes[0];
+  modalActiveProduct = product;
+  const sizes = Array.isArray(product.sizes) ? product.sizes : [product.sizes];
+  modalSelectedSize = sizes[0] || 'One Size';
+  activeModalTab = 'details';
 
   const modal = document.getElementById('productModal');
   const backdrop = document.getElementById('modalBackdrop');
-  const body = document.getElementById('modalSplitBody');
+  const body = document.getElementById('modalGridBody');
+
+  const gallery = [product.imageFront, product.imageBack].filter(Boolean);
+  const ratingData = DataStore.getProductRating(product.id);
+  const stars = '★'.repeat(Math.round(ratingData.average)) + '☆'.repeat(5 - Math.round(ratingData.average));
+  const isSaved = DataStore.isInWishlist(product.id);
+  const formattedPrice = DataStore.formatPrice(product.price, true);
 
   body.innerHTML = `
-    <div class="modal-gallery-pane">
-      <img src="${product.gallery[0]}" alt="${product.name}" class="modal-featured-img" id="modalFeaturedImg">
+    <div class="modal-media-pane">
+      <img src="${product.imageFront}" alt="${product.name}" class="modal-main-image" id="modalMainImg">
       <div class="modal-thumbs-row">
-        ${product.gallery
+        ${gallery
           .map(
             (img, index) => `
-          <img src="${img}" alt="Thumb" class="modal-thumb-btn ${index === 0 ? 'active' : ''}" onclick="setModalMainImg('${img}', this)">
+          <img src="${img}" alt="Thumb" class="modal-thumb ${index === 0 ? 'active' : ''}" onclick="setModalImage('${img}', this)">
         `
           )
           .join('')}
       </div>
     </div>
 
-    <div class="modal-info-pane">
-      <span class="modal-tag-label">${product.categoryName} • ${product.tag}</span>
-      <h2 class="modal-product-title">${product.name}</h2>
-      <div class="modal-price-val">$${product.price}.00 USD</div>
-      <p class="modal-desc-text">${product.description}</p>
+    <div class="modal-details-pane">
+      
+      <!-- Tab Header -->
+      <div class="modal-tabs-header">
+        <button type="button" class="modal-tab-nav-btn ${activeModalTab === 'details' ? 'active' : ''}" id="tabBtnDetails" onclick="switchModalTab('details')">
+          Garment Details
+        </button>
+        <button type="button" class="modal-tab-nav-btn ${activeModalTab === 'reviews' ? 'active' : ''}" id="tabBtnReviews" onclick="switchModalTab('reviews')">
+          Reviews (${ratingData.count})
+        </button>
+      </div>
 
-      <div class="modal-sizes-group">
-        <div class="size-header">
-          <span>SELECT SIZE</span>
-          <span style="color: var(--gold-accent); cursor: pointer;" onclick="showToast('True to tailored streetwear proportions.')">Size Guide ↗</span>
+      <!-- TAB 1: DETAILS -->
+      <div class="modal-tab-content ${activeModalTab === 'details' ? 'active' : ''}" id="modalTabDetails">
+        <span class="modal-cat-tag">${product.categoryName || product.category}</span>
+        <h2 class="modal-title">${product.name}</h2>
+        
+        <div style="display: flex; align-items: center; gap: 0.5rem; margin: 0.25rem 0 0.75rem 0; cursor: pointer;" onclick="switchModalTab('reviews')">
+          <span style="color: #F59E0B; font-size: 0.9rem;">${stars}</span>
+          <span style="font-size: 0.76rem; color: var(--text-muted); font-weight: 700;">${ratingData.average.toFixed(1)} (${ratingData.count} Verified Reviews)</span>
         </div>
-        <div class="modal-sizes-row">
-          ${product.sizes
-            .map(
-              (s, i) => `
-            <button class="modal-size-chip ${i === 0 ? 'active' : ''}" onclick="setModalSize('${s}', this)">${s}</button>
-          `
-            )
-            .join('')}
+
+        <div class="modal-price" id="modalProductPriceDisplay">${formattedPrice}</div>
+        <p class="modal-description">${product.description || ''}</p>
+
+        <div class="modal-sizes-box">
+          <div class="size-pick-label">
+            <span>SELECT SIZE</span>
+            <span style="color: var(--accent-blue); cursor: pointer;" onclick="showToast('Cut in tailored relaxed streetwear fit.')">Size Guide ↗</span>
+          </div>
+          <div class="modal-chips-row">
+            ${sizes
+              .map(
+                (s, i) => `
+              <button type="button" class="size-chip-btn ${i === 0 ? 'active' : ''}" onclick="selectModalSize('${s}', this)">${s}</button>
+            `
+              )
+              .join('')}
+          </div>
+        </div>
+
+        ${
+          product.specs
+            ? `
+          <div class="modal-specs-box">
+            <strong>Garment Specifications:</strong><br>
+            ${product.specs}
+          </div>
+        `
+            : ''
+        }
+
+        <div class="modal-actions-dual">
+          <button class="btn btn-dark btn-block" onclick="addModalItemToCart()">
+            Add to Shopping Bag
+          </button>
+          
+          <button type="button" class="btn-modal-wishlist ${isSaved ? 'active' : ''}" id="modalWishlistBtn" onclick="handleModalWishlistToggle('${product.id}')" title="Save to Wishlist">
+            <i data-lucide="heart"></i>
+          </button>
+
+          <button type="button" class="btn-modal-wa" onclick="buySingleViaWhatsApp('${product.id}')" title="Buy via WhatsApp">
+            <i data-lucide="message-circle"></i>
+            <span>WhatsApp Buy</span>
+          </button>
         </div>
       </div>
 
-      <div class="modal-craft-box">
-        <strong>Atelier Specifications:</strong><br>
-        ${product.specs}
+      <!-- TAB 2: REVIEWS -->
+      <div class="modal-tab-content ${activeModalTab === 'reviews' ? 'active' : ''}" id="modalTabReviews">
+        <div class="modal-reviews-wrap">
+          
+          <!-- Rating Summary -->
+          <div class="reviews-score-summary">
+            <div class="big-rating-num">${ratingData.average.toFixed(1)}</div>
+            <div class="score-stars-col">
+              <span class="score-stars">${stars}</span>
+              <span class="score-count-text">Based on ${ratingData.count} Atelier Collector Reviews</span>
+            </div>
+            <button type="button" class="btn-open-review-form" onclick="toggleWriteReviewForm()">+ Write Review</button>
+          </div>
+
+          <!-- Write Review Collapsible Box -->
+          <form class="write-review-form-card" id="writeReviewCard" style="display:none;" onsubmit="handleSubmitReview(event, '${product.id}')">
+            <div class="filter-group-title">Write Customer Review</div>
+            
+            <div class="star-rating-selector" id="starRatingSelector">
+              <span class="star-rate-icon active" data-val="1" onclick="setReviewStar(1)">★</span>
+              <span class="star-rate-icon active" data-val="2" onclick="setReviewStar(2)">★</span>
+              <span class="star-rate-icon active" data-val="3" onclick="setReviewStar(3)">★</span>
+              <span class="star-rate-icon active" data-val="4" onclick="setReviewStar(4)">★</span>
+              <span class="star-rate-icon active" data-val="5" onclick="setReviewStar(5)">★</span>
+            </div>
+
+            <div class="review-input-row">
+              <input type="text" id="revAuthor" class="form-input" placeholder="Your Name" required>
+              <input type="text" id="revTitle" class="form-input" placeholder="Review Title (e.g. Perfect Fit)" required>
+            </div>
+
+            <textarea id="revComment" class="form-input" rows="3" placeholder="Share your experience regarding fabric weight, fit, and craftsmanship..." required></textarea>
+
+            <button type="submit" class="btn btn-dark" style="padding: 0.5rem; font-size: 0.78rem;">Submit Verified Review</button>
+          </form>
+
+          <!-- Customer Reviews List -->
+          <div class="reviews-list-container">
+            ${
+              ratingData.reviews.length === 0
+                ? `<p style="font-size: 0.8rem; color: var(--text-muted); text-align: center; padding: 2rem 0;">Be the first collector to review this piece!</p>`
+                : ratingData.reviews
+                    .map(
+                      (r) => `
+                  <div class="review-card-item">
+                    <div class="review-head-row">
+                      <span class="review-author-name">
+                        ${r.author}
+                        <span class="verified-badge"><i data-lucide="check-circle-2" style="width: 12px; height:12px;"></i> Verified Collector</span>
+                      </span>
+                      <span class="review-date-text">${r.date}</span>
+                    </div>
+                    <div style="color: #F59E0B; font-size: 0.8rem;">${'★'.repeat(r.rating || 5)}${'☆'.repeat(5 - (r.rating || 5))}</div>
+                    <h5 class="review-headline">${r.title}</h5>
+                    <p class="review-body-comment">${r.comment}</p>
+                  </div>
+                `
+                    )
+                    .join('')
+            }
+          </div>
+
+        </div>
       </div>
 
-      <button class="btn btn-black btn-block" onclick="addModalItemToCart()">
-        Add to Shopping Bag — $${product.price}.00
-      </button>
     </div>
   `;
 
@@ -582,41 +812,121 @@ function openProductModal(productId) {
   if (window.lucide) window.lucide.createIcons();
 }
 
-function setModalMainImg(src, thumbEl) {
-  const img = document.getElementById('modalFeaturedImg');
-  if (img) img.src = src;
-  document.querySelectorAll('.modal-thumb-btn').forEach((t) => t.classList.remove('active'));
+function switchModalTab(tabId) {
+  activeModalTab = tabId;
+
+  document.querySelectorAll('.modal-tab-nav-btn').forEach((b) => b.classList.remove('active'));
+  document.querySelectorAll('.modal-tab-content').forEach((c) => c.classList.remove('active'));
+
+  if (tabId === 'details') {
+    document.getElementById('tabBtnDetails')?.classList.add('active');
+    document.getElementById('modalTabDetails')?.classList.add('active');
+  } else {
+    document.getElementById('tabBtnReviews')?.classList.add('active');
+    document.getElementById('modalTabReviews')?.classList.add('active');
+  }
+}
+
+function toggleWriteReviewForm() {
+  const f = document.getElementById('writeReviewCard');
+  if (f) {
+    f.style.display = f.style.display === 'none' ? 'flex' : 'none';
+  }
+}
+
+function setReviewStar(val) {
+  selectedReviewRating = val;
+  const stars = document.querySelectorAll('#starRatingSelector .star-rate-icon');
+  stars.forEach((s) => {
+    const v = parseInt(s.dataset.val, 10);
+    if (v <= val) s.classList.add('active');
+    else s.classList.remove('active');
+  });
+}
+
+function handleSubmitReview(e, productId) {
+  e.preventDefault();
+  const author = document.getElementById('revAuthor')?.value.trim();
+  const title = document.getElementById('revTitle')?.value.trim();
+  const comment = document.getElementById('revComment')?.value.trim();
+
+  if (!author || !comment) return;
+
+  DataStore.addReview(productId, {
+    author: author,
+    title: title,
+    rating: selectedReviewRating,
+    comment: comment
+  });
+
+  showToast('Thank you! Your verified review has been published.');
+  openProductModal(productId);
+  switchModalTab('reviews');
+  renderProductsGrid();
+}
+
+function handleModalWishlistToggle(productId) {
+  const isNowSaved = DataStore.toggleWishlist(productId);
+  const btn = document.getElementById('modalWishlistBtn');
+  if (btn) {
+    if (isNowSaved) btn.classList.add('active');
+    else btn.classList.remove('active');
+  }
+  updateWishlistBadge();
+  renderProductsGrid();
+  showToast(isNowSaved ? 'Saved to Wishlist' : 'Removed from Wishlist');
+}
+
+function buySingleViaWhatsApp(productId) {
+  const products = DataStore.getProducts();
+  const prod = products.find((p) => p.id === productId);
+  if (!prod) return;
+
+  const size = modalSelectedSize || 'M';
+  const price = DataStore.formatPrice(prod.price, true);
+
+  const msg = `*NEW SITARA — IMMEDIATE ORDER INQUIRY*%0A%0A*Piece:* ${prod.name}%0A*Size:* ${size}%0A*Price:* ${price}%0A*Category:* ${prod.categoryName || prod.category}%0A%0AI would like to purchase this piece. Please confirm availability & dispatch instructions.`;
+  window.open(`https://wa.me/?text=${msg}`, '_blank');
+}
+
+function setModalImage(src, thumbEl) {
+  const main = document.getElementById('modalMainImg');
+  if (main) main.src = src;
+  document.querySelectorAll('.modal-thumb').forEach((t) => t.classList.remove('active'));
   if (thumbEl) thumbEl.classList.add('active');
 }
 
-function setModalSize(size, chipEl) {
-  modalSize = size;
-  document.querySelectorAll('.modal-size-chip').forEach((c) => c.classList.remove('active'));
+function selectModalSize(size, chipEl) {
+  modalSelectedSize = size;
+  document.querySelectorAll('.size-chip-btn').forEach((c) => c.classList.remove('active'));
   if (chipEl) chipEl.classList.add('active');
 }
 
 function addModalItemToCart() {
-  if (!modalProduct) return;
-  addToBag(modalProduct.id, modalSize);
-  closeModal();
+  if (!modalActiveProduct) return;
+  addItemToBag(modalActiveProduct.id, modalSelectedSize);
+  closeProductModal();
   toggleCartDrawer(true);
 }
 
-function closeModal() {
+function quickAddFromCard(productId, size) {
+  addItemToBag(productId, size);
+  toggleCartDrawer(true);
+}
+
+function closeProductModal() {
   document.getElementById('productModal').classList.remove('open');
   document.getElementById('modalBackdrop').classList.remove('open');
   document.body.style.overflow = '';
 }
 
-// Shopping Bag Engine
-function quickAddToBag(productId, size) {
-  addToBag(productId, size);
-  toggleCartDrawer(true);
-}
-
-function addToBag(productId, size) {
-  const product = MAISON_CATALOG.find((p) => p.id === productId);
-  if (!product) return;
+// ==========================================================================
+// 7. SHOPPING BAG ENGINE
+// ==========================================================================
+function addItemToBag(productId, size) {
+  const products = DataStore.getProducts();
+  const prod = products.find((p) => p.id === productId);
+  if (!prod) return;
 
   const existing = cartItems.find((i) => i.id === productId && i.size === size);
 
@@ -624,12 +934,12 @@ function addToBag(productId, size) {
     existing.qty += 1;
   } else {
     cartItems.push({
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      image: product.imageFront,
+      id: prod.id,
+      name: prod.name,
+      price: prod.price,
+      image: prod.imageFront,
       size: size,
-      categoryName: product.categoryName,
+      categoryName: prod.categoryName || prod.category,
       qty: 1
     });
   }
@@ -637,17 +947,17 @@ function addToBag(productId, size) {
   saveCart();
   renderCartFeed();
   updateCartBadge();
-  showToast(`Added ${product.name} (${size}) to your bag.`);
+  showToast(`Added ${prod.name} (${size}) to bag.`);
 }
 
-function updateItemQty(productId, size, delta) {
-  const index = cartItems.findIndex((i) => i.id === productId && i.size === size);
-  if (index === -1) return;
+function updateCartQty(productId, size, delta) {
+  const idx = cartItems.findIndex((i) => i.id === productId && i.size === size);
+  if (idx === -1) return;
 
-  cartItems[index].qty += delta;
+  cartItems[idx].qty += delta;
 
-  if (cartItems[index].qty <= 0) {
-    cartItems.splice(index, 1);
+  if (cartItems[idx].qty <= 0) {
+    cartItems.splice(idx, 1);
   }
 
   saveCart();
@@ -655,60 +965,62 @@ function updateItemQty(productId, size, delta) {
   updateCartBadge();
 }
 
-function removeItem(productId, size) {
+function removeCartItem(productId, size) {
   cartItems = cartItems.filter((i) => !(i.id === productId && i.size === size));
   saveCart();
   renderCartFeed();
   updateCartBadge();
-  showToast('Item removed from bag.');
+  showToast('Item removed.');
 }
 
 function saveCart() {
-  localStorage.setItem('ns_cart', JSON.stringify(cartItems));
+  localStorage.setItem('sitara_cart', JSON.stringify(cartItems));
 }
 
 function updateCartBadge() {
-  const count = cartItems.reduce((sum, item) => sum + item.qty, 0);
+  const count = cartItems.reduce((sum, i) => sum + i.qty, 0);
   const badge = document.getElementById('cartCountBadge');
-  const countTxt = document.getElementById('cartItemBadgeCount');
+  const countTxt = document.getElementById('cartItemCountText');
+  const mobBadge = document.getElementById('mobBagBadge');
 
   if (badge) badge.textContent = count;
   if (countTxt) countTxt.textContent = `(${count})`;
+  if (mobBadge) mobBadge.textContent = count;
 }
 
 function renderCartFeed() {
-  const feed = document.getElementById('cartItemsFeed');
-  if (!feed) return;
+  const container = document.getElementById('cartItemsContainer');
+  if (!container) return;
 
   if (cartItems.length === 0) {
-    feed.innerHTML = `
-      <div style="margin: auto; text-align: center; color: var(--slate); padding: 4rem 1rem;">
-        <i data-lucide="shopping-bag" style="width: 48px; height: 48px; margin-bottom: 0.75rem; opacity: 0.25;"></i>
-        <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--noir);">Your bag is currently empty</h4>
-        <p style="font-size: 0.85rem; margin-top: 0.35rem;">Explore footwear, hoodies, pants, and jackets to add pieces.</p>
+    container.innerHTML = `
+      <div style="margin: auto; text-align: center; color: var(--text-muted); padding: 3rem 1rem;">
+        <i data-lucide="shopping-bag" style="width: 44px; height: 44px; margin-bottom: 0.75rem; opacity: 0.3;"></i>
+        <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--text-main);">Your bag is empty</h4>
+        <p style="font-size: 0.82rem; margin-top: 0.35rem;">Explore apparel, footwear, and accessories to add pieces.</p>
       </div>
     `;
-    updateCheckoutPricing(0);
+    updatePricing(0);
     if (window.lucide) window.lucide.createIcons();
     return;
   }
 
-  feed.innerHTML = cartItems
+  container.innerHTML = cartItems
     .map(
       (item) => `
-    <div class="cart-row">
-      <img src="${item.image}" alt="${item.name}" class="cart-row-img">
-      <div class="cart-row-info">
-        <h4 class="cart-row-title">${item.name}</h4>
-        <span class="cart-row-spec">Size: ${item.size} • ${item.categoryName}</span>
-        <div class="cart-row-bottom">
-          <div class="qty-control-box">
-            <button class="qty-btn" onclick="updateItemQty('${item.id}', '${item.size}', -1)">-</button>
-            <span class="qty-val">${item.qty}</span>
-            <button class="qty-btn" onclick="updateItemQty('${item.id}', '${item.size}', 1)">+</button>
+    <div class="cart-item-row">
+      <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+      <div class="cart-item-details">
+        <h4 class="cart-item-title">${item.name}</h4>
+        <span class="cart-item-meta">Size: ${item.size} • ${item.categoryName}</span>
+        <div class="cart-item-bottom">
+          <div class="stepper-box">
+            <button class="stepper-btn" onclick="updateCartQty('${item.id}', '${item.size}', -1)">-</button>
+            <span class="stepper-val">${item.qty}</span>
+            <button class="stepper-btn" onclick="updateCartQty('${item.id}', '${item.size}', 1)">+</button>
           </div>
-          <span class="cart-row-price-tag">$${item.price * item.qty}.00</span>
-          <button class="cart-remove-link" onclick="removeItem('${item.id}', '${item.size}')">Remove</button>
+          <span class="cart-item-price">${DataStore.formatPrice(item.price * item.qty)}</span>
+          <button class="remove-btn" onclick="removeCartItem('${item.id}', '${item.size}')">Remove</button>
         </div>
       </div>
     </div>
@@ -716,75 +1028,80 @@ function renderCartFeed() {
     )
     .join('');
 
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.qty, 0);
-  updateCheckoutPricing(subtotal);
+  const subtotal = cartItems.reduce((sum, i) => sum + i.price * i.qty, 0);
+  updatePricing(subtotal);
 
   if (window.lucide) window.lucide.createIcons();
 }
 
-function updateCheckoutPricing(subtotal) {
-  const subtotalEl = document.getElementById('cartSubtotal');
-  const discountRow = document.getElementById('cartDiscountRow');
-  const discountEl = document.getElementById('cartDiscount');
-  const shippingEl = document.getElementById('cartShipping');
-  const totalEl = document.getElementById('cartTotal');
-  const msgEl = document.getElementById('trackerMessage');
-  const barEl = document.getElementById('trackerProgress');
+function updatePricing(subtotal) {
+  const subEl = document.getElementById('cartSubtotalVal');
+  const discRow = document.getElementById('cartDiscountLine');
+  const discEl = document.getElementById('cartDiscountVal');
+  const shipEl = document.getElementById('cartShippingVal');
+  const totalEl = document.getElementById('cartGrandTotalVal');
+  const meterMsg = document.getElementById('shippingMeterMessage');
+  const meterFill = document.getElementById('shippingMeterFill');
 
   const threshold = 150;
   const isFree = subtotal >= threshold;
-  const shippingCost = subtotal === 0 ? 0 : isFree ? 0 : 15;
+  const shipping = subtotal === 0 ? 0 : isFree ? 0 : 15;
 
-  if (barEl && msgEl) {
+  if (meterFill && meterMsg) {
     if (subtotal === 0) {
-      barEl.style.width = '0%';
-      msgEl.textContent = `Add $${threshold} for Free Worldwide Shipping`;
+      meterFill.style.width = '0%';
+      meterMsg.textContent = `Add ${DataStore.formatPrice(threshold)} for Free Worldwide Express`;
     } else if (isFree) {
-      barEl.style.width = '100%';
-      msgEl.textContent = `✦ You've Unlocked Free Worldwide Express Shipping!`;
+      meterFill.style.width = '100%';
+      meterMsg.textContent = `✦ You've Unlocked Free Worldwide Express Shipping!`;
     } else {
       const remaining = threshold - subtotal;
       const pct = Math.min(100, (subtotal / threshold) * 100);
-      barEl.style.width = `${pct}%`;
-      msgEl.textContent = `Add $${remaining}.00 more for Free Worldwide Shipping`;
+      meterFill.style.width = `${pct}%`;
+      meterMsg.textContent = `Add ${DataStore.formatPrice(remaining)} more for Free Worldwide Express`;
     }
   }
 
-  const discountAmount = subtotal * promoPercent;
+  const discountAmount = subtotal * activePromoDiscount;
 
-  if (promoPercent > 0) {
-    if (discountRow) discountRow.style.display = 'flex';
-    if (discountEl) discountEl.textContent = `-$${discountAmount.toFixed(2)}`;
+  if (activePromoDiscount > 0) {
+    if (discRow) discRow.style.display = 'flex';
+    if (discEl) discEl.textContent = `-${DataStore.formatPrice(discountAmount)}`;
   } else {
-    if (discountRow) discountRow.style.display = 'none';
+    if (discRow) discRow.style.display = 'none';
   }
 
-  const grandTotal = Math.max(0, subtotal - discountAmount + shippingCost);
+  const grandTotal = Math.max(0, subtotal - discountAmount + shipping);
 
-  if (subtotalEl) subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
-  if (shippingEl) shippingEl.textContent = shippingCost === 0 ? 'FREE' : `$${shippingCost.toFixed(2)}`;
-  if (totalEl) totalEl.textContent = `$${grandTotal.toFixed(2)} USD`;
+  if (subEl) subEl.textContent = DataStore.formatPrice(subtotal);
+  if (shipEl) shipEl.textContent = shipping === 0 ? 'FREE' : DataStore.formatPrice(shipping);
+  if (totalEl) totalEl.textContent = DataStore.formatPrice(grandTotal, true);
 }
 
-function applyPromo() {
-  const input = document.getElementById('promoInput');
-  if (!input) return;
+function applyPromoCode() {
+  const inp = document.getElementById('cartPromoInput');
+  if (!inp) return;
 
-  const code = input.value.trim().toUpperCase();
+  const code = inp.value.trim().toUpperCase();
+  const promos = DataStore.getPromos();
+  const found = promos.find((p) => p.code.toUpperCase() === code && p.active);
 
-  if (code === 'SITARA15' || code === 'VIP15') {
-    promoPercent = 0.15;
-    showToast('Promo applied: 15% discount on all departments!');
+  if (found) {
+    activePromoDiscount = found.discount / 100;
+    found.usageCount = (found.usageCount || 0) + 1;
+    DataStore.savePromo(found);
+
+    showToast(`Promo code applied: ${found.discount}% OFF!`);
     renderCartFeed();
   } else if (code === '') {
     showToast('Please enter a promo code.');
   } else {
-    showToast('Invalid promo code. Try SITARA15');
+    showToast('Invalid or expired promo code. Try SITARA15');
   }
 }
 
 function toggleCartDrawer(open) {
-  const drawer = document.getElementById('maisonCart');
+  const drawer = document.getElementById('storeCart');
   const backdrop = document.getElementById('cartBackdrop');
   if (!drawer || !backdrop) return;
 
@@ -799,49 +1116,198 @@ function toggleCartDrawer(open) {
   }
 }
 
-function processCheckout(method) {
+// ==========================================================================
+// 8. FULL CHECKOUT FLOW & TRACKING GENERATION
+// ==========================================================================
+function openCheckoutModal() {
   if (cartItems.length === 0) {
     showToast('Your shopping bag is empty.');
     return;
   }
 
-  if (method === 'whatsapp') {
-    const orderText = cartItems.map((i) => `• ${i.name} (${i.size}, Qty: ${i.qty}) - $${i.price * i.qty}`).join('%0A');
-    const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.qty, 0);
-    const msg = `Hello New Sitara Concierge! I want to order:%0A%0A${orderText}%0A%0ASubtotal: $${subtotal}.00 USD%0APlease arrange delivery and payment.`;
+  toggleCartDrawer(false);
 
-    window.open(`https://wa.me/?text=${msg}`, '_blank');
-    showToast('Opening WhatsApp with your multi-item order...');
-  } else {
-    showToast('🔒 Initiating 256-bit encrypted checkout...');
-    setTimeout(() => {
-      alert('New Sitara Checkout Gateway:\n\nThank you for choosing New Sitara Interprizes.\nYour multi-department order is ready to process with Stripe & Cards!');
-    }, 800);
+  // Render mini items
+  const miniList = document.getElementById('chkItemsList');
+  if (miniList) {
+    miniList.innerHTML = cartItems
+      .map(
+        (i) => `
+      <div class="chk-item-row">
+        <img src="${i.image}" alt="${i.name}" class="chk-item-img">
+        <div class="chk-item-details">
+          <div class="chk-item-title">${i.name}</div>
+          <div class="chk-item-meta">Size: ${i.size} • Qty: ${i.qty}</div>
+        </div>
+        <div class="chk-item-price">${DataStore.formatPrice(i.price * i.qty)}</div>
+      </div>
+    `
+      )
+      .join('');
   }
+
+  // Calculate totals
+  const subtotal = cartItems.reduce((sum, i) => sum + i.price * i.qty, 0);
+  const discountAmount = subtotal * activePromoDiscount;
+  const isFree = subtotal >= 150;
+  const shipping = isFree ? 0 : 15;
+  const grandTotal = Math.max(0, subtotal - discountAmount + shipping);
+
+  document.getElementById('chkSubtotalVal').textContent = DataStore.formatPrice(subtotal);
+  
+  const discRow = document.getElementById('chkDiscountRow');
+  const discVal = document.getElementById('chkDiscountVal');
+  if (activePromoDiscount > 0) {
+    discRow.style.display = 'flex';
+    discVal.textContent = `-${DataStore.formatPrice(discountAmount)}`;
+  } else {
+    discRow.style.display = 'none';
+  }
+
+  document.getElementById('chkShippingVal').textContent = shipping === 0 ? 'FREE' : DataStore.formatPrice(shipping);
+  document.getElementById('chkTotalVal').textContent = DataStore.formatPrice(grandTotal, true);
+
+  document.getElementById('checkoutModal').classList.add('open');
+  document.getElementById('checkoutBackdrop').classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function closeCheckoutModal() {
+  document.getElementById('checkoutModal').classList.remove('open');
+  document.getElementById('checkoutBackdrop').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handlePlaceOrder(e) {
+  e.preventDefault();
+
+  if (cartItems.length === 0) {
+    showToast('Your bag is empty.');
+    return;
+  }
+
+  const subtotal = cartItems.reduce((sum, i) => sum + i.price * i.qty, 0);
+  const discountAmount = subtotal * activePromoDiscount;
+  const isFree = subtotal >= 150;
+  const shipping = isFree ? 0 : 15;
+  const grandTotal = Math.round(Math.max(0, subtotal - discountAmount + shipping));
+
+  const selectedPayEl = document.querySelector('input[name="payMethod"]:checked');
+  const paymentMethod = selectedPayEl ? selectedPayEl.value : 'Stripe Card';
+
+  const orderData = {
+    fullName: document.getElementById('chkFullName').value.trim(),
+    email: document.getElementById('chkEmail').value.trim(),
+    phone: document.getElementById('chkPhone').value.trim(),
+    street: document.getElementById('chkStreet').value.trim(),
+    apartment: document.getElementById('chkApartment').value.trim(),
+    city: document.getElementById('chkCity').value.trim(),
+    state: document.getElementById('chkState').value.trim(),
+    postalCode: document.getElementById('chkPostal').value.trim(),
+    country: document.getElementById('chkCountry').value,
+    items: [...cartItems],
+    subtotal: subtotal,
+    discount: discountAmount,
+    shipping: shipping,
+    total: grandTotal,
+    paymentMethod: paymentMethod
+  };
+
+  // Submit order to DataStore (Generates unique Tracking ID)
+  const createdOrder = DataStore.addOrder(orderData);
+  lastPlacedOrder = createdOrder;
+
+  // Clear Bag
+  cartItems = [];
+  saveCart();
+  renderCartFeed();
+  updateCartBadge();
+
+  // Close Checkout Modal & Open Order Receipt
+  closeCheckoutModal();
+  openOrderReceiptModal(createdOrder);
+}
+
+function openOrderReceiptModal(order) {
+  document.getElementById('receiptTrackingId').textContent = order.trackingId;
+  document.getElementById('btnTrackShipmentLink').href = `/track?id=${order.trackingId}`;
+
+  document.getElementById('receiptModal').classList.add('open');
+  document.getElementById('receiptBackdrop').classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function copyReceiptTrackingId() {
+  if (!lastPlacedOrder) return;
+  navigator.clipboard.writeText(lastPlacedOrder.trackingId);
+  showToast(`Tracking ID ${lastPlacedOrder.trackingId} copied to clipboard!`);
+}
+
+function sendOrderReceiptToWhatsApp() {
+  if (!lastPlacedOrder) return;
+
+  const o = lastPlacedOrder;
+  const formattedTotal = DataStore.formatPrice(o.total, true);
+  const itemsText = (o.items || []).map((i) => `• ${i.name} (Size: ${i.size}, Qty: ${i.qty})`).join('%0A');
+  const trackUrl = `${window.location.origin}/track?id=${o.trackingId}`;
+
+  const msg = `*NEW SITARA ORDER CONFIRMATION*%0A%0A*Tracking ID:* ${o.trackingId}%0A*Customer:* ${o.customer?.fullName || 'Client'}%0A*Total:* ${formattedTotal}%0A*Payment Method:* ${o.paymentMethod}%0A%0A*Items Ordered:*%0A${itemsText}%0A%0A*Track Shipment Live:*%0A${trackUrl}`;
+
+  window.open(`https://wa.me/?text=${msg}`, '_blank');
+}
+
+function closeReceiptModalAndShop() {
+  document.getElementById('receiptModal').classList.remove('open');
+  document.getElementById('receiptBackdrop').classList.remove('open');
+  document.body.style.overflow = '';
+  scrollToSection('catalogSection');
+}
+
+function executeQuickWhatsApp() {
+  if (cartItems.length === 0) {
+    showToast('Your shopping bag is empty.');
+    return;
+  }
+
+  const subtotal = cartItems.reduce((sum, i) => sum + i.price * i.qty, 0);
+  const discountAmount = subtotal * activePromoDiscount;
+  const isFree = subtotal >= 150;
+  const shipping = isFree ? 0 : 15;
+  const grandTotal = Math.max(0, subtotal - discountAmount + shipping);
+  const formattedTotal = DataStore.formatPrice(grandTotal, true);
+
+  const itemsText = cartItems.map((i) => `• ${i.name} (Size: ${i.size}, Qty: ${i.qty})`).join('%0A');
+  const msg = `*NEW SITARA — WHATSAPP EXPRESS ORDER*%0A%0A*Items in Bag:*%0A${itemsText}%0A%0A*Estimated Total:* ${formattedTotal}%0A%0APlease assist me in completing this order via WhatsApp Concierge.`;
+
+  window.open(`https://wa.me/?text=${msg}`, '_blank');
 }
 
 function handleSubscribe(e) {
   e.preventDefault();
-  const input = document.getElementById('subscribeEmail');
-  if (input && input.value) {
+  const inp = document.getElementById('subscribeInput');
+  if (inp && inp.value) {
     showToast('Welcome to the New Sitara Inner Circle.');
-    input.value = '';
+    inp.value = '';
   }
   return false;
 }
 
 function showToast(message) {
-  const hub = document.getElementById('toastHub');
+  const hub = document.getElementById('storeToastHub');
   if (!hub) return;
 
-  const toast = document.createElement('div');
-  toast.className = 'toast-pill';
-  toast.innerHTML = `<span>✦</span> <span>${message}</span>`;
-  hub.appendChild(toast);
+  const t = document.createElement('div');
+  t.className = 'store-toast';
+  t.innerHTML = `<span>✦</span> <span>${message}</span>`;
+  hub.appendChild(t);
 
   setTimeout(() => {
-    toast.style.opacity = '0';
-    toast.style.transform = 'translateY(10px)';
-    setTimeout(() => toast.remove(), 300);
-  }, 3500);
+    t.style.opacity = '0';
+    t.style.transform = 'translateY(10px)';
+    setTimeout(() => t.remove(), 250);
+  }, 3000);
 }

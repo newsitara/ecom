@@ -5,18 +5,18 @@
    ========================================================================== */
 
 :root {
-  --bg-base: #14171A;
-  --bg-surface: #1B1E23;
-  --text-pure: #FFFFFF;
-  --text-dim: #9FA6B2;
-  --text-muted: #6B7280;
+  --bg-base: #FAF9F6;
+  --bg-surface: #FFFFFF;
+  --text-pure: #000000;
+  --text-dim: #555555;
+  --text-muted: #888888;
 
-  --accent-steel: #5E8EAA;
-  --accent-steel-hover: #4E7E99;
-  --accent-steel-glow: rgba(94, 142, 170, 0.4);
+  --accent-steel: #000000;
+  --accent-steel-hover: #333333;
+  --accent-steel-glow: rgba(0, 0, 0, 0.1);
 
-  --font-heading: 'Oswald', 'Montserrat', -apple-system, sans-serif;
-  --font-body: 'Montserrat', -apple-system, sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
 
   --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
 }

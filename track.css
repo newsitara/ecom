@@ -4,34 +4,37 @@
    ========================================================================== */
 
 :root {
-  --bg-canvas: #FAF9F6;
+  --bg-canvas: #F5F5F7;
   --bg-card: #FFFFFF;
-  --bg-subtle: #F0F0F0;
-  --bg-hover: #E5E5E5;
+  --bg-subtle: #ECECEE;
+  --bg-hover: #E1E1E6;
+  --bg-glass: rgba(255, 255, 255, 0.82);
 
-  --text-main: #000000;
-  --text-muted: #555555;
-  --text-dim: #888888;
+  --text-main: #1D1D1F;
+  --text-muted: #6E6E73;
+  --text-dim: #86868B;
   
-  --border-subtle: #E5E5E5;
-  --border-dark: #000000;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-dark: #1D1D1F;
 
-  --accent-noir: #000000;
-  --accent-blue: #000000;
-  --accent-green: #000000;
-  --accent-amber: #000000;
+  --accent-noir: #1D1D1F;
+  --accent-blue: #0071E3;
+  --accent-green: #34C759;
+  --accent-amber: #FF9500;
 
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display: 'Playfair Display', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
 
   --ease-modern: cubic-bezier(0.16, 1, 0.3, 1);
-  --shadow-sm: none;
-  --shadow-md: none;
-  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 20px 48px -10px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
   
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
 }
 
 * {

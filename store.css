@@ -1749,24 +1749,73 @@ img {
 
 @media (max-width: 600px) {
   .nav-container {
-    padding: 0.65rem 0.85rem;
+    padding: 0.6rem 0.85rem;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.4rem;
+  }
+
+  .brand-center {
+    justify-content: center;
   }
 
   .brand-logotype {
-    font-size: 1.1rem;
+    font-size: 1.02rem;
+    letter-spacing: 0.15em;
+    white-space: nowrap;
+  }
+
+  .nav-actions-right {
+    gap: 0.45rem;
+  }
+
+  .currency-btn {
+    padding: 0.32rem 0.55rem;
+    font-size: 0.72rem;
+  }
+
+  .store-bag-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .store-bag-btn svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .bag-pill {
+    width: 16px;
+    height: 16px;
+    font-size: 0.6rem;
+    top: -2px;
+    right: -2px;
   }
 
   .store-hero {
-    padding: 3.5rem 1.25rem;
+    min-height: 72vh;
+    padding: 4.5rem 1.25rem 3rem;
   }
 
   .hero-headline {
-    font-size: 2.2rem;
+    font-size: 1.85rem;
+    line-height: 1.15;
+    margin-bottom: 0.85rem;
   }
 
   .hero-subtext {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
     margin-bottom: 1.75rem;
+  }
+
+  .hero-cta-row {
+    gap: 0.65rem;
+  }
+
+  .btn-hero-primary,
+  .btn-hero-glass {
+    padding: 0.75rem 1.4rem;
+    font-size: 0.78rem;
   }
 
   .categories-section {
@@ -1774,8 +1823,7 @@ img {
   }
 
   .category-card {
-    flex: 0 0 155px;
-    height: 220px;
+    height: 240px;
   }
 
   .catalog-section {
@@ -1783,7 +1831,7 @@ img {
   }
 
   .catalog-controls-sticky {
-    top: 50px;
+    top: 48px;
     padding: 0.65rem 0;
   }
 

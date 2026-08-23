@@ -77,15 +77,10 @@
           <button class="clear-btn" id="searchClearBtn" onclick="clearSearch()" style="display:none;"><i data-lucide="x"></i></button>
         </div>
 
-        <!-- Wishlist Button -->
-        <button class="store-wishlist-btn" onclick="toggleWishlistDrawer(true)" aria-label="View Saved Items" title="Wishlist">
+        <!-- Wishlist Button (Desktop only - mobile has it in bottom nav) -->
+        <button class="store-wishlist-btn desktop-only" onclick="toggleWishlistDrawer(true)" aria-label="View Saved Items" title="Wishlist">
           <i data-lucide="heart"></i>
           <span class="wishlist-pill" id="wishlistCountBadge">0</span>
-        </button>
-
-        <!-- Mobile Search Trigger -->
-        <button class="icon-btn mobile-only" onclick="toggleMobileSearchBar()" aria-label="Search">
-          <i data-lucide="search"></i>
         </button>
 
         <!-- Shopping Bag Trigger -->
@@ -130,7 +125,7 @@
   <!-- Cinematic Lookbook Hero Banner -->
   <section class="store-hero">
     <div class="hero-bg-media">
-      <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2000&auto=format&fit=crop" alt="New Sitara Campaign" class="hero-img">
+      <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1600&auto=format&fit=crop" alt="New Sitara Campaign" class="hero-img">
       <div class="hero-overlay"></div>
     </div>
     <div class="hero-inner">

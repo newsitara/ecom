@@ -26,6 +26,7 @@ function initStore() {
   renderCurrencyDropdown();
   renderCategoryNavigation();
   renderCategoryPortals();
+  renderFeaturedGrid();
   renderFilterPills();
   renderFooterCategories();
   renderProductsGrid();
@@ -93,6 +94,7 @@ function selectCurrency(code, e) {
   if (wrap) wrap.classList.remove('open');
 
   renderCurrencyDropdown();
+  renderFeaturedGrid();
   renderProductsGrid();
   renderCartFeed();
   if (document.getElementById('storeWishlistDrawer')?.classList.contains('open')) {
@@ -172,6 +174,62 @@ function renderCategoryPortals() {
     `;
     })
     .join('');
+function renderFeaturedGrid() {
+  const grid = document.getElementById('featuredGrid');
+  if (!grid) return;
+
+  const products = DataStore.getProducts();
+  const featured = products.slice(0, 4);
+
+  grid.innerHTML = featured
+    .map((product) => {
+      const formattedPrice = DataStore.formatPrice(product.price, true);
+      const isSaved = DataStore.isInWishlist(product.id);
+      const ratingData = DataStore.getProductRating(product.id);
+      const stars = '★'.repeat(Math.round(ratingData.average)) + '☆'.repeat(5 - Math.round(ratingData.average));
+
+      return `
+      <article class="store-card" data-id="${product.id}">
+        <div class="card-media" onclick="openProductModal('${product.id}')">
+          <img src="${product.imageFront}" alt="${product.name}" class="card-img-front" loading="lazy">
+          ${product.imageBack ? `<img src="${product.imageBack}" alt="${product.name} back" class="card-img-back" loading="lazy">` : ''}
+          ${product.tag ? `<span class="card-tag">${product.tag}</span>` : ''}
+          
+          <button type="button" class="card-wishlist-btn ${isSaved ? 'active' : ''}" onclick="event.stopPropagation(); handleCardWishlistToggle('${product.id}', this)" aria-label="Save to Wishlist">
+            <i data-lucide="heart"></i>
+          </button>
+
+          <button class="card-mob-btn mobile-only" onclick="event.stopPropagation(); openProductModal('${product.id}')" aria-label="Quick View">
+            <i data-lucide="eye"></i>
+          </button>
+
+          <div class="card-hover-drawer desktop-only">
+            <button class="btn-card-quick" onclick="event.stopPropagation(); openProductModal('${product.id}')">
+              Quick View / Select Size ↗
+            </button>
+          </div>
+        </div>
+
+        <div class="card-content" onclick="openProductModal('${product.id}')">
+          <span class="card-category-label">${product.categoryName || product.category}</span>
+          <h3 class="card-heading">${product.name}</h3>
+          
+          <div class="card-rating-row">
+            <span class="card-rating-stars">${stars}</span>
+            <span class="card-rating-count">(${ratingData.count})</span>
+          </div>
+
+          <div class="card-price-row">
+            <span class="card-price-tag">${formattedPrice}</span>
+            ${product.inStock ? '<span class="card-stock-pill">Ready to Ship</span>' : '<span class="card-stock-pill soldout">Made to Order</span>'}
+          </div>
+        </div>
+      </article>
+    `;
+    })
+    .join('');
+
+  if (window.lucide) window.lucide.createIcons();
 }
 
 function renderFilterPills() {

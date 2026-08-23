@@ -636,6 +636,236 @@ img {
 }
 
 /* ==========================================================================
+   CURATED SHOWCASE SECTION
+   ========================================================================== */
+.curated-showcase-section {
+  max-width: 1720px;
+  margin: 0 auto;
+  padding: 3rem 2rem 4rem;
+}
+
+.section-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-outline-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  border: 1px solid var(--border-dark);
+  color: var(--text-main);
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-outline-pill:hover {
+  background: var(--accent-noir);
+  color: #FFF;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   EDITORIAL CRAFTSMANSHIP SPOTLIGHT BANNER
+   ========================================================================== */
+.editorial-spotlight-section {
+  background: #111216;
+  color: #FFFFFF;
+  padding: 5rem 2rem;
+  margin: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-inner {
+  max-width: 1520px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+}
+
+.spotlight-media {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  aspect-ratio: 4/3;
+}
+
+.spotlight-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.spotlight-tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  color: #FFF;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.spotlight-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.spotlight-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.12;
+  margin: 0.5rem 0 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.spotlight-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+  margin-bottom: 2rem;
+  max-width: 540px;
+}
+
+.spotlight-features-row {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 1.25rem 0;
+  width: 100%;
+}
+
+.spotlight-feat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.spotlight-feat-item strong {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.spotlight-feat-item span {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ==========================================================================
+   BRAND VALUE PILLARS
+   ========================================================================== */
+.brand-pillars-section {
+  max-width: 1720px;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+}
+
+.pillars-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.pillar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.pillar-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.pillar-card svg {
+  width: 24px;
+  height: 24px;
+  color: var(--accent-noir);
+  margin-bottom: 0.35rem;
+}
+
+.pillar-card h4 {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.pillar-card p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .spotlight-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .pillars-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .pillars-container {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .curated-showcase-section {
+    padding: 2rem 1rem 3rem;
+  }
+
+  .editorial-spotlight-section {
+    padding: 3.5rem 1rem;
+    margin: 2.5rem 0;
+  }
+
+  .spotlight-features-row {
+    gap: 1rem;
+  }
+
+  .spotlight-feat-item strong {
+    font-size: 1.15rem;
+  }
+}
+
+/* ==========================================================================
    CATALOG CONTROLS & PRODUCT GRID
    ========================================================================== */
 .catalog-section {

@@ -140,11 +140,11 @@
     </div>
   </section>
 
-  <!-- Dynamic Category Portals (Swipeable on Mobile, Grid on Desktop) -->
+  <!-- Dynamic Category Portals (Curated Departments) -->
   <section class="categories-section" id="categoriesSection">
     <div class="section-header">
-      <span class="section-tag">CURATED APPAREL</span>
-      <h2 class="section-heading">Browse by Category</h2>
+      <span class="section-tag">CURATED DEPARTMENTS</span>
+      <h2 class="section-heading">Browse Collections</h2>
     </div>
 
     <div class="categories-scroll-row" id="categoriesRow">
@@ -152,9 +152,87 @@
     </div>
   </section>
 
-  <!-- Main Catalog & Sticky Filter Controls -->
+  <!-- Featured Inaugural Drop (Top 4 Showcase Pieces) -->
+  <section class="curated-showcase-section" id="featuredShowcaseSection">
+    <div class="section-header-flex">
+      <div>
+        <span class="section-tag">INAUGURAL DROP</span>
+        <h2 class="section-heading">Featured Essentials</h2>
+      </div>
+      <button class="btn btn-outline-pill" onclick="scrollToSection('catalogSection')">View All Department Pieces →</button>
+    </div>
+
+    <div class="products-grid grid-4" id="featuredGrid">
+      <!-- Injected dynamically via JS -->
+    </div>
+  </section>
+
+  <!-- Editorial Craftsmanship Spotlight Banner -->
+  <section class="editorial-spotlight-section">
+    <div class="spotlight-inner">
+      <div class="spotlight-media">
+        <img src="https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1200&auto=format&fit=crop" alt="Craftsmanship Lookbook" class="spotlight-img">
+        <div class="spotlight-tag">ATELIER CRAFTSMANSHIP</div>
+      </div>
+      <div class="spotlight-content">
+        <span class="section-tag">THE NEW SITARA STANDARD</span>
+        <h2 class="spotlight-heading">UNCOMPROMISING LUXURY.<br>BUILT TO ENDURE.</h2>
+        <p class="spotlight-text">
+          Every garment is forged from high-density Portuguese loopback fleece, vintage Japanese Okayama shuttle-loom denim, and hand-finished Italian leather. Designed for structured silhouettes that break in uniquely with wear.
+        </p>
+        <div class="spotlight-features-row">
+          <div class="spotlight-feat-item">
+            <strong>520 GSM</strong>
+            <span>Portuguese Fleece</span>
+          </div>
+          <div class="spotlight-feat-item">
+            <strong>14oz Raw</strong>
+            <span>Okayama Selvedge</span>
+          </div>
+          <div class="spotlight-feat-item">
+            <strong>100% Calfskin</strong>
+            <span>Italian Leather</span>
+          </div>
+        </div>
+        <button class="btn btn-dark btn-pill" onclick="scrollToSection('catalogSection')">Explore Catalog ↗</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Value Pillars / Service Badges -->
+  <section class="brand-pillars-section">
+    <div class="pillars-container">
+      <div class="pillar-card">
+        <i data-lucide="plane"></i>
+        <h4>Worldwide Express</h4>
+        <p>Complimentary courier dispatch on orders over $150.</p>
+      </div>
+      <div class="pillar-card">
+        <i data-lucide="sparkles"></i>
+        <h4>Atelier Quality</h4>
+        <p>Pre-shrunk, hand-finished, and rigorous quality inspection.</p>
+      </div>
+      <div class="pillar-card">
+        <i data-lucide="shield-check"></i>
+        <h4>14-Day Guarantee</h4>
+        <p>Hassle-free complimentary size exchanges & returns.</p>
+      </div>
+      <div class="pillar-card">
+        <i data-lucide="map-pin"></i>
+        <h4>Live Order Tracking</h4>
+        <p>Real-time courier milestones from atelier to doorstep.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Full Catalog & Sticky Filter Controls -->
   <section class="catalog-section" id="catalogSection">
     
+    <div class="section-header">
+      <span class="section-tag">COMPLETE ARCHIVE</span>
+      <h2 class="section-heading">All Ready-to-Wear Pieces</h2>
+    </div>
+
     <div class="catalog-controls-sticky">
       
       <!-- Category Filter Pills (Horizontal Touch Swipe) -->

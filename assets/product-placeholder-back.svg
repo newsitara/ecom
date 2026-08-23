@@ -1,0 +1,49 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <linearGradient id="studioBgBack" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EFEFF2" />
+      <stop offset="50%" stop-color="#E5E5E9" />
+      <stop offset="100%" stop-color="#DBDBE0" />
+    </linearGradient>
+    <linearGradient id="cardGlowBack" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.15" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="800" fill="url(#studioBgBack)" />
+  
+  <!-- Grid Lines -->
+  <line x1="40" y1="40" x2="560" y2="40" stroke="#000000" stroke-opacity="0.06" stroke-width="1" />
+  <line x1="40" y1="760" x2="560" y2="760" stroke="#000000" stroke-opacity="0.06" stroke-width="1" />
+  <line x1="40" y1="40" x2="40" y2="760" stroke="#000000" stroke-opacity="0.06" stroke-width="1" />
+  <line x1="560" y1="40" x2="560" y2="760" stroke="#000000" stroke-opacity="0.06" stroke-width="1" />
+  
+  <!-- Crosshairs -->
+  <path d="M30 40 L50 40 M40 30 L40 50" stroke="#1D1D1F" stroke-width="1.5" stroke-opacity="0.4" />
+  <path d="M550 40 L570 40 M560 30 L560 50" stroke="#1D1D1F" stroke-width="1.5" stroke-opacity="0.4" />
+  <path d="M30 760 L50 760 M40 750 L40 770" stroke="#1D1D1F" stroke-width="1.5" stroke-opacity="0.4" />
+  <path d="M550 760 L570 760 M560 750 L560 770" stroke="#1D1D1F" stroke-width="1.5" stroke-opacity="0.4" />
+  
+  <!-- Center Mockup Frame -->
+  <rect x="90" y="140" width="420" height="520" rx="16" fill="url(#cardGlowBack)" stroke="#000000" stroke-opacity="0.08" stroke-width="1" />
+  
+  <!-- Back Apparel Silhouette Icon -->
+  <g transform="translate(260, 240)" fill="none" stroke="#1D1D1F" stroke-opacity="0.35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 0 L40 6 L60 0 L75 22 L62 28 L62 80 L18 80 L18 28 L5 22 Z" />
+    <line x1="40" y1="6" x2="40" y2="80" stroke-dasharray="4 4" stroke-opacity="0.25" />
+  </g>
+  
+  <!-- Typography -->
+  <text x="300" y="80" text-anchor="middle" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="4" fill="#86868B">NEW SITARA — REVERSE VIEW</text>
+  
+  <text x="300" y="380" text-anchor="middle" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="18" font-weight="800" letter-spacing="3" fill="#1D1D1F">YOUR PRODUCT HERE</text>
+  
+  <text x="300" y="415" text-anchor="middle" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="12" font-weight="600" letter-spacing="1.5" fill="#6E6E73">BACK VIEW / REVERSE DETAIL</text>
+  
+  <rect x="230" y="450" width="140" height="28" rx="14" fill="#1D1D1F" fill-opacity="0.08" />
+  <text x="300" y="468" text-anchor="middle" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#1D1D1F">REPLACE IN ADMIN</text>
+  
+  <text x="300" y="725" text-anchor="middle" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="10" font-weight="600" letter-spacing="2" fill="#86868B">FW26 COLLECTION • 100% READY-TO-WEAR</text>
+</svg>

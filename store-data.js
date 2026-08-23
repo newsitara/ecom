@@ -1,5 +1,5 @@
 // ==========================================================================
-// NEW SITARA — UNIFIED PERSISTENT DATA LAYER & TRACKING ENGINE
+// NEW SITARA â€” UNIFIED PERSISTENT DATA LAYER & TRACKING ENGINE
 // ==========================================================================
 
 const DEFAULT_CATEGORIES = [
@@ -63,8 +63,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'T-Shirts & Tops',
     price: 85,
     tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Cut from 300 GSM combed organic cotton with a structured ribbed collar and clean drop-shoulder drape.',
     specs: '✦ 100% Combed Organic Cotton • 300 GSM • Pre-shrunk & Washed',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -77,8 +77,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'T-Shirts & Tops',
     price: 95,
     tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Vintage stone-washed single jersey tee with hand-distressed neckline and subtle cracked patina artwork.',
     specs: '✦ 280 GSM Single Jersey • Stone Distressed • Relaxed Fit',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -91,8 +91,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'T-Shirts & Tops',
     price: 65,
     tag: 'Essential',
-    imageFront: 'https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Wide 2x2 ribbed heavy stretch cotton tank top with tailored scoop neck and raw edge hem.',
     specs: '✦ 95% Cotton, 5% Elastane • 2x2 Rib Knit • Breathable Fit',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -105,8 +105,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'T-Shirts & Tops',
     price: 140,
     tag: 'Signature',
-    imageFront: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Ultra-fine 16-gauge merino knit polo with open Johnny collar and ribbed micro cuffs.',
     specs: '✦ 100% Extra-fine Merino Wool • Seamless 16-Gauge Knit',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -121,8 +121,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Hoodies & Sweatshirts',
     price: 185,
     tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Constructed from heavy 520 GSM Portuguese organic French terry. Features a seamless double-layer hood with custom silver aglets.',
     specs: '✦ 520 GSM Loopback Terry • Double Layer Hood • Pre-shrunk',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -135,8 +135,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Hoodies & Sweatshirts',
     price: 155,
     tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Clean architectural raglan cut in unbleached chalk white with heavy 480 GSM cotton and blind stitched hem.',
     specs: '✦ 480 GSM Compact Fleece • Raglan Sleeve Cut • Heavy Rib Hem',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -149,8 +149,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Hoodies & Sweatshirts',
     price: 245,
     tag: 'Limited Edition',
-    imageFront: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Plush 7-gauge knitted pullover hoodie combining extra-fine merino wool and pure Mongolian cashmere.',
     specs: '✦ 70% Merino Wool, 30% Cashmere • Ribbed Trims • Relaxed Drape',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -163,8 +163,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Hoodies & Sweatshirts',
     price: 175,
     tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Boxy 2-way RiRi zip hoodie with funnel collar, deep kangaroo pockets, and high-density ribbed waistband.',
     specs: '✦ 500 GSM Brushed Fleece • 2-Way Metal Zip • Funnel Neckline',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -179,8 +179,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Pants & Trousers',
     price: 240,
     tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Woven on vintage shuttle looms in Kojima, Japan. Red-line selvedge ticker, custom copper rivets, and a relaxed straight cut.',
     specs: '✦ 14oz Okayama Shuttle Looms • Solid Copper Hardware • Raw Indigo',
     sizes: ['30', '32', '34', '36'],
@@ -193,8 +193,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Pants & Trousers',
     price: 215,
     tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Double front pleats with a tailored flowing wide leg cut from Italian virgin wool blend with hidden side adjusters.',
     specs: '✦ 60% Virgin Wool, 40% Viscose • Double Pleats • Internal Hook Tab',
     sizes: ['30', '32', '34', '36'],
@@ -207,8 +207,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Pants & Trousers',
     price: 195,
     tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Heavy 340 GSM cotton ripstop with gusseted dual 3D cargo pockets, reinforced knees, and drawcord hems.',
     specs: '✦ 340 GSM Cotton Ripstop • Cobra Buckle Straps • Adjustable Hems',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -221,8 +221,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Pants & Trousers',
     price: 150,
     tag: 'Essential',
-    imageFront: 'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Pin-tuck center front crease with encased elastic drawstring waist and premium metal-tipped cords.',
     specs: '✦ Compact Interlock Cotton Knit • Metal-tipped Drawcords',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -237,8 +237,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Shorts & Bottoms',
     price: 110,
     tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Cut from 480 GSM loopback cotton with raw-cut hem finish, deep slant pockets, and thick custom drawstrings.',
     specs: '✦ 480 GSM Cotton Loopback • Raw Edge Hem • Thick Knit Waistband',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -251,8 +251,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Shorts & Bottoms',
     price: 135,
     tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Water-resistant crinkle taslan nylon with magnetic FIDLOCK pocket flaps and built-in webbing belt.',
     specs: '✦ Water-Repellent Nylon • FIDLOCK Magnetic Snaps • Integrated Belt',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -265,8 +265,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Shorts & Bottoms',
     price: 145,
     tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Italian linen and organic cotton blend with single front pleats, 7-inch inseam, and tailored side tabs.',
     specs: '✦ 55% Italian Linen, 45% Cotton • 7-Inch Inseam • Horn Button Details',
     sizes: ['30', '32', '34', '36'],
@@ -281,8 +281,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Jackets & Outerwear',
     price: 490,
     tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Architectural heavy overcoat tailored from Italian virgin wool and cashmere with cupro lining and horn buttons.',
     specs: '✦ 80% Virgin Wool, 20% Cashmere • Cupro Bemberg Lining • Horn Buttons',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -295,8 +295,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Jackets & Outerwear',
     price: 450,
     tag: 'Limited Edition',
-    imageFront: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Ultra-soft Italian lambskin nappa with heavy wool rib knit collar, 2-way metal zip, and interior chest pockets.',
     specs: '✦ 100% Full-Grain Lambskin • RiRi Swiss Zip • Wool Rib Trims',
     sizes: ['M', 'L', 'XL'],
@@ -309,8 +309,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Jackets & Outerwear',
     price: 290,
     tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: '20,000mm waterproof breathable nylon membrane with fully taped internal seams and Cohaesive cord locks.',
     specs: '✦ 3-Layer Taped Waterproof Nylon • YKK AquaGuard Zips',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -323,8 +323,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Jackets & Outerwear',
     price: 220,
     tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Boxy cropped type-3 denim jacket with mineral enzyme wash and custom solid brass shank hardware.',
     specs: '✦ 13.5oz Cotton Denim • Solid Brass Shanks • Drop Shoulder Cut',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -339,8 +339,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Shoes & Footwear',
     price: 220,
     tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Handcrafted in Civitanova Marche, Italy from full-grain calfskin with genuine Margom rubber cupsole.',
     specs: '✦ 100% Full-Grain Italian Calfskin • Margom Rubber Cupsole',
     sizes: ['40', '41', '42', '43', '44', '45'],
@@ -353,8 +353,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Shoes & Footwear',
     price: 280,
     tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Multi-layer Italian suede and ballistic nylon mesh upper with exaggerated sculpted EVA midsole and Vibram outsole.',
     specs: '✦ Suede & Ballistic Mesh • Vibram Megagrip Sole • Ortholite Insole',
     sizes: ['41', '42', '43', '44', '45'],
@@ -367,8 +367,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Shoes & Footwear',
     price: 360,
     tag: 'Limited Edition',
-    imageFront: 'https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Goodyear-welted ankle Chelsea boot crafted from water-repellent calf suede with stacked leather heel.',
     specs: '✦ Premium Suede Calfskin • Stacked Leather Heel • Goodyear Welted',
     sizes: ['40', '41', '42', '43', '44'],
@@ -383,8 +383,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Belts & Accessories',
     price: 95,
     tag: 'Essential',
-    imageFront: 'https://images.unsplash.com/photo-1624222247344-550fb60583dc?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: '35mm wide vegetable-tanned bridle leather belt with solid brushed stainless steel roller buckle and beveled edges.',
     specs: '✦ 35mm Vegetable-Tanned Bridle Leather • Solid Steel Buckle',
     sizes: ['85cm', '90cm', '95cm', '100cm'],
@@ -397,8 +397,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Belts & Accessories',
     price: 80,
     tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Ultra-slim 4-slot cardholder with central folded cash compartment and debossed New Sitara insignia.',
     specs: '✦ Pebble Grain Calfskin • RFID Protected • Hand-painted Edges',
     sizes: ['One Size'],
@@ -411,8 +411,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Belts & Accessories',
     price: 165,
     tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: '7mm precision diamond-cut bevel curb chain forged from 925 sterling silver with custom secure lobster lock.',
     specs: '✦ 925 Sterling Silver • 50cm Length • Anti-Tarnish Rhodium Finish',
     sizes: ['50cm', '55cm'],
@@ -425,8 +425,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Belts & Accessories',
     price: 65,
     tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=800&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
     description: 'Structured 6-panel silhouette cut from heavy Japanese cotton twill with antique silver buckle adjuster.',
     specs: '✦ 100% Heavy Japanese Cotton Twill • Metal Buckle Strap',
     sizes: ['Adjustable'],
@@ -444,13 +444,13 @@ const DEFAULT_PROMOS = [
 
 // Multi-Currency Exchange Configuration
 const DEFAULT_CURRENCIES = {
-  USD: { code: 'USD', symbol: '$', rate: 1.0, name: 'US Dollar', flag: '🇺🇸', symbolPrefix: true },
-  EUR: { code: 'EUR', symbol: '€', rate: 0.92, name: 'Euro', flag: '🇪🇺', symbolPrefix: true },
-  GBP: { code: 'GBP', symbol: '£', rate: 0.79, name: 'British Pound', flag: '🇬🇧', symbolPrefix: true },
-  PKR: { code: 'PKR', symbol: '₨ ', rate: 278.0, name: 'Pakistani Rupee', flag: '🇵🇰', symbolPrefix: true },
-  AED: { code: 'AED', symbol: 'AED ', rate: 3.67, name: 'UAE Dirham', flag: '🇦🇪', symbolPrefix: true },
-  SAR: { code: 'SAR', symbol: 'SAR ', rate: 3.75, name: 'Saudi Riyal', flag: '🇸🇦', symbolPrefix: true },
-  CAD: { code: 'CAD', symbol: 'CA$', rate: 1.36, name: 'Canadian Dollar', flag: '🇨🇦', symbolPrefix: true }
+  USD: { code: 'USD', symbol: '$', rate: 1.0, name: 'US Dollar', flag: 'ðŸ‡ºðŸ‡¸', symbolPrefix: true },
+  EUR: { code: 'EUR', symbol: 'â‚¬', rate: 0.92, name: 'Euro', flag: 'ðŸ‡ªðŸ‡º', symbolPrefix: true },
+  GBP: { code: 'GBP', symbol: 'Â£', rate: 0.79, name: 'British Pound', flag: 'ðŸ‡¬ðŸ‡§', symbolPrefix: true },
+  PKR: { code: 'PKR', symbol: 'â‚¨ ', rate: 278.0, name: 'Pakistani Rupee', flag: 'ðŸ‡µðŸ‡°', symbolPrefix: true },
+  AED: { code: 'AED', symbol: 'AED ', rate: 3.67, name: 'UAE Dirham', flag: 'ðŸ‡¦ðŸ‡ª', symbolPrefix: true },
+  SAR: { code: 'SAR', symbol: 'SAR ', rate: 3.75, name: 'Saudi Riyal', flag: 'ðŸ‡¸ðŸ‡¦', symbolPrefix: true },
+  CAD: { code: 'CAD', symbol: 'CA$', rate: 1.36, name: 'Canadian Dollar', flag: 'ðŸ‡¨ðŸ‡¦', symbolPrefix: true }
 };
 
 // Curated Customer Reviews
@@ -576,9 +576,9 @@ const DataStore = {
 
   // --- PRODUCTS ---
   getProducts() {
-    const raw = localStorage.getItem('sitara_products_v3');
+    const raw = localStorage.getItem('sitara_products_v5');
     if (!raw) {
-      localStorage.setItem('sitara_products_v3', JSON.stringify(DEFAULT_PRODUCTS));
+      localStorage.setItem('sitara_products_v5', JSON.stringify(DEFAULT_PRODUCTS));
       return DEFAULT_PRODUCTS;
     }
     try {
@@ -597,7 +597,7 @@ const DataStore = {
       prod.id = prod.id || 'ns-prod-' + Date.now();
       prods.unshift(prod);
     }
-    localStorage.setItem('sitara_products_v3', JSON.stringify(prods));
+    localStorage.setItem('sitara_products_v5', JSON.stringify(prods));
     this.syncWithCloud('products', prods);
     return prods;
   },
@@ -605,7 +605,7 @@ const DataStore = {
   deleteProduct(prodId) {
     let prods = this.getProducts();
     prods = prods.filter((p) => p.id !== prodId);
-    localStorage.setItem('sitara_products_v3', JSON.stringify(prods));
+    localStorage.setItem('sitara_products_v5', JSON.stringify(prods));
     return prods;
   },
 
@@ -657,7 +657,7 @@ const DataStore = {
       courier: {
         name: orderData.courierName || 'DHL Express Worldwide',
         trackingRef: orderData.courierRef || `DHL-${randomDigits}`,
-        estimatedDelivery: '3–5 Business Days'
+        estimatedDelivery: '3â€“5 Business Days'
       }
     };
 
@@ -915,7 +915,7 @@ const DataStore = {
   // --- SYSTEM RESET ---
   resetAllDefaults() {
     localStorage.setItem('sitara_categories_v3', JSON.stringify(DEFAULT_CATEGORIES));
-    localStorage.setItem('sitara_products_v3', JSON.stringify(DEFAULT_PRODUCTS));
+    localStorage.setItem('sitara_products_v5', JSON.stringify(DEFAULT_PRODUCTS));
     localStorage.setItem('sitara_orders_v3', JSON.stringify(DEFAULT_ORDERS));
     localStorage.setItem('sitara_promos_v3', JSON.stringify(DEFAULT_PROMOS));
     localStorage.setItem('sitara_reviews_v3', JSON.stringify(DEFAULT_REVIEWS));

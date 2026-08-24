@@ -190,7 +190,7 @@ function renderFeaturedGrid() {
 
       return `
       <article class="store-card" data-id="${product.id}">
-        <div class="card-media" onclick="openProductModal('${product.id}')">
+        <div class="card-media" onclick="window.location.href='/product.html?id=${product.id}'">
           <img src="${product.imageFront}" alt="${product.name}" class="card-img-front" loading="lazy">
           ${product.imageBack ? `<img src="${product.imageBack}" alt="${product.name} back" class="card-img-back" loading="lazy">` : ''}
           ${product.tag ? `<span class="card-tag">${product.tag}</span>` : ''}
@@ -199,18 +199,18 @@ function renderFeaturedGrid() {
             <i data-lucide="heart"></i>
           </button>
 
-          <button class="card-mob-btn mobile-only" onclick="event.stopPropagation(); openProductModal('${product.id}')" aria-label="Quick View">
-            <i data-lucide="eye"></i>
+          <button class="card-mob-btn mobile-only" onclick="event.stopPropagation(); window.location.href='/product.html?id=${product.id}'" aria-label="View Details">
+            <i data-lucide="arrow-up-right"></i>
           </button>
 
           <div class="card-hover-drawer desktop-only">
-            <button class="btn-card-quick" onclick="event.stopPropagation(); openProductModal('${product.id}')">
-              Quick View / Select Size ↗
+            <button class="btn-card-quick" onclick="event.stopPropagation(); window.location.href='/product.html?id=${product.id}'">
+              View Product Details ↗
             </button>
           </div>
         </div>
 
-        <div class="card-content" onclick="openProductModal('${product.id}')">
+        <div class="card-content" onclick="window.location.href='/product.html?id=${product.id}'">
           <span class="card-category-label">${product.categoryName || product.category}</span>
           <h3 class="card-heading">${product.name}</h3>
           
@@ -350,7 +350,7 @@ function renderProductsGrid() {
 
       return `
       <div class="store-card" data-id="${p.id}">
-        <div class="card-media" onclick="openProductModal('${p.id}')">
+        <div class="card-media" onclick="window.location.href='/product.html?id=${p.id}'">
           ${p.tag ? `<span class="card-tag">${p.tag}</span>` : ''}
           
           <!-- Wishlist Heart Button -->
@@ -361,14 +361,14 @@ function renderProductsGrid() {
           <img src="${p.imageFront}" alt="${p.name}" class="card-img-front" loading="lazy">
           <img src="${p.imageBack || p.imageFront}" alt="${p.name} alternate view" class="card-img-back" loading="lazy">
 
-          <!-- Mobile Floating Plus Action -->
-          <button class="card-mob-btn" onclick="event.stopPropagation(); openProductModal('${p.id}')" aria-label="Quick View ${p.name}">
-            <i data-lucide="plus"></i>
+          <!-- Mobile Floating Action -->
+          <button class="card-mob-btn" onclick="event.stopPropagation(); window.location.href='/product.html?id=${p.id}'" aria-label="View Details ${p.name}">
+            <i data-lucide="arrow-up-right"></i>
           </button>
 
           <!-- Desktop Hover Quick Strip -->
           <div class="card-hover-drawer">
-            <button class="btn-card-quick" onclick="event.stopPropagation(); openProductModal('${p.id}')">Quick View</button>
+            <button class="btn-card-quick" onclick="event.stopPropagation(); window.location.href='/product.html?id=${p.id}'">View Details ↗</button>
             <div class="card-sizes-row">
               ${(Array.isArray(p.sizes) ? p.sizes : [p.sizes])
                 .map((s) => `<button class="size-pill-btn" onclick="event.stopPropagation(); quickAddFromCard('${p.id}', '${s}')">${s}</button>`)
@@ -377,11 +377,11 @@ function renderProductsGrid() {
           </div>
         </div>
 
-        <div class="card-content">
+        <div class="card-content" onclick="window.location.href='/product.html?id=${p.id}'">
           <span class="card-category-label">${p.categoryName || p.category}</span>
-          <h4 class="card-heading" onclick="openProductModal('${p.id}')">${p.name}</h4>
+          <h4 class="card-heading">${p.name}</h4>
           
-          <div class="card-rating-row" onclick="event.stopPropagation(); openProductModal('${p.id}'); switchModalTab('reviews');">
+          <div class="card-rating-row" onclick="event.stopPropagation(); window.location.href='/product.html?id=${p.id}#reviewsSection'">
             <span class="card-rating-stars">${stars}</span>
             <span class="card-rating-count">${rating.average.toFixed(1)} (${rating.count || 'New'})</span>
           </div>

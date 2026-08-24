@@ -1,5 +1,5 @@
 // ==========================================================================
-// NEW SITARA â€” UNIFIED PERSISTENT DATA LAYER & TRACKING ENGINE
+// NEW SITARA — UNIFIED PERSISTENT DATA LAYER & TRACKING ENGINE
 // ==========================================================================
 
 const DEFAULT_CATEGORIES = [
@@ -63,9 +63,9 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'T-Shirts & Tops',
     price: 85,
     tag: 'Bestseller',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Cut from 300 GSM combed organic cotton with a structured ribbed collar and clean drop-shoulder drape.',
+    imageFront: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1000&auto=format&fit=crop',
+    description: 'Cut from 300 GSM combed organic cotton with a structured ribbed collar and clean drop-shoulder drape. Hand-finished in our atelier.',
     specs: '✦ 100% Combed Organic Cotton • 300 GSM • Pre-shrunk & Washed',
     sizes: ['S', 'M', 'L', 'XL'],
     inStock: true
@@ -77,8 +77,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'T-Shirts & Tops',
     price: 95,
     tag: 'New Drop',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1000&auto=format&fit=crop',
     description: 'Vintage stone-washed single jersey tee with hand-distressed neckline and subtle cracked patina artwork.',
     specs: '✦ 280 GSM Single Jersey • Stone Distressed • Relaxed Fit',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -91,8 +91,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'T-Shirts & Tops',
     price: 65,
     tag: 'Essential',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1000&auto=format&fit=crop',
     description: 'Wide 2x2 ribbed heavy stretch cotton tank top with tailored scoop neck and raw edge hem.',
     specs: '✦ 95% Cotton, 5% Elastane • 2x2 Rib Knit • Breathable Fit',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -105,8 +105,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'T-Shirts & Tops',
     price: 140,
     tag: 'Signature',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1000&auto=format&fit=crop',
     description: 'Ultra-fine 16-gauge merino knit polo with open Johnny collar and ribbed micro cuffs.',
     specs: '✦ 100% Extra-fine Merino Wool • Seamless 16-Gauge Knit',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -121,8 +121,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Hoodies & Sweatshirts',
     price: 185,
     tag: 'Signature Drop',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=1000&auto=format&fit=crop',
     description: 'Constructed from heavy 520 GSM Portuguese organic French terry. Features a seamless double-layer hood with custom silver aglets.',
     specs: '✦ 520 GSM Loopback Terry • Double Layer Hood • Pre-shrunk',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -135,8 +135,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Hoodies & Sweatshirts',
     price: 155,
     tag: 'New Drop',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1000&auto=format&fit=crop',
     description: 'Clean architectural raglan cut in unbleached chalk white with heavy 480 GSM cotton and blind stitched hem.',
     specs: '✦ 480 GSM Compact Fleece • Raglan Sleeve Cut • Heavy Rib Hem',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -149,8 +149,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Hoodies & Sweatshirts',
     price: 245,
     tag: 'Limited Edition',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=1000&auto=format&fit=crop',
     description: 'Plush 7-gauge knitted pullover hoodie combining extra-fine merino wool and pure Mongolian cashmere.',
     specs: '✦ 70% Merino Wool, 30% Cashmere • Ribbed Trims • Relaxed Drape',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -163,8 +163,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Hoodies & Sweatshirts',
     price: 175,
     tag: 'Bestseller',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1000&auto=format&fit=crop',
     description: 'Boxy 2-way RiRi zip hoodie with funnel collar, deep kangaroo pockets, and high-density ribbed waistband.',
     specs: '✦ 500 GSM Brushed Fleece • 2-Way Metal Zip • Funnel Neckline',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -179,8 +179,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Pants & Trousers',
     price: 240,
     tag: 'Signature Drop',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1000&auto=format&fit=crop',
     description: 'Woven on vintage shuttle looms in Kojima, Japan. Red-line selvedge ticker, custom copper rivets, and a relaxed straight cut.',
     specs: '✦ 14oz Okayama Shuttle Looms • Solid Copper Hardware • Raw Indigo',
     sizes: ['30', '32', '34', '36'],
@@ -193,8 +193,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Pants & Trousers',
     price: 215,
     tag: 'Bestseller',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=1000&auto=format&fit=crop',
     description: 'Double front pleats with a tailored flowing wide leg cut from Italian virgin wool blend with hidden side adjusters.',
     specs: '✦ 60% Virgin Wool, 40% Viscose • Double Pleats • Internal Hook Tab',
     sizes: ['30', '32', '34', '36'],
@@ -207,8 +207,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Pants & Trousers',
     price: 195,
     tag: 'New Drop',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=1000&auto=format&fit=crop',
     description: 'Heavy 340 GSM cotton ripstop with gusseted dual 3D cargo pockets, reinforced knees, and drawcord hems.',
     specs: '✦ 340 GSM Cotton Ripstop • Cobra Buckle Straps • Adjustable Hems',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -221,8 +221,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Pants & Trousers',
     price: 150,
     tag: 'Essential',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=1000&auto=format&fit=crop',
     description: 'Pin-tuck center front crease with encased elastic drawstring waist and premium metal-tipped cords.',
     specs: '✦ Compact Interlock Cotton Knit • Metal-tipped Drawcords',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -237,8 +237,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Shorts & Bottoms',
     price: 110,
     tag: 'Bestseller',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=1000&auto=format&fit=crop',
     description: 'Cut from 480 GSM loopback cotton with raw-cut hem finish, deep slant pockets, and thick custom drawstrings.',
     specs: '✦ 480 GSM Cotton Loopback • Raw Edge Hem • Thick Knit Waistband',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -251,8 +251,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Shorts & Bottoms',
     price: 135,
     tag: 'New Drop',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=1000&auto=format&fit=crop',
     description: 'Water-resistant crinkle taslan nylon with magnetic FIDLOCK pocket flaps and built-in webbing belt.',
     specs: '✦ Water-Repellent Nylon • FIDLOCK Magnetic Snaps • Integrated Belt',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -265,8 +265,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Shorts & Bottoms',
     price: 145,
     tag: 'Signature Drop',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=1000&auto=format&fit=crop',
     description: 'Italian linen and organic cotton blend with single front pleats, 7-inch inseam, and tailored side tabs.',
     specs: '✦ 55% Italian Linen, 45% Cotton • 7-Inch Inseam • Horn Button Details',
     sizes: ['30', '32', '34', '36'],
@@ -281,8 +281,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Jackets & Outerwear',
     price: 490,
     tag: 'Signature Drop',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?q=80&w=1000&auto=format&fit=crop',
     description: 'Architectural heavy overcoat tailored from Italian virgin wool and cashmere with cupro lining and horn buttons.',
     specs: '✦ 80% Virgin Wool, 20% Cashmere • Cupro Bemberg Lining • Horn Buttons',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -295,8 +295,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Jackets & Outerwear',
     price: 450,
     tag: 'Limited Edition',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1000&auto=format&fit=crop',
     description: 'Ultra-soft Italian lambskin nappa with heavy wool rib knit collar, 2-way metal zip, and interior chest pockets.',
     specs: '✦ 100% Full-Grain Lambskin • RiRi Swiss Zip • Wool Rib Trims',
     sizes: ['M', 'L', 'XL'],
@@ -309,8 +309,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Jackets & Outerwear',
     price: 290,
     tag: 'New Drop',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1000&auto=format&fit=crop',
     description: '20,000mm waterproof breathable nylon membrane with fully taped internal seams and Cohaesive cord locks.',
     specs: '✦ 3-Layer Taped Waterproof Nylon • YKK AquaGuard Zips',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -323,8 +323,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Jackets & Outerwear',
     price: 220,
     tag: 'Bestseller',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1000&auto=format&fit=crop',
     description: 'Boxy cropped type-3 denim jacket with mineral enzyme wash and custom solid brass shank hardware.',
     specs: '✦ 13.5oz Cotton Denim • Solid Brass Shanks • Drop Shoulder Cut',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -339,8 +339,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Shoes & Footwear',
     price: 220,
     tag: 'Signature Drop',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1000&auto=format&fit=crop',
     description: 'Handcrafted in Civitanova Marche, Italy from full-grain calfskin with genuine Margom rubber cupsole.',
     specs: '✦ 100% Full-Grain Italian Calfskin • Margom Rubber Cupsole',
     sizes: ['40', '41', '42', '43', '44', '45'],
@@ -353,8 +353,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Shoes & Footwear',
     price: 280,
     tag: 'Bestseller',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=1000&auto=format&fit=crop',
     description: 'Multi-layer Italian suede and ballistic nylon mesh upper with exaggerated sculpted EVA midsole and Vibram outsole.',
     specs: '✦ Suede & Ballistic Mesh • Vibram Megagrip Sole • Ortholite Insole',
     sizes: ['41', '42', '43', '44', '45'],
@@ -367,8 +367,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Shoes & Footwear',
     price: 360,
     tag: 'Limited Edition',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1000&auto=format&fit=crop',
     description: 'Goodyear-welted ankle Chelsea boot crafted from water-repellent calf suede with stacked leather heel.',
     specs: '✦ Premium Suede Calfskin • Stacked Leather Heel • Goodyear Welted',
     sizes: ['40', '41', '42', '43', '44'],
@@ -383,8 +383,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Belts & Accessories',
     price: 95,
     tag: 'Essential',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1624222247344-550fb60583dc?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=1000&auto=format&fit=crop',
     description: '35mm wide vegetable-tanned bridle leather belt with solid brushed stainless steel roller buckle and beveled edges.',
     specs: '✦ 35mm Vegetable-Tanned Bridle Leather • Solid Steel Buckle',
     sizes: ['85cm', '90cm', '95cm', '100cm'],
@@ -397,8 +397,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Belts & Accessories',
     price: 80,
     tag: 'Bestseller',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1000&auto=format&fit=crop',
     description: 'Ultra-slim 4-slot cardholder with central folded cash compartment and debossed New Sitara insignia.',
     specs: '✦ Pebble Grain Calfskin • RFID Protected • Hand-painted Edges',
     sizes: ['One Size'],
@@ -411,8 +411,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Belts & Accessories',
     price: 165,
     tag: 'Signature Drop',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=1000&auto=format&fit=crop',
     description: '7mm precision diamond-cut bevel curb chain forged from 925 sterling silver with custom secure lobster lock.',
     specs: '✦ 925 Sterling Silver • 50cm Length • Anti-Tarnish Rhodium Finish',
     sizes: ['50cm', '55cm'],
@@ -425,8 +425,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Belts & Accessories',
     price: 65,
     tag: 'New Drop',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
+    imageFront: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1000&auto=format&fit=crop',
     description: 'Structured 6-panel silhouette cut from heavy Japanese cotton twill with antique silver buckle adjuster.',
     specs: '✦ 100% Heavy Japanese Cotton Twill • Metal Buckle Strap',
     sizes: ['Adjustable'],
@@ -444,102 +444,101 @@ const DEFAULT_PROMOS = [
 
 // Multi-Currency Exchange Configuration
 const DEFAULT_CURRENCIES = {
-  USD: { code: 'USD', symbol: '$', rate: 1.0, name: 'US Dollar', flag: 'ðŸ‡ºðŸ‡¸', symbolPrefix: true },
-  EUR: { code: 'EUR', symbol: 'â‚¬', rate: 0.92, name: 'Euro', flag: 'ðŸ‡ªðŸ‡º', symbolPrefix: true },
-  GBP: { code: 'GBP', symbol: 'Â£', rate: 0.79, name: 'British Pound', flag: 'ðŸ‡¬ðŸ‡§', symbolPrefix: true },
-  PKR: { code: 'PKR', symbol: 'â‚¨ ', rate: 278.0, name: 'Pakistani Rupee', flag: 'ðŸ‡µðŸ‡°', symbolPrefix: true },
-  AED: { code: 'AED', symbol: 'AED ', rate: 3.67, name: 'UAE Dirham', flag: 'ðŸ‡¦ðŸ‡ª', symbolPrefix: true },
-  SAR: { code: 'SAR', symbol: 'SAR ', rate: 3.75, name: 'Saudi Riyal', flag: 'ðŸ‡¸ðŸ‡¦', symbolPrefix: true },
-  CAD: { code: 'CAD', symbol: 'CA$', rate: 1.36, name: 'Canadian Dollar', flag: 'ðŸ‡¨ðŸ‡¦', symbolPrefix: true }
+  USD: { code: 'USD', symbol: '$', rate: 1.0, name: 'US Dollar', flag: '🇺🇸', symbolPrefix: true },
+  EUR: { code: 'EUR', symbol: '€', rate: 0.92, name: 'Euro', flag: '🇪🇺', symbolPrefix: true },
+  GBP: { code: 'GBP', symbol: '£', rate: 0.79, name: 'British Pound', flag: '🇬🇧', symbolPrefix: true },
+  PKR: { code: 'PKR', symbol: '₨ ', rate: 278.0, name: 'Pakistani Rupee', flag: '🇵🇰', symbolPrefix: true },
+  AED: { code: 'AED', symbol: 'AED ', rate: 3.67, name: 'UAE Dirham', flag: '🇦🇪', symbolPrefix: true },
+  SAR: { code: 'SAR', symbol: 'SAR ', rate: 3.75, name: 'Saudi Riyal', flag: '🇸🇦', symbolPrefix: true },
+  CAD: { code: 'CAD', symbol: 'CA$', rate: 1.36, name: 'Canadian Dollar', flag: '🇨🇦', symbolPrefix: true }
 };
 
-// Curated Customer Reviews
+// Initial Seed Reviews for Inaugural Drop
 const DEFAULT_REVIEWS = [
   {
-    id: 'rev-1',
-    productId: 'ns-prod-101',
-    author: 'Alexander M.',
-    rating: 5,
-    title: 'Incredible heavyweight cotton drape',
-    comment: 'The 300 GSM cotton has a structured drop-shoulder fit that doesn\'t lose its shape after washing. Highest quality tee I own.',
-    date: '2026-08-10',
-    verified: true
-  },
-  {
-    id: 'rev-2',
-    productId: 'ns-prod-101',
-    author: 'Elena R.',
-    rating: 5,
-    title: 'Perfect boxy silhouette',
-    comment: 'Subtle luxury feel. The neckline is tight and ribbed properly, no bacon collar at all.',
-    date: '2026-08-14',
-    verified: true
-  },
-  {
-    id: 'rev-3',
+    id: 'rev-101',
     productId: 'ns-prod-201',
-    author: 'Marcus K.',
+    author: 'Hamza K.',
     rating: 5,
-    title: 'Substantial 520 GSM loopback masterpiece',
-    comment: 'The double-layered hood holds its shape perfectly without slouching. Silver aglets add that atelier touch.',
-    date: '2026-08-12',
-    verified: true
-  },
-  {
-    id: 'rev-4',
-    productId: 'ns-prod-201',
-    author: 'Sora T.',
-    rating: 4,
-    title: 'Heavy and warm, luxurious feel',
-    comment: 'Very premium feel. Fits slightly relaxed so go true to size if you want a boxy look.',
-    date: '2026-08-18',
-    verified: true
-  },
-  {
-    id: 'rev-5',
-    productId: 'ns-prod-301',
-    author: 'Julian V.',
-    rating: 5,
-    title: 'Okayama selvedge denim is unmatched',
-    comment: 'The 14oz shuttle-loom raw denim with redline ID is crisp and breaks in beautifully. Unbelievable construction.',
-    date: '2026-08-08',
-    verified: true
-  },
-  {
-    id: 'rev-6',
-    productId: 'ns-prod-501',
-    author: 'David H.',
-    rating: 5,
-    title: 'Double-breasted coat of dreams',
-    comment: 'Virgin wool and cashmere blend has a deep matte sheen. Heavy horn buttons and tailored drape turn heads everywhere.',
-    date: '2026-08-05',
-    verified: true
-  },
-  {
-    id: 'rev-7',
-    productId: 'ns-prod-601',
-    author: 'Leo C.',
-    rating: 5,
-    title: 'Supple Italian calfskin sneakers',
-    comment: 'Buttery soft leather with zero break-in pain. Clean margom-style sole is ultra durable.',
+    title: '520 GSM weight is unreal',
+    comment: 'The French terry fleece is substantial and has incredible structure. Best streetwear hoodie I own.',
     date: '2026-08-15',
     verified: true
   },
   {
-    id: 'rev-8',
-    productId: 'ns-prod-701',
-    author: 'Harrison B.',
+    id: 'rev-102',
+    productId: 'ns-prod-101',
+    author: 'Zayd M.',
     rating: 5,
-    title: 'Heavy solid brass hardware',
-    comment: 'Full grain bridle leather develops a rich patina within days. Top tier craftsmanship.',
-    date: '2026-08-19',
+    title: 'Perfect boxy drape',
+    comment: 'Ribbed collar stays tight and the drop-shoulder cut is flattering. Exceptional cotton quality.',
+    date: '2026-08-18',
+    verified: true
+  },
+  {
+    id: 'rev-103',
+    productId: 'ns-prod-301',
+    author: 'Tariq A.',
+    rating: 5,
+    title: 'Authentic Kojima denim',
+    comment: 'Stiff raw selvedge with a red ticker line. Fades are already developing beautifully.',
+    date: '2026-08-20',
+    verified: true
+  },
+  {
+    id: 'rev-104',
+    productId: 'ns-prod-701',
+    author: 'Danyal S.',
+    rating: 5,
+    title: 'Solid bridle leather',
+    comment: 'Full grain bridle leather develops a rich patina and the solid roller buckle feels indestructible.',
+    date: '2026-08-21',
     verified: true
   }
 ];
 
-// Data Layer Service API
+// ==========================================================================
+// UNIFIED DATASTORE ARCHITECTURE (Local-First + Supabase Cloud Fallback)
+// ==========================================================================
 const DataStore = {
-  // --- CATEGORIES ---
+  getProducts() {
+    const raw = localStorage.getItem('sitara_products_v6');
+    if (!raw) {
+      localStorage.setItem('sitara_products_v6', JSON.stringify(DEFAULT_PRODUCTS));
+      return DEFAULT_PRODUCTS;
+    }
+    try {
+      return JSON.parse(raw);
+    } catch {
+      return DEFAULT_PRODUCTS;
+    }
+  },
+
+  getProductById(id) {
+    const prods = this.getProducts();
+    return prods.find((p) => p.id === id) || null;
+  },
+
+  saveProduct(product) {
+    const prods = this.getProducts();
+    const index = prods.findIndex((p) => p.id === product.id);
+    if (index >= 0) {
+      prods[index] = { ...prods[index], ...product };
+    } else {
+      prods.unshift(product);
+    }
+    localStorage.setItem('sitara_products_v6', JSON.stringify(prods));
+    this.syncWithCloud('products', product);
+    return prods;
+  },
+
+  deleteProduct(id) {
+    let prods = this.getProducts();
+    prods = prods.filter((p) => p.id !== id);
+    localStorage.setItem('sitara_products_v6', JSON.stringify(prods));
+    return prods;
+  },
+
   getCategories() {
     const raw = localStorage.getItem('sitara_categories_v3');
     if (!raw) {
@@ -553,230 +552,97 @@ const DataStore = {
     }
   },
 
-  saveCategory(cat) {
+  saveCategory(category) {
     const cats = this.getCategories();
-    const idx = cats.findIndex((c) => c.id === cat.id);
-    if (idx !== -1) {
-      cats[idx] = { ...cats[idx], ...cat };
+    const index = cats.findIndex((c) => c.id === category.id);
+    if (index >= 0) {
+      cats[index] = { ...cats[index], ...category };
     } else {
-      cat.id = cat.id || 'cat-' + Date.now();
-      cats.push(cat);
+      cats.push(category);
     }
     localStorage.setItem('sitara_categories_v3', JSON.stringify(cats));
-    this.syncWithCloud('categories', cats);
     return cats;
   },
 
-  deleteCategory(catId) {
+  deleteCategory(id) {
     let cats = this.getCategories();
-    cats = cats.filter((c) => c.id !== catId);
+    cats = cats.filter((c) => c.id !== id);
     localStorage.setItem('sitara_categories_v3', JSON.stringify(cats));
     return cats;
   },
 
-  // --- PRODUCTS ---
-  getProducts() {
-    const raw = localStorage.getItem('sitara_products_v5');
-    if (!raw) {
-      localStorage.setItem('sitara_products_v5', JSON.stringify(DEFAULT_PRODUCTS));
-      return DEFAULT_PRODUCTS;
-    }
-    try {
-      return JSON.parse(raw);
-    } catch {
-      return DEFAULT_PRODUCTS;
-    }
-  },
-
-  saveProduct(prod) {
-    const prods = this.getProducts();
-    const idx = prods.findIndex((p) => p.id === prod.id);
-    if (idx !== -1) {
-      prods[idx] = { ...prods[idx], ...prod };
-    } else {
-      prod.id = prod.id || 'ns-prod-' + Date.now();
-      prods.unshift(prod);
-    }
-    localStorage.setItem('sitara_products_v5', JSON.stringify(prods));
-    this.syncWithCloud('products', prods);
-    return prods;
-  },
-
-  deleteProduct(prodId) {
-    let prods = this.getProducts();
-    prods = prods.filter((p) => p.id !== prodId);
-    localStorage.setItem('sitara_products_v5', JSON.stringify(prods));
-    return prods;
-  },
-
-  // --- ORDERS (With Full Customer Address & Tracking Generation) ---
-  getOrders() {
-    const raw = localStorage.getItem('sitara_orders_v3');
-    if (!raw) {
-      localStorage.setItem('sitara_orders_v3', JSON.stringify(DEFAULT_ORDERS));
-      return DEFAULT_ORDERS;
-    }
-    try {
-      return JSON.parse(raw);
-    } catch {
-      return DEFAULT_ORDERS;
-    }
-  },
-
-  addOrder(orderData) {
-    const orders = this.getOrders();
-    
-    // Generate Unique Tracking ID (e.g. NS-TRK-74829)
-    const randomDigits = Math.floor(10000 + Math.random() * 90000);
-    const trackingId = `NS-TRK-${randomDigits}`;
-
-    const newOrder = {
-      id: trackingId,
-      trackingId: trackingId,
-      createdAt: new Date().toISOString(),
-      date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-      time: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
-      customer: {
-        fullName: orderData.fullName || 'VIP Customer',
-        email: orderData.email || '',
-        phone: orderData.phone || '',
-        street: orderData.street || '',
-        apartment: orderData.apartment || '',
-        city: orderData.city || '',
-        state: orderData.state || '',
-        postalCode: orderData.postalCode || '',
-        country: orderData.country || 'United States'
-      },
-      items: orderData.items || [],
-      subtotal: orderData.subtotal || 0,
-      discount: orderData.discount || 0,
-      shipping: orderData.shipping || 0,
-      total: orderData.total || 0,
-      status: 'Processing', // Steps: 'Processing' -> 'Tailoring & Prep' -> 'Shipped' -> 'Delivered'
-      paymentMethod: orderData.paymentMethod || 'Card',
-      courier: {
-        name: orderData.courierName || 'DHL Express Worldwide',
-        trackingRef: orderData.courierRef || `DHL-${randomDigits}`,
-        estimatedDelivery: '3â€“5 Business Days'
-      }
-    };
-
-    orders.unshift(newOrder);
-    localStorage.setItem('sitara_orders_v3', JSON.stringify(orders));
-    this.syncWithCloud('orders', orders);
-    return newOrder;
-  },
-
-  trackOrder(query) {
-    if (!query) return null;
-    const cleanQuery = query.trim().toUpperCase();
-    const orders = this.getOrders();
-
-    return orders.find(
-      (o) =>
-        (o.id && o.id.toUpperCase() === cleanQuery) ||
-        (o.trackingId && o.trackingId.toUpperCase() === cleanQuery) ||
-        (o.customer && o.customer.email && o.customer.email.toUpperCase() === cleanQuery)
-    );
-  },
-
-  updateOrderStatus(orderId, status) {
-    const orders = this.getOrders();
-    const ord = orders.find((o) => o.id === orderId);
-    if (ord) {
-      ord.status = status;
-      localStorage.setItem('sitara_orders_v3', JSON.stringify(orders));
-      this.syncWithCloud('orders', orders);
-    }
-    return orders;
-  },
-
-  updateCourierInfo(orderId, courierName, courierRef) {
-    const orders = this.getOrders();
-    const ord = orders.find((o) => o.id === orderId);
-    if (ord) {
-      ord.courier = {
-        ...(ord.courier || {}),
-        name: courierName || ord.courier?.name || 'Express Courier',
-        trackingRef: courierRef || ord.courier?.trackingRef || 'N/A'
-      };
-      localStorage.setItem('sitara_orders_v3', JSON.stringify(orders));
-      this.syncWithCloud('orders', orders);
-    }
-    return orders;
-  },
-
-  // --- PROMOS ---
-  getPromos() {
-    const raw = localStorage.getItem('sitara_promos_v3');
-    if (!raw) {
-      localStorage.setItem('sitara_promos_v3', JSON.stringify(DEFAULT_PROMOS));
-      return DEFAULT_PROMOS;
-    }
-    try {
-      return JSON.parse(raw);
-    } catch {
-      return DEFAULT_PROMOS;
-    }
-  },
-
-  savePromo(promo) {
-    const promos = this.getPromos();
-    const idx = promos.findIndex((p) => p.code.toUpperCase() === promo.code.toUpperCase());
-    if (idx !== -1) {
-      promos[idx] = { ...promos[idx], ...promo };
-    } else {
-      promos.unshift(promo);
-    }
-    localStorage.setItem('sitara_promos_v3', JSON.stringify(promos));
-    return promos;
-  },
-
-  deletePromo(code) {
-    let promos = this.getPromos();
-    promos = promos.filter((p) => p.code.toUpperCase() !== code.toUpperCase());
-    localStorage.setItem('sitara_promos_v3', JSON.stringify(promos));
-    return promos;
-  },
-
-  // --- MULTI-CURRENCY ENGINE ---
   getCurrencies() {
     return DEFAULT_CURRENCIES;
   },
 
   getActiveCurrency() {
-    const saved = localStorage.getItem('sitara_currency');
-    if (saved && DEFAULT_CURRENCIES[saved]) return DEFAULT_CURRENCIES[saved];
-    return DEFAULT_CURRENCIES['USD'];
+    const code = localStorage.getItem('sitara_active_currency') || 'PKR';
+    return DEFAULT_CURRENCIES[code] || DEFAULT_CURRENCIES.USD;
   },
 
   setActiveCurrency(code) {
     if (DEFAULT_CURRENCIES[code]) {
-      localStorage.setItem('sitara_currency', code);
-      return DEFAULT_CURRENCIES[code];
+      localStorage.setItem('sitara_active_currency', code);
     }
-    return DEFAULT_CURRENCIES['USD'];
   },
 
-  convertPrice(usdAmount) {
-    const curr = this.getActiveCurrency();
-    return Math.round((usdAmount * curr.rate) * 100) / 100;
+  formatPrice(priceInUSD, withSymbol = true) {
+    const currency = this.getActiveCurrency();
+    const converted = (priceInUSD || 0) * (currency.rate || 1);
+    const num = Math.round(converted).toLocaleString();
+    if (!withSymbol) return num;
+    if (currency.symbolPrefix) {
+      return `${currency.symbol}${num}`;
+    }
+    return `${num} ${currency.symbol}`;
   },
 
-  formatPrice(usdAmount, showCode = false) {
-    const curr = this.getActiveCurrency();
-    const converted = (usdAmount || 0) * curr.rate;
-    let formattedVal;
-    if (curr.code === 'PKR') {
-      formattedVal = Math.round(converted).toLocaleString('en-US');
+  getCart() {
+    const raw = localStorage.getItem('sitara_cart');
+    if (!raw) return [];
+    try {
+      return JSON.parse(raw);
+    } catch {
+      return [];
+    }
+  },
+
+  saveCart(cart) {
+    localStorage.setItem('sitara_cart', JSON.stringify(cart));
+  },
+
+  addToCart(productId, size, quantity = 1) {
+    const cart = this.getCart();
+    const existing = cart.find((item) => item.id === productId && item.size === size);
+    if (existing) {
+      existing.quantity += quantity;
     } else {
-      formattedVal = converted.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      cart.push({ id: productId, size, quantity });
     }
-    const output = `${curr.symbol}${formattedVal}`;
-    return showCode ? `${output} ${curr.code}` : output;
+    this.saveCart(cart);
+    return cart;
   },
 
-  // --- WISHLIST / SAVED ITEMS ---
+  removeFromCart(productId, size) {
+    let cart = this.getCart();
+    cart = cart.filter((item) => !(item.id === productId && item.size === size));
+    this.saveCart(cart);
+    return cart;
+  },
+
+  updateCartQty(productId, size, delta) {
+    const cart = this.getCart();
+    const item = cart.find((i) => i.id === productId && i.size === size);
+    if (item) {
+      item.quantity += delta;
+      if (item.quantity <= 0) {
+        return this.removeFromCart(productId, size);
+      }
+    }
+    this.saveCart(cart);
+    return cart;
+  },
+
   getWishlist() {
     const raw = localStorage.getItem('sitara_wishlist');
     if (!raw) return [];
@@ -793,10 +659,10 @@ const DataStore = {
     if (exists) {
       wishlist = wishlist.filter((id) => id !== productId);
     } else {
-      wishlist.unshift(productId);
+      wishlist.push(productId);
     }
     localStorage.setItem('sitara_wishlist', JSON.stringify(wishlist));
-    return !exists; // returns true if now in wishlist
+    return !exists;
   },
 
   isInWishlist(productId) {
@@ -804,128 +670,147 @@ const DataStore = {
     return wishlist.includes(productId);
   },
 
-  clearWishlist() {
-    localStorage.setItem('sitara_wishlist', JSON.stringify([]));
-  },
-
-  // --- REVIEWS & STAR RATINGS ---
-  getAllReviews() {
-    const raw = localStorage.getItem('sitara_reviews_v3');
-    if (!raw) {
-      localStorage.setItem('sitara_reviews_v3', JSON.stringify(DEFAULT_REVIEWS));
-      return DEFAULT_REVIEWS;
+  getReviews(productId = null) {
+    const raw = localStorage.getItem('sitara_reviews_v2');
+    let reviews = DEFAULT_REVIEWS;
+    if (raw) {
+      try {
+        reviews = JSON.parse(raw);
+      } catch {
+        reviews = DEFAULT_REVIEWS;
+      }
     }
-    try {
-      return JSON.parse(raw);
-    } catch {
-      return DEFAULT_REVIEWS;
+    if (productId) {
+      return reviews.filter((r) => r.productId === productId);
     }
+    return reviews;
   },
 
-  getReviews(productId) {
-    const all = this.getAllReviews();
-    return all.filter((r) => r.productId === productId);
-  },
-
-  addReview(productId, reviewData) {
-    const all = this.getAllReviews();
-    const newRev = {
-      id: 'rev-' + Date.now(),
-      productId: productId,
-      author: reviewData.author || 'Anonymous Collector',
-      rating: parseInt(reviewData.rating, 10) || 5,
-      title: reviewData.title || 'Verified Purchase',
-      comment: reviewData.comment || '',
+  addReview(review) {
+    const reviews = this.getReviews();
+    reviews.unshift({
+      ...review,
+      id: `rev-${Date.now()}`,
       date: new Date().toISOString().split('T')[0],
       verified: true
-    };
-    all.unshift(newRev);
-    localStorage.setItem('sitara_reviews_v3', JSON.stringify(all));
-    return newRev;
-  },
-
-  deleteReview(reviewId) {
-    let all = this.getAllReviews();
-    all = all.filter((r) => r.id !== reviewId);
-    localStorage.setItem('sitara_reviews_v3', JSON.stringify(all));
-    return all;
+    });
+    localStorage.setItem('sitara_reviews_v2', JSON.stringify(reviews));
+    return reviews;
   },
 
   getProductRating(productId) {
     const reviews = this.getReviews(productId);
-    if (reviews.length === 0) {
-      return { average: 5.0, count: 0, reviews: [] };
+    if (!reviews || reviews.length === 0) {
+      return { average: 5.0, count: 1 };
     }
-    const sum = reviews.reduce((acc, r) => acc + (r.rating || 5), 0);
-    const avg = Math.round((sum / reviews.length) * 10) / 10;
-    return { average: avg, count: reviews.length, reviews: reviews };
-  },
-
-  // --- ADMIN SECURITY & AUTH ---
-  getAdminPin() {
-    return localStorage.getItem('sitara_admin_pin') || '1234';
-  },
-
-  setAdminPin(newPin) {
-    if (newPin && newPin.length >= 4) {
-      localStorage.setItem('sitara_admin_pin', newPin.trim());
-      return true;
-    }
-    return false;
-  },
-
-  verifyAdminPin(enteredPin) {
-    const stored = this.getAdminPin();
-    return enteredPin && (enteredPin.trim() === stored);
-  },
-
-  // --- SUPABASE CLOUD SYNC CONNECTOR ---
-  getCloudConfig() {
+    const sum = reviews.reduce((acc, r) => acc + (Number(r.rating) || 5), 0);
     return {
-      url: localStorage.getItem('sitara_supabase_url') || '',
-      key: localStorage.getItem('sitara_supabase_key') || ''
+      average: Number((sum / reviews.length).toFixed(1)),
+      count: reviews.length
     };
   },
 
-  saveCloudConfig(url, key) {
-    localStorage.setItem('sitara_supabase_url', url.trim());
-    localStorage.setItem('sitara_supabase_key', key.trim());
-  },
-
-  async syncWithCloud(table, data) {
-    const { url, key } = this.getCloudConfig();
-    if (!url || !key) return; // Local fallback mode
-
+  getOrders() {
+    const raw = localStorage.getItem('sitara_orders_v2');
+    if (!raw) return DEFAULT_ORDERS;
     try {
-      await fetch(`${url}/rest/v1/${table}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'apikey': key,
-          'Authorization': `Bearer ${key}`,
-          'Prefer': 'resolution=merge-duplicates'
-        },
-        body: JSON.stringify(data)
-      });
-    } catch (err) {
-      console.warn('Cloud sync offline:', err);
+      return JSON.parse(raw);
+    } catch {
+      return DEFAULT_ORDERS;
     }
   },
 
-  // --- SYSTEM RESET ---
-  resetAllDefaults() {
-    localStorage.setItem('sitara_categories_v3', JSON.stringify(DEFAULT_CATEGORIES));
-    localStorage.setItem('sitara_products_v5', JSON.stringify(DEFAULT_PRODUCTS));
-    localStorage.setItem('sitara_orders_v3', JSON.stringify(DEFAULT_ORDERS));
-    localStorage.setItem('sitara_promos_v3', JSON.stringify(DEFAULT_PROMOS));
-    localStorage.setItem('sitara_reviews_v3', JSON.stringify(DEFAULT_REVIEWS));
-    localStorage.setItem('sitara_wishlist', JSON.stringify([]));
-    localStorage.setItem('sitara_currency', 'USD');
-    localStorage.setItem('sitara_admin_pin', '1234');
+  createOrder(orderData) {
+    const orders = this.getOrders();
+    const trackingId = 'NS-TRK-' + Math.floor(100000 + Math.random() * 900000);
+    const newOrder = {
+      ...orderData,
+      trackingId,
+      createdAt: new Date().toISOString(),
+      status: 'Placed',
+      timeline: [
+        { status: 'Order Placed', time: new Date().toLocaleString(), note: 'Payment verified & order queued for atelier dispatch.' }
+      ]
+    };
+    orders.unshift(newOrder);
+    localStorage.setItem('sitara_orders_v2', JSON.stringify(orders));
+    this.saveCart([]); // Clear cart
+    this.syncWithCloud('orders', newOrder);
+    return newOrder;
+  },
+
+  updateOrderStatus(trackingId, status, note = '') {
+    const orders = this.getOrders();
+    const order = orders.find((o) => o.trackingId === trackingId);
+    if (order) {
+      order.status = status;
+      if (!order.timeline) order.timeline = [];
+      order.timeline.push({
+        status,
+        time: new Date().toLocaleString(),
+        note: note || `Order status updated to ${status}`
+      });
+      localStorage.setItem('sitara_orders_v2', JSON.stringify(orders));
+      this.syncWithCloud('orders', order);
+    }
+    return order;
+  },
+
+  getOrderByTrackingId(trackingId) {
+    const orders = this.getOrders();
+    return orders.find((o) => o.trackingId.toUpperCase() === trackingId.trim().toUpperCase()) || null;
+  },
+
+  getPromos() {
+    const raw = localStorage.getItem('sitara_promos');
+    if (!raw) return DEFAULT_PROMOS;
+    try {
+      return JSON.parse(raw);
+    } catch {
+      return DEFAULT_PROMOS;
+    }
+  },
+
+  validatePromo(code) {
+    const promos = this.getPromos();
+    const promo = promos.find((p) => p.code.toUpperCase() === code.trim().toUpperCase() && p.active);
+    return promo || null;
+  },
+
+  getSupabaseConfig() {
+    const raw = localStorage.getItem('sitara_supabase_config');
+    if (!raw) return null;
+    try {
+      return JSON.parse(raw);
+    } catch {
+      return null;
+    }
+  },
+
+  setSupabaseConfig(url, anonKey) {
+    if (!url || !anonKey) {
+      localStorage.removeItem('sitara_supabase_config');
+      return;
+    }
+    localStorage.setItem('sitara_supabase_config', JSON.stringify({ url, anonKey }));
+  },
+
+  async syncWithCloud(table, payload) {
+    const config = this.getSupabaseConfig();
+    if (!config || !config.url || !config.anonKey) return;
+    try {
+      await fetch(`${config.url}/rest/v1/${table}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          apikey: config.anonKey,
+          Authorization: `Bearer ${config.anonKey}`,
+          Prefer: 'resolution=merge-duplicates'
+        },
+        body: JSON.stringify(payload)
+      });
+    } catch (e) {
+      console.warn('Cloud sync offline fallback active', e);
+    }
   }
 };
-
-// Export to window
-if (typeof window !== 'undefined') {
-  window.DataStore = DataStore;
-}

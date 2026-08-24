@@ -124,7 +124,7 @@ function selectCurrency(code, e) {
 }
 
 // ==========================================================================
-// 1. DYNAMIC CATEGORY NAVIGATION & PORTALS
+// 1. DYNAMIC CATEGORY NAVIGATION & DROPDOWNS
 // ==========================================================================
 function renderCategoryNavigation() {
   const categories = DataStore.getCategories();
@@ -135,15 +135,35 @@ function renderCategoryNavigation() {
   if (desktopNav) {
     desktopNav.innerHTML = `
       <button class="nav-link-btn ${activeCategory === 'home' ? 'active' : ''}" onclick="filterByCategory('home')">Home</button>
+      
+      <div class="nav-dropdown-wrap" id="navCategoryDropdownWrap">
+        <button type="button" class="nav-link-btn nav-dropdown-btn ${activeCategory !== 'home' && activeCategory !== 'all' ? 'active' : ''}" onclick="toggleNavCategoryDropdown(event)">
+          <span>Categories</span>
+          <i data-lucide="chevron-down" class="nav-chevron"></i>
+        </button>
+        <div class="nav-category-dropdown" id="navCategoryDropdown">
+          <div class="nav-dropdown-head">Shop by Department</div>
+          ${categories
+            .map((c) => {
+              const count = products.filter((p) => p.category === (c.slug || c.id)).length;
+              return `
+              <a href="javascript:void(0)" class="nav-cat-item ${activeCategory === (c.slug || c.id) ? 'active' : ''}" onclick="filterByCategory('${c.slug || c.id}'); closeNavCategoryDropdown();">
+                <span class="nav-cat-name">${c.name}</span>
+                <span class="nav-cat-count">${count} items</span>
+              </a>
+            `;
+            })
+            .join('')}
+          <div class="nav-dropdown-divider"></div>
+          <a href="javascript:void(0)" class="nav-cat-item ${activeCategory === 'all' ? 'active' : ''}" onclick="filterByCategory('all'); closeNavCategoryDropdown();">
+            <span class="nav-cat-name" style="font-weight: 800;">View All Archive</span>
+            <span class="nav-cat-count">${products.length} items</span>
+          </a>
+        </div>
+      </div>
+
       <button class="nav-link-btn ${activeCategory === 'all' ? 'active' : ''}" onclick="filterByCategory('all')">All Archive</button>
-      ${categories
-        .slice(0, 5)
-        .map(
-          (c) => `
-        <button class="nav-link-btn ${activeCategory === (c.slug || c.id) ? 'active' : ''}" onclick="filterByCategory('${c.slug || c.id}')">${c.name.split('&')[0].trim()}</button>
-      `
-        )
-        .join('')}
+      <a href="/track" class="nav-link-btn">Track Order</a>
     `;
   }
 
@@ -171,29 +191,23 @@ function renderCategoryNavigation() {
         .join('')}
     `;
   }
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function toggleNavCategoryDropdown(e) {
+  if (e) e.stopPropagation();
+  const wrap = document.getElementById('navCategoryDropdownWrap');
+  if (wrap) wrap.classList.toggle('open');
+}
+
+function closeNavCategoryDropdown() {
+  const wrap = document.getElementById('navCategoryDropdownWrap');
+  if (wrap) wrap.classList.remove('open');
 }
 
 function renderCategoryPortals() {
-  const categories = DataStore.getCategories();
-  const products = DataStore.getProducts();
-  const row = document.getElementById('categoriesRow');
-  if (!row) return;
-
-  row.innerHTML = categories
-    .map((c) => {
-      const count = products.filter((p) => p.category === (c.slug || c.id)).length;
-      return `
-      <div class="category-card" onclick="filterByCategory('${c.slug || c.id}')">
-        <img src="${c.image}" alt="${c.name}" class="cat-bg-image" loading="lazy">
-        <div class="cat-card-overlay">
-          <span class="cat-count-text">${count} Pieces</span>
-          <h3 class="cat-title-text">${c.name}</h3>
-          <span class="cat-link-text">Explore Department →</span>
-        </div>
-      </div>
-    `;
-    })
-    .join('');
+  // Category cards removed from homepage per user request (moved to top header dropdown)
 }
 
 function renderHomeDepartmentShelves() {

@@ -174,6 +174,8 @@ function renderCategoryPortals() {
     `;
     })
     .join('');
+}
+
 function renderFeaturedGrid() {
   const grid = document.getElementById('featuredGrid');
   if (!grid) return;

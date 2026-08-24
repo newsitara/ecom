@@ -7,50 +7,50 @@ const DEFAULT_CATEGORIES = [
     id: 't-shirts',
     name: 'T-Shirts & Tops',
     slug: 't-shirts',
-    description: 'Heavyweight graphic tees, minimal boxy cuts, and luxury cotton basics.',
-    image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1000&auto=format&fit=crop'
+    description: 'Customizable department for tees, tanks, polos, and basics.',
+    image: '/assets/product-placeholder.svg'
   },
   {
     id: 'hoodies',
     name: 'Hoodies & Sweatshirts',
     slug: 'hoodies',
-    description: '520 GSM loopback French terry hoodies and structured crewnecks.',
-    image: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1000&auto=format&fit=crop'
+    description: 'Customizable department for hoodies, crewnecks, and knitwear.',
+    image: '/assets/product-placeholder.svg'
   },
   {
     id: 'pants',
     name: 'Pants & Trousers',
     slug: 'pants',
-    description: 'Japanese selvedge denim, double-pleated virgin wool trousers, and cargos.',
-    image: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=1000&auto=format&fit=crop'
+    description: 'Customizable department for denim, trousers, cargos, and pants.',
+    image: '/assets/product-placeholder.svg'
   },
   {
     id: 'shorts',
     name: 'Shorts & Bottoms',
     slug: 'shorts',
-    description: 'Heavyweight fleece sweatshorts, technical nylon cargo shorts, and tailored linen shorts.',
-    image: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=1000&auto=format&fit=crop'
+    description: 'Customizable department for sweatshorts, cargo shorts, and bottoms.',
+    image: '/assets/product-placeholder.svg'
   },
   {
     id: 'outerwear',
     name: 'Jackets & Outerwear',
     slug: 'outerwear',
-    description: 'Cashmere wool trench coats, lambskin bombers, and technical shells.',
-    image: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1000&auto=format&fit=crop'
+    description: 'Customizable department for overcoats, bombers, and jackets.',
+    image: '/assets/product-placeholder.svg'
   },
   {
     id: 'shoes',
     name: 'Shoes & Footwear',
     slug: 'shoes',
-    description: 'Italian calfskin minimal sneakers, chunky technical runners, and Chelsea boots.',
-    image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1000&auto=format&fit=crop'
+    description: 'Customizable department for sneakers, runners, and boots.',
+    image: '/assets/product-placeholder.svg'
   },
   {
     id: 'accessories',
     name: 'Belts & Accessories',
     slug: 'accessories',
-    description: 'Italian leather belts, monogram cardholders, silver curb chains, and twill caps.',
-    image: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=1000&auto=format&fit=crop'
+    description: 'Customizable department for belts, cardholders, jewelry, and caps.',
+    image: '/assets/product-placeholder.svg'
   }
 ];
 
@@ -58,57 +58,57 @@ const DEFAULT_PRODUCTS = [
   // --- T-SHIRTS & TOPS ---
   {
     id: 'ns-prod-101',
-    name: 'Studio Boxy Heavyweight Tee',
+    name: 'Your Product #01 — Boxy Heavyweight Tee',
     category: 't-shirts',
     categoryName: 'T-Shirts & Tops',
     price: 85,
-    tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1000&auto=format&fit=crop',
-    description: 'Cut from 300 GSM combed organic cotton with a structured ribbed collar and clean drop-shoulder drape. Hand-finished in our atelier.',
-    specs: '✦ 100% Combed Organic Cotton • 300 GSM • Pre-shrunk & Washed',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['S', 'M', 'L', 'XL'],
     inStock: true
   },
   {
     id: 'ns-prod-102',
-    name: 'Archival Washed Graphic Tour Tee',
+    name: 'Your Product #02 — Washed Graphic Tee',
     category: 't-shirts',
     categoryName: 'T-Shirts & Tops',
     price: 95,
-    tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1000&auto=format&fit=crop',
-    description: 'Vintage stone-washed single jersey tee with hand-distressed neckline and subtle cracked patina artwork.',
-    specs: '✦ 280 GSM Single Jersey • Stone Distressed • Relaxed Fit',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['S', 'M', 'L', 'XL'],
     inStock: true
   },
   {
     id: 'ns-prod-103',
-    name: 'Ribbed Minimal Muscle Tank',
+    name: 'Your Product #03 — Ribbed Muscle Tank',
     category: 't-shirts',
     categoryName: 'T-Shirts & Tops',
     price: 65,
-    tag: 'Essential',
-    imageFront: 'https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1000&auto=format&fit=crop',
-    description: 'Wide 2x2 ribbed heavy stretch cotton tank top with tailored scoop neck and raw edge hem.',
-    specs: '✦ 95% Cotton, 5% Elastane • 2x2 Rib Knit • Breathable Fit',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['S', 'M', 'L', 'XL'],
     inStock: true
   },
   {
     id: 'ns-prod-104',
-    name: 'Merino Wool Minimal Knit Polo',
+    name: 'Your Product #04 — Minimal Knit Polo',
     category: 't-shirts',
     categoryName: 'T-Shirts & Tops',
     price: 140,
-    tag: 'Signature',
-    imageFront: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1000&auto=format&fit=crop',
-    description: 'Ultra-fine 16-gauge merino knit polo with open Johnny collar and ribbed micro cuffs.',
-    specs: '✦ 100% Extra-fine Merino Wool • Seamless 16-Gauge Knit',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['S', 'M', 'L', 'XL'],
     inStock: true
   },
@@ -116,57 +116,57 @@ const DEFAULT_PRODUCTS = [
   // --- HOODIES & SWEATSHIRTS ---
   {
     id: 'ns-prod-201',
-    name: '520GSM Loopback Heavyweight Hoodie',
+    name: 'Your Product #05 — 520GSM Loopback Hoodie',
     category: 'hoodies',
     categoryName: 'Hoodies & Sweatshirts',
     price: 185,
-    tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=1000&auto=format&fit=crop',
-    description: 'Constructed from heavy 520 GSM Portuguese organic French terry. Features a seamless double-layer hood with custom silver aglets.',
-    specs: '✦ 520 GSM Loopback Terry • Double Layer Hood • Pre-shrunk',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['S', 'M', 'L', 'XL'],
     inStock: true
   },
   {
     id: 'ns-prod-202',
-    name: 'Chalk White Raglan Crewneck',
+    name: 'Your Product #06 — Raglan Crewneck',
     category: 'hoodies',
     categoryName: 'Hoodies & Sweatshirts',
     price: 155,
-    tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1000&auto=format&fit=crop',
-    description: 'Clean architectural raglan cut in unbleached chalk white with heavy 480 GSM cotton and blind stitched hem.',
-    specs: '✦ 480 GSM Compact Fleece • Raglan Sleeve Cut • Heavy Rib Hem',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['S', 'M', 'L', 'XL'],
     inStock: true
   },
   {
     id: 'ns-prod-203',
-    name: 'Cashmere-Blend Relaxed Knit Hoodie',
+    name: 'Your Product #07 — Knit Pullover Hoodie',
     category: 'hoodies',
     categoryName: 'Hoodies & Sweatshirts',
     price: 245,
-    tag: 'Limited Edition',
-    imageFront: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=1000&auto=format&fit=crop',
-    description: 'Plush 7-gauge knitted pullover hoodie combining extra-fine merino wool and pure Mongolian cashmere.',
-    specs: '✦ 70% Merino Wool, 30% Cashmere • Ribbed Trims • Relaxed Drape',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['S', 'M', 'L', 'XL'],
     inStock: true
   },
   {
     id: 'ns-prod-204',
-    name: 'Heavyweight Full-Zip Track Jacket',
+    name: 'Your Product #08 — Full-Zip Track Jacket',
     category: 'hoodies',
     categoryName: 'Hoodies & Sweatshirts',
     price: 175,
-    tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1000&auto=format&fit=crop',
-    description: 'Boxy 2-way RiRi zip hoodie with funnel collar, deep kangaroo pockets, and high-density ribbed waistband.',
-    specs: '✦ 500 GSM Brushed Fleece • 2-Way Metal Zip • Funnel Neckline',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['S', 'M', 'L', 'XL'],
     inStock: true
   },
@@ -174,57 +174,57 @@ const DEFAULT_PRODUCTS = [
   // --- PANTS & TROUSERS ---
   {
     id: 'ns-prod-301',
-    name: '14oz Okayama Japanese Selvedge Denim',
+    name: 'Your Product #09 — Selvedge Denim Jean',
     category: 'pants',
     categoryName: 'Pants & Trousers',
     price: 240,
-    tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1000&auto=format&fit=crop',
-    description: 'Woven on vintage shuttle looms in Kojima, Japan. Red-line selvedge ticker, custom copper rivets, and a relaxed straight cut.',
-    specs: '✦ 14oz Okayama Shuttle Looms • Solid Copper Hardware • Raw Indigo',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['30', '32', '34', '36'],
     inStock: true
   },
   {
     id: 'ns-prod-302',
-    name: 'Architectural Pleated Virgin Wool Trouser',
+    name: 'Your Product #10 — Pleated Tailored Trouser',
     category: 'pants',
     categoryName: 'Pants & Trousers',
     price: 215,
-    tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=1000&auto=format&fit=crop',
-    description: 'Double front pleats with a tailored flowing wide leg cut from Italian virgin wool blend with hidden side adjusters.',
-    specs: '✦ 60% Virgin Wool, 40% Viscose • Double Pleats • Internal Hook Tab',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['30', '32', '34', '36'],
     inStock: true
   },
   {
     id: 'ns-prod-303',
-    name: 'Articulated Utility Cargo Pant',
+    name: 'Your Product #11 — Utility Cargo Pant',
     category: 'pants',
     categoryName: 'Pants & Trousers',
     price: 195,
-    tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=1000&auto=format&fit=crop',
-    description: 'Heavy 340 GSM cotton ripstop with gusseted dual 3D cargo pockets, reinforced knees, and drawcord hems.',
-    specs: '✦ 340 GSM Cotton Ripstop • Cobra Buckle Straps • Adjustable Hems',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['S', 'M', 'L', 'XL'],
     inStock: true
   },
   {
     id: 'ns-prod-304',
-    name: 'Tailored Interlock Lounge Pant',
+    name: 'Your Product #12 — Interlock Lounge Pant',
     category: 'pants',
     categoryName: 'Pants & Trousers',
     price: 150,
-    tag: 'Essential',
-    imageFront: 'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=1000&auto=format&fit=crop',
-    description: 'Pin-tuck center front crease with encased elastic drawstring waist and premium metal-tipped cords.',
-    specs: '✦ Compact Interlock Cotton Knit • Metal-tipped Drawcords',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['S', 'M', 'L', 'XL'],
     inStock: true
   },
@@ -232,43 +232,43 @@ const DEFAULT_PRODUCTS = [
   // --- SHORTS & BOTTOMS ---
   {
     id: 'ns-prod-401',
-    name: 'Heavyweight French Terry Sweatshort',
+    name: 'Your Product #13 — French Terry Sweatshort',
     category: 'shorts',
     categoryName: 'Shorts & Bottoms',
     price: 110,
-    tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=1000&auto=format&fit=crop',
-    description: 'Cut from 480 GSM loopback cotton with raw-cut hem finish, deep slant pockets, and thick custom drawstrings.',
-    specs: '✦ 480 GSM Cotton Loopback • Raw Edge Hem • Thick Knit Waistband',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['S', 'M', 'L', 'XL'],
     inStock: true
   },
   {
     id: 'ns-prod-402',
-    name: 'Technical Nylon Cargo Short',
+    name: 'Your Product #14 — Technical Cargo Short',
     category: 'shorts',
     categoryName: 'Shorts & Bottoms',
     price: 135,
-    tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=1000&auto=format&fit=crop',
-    description: 'Water-resistant crinkle taslan nylon with magnetic FIDLOCK pocket flaps and built-in webbing belt.',
-    specs: '✦ Water-Repellent Nylon • FIDLOCK Magnetic Snaps • Integrated Belt',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['S', 'M', 'L', 'XL'],
     inStock: true
   },
   {
     id: 'ns-prod-403',
-    name: 'Tailored Linen-Cotton Pleated Short',
+    name: 'Your Product #15 — Pleated Linen Short',
     category: 'shorts',
     categoryName: 'Shorts & Bottoms',
     price: 145,
-    tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=1000&auto=format&fit=crop',
-    description: 'Italian linen and organic cotton blend with single front pleats, 7-inch inseam, and tailored side tabs.',
-    specs: '✦ 55% Italian Linen, 45% Cotton • 7-Inch Inseam • Horn Button Details',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['30', '32', '34', '36'],
     inStock: true
   },
@@ -276,57 +276,57 @@ const DEFAULT_PRODUCTS = [
   // --- JACKETS & OUTERWEAR ---
   {
     id: 'ns-prod-501',
-    name: 'Cashmere-Wool Double Breasted Overcoat',
+    name: 'Your Product #16 — Double Breasted Coat',
     category: 'outerwear',
     categoryName: 'Jackets & Outerwear',
     price: 490,
-    tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?q=80&w=1000&auto=format&fit=crop',
-    description: 'Architectural heavy overcoat tailored from Italian virgin wool and cashmere with cupro lining and horn buttons.',
-    specs: '✦ 80% Virgin Wool, 20% Cashmere • Cupro Bemberg Lining • Horn Buttons',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['S', 'M', 'L', 'XL'],
     inStock: true
   },
   {
     id: 'ns-prod-502',
-    name: 'Supple Nappa Leather Bomber Jacket',
+    name: 'Your Product #17 — Leather Bomber Jacket',
     category: 'outerwear',
     categoryName: 'Jackets & Outerwear',
     price: 450,
-    tag: 'Limited Edition',
-    imageFront: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1000&auto=format&fit=crop',
-    description: 'Ultra-soft Italian lambskin nappa with heavy wool rib knit collar, 2-way metal zip, and interior chest pockets.',
-    specs: '✦ 100% Full-Grain Lambskin • RiRi Swiss Zip • Wool Rib Trims',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['M', 'L', 'XL'],
     inStock: true
   },
   {
     id: 'ns-prod-503',
-    name: '3-Layer Technical Shell Jacket',
+    name: 'Your Product #18 — Technical Shell Jacket',
     category: 'outerwear',
     categoryName: 'Jackets & Outerwear',
     price: 290,
-    tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1000&auto=format&fit=crop',
-    description: '20,000mm waterproof breathable nylon membrane with fully taped internal seams and Cohaesive cord locks.',
-    specs: '✦ 3-Layer Taped Waterproof Nylon • YKK AquaGuard Zips',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['S', 'M', 'L', 'XL'],
     inStock: true
   },
   {
     id: 'ns-prod-504',
-    name: 'Overdyed Mineral Denim Trucker Jacket',
+    name: 'Your Product #19 — Denim Trucker Jacket',
     category: 'outerwear',
     categoryName: 'Jackets & Outerwear',
     price: 220,
-    tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1000&auto=format&fit=crop',
-    description: 'Boxy cropped type-3 denim jacket with mineral enzyme wash and custom solid brass shank hardware.',
-    specs: '✦ 13.5oz Cotton Denim • Solid Brass Shanks • Drop Shoulder Cut',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['S', 'M', 'L', 'XL'],
     inStock: true
   },
@@ -334,43 +334,43 @@ const DEFAULT_PRODUCTS = [
   // --- SHOES & FOOTWEAR ---
   {
     id: 'ns-prod-601',
-    name: 'Minimal Italian Leather Low-Top Sneaker',
+    name: 'Your Product #20 — Low-Top Leather Sneaker',
     category: 'shoes',
     categoryName: 'Shoes & Footwear',
     price: 220,
-    tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1000&auto=format&fit=crop',
-    description: 'Handcrafted in Civitanova Marche, Italy from full-grain calfskin with genuine Margom rubber cupsole.',
-    specs: '✦ 100% Full-Grain Italian Calfskin • Margom Rubber Cupsole',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['40', '41', '42', '43', '44', '45'],
     inStock: true
   },
   {
     id: 'ns-prod-602',
-    name: 'Obsidian Sculpted Technical Runner',
+    name: 'Your Product #21 — Technical Sculpted Runner',
     category: 'shoes',
     categoryName: 'Shoes & Footwear',
     price: 280,
-    tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=1000&auto=format&fit=crop',
-    description: 'Multi-layer Italian suede and ballistic nylon mesh upper with exaggerated sculpted EVA midsole and Vibram outsole.',
-    specs: '✦ Suede & Ballistic Mesh • Vibram Megagrip Sole • Ortholite Insole',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['41', '42', '43', '44', '45'],
     inStock: true
   },
   {
     id: 'ns-prod-603',
-    name: 'Suede Chelsea Boot in Tobacco',
+    name: 'Your Product #22 — Suede Chelsea Boot',
     category: 'shoes',
     categoryName: 'Shoes & Footwear',
     price: 360,
-    tag: 'Limited Edition',
-    imageFront: 'https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1000&auto=format&fit=crop',
-    description: 'Goodyear-welted ankle Chelsea boot crafted from water-repellent calf suede with stacked leather heel.',
-    specs: '✦ Premium Suede Calfskin • Stacked Leather Heel • Goodyear Welted',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['40', '41', '42', '43', '44'],
     inStock: true
   },
@@ -378,57 +378,57 @@ const DEFAULT_PRODUCTS = [
   // --- BELTS & ACCESSORIES ---
   {
     id: 'ns-prod-701',
-    name: 'Full-Grain Leather Roller Buckle Belt',
+    name: 'Your Product #23 — Leather Roller Belt',
     category: 'accessories',
     categoryName: 'Belts & Accessories',
     price: 95,
-    tag: 'Essential',
-    imageFront: 'https://images.unsplash.com/photo-1624222247344-550fb60583dc?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=1000&auto=format&fit=crop',
-    description: '35mm wide vegetable-tanned bridle leather belt with solid brushed stainless steel roller buckle and beveled edges.',
-    specs: '✦ 35mm Vegetable-Tanned Bridle Leather • Solid Steel Buckle',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['85cm', '90cm', '95cm', '100cm'],
     inStock: true
   },
   {
     id: 'ns-prod-702',
-    name: 'Pebble Grain Leather Cardholder',
+    name: 'Your Product #24 — Leather Cardholder',
     category: 'accessories',
     categoryName: 'Belts & Accessories',
     price: 80,
-    tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1000&auto=format&fit=crop',
-    description: 'Ultra-slim 4-slot cardholder with central folded cash compartment and debossed New Sitara insignia.',
-    specs: '✦ Pebble Grain Calfskin • RFID Protected • Hand-painted Edges',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['One Size'],
     inStock: true
   },
   {
     id: 'ns-prod-703',
-    name: 'Diamond-Cut Silver Curb Chain',
+    name: 'Your Product #25 — Silver Curb Chain',
     category: 'accessories',
     categoryName: 'Belts & Accessories',
     price: 165,
-    tag: 'Signature Drop',
-    imageFront: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=1000&auto=format&fit=crop',
-    description: '7mm precision diamond-cut bevel curb chain forged from 925 sterling silver with custom secure lobster lock.',
-    specs: '✦ 925 Sterling Silver • 50cm Length • Anti-Tarnish Rhodium Finish',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['50cm', '55cm'],
     inStock: true
   },
   {
     id: 'ns-prod-704',
-    name: 'Japanese Cotton Twill 6-Panel Cap',
+    name: 'Your Product #26 — Cotton Twill Cap',
     category: 'accessories',
     categoryName: 'Belts & Accessories',
     price: 65,
-    tag: 'New Drop',
-    imageFront: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1000&auto=format&fit=crop',
-    description: 'Structured 6-panel silhouette cut from heavy Japanese cotton twill with antique silver buckle adjuster.',
-    specs: '✦ 100% Heavy Japanese Cotton Twill • Metal Buckle Strap',
+    tag: 'Customizable',
+    imageFront: '/assets/product-placeholder.svg',
+    imageBack: '/assets/product-placeholder-back.svg',
+    description: 'This is a customizable product slot. Open the Merchant Admin portal at /admin to customize the title, pricing, imagery, category, sizes, and stock.',
+    specs: '✦ Fully Customizable Item • Edit Title, Price & Photos in /admin • Instant Cloud Sync',
     sizes: ['Adjustable'],
     inStock: true
   }
@@ -461,7 +461,7 @@ const DEFAULT_REVIEWS = [
     author: 'Hamza K.',
     rating: 5,
     title: '520 GSM weight is unreal',
-    comment: 'The French terry fleece is substantial and has incredible structure. Best streetwear hoodie I own.',
+    comment: 'Substantial weight and incredible structure. Best luxury hoodie in my rotation.',
     date: '2026-08-15',
     verified: true
   },
@@ -470,29 +470,9 @@ const DEFAULT_REVIEWS = [
     productId: 'ns-prod-101',
     author: 'Zayd M.',
     rating: 5,
-    title: 'Perfect boxy drape',
-    comment: 'Ribbed collar stays tight and the drop-shoulder cut is flattering. Exceptional cotton quality.',
+    title: 'Clean boxy drape',
+    comment: 'Tight collar and great shoulder drop. Exceptional cotton quality.',
     date: '2026-08-18',
-    verified: true
-  },
-  {
-    id: 'rev-103',
-    productId: 'ns-prod-301',
-    author: 'Tariq A.',
-    rating: 5,
-    title: 'Authentic Kojima denim',
-    comment: 'Stiff raw selvedge with a red ticker line. Fades are already developing beautifully.',
-    date: '2026-08-20',
-    verified: true
-  },
-  {
-    id: 'rev-104',
-    productId: 'ns-prod-701',
-    author: 'Danyal S.',
-    rating: 5,
-    title: 'Solid bridle leather',
-    comment: 'Full grain bridle leather develops a rich patina and the solid roller buckle feels indestructible.',
-    date: '2026-08-21',
     verified: true
   }
 ];
@@ -502,9 +482,9 @@ const DEFAULT_REVIEWS = [
 // ==========================================================================
 const DataStore = {
   getProducts() {
-    const raw = localStorage.getItem('sitara_products_v6');
+    const raw = localStorage.getItem('sitara_products_v7');
     if (!raw) {
-      localStorage.setItem('sitara_products_v6', JSON.stringify(DEFAULT_PRODUCTS));
+      localStorage.setItem('sitara_products_v7', JSON.stringify(DEFAULT_PRODUCTS));
       return DEFAULT_PRODUCTS;
     }
     try {
@@ -527,7 +507,7 @@ const DataStore = {
     } else {
       prods.unshift(product);
     }
-    localStorage.setItem('sitara_products_v6', JSON.stringify(prods));
+    localStorage.setItem('sitara_products_v7', JSON.stringify(prods));
     this.syncWithCloud('products', product);
     return prods;
   },
@@ -535,14 +515,14 @@ const DataStore = {
   deleteProduct(id) {
     let prods = this.getProducts();
     prods = prods.filter((p) => p.id !== id);
-    localStorage.setItem('sitara_products_v6', JSON.stringify(prods));
+    localStorage.setItem('sitara_products_v7', JSON.stringify(prods));
     return prods;
   },
 
   getCategories() {
-    const raw = localStorage.getItem('sitara_categories_v3');
+    const raw = localStorage.getItem('sitara_categories_v4');
     if (!raw) {
-      localStorage.setItem('sitara_categories_v3', JSON.stringify(DEFAULT_CATEGORIES));
+      localStorage.setItem('sitara_categories_v4', JSON.stringify(DEFAULT_CATEGORIES));
       return DEFAULT_CATEGORIES;
     }
     try {
@@ -560,14 +540,14 @@ const DataStore = {
     } else {
       cats.push(category);
     }
-    localStorage.setItem('sitara_categories_v3', JSON.stringify(cats));
+    localStorage.setItem('sitara_categories_v4', JSON.stringify(cats));
     return cats;
   },
 
   deleteCategory(id) {
     let cats = this.getCategories();
     cats = cats.filter((c) => c.id !== id);
-    localStorage.setItem('sitara_categories_v3', JSON.stringify(cats));
+    localStorage.setItem('sitara_categories_v4', JSON.stringify(cats));
     return cats;
   },
 
@@ -734,7 +714,7 @@ const DataStore = {
     };
     orders.unshift(newOrder);
     localStorage.setItem('sitara_orders_v2', JSON.stringify(orders));
-    this.saveCart([]); // Clear cart
+    this.saveCart([]);
     this.syncWithCloud('orders', newOrder);
     return newOrder;
   },

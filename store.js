@@ -56,6 +56,10 @@ function initStore() {
     if (wrap && !wrap.contains(e.target)) {
       wrap.classList.remove('open');
     }
+    const catWrap = document.getElementById('navCategoryDropdownWrap');
+    if (catWrap && !catWrap.contains(e.target)) {
+      catWrap.classList.remove('open');
+    }
   });
 
   if (window.lucide) window.lucide.createIcons();

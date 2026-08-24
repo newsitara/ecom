@@ -26,13 +26,29 @@ function initStore() {
   renderCurrencyDropdown();
   renderCategoryNavigation();
   renderCategoryPortals();
-  renderFeaturedGrid();
+  renderHomeDepartmentShelves();
   renderFilterPills();
   renderFooterCategories();
-  renderProductsGrid();
+
+  // Check URL category query
+  const urlParams = new URLSearchParams(window.location.search);
+  const initialCategory = urlParams.get('category');
+  if (initialCategory && initialCategory !== 'home') {
+    filterByCategory(initialCategory, null, false);
+  } else {
+    filterByCategory('home', null, false);
+  }
+
   updateCartBadge();
   renderCartFeed();
   updateWishlistBadge();
+
+  // Browser back/forward button support
+  window.addEventListener('popstate', () => {
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get('category') || 'home';
+    filterByCategory(cat, null, false);
+  });
 
   // Close dropdowns on outside click
   document.addEventListener('click', (e) => {
@@ -94,7 +110,7 @@ function selectCurrency(code, e) {
   if (wrap) wrap.classList.remove('open');
 
   renderCurrencyDropdown();
-  renderFeaturedGrid();
+  renderHomeDepartmentShelves();
   renderProductsGrid();
   renderCartFeed();
   if (document.getElementById('storeWishlistDrawer')?.classList.contains('open')) {
@@ -118,7 +134,8 @@ function renderCategoryNavigation() {
   const desktopNav = document.getElementById('desktopNavLinks');
   if (desktopNav) {
     desktopNav.innerHTML = `
-      <button class="nav-link-btn ${activeCategory === 'all' ? 'active' : ''}" onclick="filterByCategory('all')">Collection</button>
+      <button class="nav-link-btn ${activeCategory === 'home' ? 'active' : ''}" onclick="filterByCategory('home')">Home</button>
+      <button class="nav-link-btn ${activeCategory === 'all' ? 'active' : ''}" onclick="filterByCategory('all')">All Archive</button>
       ${categories
         .slice(0, 5)
         .map(
@@ -134,8 +151,11 @@ function renderCategoryNavigation() {
   const mobLinks = document.getElementById('mobDrawerLinks');
   if (mobLinks) {
     mobLinks.innerHTML = `
+      <button class="mob-category-btn ${activeCategory === 'home' ? 'active' : ''}" onclick="filterByCategory('home'); toggleMobileMenu(false);">
+        <span>🏠 Home Storefront</span>
+      </button>
       <button class="mob-category-btn ${activeCategory === 'all' ? 'active' : ''}" onclick="filterByCategory('all'); toggleMobileMenu(false);">
-        <span>All Collection</span>
+        <span>All Collections</span>
         <span class="mob-count-badge">${products.length}</span>
       </button>
       ${categories
@@ -176,62 +196,109 @@ function renderCategoryPortals() {
     .join('');
 }
 
-function renderFeaturedGrid() {
-  const grid = document.getElementById('featuredGrid');
-  if (!grid) return;
+function renderHomeDepartmentShelves() {
+  const container = document.getElementById('homeDepartmentShelves');
+  if (!container) return;
 
+  const categories = DataStore.getCategories();
   const products = DataStore.getProducts();
-  const featured = products.slice(0, 4);
 
-  grid.innerHTML = featured
-    .map((product) => {
-      const formattedPrice = DataStore.formatPrice(product.price, true);
-      const isSaved = DataStore.isInWishlist(product.id);
-      const ratingData = DataStore.getProductRating(product.id);
-      const stars = '★'.repeat(Math.round(ratingData.average)) + '☆'.repeat(5 - Math.round(ratingData.average));
+  // 1. Inaugural Drop: Most Wanted Shelf
+  const mostWanted = products.slice(0, 4);
 
-      return `
-      <article class="store-card" data-id="${product.id}">
-        <div class="card-media" onclick="window.location.href='/product.html?id=${product.id}'">
-          <img src="${product.imageFront}" alt="${product.name}" class="card-img-front" loading="lazy">
-          ${product.imageBack ? `<img src="${product.imageBack}" alt="${product.name} back" class="card-img-back" loading="lazy">` : ''}
-          ${product.tag ? `<span class="card-tag">${product.tag}</span>` : ''}
-          
-          <button type="button" class="card-wishlist-btn ${isSaved ? 'active' : ''}" onclick="event.stopPropagation(); handleCardWishlistToggle('${product.id}', this)" aria-label="Save to Wishlist">
-            <i data-lucide="heart"></i>
-          </button>
+  let shelvesHTML = `
+    <section class="department-shelf-section">
+      <div class="shelf-header">
+        <div class="shelf-title-col">
+          <span class="shelf-eyebrow">⚡ INAUGURAL DROP</span>
+          <h2 class="shelf-heading">Most Wanted Essentials</h2>
+        </div>
+        <button type="button" class="btn-shelf-viewall" onclick="filterByCategory('all')">
+          <span>Shop Complete Archive (${products.length})</span>
+          <i data-lucide="arrow-right"></i>
+        </button>
+      </div>
 
-          <button class="card-mob-btn mobile-only" onclick="event.stopPropagation(); window.location.href='/product.html?id=${product.id}'" aria-label="View Details">
-            <i data-lucide="arrow-up-right"></i>
-          </button>
+      <div class="products-grid grid-4">
+        ${mostWanted.map((p) => renderCardMarkup(p)).join('')}
+      </div>
+    </section>
+  `;
 
-          <div class="card-hover-drawer desktop-only">
-            <button class="btn-card-quick" onclick="event.stopPropagation(); window.location.href='/product.html?id=${product.id}'">
-              View Product Details ↗
-            </button>
+  // 2. Curated Shelves for Each Category
+  categories.forEach((cat) => {
+    const catProds = products.filter((p) => p.category === (cat.slug || cat.id));
+    if (catProds.length === 0) return;
+
+    shelvesHTML += `
+      <section class="department-shelf-section">
+        <div class="shelf-header">
+          <div class="shelf-title-col">
+            <span class="shelf-eyebrow">CURATED DEPARTMENT</span>
+            <h2 class="shelf-heading">${cat.name}</h2>
+            <p class="shelf-desc">${cat.description || ''}</p>
           </div>
+          <button type="button" class="btn-shelf-viewall" onclick="filterByCategory('${cat.slug || cat.id}')">
+            <span>Explore All ${cat.name.split('&')[0].trim()} (${catProds.length})</span>
+            <i data-lucide="arrow-right"></i>
+          </button>
         </div>
 
-        <div class="card-content" onclick="window.location.href='/product.html?id=${product.id}'">
-          <span class="card-category-label">${product.categoryName || product.category}</span>
-          <h3 class="card-heading">${product.name}</h3>
-          
-          <div class="card-rating-row">
-            <span class="card-rating-stars">${stars}</span>
-            <span class="card-rating-count">(${ratingData.count})</span>
-          </div>
-
-          <div class="card-price-row">
-            <span class="card-price-tag">${formattedPrice}</span>
-            ${product.inStock ? '<span class="card-stock-pill">Ready to Ship</span>' : '<span class="card-stock-pill soldout">Made to Order</span>'}
-          </div>
+        <div class="products-grid grid-4">
+          ${catProds.slice(0, 4).map((p) => renderCardMarkup(p)).join('')}
         </div>
-      </article>
+      </section>
     `;
-    })
-    .join('');
+  });
 
+  container.innerHTML = shelvesHTML;
   if (window.lucide) window.lucide.createIcons();
+}
+
+function renderCardMarkup(p) {
+  const isSaved = DataStore.isInWishlist(p.id);
+  const rating = DataStore.getProductRating(p.id);
+  const stars = '★'.repeat(Math.round(rating.average)) + '☆'.repeat(5 - Math.round(rating.average));
+  const formattedPrice = DataStore.formatPrice(p.price, true);
+
+  return `
+    <article class="store-card" data-id="${p.id}">
+      <div class="card-media" onclick="window.location.href='/product.html?id=${p.id}'">
+        <img src="${p.imageFront}" alt="${p.name}" class="card-img-front" loading="lazy">
+        ${p.imageBack ? `<img src="${p.imageBack}" alt="${p.name} back" class="card-img-back" loading="lazy">` : ''}
+        ${p.tag ? `<span class="card-tag">${p.tag}</span>` : ''}
+        
+        <button type="button" class="card-wishlist-btn ${isSaved ? 'active' : ''}" onclick="event.stopPropagation(); handleCardWishlistToggle('${p.id}', this)" aria-label="Save to Wishlist">
+          <i data-lucide="heart"></i>
+        </button>
+
+        <button class="card-mob-btn mobile-only" onclick="event.stopPropagation(); window.location.href='/product.html?id=${p.id}'" aria-label="View Details">
+          <i data-lucide="arrow-up-right"></i>
+        </button>
+
+        <div class="card-hover-drawer desktop-only">
+          <button class="btn-card-quick" onclick="event.stopPropagation(); window.location.href='/product.html?id=${p.id}'">
+            View Product Details ↗
+          </button>
+        </div>
+      </div>
+
+      <div class="card-content" onclick="window.location.href='/product.html?id=${p.id}'">
+        <span class="card-category-label">${p.categoryName || p.category}</span>
+        <h3 class="card-heading">${p.name}</h3>
+        
+        <div class="card-rating-row">
+          <span class="card-rating-stars">${stars}</span>
+          <span class="card-rating-count">(${rating.count})</span>
+        </div>
+
+        <div class="card-price-row">
+          <span class="card-price-tag">${formattedPrice}</span>
+          ${p.inStock ? '<span class="card-stock-pill">Ready to Ship</span>' : '<span class="card-stock-pill soldout">Made to Order</span>'}
+        </div>
+      </div>
+    </article>
+  `;
 }
 
 function renderFilterPills() {
@@ -610,19 +677,60 @@ function clearAllWishlist() {
   showToast('Wishlist cleared.');
 }
 
-function filterByCategory(catSlug, btnEl) {
-  activeCategory = catSlug;
+function filterByCategory(catSlug, btnEl, pushState = true) {
+  activeCategory = catSlug || 'home';
+  const isHome = activeCategory === 'home';
 
-  // Sync pills
-  document.querySelectorAll('.filter-pill').forEach((pill) => {
-    if (pill.dataset.cat === catSlug) pill.classList.add('active');
-    else pill.classList.remove('active');
-  });
+  const homeWrap = document.getElementById('homePageWrapper');
+  const catalogSec = document.getElementById('catalogSection');
 
-  // Sync desktop left links
+  if (isHome) {
+    if (homeWrap) homeWrap.style.display = 'block';
+    if (catalogSec) catalogSec.style.display = 'none';
+    if (pushState) {
+      window.history.pushState({}, '', '/store');
+    }
+  } else {
+    if (homeWrap) homeWrap.style.display = 'none';
+    if (catalogSec) catalogSec.style.display = 'block';
+
+    const categories = DataStore.getCategories();
+    const products = DataStore.getProducts();
+    const currentCat = categories.find((c) => (c.slug || c.id) === activeCategory);
+
+    const breadcrumbName = document.getElementById('collectionBreadcrumbName');
+    const mainHeading = document.getElementById('collectionMainHeading');
+    const subtext = document.getElementById('collectionSubtext');
+    const tagLabel = document.getElementById('collectionTagLabel');
+
+    if (activeCategory === 'all') {
+      if (breadcrumbName) breadcrumbName.textContent = 'All Collections';
+      if (mainHeading) mainHeading.textContent = 'All Ready-to-Wear Pieces';
+      if (subtext) subtext.textContent = `Showing all ${products.length} bespoke pieces across all departments.`;
+      if (tagLabel) tagLabel.textContent = 'COMPLETE ARCHIVE';
+    } else if (currentCat) {
+      const count = products.filter((p) => p.category === activeCategory).length;
+      if (breadcrumbName) breadcrumbName.textContent = currentCat.name;
+      if (mainHeading) mainHeading.textContent = currentCat.name;
+      if (subtext) subtext.textContent = `${currentCat.description || 'Curated departmental collection.'} (${count} Pieces)`;
+      if (tagLabel) tagLabel.textContent = 'DEPARTMENT COLLECTION';
+    }
+
+    if (pushState) {
+      window.history.pushState({}, '', `/store?category=${activeCategory}`);
+    }
+
+    // Sync pills
+    document.querySelectorAll('.filter-pill').forEach((pill) => {
+      if (pill.dataset.cat === activeCategory) pill.classList.add('active');
+      else pill.classList.remove('active');
+    });
+
+    renderProductsGrid();
+  }
+
+  // Sync navigation
   renderCategoryNavigation();
-  renderProductsGrid();
-  scrollToSection('catalogSection');
 }
 
 function handleSort(e) {

@@ -212,20 +212,14 @@ function applyTranslations() {
 
   // Hero Section Elements
   const heroSeason = document.querySelector('.hero-season-pill');
-  if (heroSeason) heroSeason.textContent = isRtl ? 'خريف / شتاء 2026' : 'AUTUMN / WINTER 2026';
+  if (heroSeason) heroSeason.textContent = DataStore.t('hero_season', 'AUTUMN / WINTER 2026');
   
   const heroDrop = document.querySelector('.hero-drop-badge');
-  if (heroDrop) heroDrop.textContent = isRtl ? 'إصدار حصري' : 'INAUGURAL DROP';
+  if (heroDrop) heroDrop.textContent = DataStore.t('hero_drop', 'INAUGURAL DROP');
 
   const heroHeadline = document.querySelector('.hero-headline');
   if (heroHeadline) {
-    if (lang === 'ar') {
-      heroHeadline.innerHTML = `تصاميم مميزة ومبتكرة.<br><span class="hero-highlight">أزياء راقية مصممة خصيصاً.</span>`;
-    } else if (lang === 'ur') {
-      heroHeadline.innerHTML = `پریمیم ملبوسات اور نفاست۔<br><span class="hero-highlight">شاہکار اسٹریٹ ویئر۔</span>`;
-    } else {
-      heroHeadline.innerHTML = `STRUCTURED SILHOUETTES.<br><span class="hero-highlight">BESPOKE STREETWEAR.</span>`;
-    }
+    heroHeadline.innerHTML = DataStore.t('hero_headline', 'STRUCTURED SILHOUETTES.<br><span class="hero-highlight">BESPOKE STREETWEAR.</span>');
   }
 
   const heroSubtext = document.querySelector('.hero-subtext');
@@ -233,36 +227,20 @@ function applyTranslations() {
 
   // Hero CTA Buttons
   const btnHeroPrimary = document.querySelector('.btn-hero-primary span');
-  if (btnHeroPrimary) btnHeroPrimary.textContent = isRtl ? 'استكشف المجموعة الافتتاحية' : 'Explore Inaugural Collection';
+  if (btnHeroPrimary) btnHeroPrimary.textContent = DataStore.t('hero_primary_btn', 'Explore Inaugural Collection');
   
   const btnHeroOutline = document.querySelector('.btn-hero-outline span');
-  if (btnHeroOutline) btnHeroOutline.textContent = isRtl ? 'الهوديات والسترات الفاخرة' : 'Heavyweight Hoodies';
+  if (btnHeroOutline) btnHeroOutline.textContent = DataStore.t('hero_outline_btn', 'Heavyweight Hoodies');
 
   // Hero Trust Pillars
   const heroTrustItems = document.querySelectorAll('.hero-trust-item');
   if (heroTrustItems.length >= 3) {
-    if (lang === 'ar') {
-      heroTrustItems[0].querySelector('strong').textContent = 'شحن مجاني دولي';
-      heroTrustItems[0].querySelector('span').textContent = 'للطلبات المؤهلة حول العالم';
-      heroTrustItems[1].querySelector('strong').textContent = 'دفع مشفر وآمن 256-Bit';
-      heroTrustItems[1].querySelector('span').textContent = 'بطاقات الدفع المعتمدة فقط';
-      heroTrustItems[2].querySelector('strong').textContent = 'استبدال مجاني خلال 14 يوماً';
-      heroTrustItems[2].querySelector('span').textContent = 'خدمة إرجاع واستبدال سهلة';
-    } else if (lang === 'ur') {
-      heroTrustItems[0].querySelector('strong').textContent = 'مفت عالمی ڈیلیوری';
-      heroTrustItems[0].querySelector('span').textContent = 'تمام اہل آرڈرز پر';
-      heroTrustItems[1].querySelector('strong').textContent = '256-بٹ محفوظ انکرپشن';
-      heroTrustItems[1].querySelector('span').textContent = 'صرف کارڈ کے ذریعے ادائیگی';
-      heroTrustItems[2].querySelector('strong').textContent = '14 دن میں مفت تبدیلی';
-      heroTrustItems[2].querySelector('span').textContent = 'آسان واپسی کی سہولت';
-    } else {
-      heroTrustItems[0].querySelector('strong').textContent = 'Complimentary Delivery';
-      heroTrustItems[0].querySelector('span').textContent = 'On qualifying global orders';
-      heroTrustItems[1].querySelector('strong').textContent = '256-Bit SSL Encrypted';
-      heroTrustItems[1].querySelector('span').textContent = 'Card payments only';
-      heroTrustItems[2].querySelector('strong').textContent = '14-Day Exchanges';
-      heroTrustItems[2].querySelector('span').textContent = 'Complimentary returns';
-    }
+    heroTrustItems[0].querySelector('strong').textContent = DataStore.t('trust_delivery_title', 'Complimentary Delivery');
+    heroTrustItems[0].querySelector('span').textContent = DataStore.t('trust_delivery_desc', 'On qualifying global orders');
+    heroTrustItems[1].querySelector('strong').textContent = DataStore.t('trust_ssl_title', '256-Bit SSL Encrypted');
+    heroTrustItems[1].querySelector('span').textContent = DataStore.t('trust_ssl_desc', 'Card payments only');
+    heroTrustItems[2].querySelector('strong').textContent = DataStore.t('trust_exchange_title', '14-Day Exchanges');
+    heroTrustItems[2].querySelector('span').textContent = DataStore.t('trust_exchange_desc', 'Complimentary returns');
   }
 
   // Flash Sale
@@ -367,18 +345,18 @@ function renderCategoryNavigation() {
       
       <div class="nav-dropdown-wrap" id="navCategoryDropdownWrap">
         <button type="button" class="nav-link-btn nav-dropdown-btn ${activeCategory !== 'home' && activeCategory !== 'all' ? 'active' : ''}" onclick="toggleNavCategoryDropdown(event)">
-          <span>Categories</span>
+          <span>${DataStore.t('nav_categories', 'Categories')}</span>
           <i data-lucide="chevron-down" class="nav-chevron"></i>
         </button>
         <div class="nav-category-dropdown" id="navCategoryDropdown">
-          <div class="nav-dropdown-head">Categories</div>
+          <div class="nav-dropdown-head">${DataStore.t('nav_categories', 'Categories')}</div>
           ${categories
             .map((c) => {
               const count = products.filter((p) => p.category === (c.slug || c.id)).length;
               return `
               <a href="javascript:void(0)" class="nav-cat-item ${activeCategory === (c.slug || c.id) ? 'active' : ''}" onclick="filterByCategory('${c.slug || c.id}'); closeNavCategoryDropdown();">
                 <span class="nav-cat-name">${c.name}</span>
-                <span class="nav-cat-count">${count} pieces</span>
+                <span class="nav-cat-count">${count}</span>
               </a>
             `;
             })
@@ -386,7 +364,7 @@ function renderCategoryNavigation() {
         </div>
       </div>
 
-      <button class="nav-link-btn" onclick="scrollToSection('homeDepartmentShelves')">Lookbook</button>
+      <button class="nav-link-btn" onclick="scrollToSection('homeDepartmentShelves')">${DataStore.t('nav_lookbook', 'Lookbook')}</button>
     `;
   }
 
@@ -395,7 +373,7 @@ function renderCategoryNavigation() {
   if (mobLinks) {
     mobLinks.innerHTML = `
       <button class="mob-category-btn ${activeCategory === 'home' ? 'active' : ''}" onclick="filterByCategory('home'); toggleMobileMenu(false);">
-        <span>Home</span>
+        <span>${DataStore.t('nav_home', 'Home')}</span>
       </button>
       ${categories
         .map((c) => {
@@ -443,11 +421,11 @@ function renderHomeDepartmentShelves() {
     <section class="department-shelf-section">
       <div class="shelf-header">
         <div class="shelf-title-col">
-          <span class="shelf-eyebrow">INAUGURAL RELEASE</span>
-          <h2 class="shelf-heading">Signature Essentials</h2>
+          <span class="shelf-eyebrow">${DataStore.t('shelf_inaugural', 'INAUGURAL RELEASE')}</span>
+          <h2 class="shelf-heading">${DataStore.t('shelf_most_wanted', 'Signature Essentials')}</h2>
         </div>
         <button type="button" class="btn-shelf-viewall" onclick="filterByCategory('all')">
-          <span>Shop Complete Archive (${products.length})</span>
+          <span>${DataStore.t('shelf_archive', 'Shop Complete Collection')} (${products.length})</span>
           <i data-lucide="arrow-right"></i>
         </button>
       </div>
@@ -467,12 +445,12 @@ function renderHomeDepartmentShelves() {
       <section class="department-shelf-section">
         <div class="shelf-header">
           <div class="shelf-title-col">
-            <span class="shelf-eyebrow">DEPARTMENT COLLECTION</span>
+            <span class="shelf-eyebrow">${DataStore.t('nav_categories', 'COLLECTION')}</span>
             <h2 class="shelf-heading">${cat.name}</h2>
             <p class="shelf-desc">${cat.description || ''}</p>
           </div>
           <button type="button" class="btn-shelf-viewall" onclick="filterByCategory('${cat.slug || cat.id}')">
-            <span>Explore All ${cat.name.split('&')[0].trim()} (${catProds.length})</span>
+            <span>${DataStore.t('shelf_explore', 'Explore All')} ${cat.name.split('&')[0].trim()} (${catProds.length})</span>
             <i data-lucide="arrow-right"></i>
           </button>
         </div>

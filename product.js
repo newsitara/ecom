@@ -1,4 +1,4 @@
-﻿// ==========================================================================
+// ==========================================================================
 // NEW SITARA — PRODUCT DETAIL PAGE CONTROLLER
 // ==========================================================================
 
@@ -487,7 +487,7 @@ function updateCartTotals(subtotalUSD) {
     meterFill.style.width = `${progress}%`;
     meterPercent.textContent = `${progress}%`;
     if (subtotalUSD >= 150) {
-      meterStatus.textContent = '🎉 You unlocked FREE Worldwide Express Delivery!';
+      meterStatus.textContent = 'You unlocked FREE Worldwide Express Delivery!';
     } else {
       const remaining = 150 - subtotalUSD;
       meterStatus.textContent = `Add ${DataStore.formatPrice(remaining, true)} for FREE express shipping`;

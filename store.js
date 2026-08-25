@@ -75,10 +75,10 @@ function renderCategoryPillStrip() {
 
   let pillsHTML = `
     <button type="button" class="quick-pill ${activeCategory === 'home' ? 'active' : ''}" onclick="filterByCategory('home')">
-      <span>🏠 Home</span>
+      <span>Home</span>
     </button>
     <button type="button" class="quick-pill ${activeCategory === 'all' ? 'active' : ''}" onclick="filterByCategory('all')">
-      <span>⚡ All Drops (${products.length})</span>
+      <span>All Drops (${products.length})</span>
     </button>
   `;
 
@@ -125,11 +125,9 @@ function renderCurrencyDropdown() {
   const currencies = DataStore.getCurrencies();
   const active = DataStore.getActiveCurrency();
 
-  const flagEl = document.getElementById('activeCurrencyFlag');
   const codeEl = document.getElementById('activeCurrencyCode');
   const dropdown = document.getElementById('currencyDropdown');
 
-  if (flagEl) flagEl.textContent = active.symbol ? active.symbol.trim() : '$';
   if (codeEl) codeEl.textContent = active.code;
 
   if (dropdown) {
@@ -172,7 +170,7 @@ function selectCurrency(code, e) {
     openProductModal(modalActiveProduct.id);
   }
 
-  showToast(`Currency changed to ${code} (${DataStore.getActiveCurrency().symbol})`);
+  showToast(`Currency changed to ${code}`);
 }
 
 // ==========================================================================
@@ -194,7 +192,7 @@ function renderCategoryNavigation() {
           <i data-lucide="chevron-down" class="nav-chevron"></i>
         </button>
         <div class="nav-category-dropdown" id="navCategoryDropdown">
-          <div class="nav-dropdown-head">Shop by Department</div>
+          <div class="nav-dropdown-head">Shop by Category</div>
           ${categories
             .map((c) => {
               const count = products.filter((p) => p.category === (c.slug || c.id)).length;
@@ -224,7 +222,7 @@ function renderCategoryNavigation() {
   if (mobLinks) {
     mobLinks.innerHTML = `
       <button class="mob-category-btn ${activeCategory === 'home' ? 'active' : ''}" onclick="filterByCategory('home'); toggleMobileMenu(false);">
-        <span>🏠 Home Storefront</span>
+        <span>Home Storefront</span>
       </button>
       <button class="mob-category-btn ${activeCategory === 'all' ? 'active' : ''}" onclick="filterByCategory('all'); toggleMobileMenu(false);">
         <span>All Collections</span>
@@ -276,8 +274,8 @@ function renderHomeDepartmentShelves() {
     <section class="department-shelf-section">
       <div class="shelf-header">
         <div class="shelf-title-col">
-          <span class="shelf-eyebrow">⚡ INAUGURAL DROP</span>
-          <h2 class="shelf-heading">Most Wanted Essentials</h2>
+          <span class="shelf-eyebrow">INAUGURAL RELEASE</span>
+          <h2 class="shelf-heading">Signature Essentials</h2>
         </div>
         <button type="button" class="btn-shelf-viewall" onclick="filterByCategory('all')">
           <span>Shop Complete Archive (${products.length})</span>
@@ -300,7 +298,7 @@ function renderHomeDepartmentShelves() {
       <section class="department-shelf-section">
         <div class="shelf-header">
           <div class="shelf-title-col">
-            <span class="shelf-eyebrow">CURATED DEPARTMENT</span>
+            <span class="shelf-eyebrow">DEPARTMENT COLLECTION</span>
             <h2 class="shelf-heading">${cat.name}</h2>
             <p class="shelf-desc">${cat.description || ''}</p>
           </div>
@@ -324,12 +322,12 @@ function renderHomeDepartmentShelves() {
 function renderCardMarkup(p) {
   const isSaved = DataStore.isInWishlist(p.id);
   const rating = DataStore.getProductRating(p.id);
-  const stars = '★'.repeat(Math.round(rating.average)) + '☆'.repeat(5 - Math.round(rating.average));
+  const stars = '★'.repeat(Math.round(rating.average));
   const formattedPrice = DataStore.formatPrice(p.price, true);
 
   return `
-    <article class="store-card" data-id="${p.id}">
-      <div class="card-media" onclick="window.location.href='/product.html?id=${p.id}'">
+    <article class="store-card" data-id="${p.id}" onclick="window.location.href='/product.html?id=${p.id}'">
+      <div class="card-media">
         <img src="${p.imageFront}" alt="${p.name}" class="card-img-front" loading="lazy">
         ${p.imageBack ? `<img src="${p.imageBack}" alt="${p.name} back" class="card-img-back" loading="lazy">` : ''}
         ${p.tag ? `<span class="card-tag">${p.tag}</span>` : ''}
@@ -338,18 +336,14 @@ function renderCardMarkup(p) {
           <i data-lucide="heart"></i>
         </button>
 
-        <button class="card-mob-btn mobile-only" onclick="event.stopPropagation(); window.location.href='/product.html?id=${p.id}'" aria-label="View Details">
-          <i data-lucide="arrow-up-right"></i>
-        </button>
-
         <div class="card-hover-drawer desktop-only">
           <button class="btn-card-quick" onclick="event.stopPropagation(); window.location.href='/product.html?id=${p.id}'">
-            View Product Details ↗
+            View Details
           </button>
         </div>
       </div>
 
-      <div class="card-content" onclick="window.location.href='/product.html?id=${p.id}'">
+      <div class="card-content">
         <span class="card-category-label">${p.categoryName || p.category}</span>
         <h3 class="card-heading">${p.name}</h3>
         
@@ -360,7 +354,10 @@ function renderCardMarkup(p) {
 
         <div class="card-price-row">
           <span class="card-price-tag">${formattedPrice}</span>
-          ${p.inStock ? '<span class="card-stock-pill">Ready to Ship</span>' : '<span class="card-stock-pill soldout">Made to Order</span>'}
+          <button type="button" class="btn-mob-add-pill mobile-only" onclick="event.stopPropagation(); window.location.href='/product.html?id=${p.id}'">
+            <span>View</span>
+            <i data-lucide="arrow-right"></i>
+          </button>
         </div>
       </div>
     </article>

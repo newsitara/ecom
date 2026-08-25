@@ -3,14 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>NEW SITARA — Contemporary Apparel & Goods</title>
+  <title>NEW SITARA — Contemporary Luxury Apparel</title>
   
-  <!-- Apple-Style Modern Typography -->
+  <!-- Official Favicon -->
+  <link rel="icon" type="image/jpeg" href="/assets/ns logo.jpg">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/ns logo.jpg">
+  
+  <!-- Modern Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="/store.css?v=20260822_checkout">
+  <link rel="stylesheet" href="/store.css?v=20260825_clean">
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="store-theme">
@@ -18,14 +23,14 @@
   <!-- Micro Announcement Bar -->
   <aside class="store-announcement">
     <div class="announcement-track">
-      <span>✦ FREE WORLDWIDE EXPRESS SHIPPING ON ORDERS OVER $150</span>
-      <span>•</span>
+      <span>FREE NATIONWIDE AND GLOBAL SHIPPING ON QUALIFYING ORDERS</span>
+      <span class="track-dot">•</span>
       <span>USE PROMO CODE <strong>SITARA15</strong> FOR 15% OFF INAUGURAL DROP</span>
-      <span>•</span>
-      <span>LIVE GLOBAL ORDER TRACKING AVAILABLE AT /TRACK</span>
-      <span>•</span>
-      <span>✦ FREE WORLDWIDE EXPRESS SHIPPING ON ORDERS OVER $150</span>
-      <span>•</span>
+      <span class="track-dot">•</span>
+      <span>LIVE ORDER TRACKING AVAILABLE AT /TRACK</span>
+      <span class="track-dot">•</span>
+      <span>FREE NATIONWIDE AND GLOBAL SHIPPING ON QUALIFYING ORDERS</span>
+      <span class="track-dot">•</span>
       <span>USE PROMO CODE <strong>SITARA15</strong> FOR 15% OFF</span>
     </div>
   </aside>
@@ -55,8 +60,7 @@
         <!-- Multi-Currency Selector -->
         <div class="currency-picker-wrap" id="currencyPickerWrap">
           <button type="button" class="currency-btn" id="currencyToggleBtn" onclick="toggleCurrencyDropdown(event)" aria-label="Select Currency">
-            <span id="activeCurrencyFlag">🇺🇸</span>
-            <span id="activeCurrencyCode">USD</span>
+            <span id="activeCurrencyCode">PKR</span>
             <i data-lucide="chevron-down" class="chevron-icon"></i>
           </button>
           <div class="currency-dropdown" id="currencyDropdown">
@@ -118,25 +122,25 @@
     <div class="mob-drawer-footer">
       <a href="/track" class="mob-track-link"><i data-lucide="map-pin"></i> Track Your Shipment</a>
       <a href="/admin" class="mob-admin-link"><i data-lucide="shield"></i> Merchant Admin Portal</a>
-      <a href="/" class="mob-coming-soon-link">← Return to Coming Soon Screen</a>
+      <a href="/" class="mob-coming-soon-link">Return to Coming Soon Screen</a>
     </div>
   </aside>
 
-  <!-- Light Contemporary Hero Banner (Inspired by Eveen.pk clean aesthetic) -->
+  <!-- Light Contemporary Hero Banner -->
   <section class="store-hero light-hero">
     <div class="hero-inner">
-      <span class="hero-capsule">✦ NEW INAUGURAL COLLECTION</span>
+      <span class="hero-capsule">INAUGURAL COLLECTION</span>
       <h1 class="hero-headline">PREMIUM APPAREL & BESPOKE ESSENTIALS</h1>
       <p class="hero-subtext">Discover contemporary silhouettes, heavyweight fabrics, and tailored streetwear designed for everyday luxury.</p>
       
       <div class="hero-cta-row">
-        <button class="btn btn-hero-primary" onclick="filterByCategory('all')">Shop All Pieces →</button>
-        <button class="btn btn-hero-outline" onclick="toggleNavCategoryDropdown(event)">Explore Departments ▾</button>
+        <button class="btn btn-hero-primary" onclick="filterByCategory('all')">Shop All Pieces</button>
+        <button class="btn btn-hero-outline" onclick="toggleNavCategoryDropdown(event)">Explore Departments</button>
       </div>
     </div>
   </section>
 
-  <!-- Clean Service Value Pillars (Eveen.pk inspired Trust Grid) -->
+  <!-- Clean Service Value Pillars -->
   <section class="trust-features-bar">
     <div class="trust-grid">
       <div class="trust-item">
@@ -595,7 +599,7 @@
           <div class="chk-math-line"><span>Subtotal</span><strong id="chkSubtotalVal">$0.00</strong></div>
           <div class="chk-math-line discount-line" id="chkDiscountRow" style="display:none;"><span>Promo Discount</span><strong id="chkDiscountVal">-$0.00</strong></div>
           <div class="chk-math-line"><span>Worldwide Shipping</span><span id="chkShippingVal">FREE</span></div>
-          <div class="chk-math-line grand-total-line"><span>Total Due</span><strong id="chkTotalVal">$0.00 USD</strong></div>
+        <div class="chk-math-line grand-total-line"><span>Total Due</span><strong id="chkTotalVal">$0.00 USD</strong></div>
         </div>
 
         <button type="submit" class="btn btn-dark btn-block btn-place-order" id="btnPlaceOrder">
@@ -604,7 +608,7 @@
         </button>
 
         <p class="checkout-security-notice">
-          🔒 By placing your order, you agree to New Sitara Terms & Conditions and receive an instant Tracking ID.
+          By placing your order, you agree to New Sitara Terms & Conditions and receive an instant Tracking ID.
         </p>
       </div>
 
@@ -700,7 +704,6 @@
     <div class="cart-shipping-meter">
       <div class="meter-text">
         <span id="shippingMeterMessage">Add $150 for Free Worldwide Express</span>
-        <span>✈</span>
       </div>
       <div class="meter-bar-track">
         <div class="meter-bar-fill" id="shippingMeterFill" style="width: 0%;"></div>

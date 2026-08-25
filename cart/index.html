@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Shopping Bag — NEW SITARA</title>
+  
+  <!-- Official Favicon -->
+  <link rel="icon" type="image/jpeg" href="/assets/ns logo.jpg">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/ns logo.jpg">
+  
+  <!-- Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/store.css?v=20260825_live">
+  <link rel="stylesheet" href="/cart.css?v=20260825_live">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="store-theme cart-page-body">
+
+  <!-- Micro Announcement Bar -->
+  <aside class="store-announcement">
+    <div class="announcement-track">
+      <span>FREE NATIONWIDE AND GLOBAL SHIPPING ON QUALIFYING ORDERS</span>
+      <span class="track-dot">•</span>
+      <span>USE PROMO CODE SITARA15 FOR 15% OFF INAUGURAL DROP</span>
+      <span class="track-dot">•</span>
+      <span>SECURE CARD CHECKOUT WITH 256-BIT SSL ENCRYPTION</span>
+      <span class="track-dot">•</span>
+      <span>HANDCRAFTED LUXURY STREETWEAR & BESPOKE ATELIER TAILORING</span>
+      <span class="track-dot">•</span>
+    </div>
+  </aside>
+
+  <!-- Sticky Modern Navbar -->
+  <header class="store-navbar" id="storeNavbar">
+    <div class="nav-container">
+      
+      <!-- Desktop Category Links -->
+      <nav class="nav-links-left desktop-only" id="desktopNavLinks">
+        <a href="/store" class="nav-item">Catalog</a>
+      </nav>
+
+      <!-- Center Brand Logo -->
+      <a href="/store" class="brand-center">
+        <span class="brand-logotype">NEW SITARA</span>
+      </a>
+
+      <!-- Right Actions -->
+      <div class="nav-actions-right">
+        
+        <!-- Multi-Language Selector -->
+        <div class="lang-picker-wrap" id="langPickerWrap">
+          <button type="button" class="lang-btn" id="langToggleBtn" onclick="toggleLangDropdown(event)" aria-label="Select Language">
+            <i data-lucide="globe"></i>
+            <span id="activeLangCode">EN</span>
+            <i data-lucide="chevron-down" class="chevron-icon"></i>
+          </button>
+          <div class="lang-dropdown" id="langDropdown"></div>
+        </div>
+
+        <!-- Multi-Currency Selector -->
+        <div class="currency-picker-wrap" id="currencyPickerWrap">
+          <button type="button" class="currency-btn" id="currencyToggleBtn" onclick="toggleCurrencyDropdown(event)" aria-label="Select Currency">
+            <span id="activeCurrencyCode">USD</span>
+            <i data-lucide="chevron-down" class="chevron-icon"></i>
+          </button>
+          <div class="currency-dropdown" id="currencyDropdown"></div>
+        </div>
+
+        <!-- Track Order Link -->
+        <a href="/track" class="nav-track-link desktop-only" title="Track Order">
+          <i data-lucide="map-pin"></i>
+          <span>Track Order</span>
+        </a>
+
+        <!-- Shopping Bag Link (Active) -->
+        <a href="/cart" class="store-bag-btn active" aria-label="Shopping Bag">
+          <i data-lucide="shopping-bag"></i>
+          <span class="bag-pill" id="cartCountBadge">0</span>
+        </a>
+
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Cart Container -->
+  <main class="cart-main-container">
+    
+    <!-- Breadcrumbs -->
+    <div class="cart-breadcrumbs">
+      <a href="/store">Home</a>
+      <span class="sep">/</span>
+      <a href="/store">Atelier Catalog</a>
+      <span class="sep">/</span>
+      <span>Shopping Bag</span>
+    </div>
+
+    <!-- Page Header -->
+    <div class="cart-page-header">
+      <h1 class="cart-page-title">
+        <span>Your Shopping Bag</span>
+        <span class="cart-page-count" id="cartPageCount">(0 items)</span>
+      </h1>
+      <a href="/store" class="cart-continue-link">
+        <i data-lucide="arrow-left" style="width: 15px; height: 15px;"></i>
+        <span>Continue Shopping</span>
+      </a>
+    </div>
+
+    <!-- Dynamic Cart Layout (Injected via cart.js) -->
+    <div id="cartLayoutContainer">
+      <!-- Injected dynamically -->
+    </div>
+
+  </main>
+
+  <!-- Toast Notification Hub -->
+  <div class="store-toast-hub" id="toastHub"></div>
+
+  <!-- Full Checkout Flow Modal (Shipping Details & Payment Selection) -->
+  <div class="modal-backdrop" id="checkoutBackdrop" onclick="closeCheckoutModal()"></div>
+  <div class="checkout-modal" id="checkoutModal">
+    <div class="modal-drag-bar mobile-only"></div>
+    <div class="checkout-modal-head">
+      <div class="head-left">
+        <i data-lucide="lock"></i>
+        <h3>Secure Card Checkout</h3>
+      </div>
+      <button class="modal-close-btn" onclick="closeCheckoutModal()"><i data-lucide="x"></i></button>
+    </div>
+
+    <form class="checkout-form-grid" id="checkoutForm" onsubmit="handlePlaceOrder(event)">
+      
+      <!-- Left Column: Shipping & Payment -->
+      <div class="checkout-left-pane">
+        
+        <!-- Contact Information -->
+        <div class="form-section">
+          <h4 class="form-section-title">1. Contact Information</h4>
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label>Full Name *</label>
+              <input type="text" id="chkFullName" class="form-input" placeholder="e.g. John Doe" required>
+            </div>
+            <div class="form-group flex-1">
+              <label>Phone Number (with Country Code) *</label>
+              <input type="tel" id="chkPhone" class="form-input" placeholder="+1 (555) 000-0000" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address (For Tracking & Invoices) *</label>
+            <input type="email" id="chkEmail" class="form-input" placeholder="john.doe@example.com" required>
+          </div>
+        </div>
+
+        <!-- Shipping Address -->
+        <div class="form-section">
+          <h4 class="form-section-title">2. International Shipping Destination</h4>
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label>Country / Region *</label>
+              <select id="chkCountry" class="form-input" onchange="handleCountryChange(event)">
+                <!-- Dynamically populated from DataStore with 40+ countries -->
+              </select>
+            </div>
+            <div class="form-group flex-2">
+              <label>City / Town *</label>
+              <input type="text" id="chkCity" class="form-input" placeholder="e.g. London, Dubai, New York" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Street Address *</label>
+            <input type="text" id="chkStreet" class="form-input" placeholder="House/Building No., Street Name" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label>Apartment, Suite, Unit</label>
+              <input type="text" id="chkApartment" class="form-input" placeholder="Apt, Suite, Floor (Optional)">
+            </div>
+            <div class="form-group flex-1">
+              <label>State / Province / Region</label>
+              <input type="text" id="chkState" class="form-input" placeholder="State/County">
+            </div>
+            <div class="form-group flex-1">
+              <label>Postal / ZIP Code *</label>
+              <input type="text" id="chkPostal" class="form-input" placeholder="Postal Code" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Method Selection (Card Only) -->
+        <div class="form-section">
+          <h4 class="form-section-title">3. Payment Method (Card Only)</h4>
+          
+          <div class="payment-options-grid">
+            <label class="pay-option-card active" style="border-color: #111827; background: #FAF8F5; cursor: default;">
+              <input type="radio" name="payMethod" value="Credit / Debit Card" checked style="accent-color: #111827;">
+              <div class="pay-option-content">
+                <div class="pay-option-title" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <i data-lucide="credit-card"></i>
+                    <strong>Credit / Debit Card</strong>
+                  </div>
+                  <div class="card-brand-logos" style="display: flex; gap: 0.35rem; font-size: 0.7rem; font-weight: 800; color: #4B5563;">
+                    <span style="background: #FFF; padding: 0.15rem 0.4rem; border-radius: 4px; border: 1px solid #E5E7EB;">VISA</span>
+                    <span style="background: #FFF; padding: 0.15rem 0.4rem; border-radius: 4px; border: 1px solid #E5E7EB;">MASTERCARD</span>
+                    <span style="background: #FFF; padding: 0.15rem 0.4rem; border-radius: 4px; border: 1px solid #E5E7EB;">AMEX</span>
+                  </div>
+                </div>
+                <p class="pay-option-desc" style="margin-top: 0.35rem; font-size: 0.78rem; color: #6B7280;">Encrypted 256-bit instant checkout. Only cards accepted.</p>
+              </div>
+            </label>
+          </div>
+
+          <!-- Secure Card Input Fields -->
+          <div class="card-checkout-fields" style="margin-top: 1rem; display: grid; gap: 0.75rem; background: #FAF8F5; padding: 1.15rem; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06);">
+            <div class="form-group" style="margin-bottom: 0;">
+              <label style="font-size: 0.75rem; font-weight: 700; color: #374151; margin-bottom: 0.25rem; display: block;">Card Number</label>
+              <input type="text" id="chkCardNumber" placeholder="4000 1234 5678 9010" required maxlength="19" autocomplete="cc-number" style="width: 100%; padding: 0.65rem 0.85rem; border-radius: 6px; border: 1px solid #D1D5DB; font-family: monospace; font-size: 0.95rem; background: #FFF;">
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+              <div class="form-group" style="margin-bottom: 0;">
+                <label style="font-size: 0.75rem; font-weight: 700; color: #374151; margin-bottom: 0.25rem; display: block;">Expiry Date</label>
+                <input type="text" id="chkCardExpiry" placeholder="MM / YY" required maxlength="5" autocomplete="cc-exp" style="width: 100%; padding: 0.65rem 0.85rem; border-radius: 6px; border: 1px solid #D1D5DB; font-family: monospace; font-size: 0.95rem; background: #FFF;">
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <label style="font-size: 0.75rem; font-weight: 700; color: #374151; margin-bottom: 0.25rem; display: block;">Security Code (CVC)</label>
+                <input type="text" id="chkCardCvc" placeholder="123" required maxlength="4" autocomplete="cc-csc" style="width: 100%; padding: 0.65rem 0.85rem; border-radius: 6px; border: 1px solid #D1D5DB; font-family: monospace; font-size: 0.95rem; background: #FFF;">
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 0;">
+              <label style="font-size: 0.75rem; font-weight: 700; color: #374151; margin-bottom: 0.25rem; display: block;">Name on Card</label>
+              <input type="text" id="chkCardName" placeholder="Cardholder full name" required autocomplete="cc-name" style="width: 100%; padding: 0.65rem 0.85rem; border-radius: 6px; border: 1px solid #D1D5DB; font-size: 0.85rem; background: #FFF;">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Order Summary & Place Order -->
+      <div class="checkout-right-pane">
+        <h4 class="form-section-title">Order Summary</h4>
+        
+        <div class="checkout-mini-items" id="chkItemsList">
+          <!-- Injected dynamically -->
+        </div>
+
+        <div class="checkout-totals-box">
+          <div class="chk-math-line"><span>Subtotal</span><strong id="chkSubtotalVal">$0.00</strong></div>
+          <div class="chk-math-line discount-line" id="chkDiscountRow" style="display:none;"><span>Promo Discount</span><strong id="chkDiscountVal">-$0.00</strong></div>
+          <div class="chk-math-line"><span>Worldwide Shipping</span><span id="chkShippingVal">FREE</span></div>
+          <div class="chk-math-line grand-total-line"><span>Total Due</span><strong id="chkTotalVal">$0.00 USD</strong></div>
+        </div>
+
+        <button type="submit" class="btn btn-dark btn-block btn-place-order" id="btnPlaceOrder">
+          <span>Authorize & Complete Order</span>
+          <i data-lucide="arrow-right"></i>
+        </button>
+
+        <p class="checkout-security-notice">
+          By placing your order, you agree to New Sitara Terms & Conditions and receive an instant Tracking ID.
+        </p>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Order Success & Tracking Receipt Modal -->
+  <div class="modal-backdrop" id="receiptBackdrop"></div>
+  <div class="receipt-modal" id="receiptModal">
+    <div class="receipt-card-inner">
+      <div class="receipt-badge-icon"><i data-lucide="check-circle-2"></i></div>
+      
+      <span class="receipt-sup-tag">ORDER CONFIRMED & VERIFIED</span>
+      <h2 class="receipt-title">Thank you for your order!</h2>
+      <p class="receipt-msg">Your order has been registered in the New Sitara Atelier. Your personal Tracking ID has been generated below:</p>
+
+      <!-- Copyable Tracking Box -->
+      <div class="tracking-copy-box">
+        <div class="trk-label">YOUR LIVE TRACKING ID:</div>
+        <div class="trk-id-row">
+          <code id="receiptTrackingId">NS-TRK-XXXXX</code>
+          <button type="button" class="btn-copy-trk" onclick="copyReceiptTrackingId()">
+            <i data-lucide="copy"></i>
+            <span>Copy</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="receipt-actions">
+        <a href="/track" id="btnTrackShipmentLink" class="btn btn-dark btn-block">
+          <i data-lucide="map-pin"></i>
+          <span>Track Your Shipment Now ↗</span>
+        </a>
+        <button type="button" class="btn btn-outline btn-block" onclick="window.print()" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: #FFF; border: 1px solid var(--border-dark); color: var(--text-main); font-weight: 700; padding: 0.75rem; border-radius: 8px; cursor: pointer;">
+          <i data-lucide="printer"></i>
+          <span>Print Official Receipt / PDF</span>
+        </button>
+        <button type="button" class="btn btn-hero-light btn-block" onclick="closeReceiptModalAndShop()">
+          Continue Shopping
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Quick Navigation Bar -->
+  <nav class="mobile-bottom-bar mobile-only">
+    <a href="/store" class="mob-tab">
+      <i data-lucide="grid"></i>
+      <span>Shop</span>
+    </a>
+    <a href="/cart" class="mob-tab active">
+      <div class="mob-bag-badge-wrap">
+        <i data-lucide="shopping-bag"></i>
+        <span class="mob-bag-pill" id="mobCartBadge">0</span>
+      </div>
+      <span>Bag</span>
+    </a>
+    <a href="/track" class="mob-tab">
+      <i data-lucide="map-pin"></i>
+      <span>Track</span>
+    </a>
+  </nav>
+
+  <!-- Compact Minimal Footer -->
+  <footer class="compact-footer">
+    <div class="footer-wrap">
+      <div class="footer-bottom-row">
+        <p>&copy; 2026 NEW SITARA ATELIER. ALL RIGHTS RESERVED.</p>
+        <div class="footer-bottom-links">
+          <a href="/store">Storefront</a>
+          <a href="/cart">Shopping Bag</a>
+          <a href="/track">Track Shipment</a>
+          <a href="/admin">Merchant Admin</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/store-data.js?v=20260825_live"></script>
+  <script src="/cart.js?v=20260825_live"></script>
+</body>
+</html>

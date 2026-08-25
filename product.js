@@ -167,9 +167,10 @@ function addCurrentProductToCart() {
   if (!currentProduct) return;
   DataStore.addToCart(currentProduct.id, selectedSize, currentQty);
   updateCartBadge();
-  renderCartFeed();
-  toggleCartDrawer(true);
-  showToast(`Added ${currentQty}x ${currentProduct.name} (${selectedSize}) to Bag.`);
+  showToast(`Added ${currentQty}× "${currentProduct.name}" (${selectedSize}) to bag.`);
+  setTimeout(() => {
+    window.location.href = '/cart';
+  }, 350);
 }
 
 function togglePdpWishlist() {

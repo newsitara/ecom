@@ -91,11 +91,11 @@
           <span class="wishlist-pill" id="wishlistCountBadge">0</span>
         </button>
 
-        <!-- Shopping Bag Trigger -->
-        <button class="store-bag-btn" onclick="toggleCartDrawer(true)" aria-label="View Shopping Bag">
+        <!-- Shopping Bag Link -->
+        <a href="/cart" class="store-bag-btn" aria-label="View Shopping Bag">
           <i data-lucide="shopping-bag"></i>
           <span class="bag-pill" id="cartCountBadge">0</span>
-        </button>
+        </a>
 
       </div>
 
@@ -344,65 +344,6 @@
       <span>Add to Bag</span>
     </button>
   </div>
-
-  <!-- Slide-Out Shopping Bag Drawer -->
-  <div class="cart-backdrop" id="cartBackdrop" onclick="toggleCartDrawer(false)"></div>
-  <aside class="store-cart-drawer" id="storeCartDrawer">
-    <div class="cart-head">
-      <div class="cart-head-title">
-        <h3>Shopping Bag</h3>
-        <span class="cart-badge-count" id="cartDrawerCount">(0 items)</span>
-      </div>
-      <button class="cart-close-btn" onclick="toggleCartDrawer(false)"><i data-lucide="x"></i></button>
-    </div>
-
-    <div class="cart-shipping-meter">
-      <div class="meter-text">
-        <span id="meterStatus">Add $150 for FREE express delivery</span>
-        <span id="meterPercent">0%</span>
-      </div>
-      <div class="meter-bar-track">
-        <div class="meter-bar-fill" id="meterBarFill" style="width:0%;"></div>
-      </div>
-    </div>
-
-    <div class="cart-items-container" id="cartItemsContainer"></div>
-
-    <!-- Cart Checkout Box -->
-    <div class="cart-checkout-box">
-      <div class="promo-input-group">
-        <input type="text" id="cartPromoInput" placeholder="Promo code (e.g. SITARA15)">
-        <button type="button" onclick="handleApplyPromo()">Apply</button>
-      </div>
-
-      <div class="cart-math-breakdown">
-        <div class="math-line">
-          <span>Subtotal</span>
-          <span id="cartSubtotalVal">$0.00</span>
-        </div>
-        <div class="math-line discount-line" id="cartDiscountLine" style="display:none;">
-          <span>Discount (15%)</span>
-          <span id="cartDiscountVal">-$0.00</span>
-        </div>
-        <div class="math-line">
-          <span>Worldwide Shipping</span>
-          <span id="cartShippingVal">$15.00</span>
-        </div>
-        <div class="math-line total-line">
-          <span>Estimated Total</span>
-          <span id="cartGrandTotalVal">$0.00 USD</span>
-        </div>
-      </div>
-
-      <div class="cart-action-buttons">
-        <button class="btn btn-dark btn-block" onclick="openCheckoutModal()">
-          <span>Proceed to Secure Card Checkout</span>
-          <i data-lucide="arrow-right"></i>
-        </button>
-      </div>
-      <p class="cart-trust-footer">256-Bit SSL Encrypted Bank-Grade Checkout</p>
-    </div>
-  </aside>
 
   <!-- Slide-Out Wishlist Drawer -->
   <div class="cart-backdrop" id="wishlistBackdrop" onclick="toggleWishlistDrawer(false)"></div>

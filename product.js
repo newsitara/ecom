@@ -481,10 +481,10 @@ function renderCartFeed() {
 
   if (cart.length === 0) {
     container.innerHTML = `
-      <div style="text-align:center; padding: 3rem 1rem; color: var(--text-muted);">
-        <i data-lucide="shopping-bag" style="width: 48px; height: 48px; opacity: 0.3; margin-bottom: 0.75rem;"></i>
-        <h4>Your Bag is Empty</h4>
-        <p style="font-size: 0.8rem; margin-top: 0.35rem;">Explore our inaugural collection to add pieces.</p>
+      <div style="margin: auto; text-align: center; color: var(--text-muted); padding: 3rem 1rem;">
+        <i data-lucide="shopping-bag" style="width: 44px; height: 44px; margin-bottom: 0.75rem; opacity: 0.3;"></i>
+        <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--text-main);">Your bag is empty</h4>
+        <p style="font-size: 0.82rem; margin-top: 0.35rem;">Explore our inaugural collection to add pieces.</p>
       </div>
     `;
     updateCartTotals(0);
@@ -507,12 +507,15 @@ function renderCartFeed() {
         <img src="${product.imageFront}" alt="${product.name}" class="cart-item-img">
         <div class="cart-item-details">
           <h4 class="cart-item-title">${product.name}</h4>
-          <span class="cart-item-meta">Size: ${item.size} • ${DataStore.formatPrice(product.price, true)}</span>
-          <div class="cart-item-stepper">
-            <button class="cart-qty-btn" onclick="updateCartQty('${item.id}', '${item.size}', -1)">−</button>
-            <span class="cart-qty-val">${item.quantity}</span>
-            <button class="cart-qty-btn" onclick="updateCartQty('${item.id}', '${item.size}', 1)">+</button>
-            <span style="margin-left:auto; font-weight:800; font-size:0.85rem;">${formattedLineTotal}</span>
+          <span class="cart-item-meta">Size: ${item.size} • ${product.categoryName || product.category}</span>
+          <div class="cart-item-bottom">
+            <div class="stepper-box">
+              <button class="stepper-btn" onclick="updateCartQty('${item.id}', '${item.size}', -1)">−</button>
+              <span class="stepper-val">${item.quantity}</span>
+              <button class="stepper-btn" onclick="updateCartQty('${item.id}', '${item.size}', 1)">+</button>
+            </div>
+            <span class="cart-item-price">${formattedLineTotal}</span>
+            <button class="remove-btn" onclick="removeCartItem('${item.id}', '${item.size}')">Remove</button>
           </div>
         </div>
       </div>
@@ -530,13 +533,15 @@ function updateCartTotals(subtotalUSD) {
   if (activePromo) {
     discountUSD = (subtotalUSD * activePromo.discount) / 100;
   }
-  const totalUSD = Math.max(0, subtotalUSD - discountUSD);
+  const isFree = subtotalUSD >= 150;
+  const shippingUSD = subtotalUSD === 0 ? 0 : isFree ? 0 : 15;
+  const totalUSD = Math.max(0, subtotalUSD - discountUSD + shippingUSD);
 
-  const subEl = document.getElementById('cartSubtotal');
+  const subEl = document.getElementById('cartSubtotalVal');
   if (subEl) subEl.textContent = DataStore.formatPrice(subtotalUSD, true);
 
-  const discRow = document.getElementById('cartDiscountRow');
-  const discEl = document.getElementById('cartDiscount');
+  const discRow = document.getElementById('cartDiscountLine');
+  const discEl = document.getElementById('cartDiscountVal');
   if (discRow && discEl) {
     if (discountUSD > 0) {
       discRow.style.display = 'flex';
@@ -546,8 +551,13 @@ function updateCartTotals(subtotalUSD) {
     }
   }
 
-  const totalEl = document.getElementById('cartTotal');
-  if (totalEl) totalEl.textContent = DataStore.formatPrice(totalUSD, true);
+  const shipEl = document.getElementById('cartShippingVal');
+  if (shipEl) {
+    shipEl.textContent = isFree ? 'FREE' : DataStore.formatPrice(shippingUSD, true);
+  }
+
+  const totalEl = document.getElementById('cartGrandTotalVal');
+  if (totalEl) totalEl.textContent = `${DataStore.formatPrice(totalUSD, true)} ${DataStore.getActiveCurrency().code}`;
 
   const modalTotal = document.getElementById('chkModalTotal');
   if (modalTotal) modalTotal.textContent = DataStore.formatPrice(totalUSD, true);
@@ -561,28 +571,23 @@ function updateCartTotals(subtotalUSD) {
     meterFill.style.width = `${progress}%`;
     meterPercent.textContent = `${progress}%`;
     if (subtotalUSD >= 150) {
-      meterStatus.textContent = 'You unlocked FREE Worldwide Express Delivery!';
+      meterStatus.textContent = 'Unlocked FREE Worldwide Shipping!';
     } else {
       const remaining = 150 - subtotalUSD;
-      meterStatus.textContent = `Add ${DataStore.formatPrice(remaining, true)} for FREE express shipping`;
+      meterStatus.textContent = `Add ${DataStore.formatPrice(remaining, true)} for FREE shipping`;
     }
   }
 }
 
 let appliedPromoCode = null;
 function handleApplyPromo() {
-  const input = document.getElementById('promoCodeInput');
+  const input = document.getElementById('cartPromoInput');
   const code = input?.value.trim();
   if (!code) return;
 
   const promo = DataStore.validatePromo(code);
   if (promo) {
     appliedPromoCode = promo.code;
-    const badge = document.getElementById('promoAppliedBadge');
-    document.getElementById('promoCodeLabel').textContent = promo.code;
-    document.getElementById('promoDiscountLabel').textContent = promo.discount;
-    if (badge) badge.style.display = 'flex';
-    input.value = '';
     renderCartFeed();
     showToast(`Promo "${promo.code}" applied: ${promo.discount}% OFF!`);
   } else {
@@ -590,12 +595,11 @@ function handleApplyPromo() {
   }
 }
 
-function handleRemovePromo() {
-  appliedPromoCode = null;
-  const badge = document.getElementById('promoAppliedBadge');
-  if (badge) badge.style.display = 'none';
+function removeCartItem(productId, size) {
+  DataStore.removeFromCart(productId, size);
+  updateCartBadge();
   renderCartFeed();
-  showToast('Promo code removed.');
+  showToast('Removed piece from shopping bag.');
 }
 
 function updateCartQty(productId, size, delta) {

@@ -368,43 +368,39 @@
 
     <div class="cart-items-container" id="cartItemsContainer"></div>
 
-    <div class="cart-foot">
-      <div class="promo-box-wrap">
-        <div class="promo-input-row">
-          <input type="text" id="promoCodeInput" placeholder="Enter Promo (e.g. SITARA15)" autocomplete="off">
-          <button type="button" class="promo-apply-btn" onclick="handleApplyPromo()">Apply</button>
-        </div>
-        <div class="promo-applied-badge" id="promoAppliedBadge" style="display:none;">
-          <span>Code applied: <strong id="promoCodeLabel"></strong> (<span id="promoDiscountLabel"></span>% OFF)</span>
-          <button type="button" onclick="handleRemovePromo()"><i data-lucide="x"></i></button>
-        </div>
+    <!-- Cart Checkout Box -->
+    <div class="cart-checkout-box">
+      <div class="promo-input-group">
+        <input type="text" id="cartPromoInput" placeholder="Promo code (e.g. SITARA15)">
+        <button type="button" onclick="handleApplyPromo()">Apply</button>
       </div>
 
-      <div class="cart-cost-summary">
-        <div class="cost-row">
+      <div class="cart-math-breakdown">
+        <div class="math-line">
           <span>Subtotal</span>
-          <span id="cartSubtotal">$0.00</span>
+          <span id="cartSubtotalVal">$0.00</span>
         </div>
-        <div class="cost-row discount-row" id="cartDiscountRow" style="display:none;">
-          <span>Inaugural Discount</span>
-          <span id="cartDiscount">-$0.00</span>
+        <div class="math-line discount-line" id="cartDiscountLine" style="display:none;">
+          <span>Discount (15%)</span>
+          <span id="cartDiscountVal">-$0.00</span>
         </div>
-        <div class="cost-row">
-          <span>Courier Shipping</span>
-          <span id="cartShipping">Calculated next</span>
+        <div class="math-line">
+          <span>Worldwide Shipping</span>
+          <span id="cartShippingVal">$15.00</span>
         </div>
-        <div class="cost-row total-row">
+        <div class="math-line total-line">
           <span>Estimated Total</span>
-          <span id="cartTotal">$0.00</span>
+          <span id="cartGrandTotalVal">$0.00 USD</span>
         </div>
       </div>
 
-      <div class="cart-actions-col">
-        <button class="btn btn-dark btn-block btn-checkout" onclick="openCheckoutModal()">
+      <div class="cart-action-buttons">
+        <button class="btn btn-dark btn-block" onclick="openCheckoutModal()">
           <span>Proceed to Secure Card Checkout</span>
           <i data-lucide="arrow-right"></i>
         </button>
       </div>
+      <p class="cart-trust-footer">256-Bit SSL Encrypted Bank-Grade Checkout</p>
     </div>
   </aside>
 

@@ -122,20 +122,50 @@
     </div>
   </aside>
 
-  <!-- Cinematic Lookbook Hero Banner -->
-  <section class="store-hero">
-    <div class="hero-bg-media">
-      <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1600&auto=format&fit=crop" alt="New Sitara Campaign" class="hero-img">
-      <div class="hero-overlay"></div>
-    </div>
+  <!-- Light Contemporary Hero Banner (Inspired by Eveen.pk clean aesthetic) -->
+  <section class="store-hero light-hero">
     <div class="hero-inner">
-      <span class="hero-capsule">FW26 INAUGURAL DROP</span>
-      <h1 class="hero-headline">HEAVYWEIGHT LUXURY.<br>ARTISANAL STREETWEAR.</h1>
-      <p class="hero-subtext">Engineered from 520 GSM Portuguese loopback fleece, Japanese Okayama shuttle-loom denim, and Italian calfskin leather.</p>
+      <span class="hero-capsule">✦ NEW INAUGURAL COLLECTION</span>
+      <h1 class="hero-headline">PREMIUM APPAREL & BESPOKE ESSENTIALS</h1>
+      <p class="hero-subtext">Discover contemporary silhouettes, heavyweight fabrics, and tailored streetwear designed for everyday luxury.</p>
       
       <div class="hero-cta-row">
-        <button class="btn btn-hero-primary" onclick="scrollToSection('catalogSection')">Shop The Drop</button>
-        <button class="btn btn-hero-glass" onclick="scrollToSection('categoriesSection')">Browse Collections</button>
+        <button class="btn btn-hero-primary" onclick="filterByCategory('all')">Shop All Pieces →</button>
+        <button class="btn btn-hero-outline" onclick="toggleNavCategoryDropdown(event)">Explore Departments ▾</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clean Service Value Pillars (Eveen.pk inspired Trust Grid) -->
+  <section class="trust-features-bar">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon-box"><i data-lucide="truck"></i></div>
+        <div class="trust-text-box">
+          <h4>Free Nationwide Shipping</h4>
+          <p>On all qualifying orders</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon-box"><i data-lucide="banknote"></i></div>
+        <div class="trust-text-box">
+          <h4>Cash on Delivery</h4>
+          <p>Pay upon doorstep delivery</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon-box"><i data-lucide="refresh-cw"></i></div>
+        <div class="trust-text-box">
+          <h4>7-Day Easy Returns</h4>
+          <p>Hassle-free size exchanges</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon-box"><i data-lucide="shield-check"></i></div>
+        <div class="trust-text-box">
+          <h4>100% Authentic Quality</h4>
+          <p>Direct atelier craftsmanship</p>
+        </div>
       </div>
     </div>
   </section>

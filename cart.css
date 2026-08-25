@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .cart-page-body {
-  background: var(--bg-main, #FFFFFF);
+  background: #FAF8F5;
   color: var(--text-main, #111827);
   min-height: 100vh;
   display: flex;

@@ -4,26 +4,26 @@
    ========================================================================== */
 
 :root {
-  --bg-canvas: #FFFFFF;
+  --bg-canvas: #FAF8F5;
   --bg-card: #FFFFFF;
-  --bg-subtle: #F8F9FA;
-  --bg-hover: #F0F1F3;
-  --bg-glass: rgba(255, 255, 255, 0.95);
+  --bg-subtle: #F3EFEA;
+  --bg-hover: #ECE6DD;
+  --bg-glass: rgba(250, 248, 245, 0.96);
   --bg-glass-card: #FFFFFF;
 
   --text-main: #111827;
-  --text-muted: #6B7280;
-  --text-dim: #9CA3AF;
+  --text-muted: #5C6470;
+  --text-dim: #8C94A0;
   
-  --border-subtle: #E5E7EB;
-  --border-glass: rgba(0, 0, 0, 0.08);
+  --border-subtle: #E8E3DA;
+  --border-glass: rgba(0, 0, 0, 0.06);
   --border-dark: #111827;
 
   --accent-noir: #111827;
   --accent-blue: #111827;
   --accent-blue-hover: #000000;
   --accent-green: #059669;
-  --accent-warm: #F5EFE6;
+  --accent-warm: #F4EDE2;
   --accent-cream: #FAF8F5;
 
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -1812,21 +1812,24 @@ img {
 }
 
 .store-card {
-  background: var(--bg-card);
+  background: #FFFFFF;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all 0.35s var(--ease-modern);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   position: relative;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  content-visibility: auto;
+  contain-intrinsic-size: 0 420px;
+  transform: translateZ(0);
 }
 
 .store-card:hover {
-  border-color: rgba(0, 0, 0, 0.12);
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  border-color: rgba(0, 0, 0, 0.18);
+  transform: translateY(-4px) translateZ(0);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
 }
 
 .card-media {
@@ -1834,15 +1837,17 @@ img {
   width: 100%;
   aspect-ratio: 3/4;
   overflow: hidden;
-  background: #EBEBEF;
+  background: #F3EFEA;
   cursor: pointer;
+  transform: translateZ(0);
 }
 
 .card-img-front {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: opacity 0.4s ease, transform 0.6s var(--ease-modern);
+  transition: opacity 0.3s ease;
+  will-change: opacity;
 }
 
 .card-img-back {
@@ -1852,7 +1857,8 @@ img {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 0.4s ease, transform 0.6s var(--ease-modern);
+  transition: opacity 0.3s ease;
+  will-change: opacity;
 }
 
 .store-card:hover .card-img-front {
@@ -1861,7 +1867,6 @@ img {
 
 .store-card:hover .card-img-back {
   opacity: 1;
-  transform: scale(1.05);
 }
 
 .card-tag {

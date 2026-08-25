@@ -616,8 +616,9 @@ img {
    ========================================================================== */
 .trust-features-bar {
   background: #FFFFFF;
+  border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
-  padding: 1.5rem 2rem;
+  padding: 3rem 2rem;
 }
 
 .trust-grid {

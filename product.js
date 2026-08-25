@@ -718,48 +718,225 @@ function closeSizeGuideModal() {
   document.getElementById('sizeGuideBackdrop')?.classList.remove('open');
 }
 
+let lastPlacedOrder = null;
+
 function openCheckoutModal() {
+  const cart = DataStore.getCart();
+  const products = DataStore.getProducts();
+
+  if (cart.length === 0 && currentProduct) {
+    // If bag is empty, auto-add current product
+    DataStore.addToCart(currentProduct.id, selectedSize || 'M', currentQty || 1);
+    updateCartBadge();
+    renderCartFeed();
+  }
+
+  const updatedCart = DataStore.getCart();
+  if (updatedCart.length === 0) {
+    showToast('Your shopping bag is empty.');
+    return;
+  }
+
   toggleCartDrawer(false);
+
+  // Render mini items in checkout summary
+  const miniList = document.getElementById('chkItemsList');
+  if (miniList) {
+    miniList.innerHTML = updatedCart
+      .map((item) => {
+        const prod = products.find((p) => p.id === item.id);
+        if (!prod) return '';
+        const lineTotal = prod.price * item.quantity;
+        return `
+        <div class="chk-item-row">
+          <img src="${prod.imageFront}" alt="${prod.name}" class="chk-item-img">
+          <div class="chk-item-details">
+            <div class="chk-item-title">${prod.name}</div>
+            <div class="chk-item-meta">Size: ${item.size} • Qty: ${item.quantity}</div>
+          </div>
+          <div class="chk-item-price">${DataStore.formatPrice(lineTotal, true)}</div>
+        </div>
+      `;
+      })
+      .join('');
+  }
+
+  // Calculate totals
+  let subtotal = 0;
+  updatedCart.forEach((item) => {
+    const prod = products.find((p) => p.id === item.id);
+    if (prod) subtotal += prod.price * item.quantity;
+  });
+
+  const activePromo = DataStore.validatePromo(appliedPromoCode || '');
+  let discountUSD = 0;
+  if (activePromo) {
+    discountUSD = (subtotal * activePromo.discount) / 100;
+  }
+  const isFree = subtotal >= 150;
+  const shipping = subtotal === 0 ? 0 : isFree ? 0 : 15;
+  const grandTotal = Math.max(0, subtotal - discountUSD + shipping);
+
+  const subEl = document.getElementById('chkSubtotalVal');
+  if (subEl) subEl.textContent = DataStore.formatPrice(subtotal, true);
+
+  const discRow = document.getElementById('chkDiscountRow');
+  const discVal = document.getElementById('chkDiscountVal');
+  if (discRow && discVal) {
+    if (discountUSD > 0) {
+      discRow.style.display = 'flex';
+      discVal.textContent = `-${DataStore.formatPrice(discountUSD, true)}`;
+    } else {
+      discRow.style.display = 'none';
+    }
+  }
+
+  const shipEl = document.getElementById('chkShippingVal');
+  if (shipEl) {
+    shipEl.textContent = isFree ? 'FREE' : DataStore.formatPrice(shipping, true);
+  }
+
+  const totalEl = document.getElementById('chkTotalVal');
+  if (totalEl) {
+    totalEl.textContent = `${DataStore.formatPrice(grandTotal, true)} ${DataStore.getActiveCurrency().code}`;
+  }
+
+  // Populate countries if empty
+  populateCountryDropdown();
+
+  // Attach card formatters
+  setupCardFormatters();
+
   document.getElementById('checkoutModal')?.classList.add('open');
   document.getElementById('checkoutBackdrop')?.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function setupCardFormatters() {
+  const cardInput = document.getElementById('chkCardNumber');
+  if (cardInput && !cardInput.dataset.formatted) {
+    cardInput.dataset.formatted = 'true';
+    cardInput.addEventListener('input', (e) => {
+      let val = e.target.value.replace(/\D/g, '').substring(0, 16);
+      val = val.replace(/(.{4})/g, '$1 ').trim();
+      e.target.value = val;
+    });
+  }
+
+  const expInput = document.getElementById('chkCardExpiry');
+  if (expInput && !expInput.dataset.formatted) {
+    expInput.dataset.formatted = 'true';
+    expInput.addEventListener('input', (e) => {
+      let val = e.target.value.replace(/\D/g, '').substring(0, 4);
+      if (val.length >= 3) {
+        val = `${val.substring(0, 2)}/${val.substring(2)}`;
+      }
+      e.target.value = val;
+    });
+  }
 }
 
 function closeCheckoutModal() {
   document.getElementById('checkoutModal')?.classList.remove('open');
   document.getElementById('checkoutBackdrop')?.classList.remove('open');
+  document.body.style.overflow = '';
 }
 
-function handleOrderSubmit(e) {
+function handlePlaceOrder(e) {
   e.preventDefault();
-  const name = document.getElementById('chkName').value.trim();
-  const email = document.getElementById('chkEmail').value.trim();
-  const phone = document.getElementById('chkPhone').value.trim();
-  const address = document.getElementById('chkAddress').value.trim();
-  const city = document.getElementById('chkCity').value.trim();
-  const country = document.getElementById('chkCountry').value;
 
   const cart = DataStore.getCart();
+  const products = DataStore.getProducts();
   if (cart.length === 0) {
     showToast('Your shopping bag is empty.');
     return;
   }
 
-  const newOrder = DataStore.createOrder({
-    customer: { name, email, phone },
-    shippingAddress: { address, city, country },
-    items: cart,
-    paymentMethod: 'Credit / Debit Card (Visa, Mastercard, AMEX)',
-    currency: DataStore.getActiveCurrency().code
+  let subtotal = 0;
+  const items = cart.map((item) => {
+    const prod = products.find((p) => p.id === item.id);
+    const price = prod ? prod.price : 0;
+    subtotal += price * item.quantity;
+    return {
+      id: item.id,
+      name: prod ? prod.name : 'Luxury Apparel Piece',
+      size: item.size,
+      qty: item.quantity,
+      price: price,
+      image: prod ? prod.imageFront : ''
+    };
   });
 
-  closeCheckoutModal();
+  const activePromo = DataStore.validatePromo(appliedPromoCode || '');
+  let discountUSD = 0;
+  if (activePromo) {
+    discountUSD = (subtotal * activePromo.discount) / 100;
+  }
+  const isFree = subtotal >= 150;
+  const shipping = subtotal === 0 ? 0 : isFree ? 0 : 15;
+  const grandTotal = Math.round(Math.max(0, subtotal - discountUSD + shipping));
+
+  const orderData = {
+    customer: {
+      fullName: document.getElementById('chkFullName')?.value.trim() || 'VIP Client',
+      email: document.getElementById('chkEmail')?.value.trim() || '',
+      phone: document.getElementById('chkPhone')?.value.trim() || '',
+      street: document.getElementById('chkStreet')?.value.trim() || '',
+      apartment: document.getElementById('chkApartment')?.value.trim() || '',
+      city: document.getElementById('chkCity')?.value.trim() || '',
+      state: document.getElementById('chkState')?.value.trim() || '',
+      postalCode: document.getElementById('chkPostal')?.value.trim() || '',
+      country: document.getElementById('chkCountry')?.value || 'United States'
+    },
+    items: items,
+    subtotal: subtotal,
+    discount: discountUSD,
+    shipping: shipping,
+    total: grandTotal,
+    currency: DataStore.getActiveCurrency().code,
+    paymentMethod: 'Credit / Debit Card (Visa, Mastercard, AMEX)'
+  };
+
+  const createdOrder = DataStore.addOrder(orderData);
+  lastPlacedOrder = createdOrder;
+
+  // Clear Bag
+  DataStore.clearCart();
   updateCartBadge();
   renderCartFeed();
 
-  showToast(`Order Placed! Tracking ID: ${newOrder.trackingId}`);
-  setTimeout(() => {
-    window.location.href = `/track.html?id=${newOrder.trackingId}`;
-  }, 1500);
+  // Close Checkout Modal & Open Order Receipt Modal
+  closeCheckoutModal();
+  openOrderReceiptModal(createdOrder);
+}
+
+function openOrderReceiptModal(order) {
+  const trkIdEl = document.getElementById('receiptTrackingId');
+  if (trkIdEl) trkIdEl.textContent = order.trackingId;
+
+  const trackLink = document.getElementById('btnTrackShipmentLink');
+  if (trackLink) trackLink.href = `/track?id=${order.trackingId}`;
+
+  document.getElementById('receiptModal')?.classList.add('open');
+  document.getElementById('receiptBackdrop')?.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function copyReceiptTrackingId() {
+  if (!lastPlacedOrder) return;
+  navigator.clipboard.writeText(lastPlacedOrder.trackingId);
+  showToast(`Tracking ID ${lastPlacedOrder.trackingId} copied to clipboard!`);
+}
+
+function closeReceiptModalAndShop() {
+  document.getElementById('receiptModal')?.classList.remove('open');
+  document.getElementById('receiptBackdrop')?.classList.remove('open');
+  document.body.style.overflow = '';
+  window.location.href = '/store';
 }
 
 function showToast(msg) {

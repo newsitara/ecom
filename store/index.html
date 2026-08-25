@@ -464,7 +464,7 @@
               <input type="text" id="chkFullName" class="form-input" placeholder="e.g. John Doe" required>
             </div>
             <div class="form-group flex-1">
-              <label>Phone / WhatsApp *</label>
+              <label>Phone Number (with Country Code) *</label>
               <input type="tel" id="chkPhone" class="form-input" placeholder="+1 (555) 000-0000" required>
             </div>
           </div>
@@ -620,10 +620,6 @@
           <i data-lucide="printer"></i>
           <span>Print Official Receipt / PDF</span>
         </button>
-        <button type="button" class="btn btn-whatsapp btn-block" onclick="sendOrderReceiptToWhatsApp()">
-          <i data-lucide="message-circle"></i>
-          <span>Send Order Confirmation to WhatsApp</span>
-        </button>
         <button type="button" class="btn btn-hero-light btn-block" onclick="closeReceiptModalAndShop()">
           Continue Shopping
         </button>
@@ -716,15 +712,11 @@
 
       <div class="cart-action-buttons">
         <button class="btn btn-dark btn-block" onclick="openCheckoutModal()">
-          <span>Proceed to Checkout</span>
+          <span>Proceed to Secure Card Checkout</span>
           <i data-lucide="arrow-right"></i>
         </button>
-        <button class="btn btn-whatsapp btn-block" onclick="executeQuickWhatsApp()">
-          <i data-lucide="message-circle"></i>
-          <span>Order via WhatsApp Express</span>
-        </button>
       </div>
-      <p class="cart-trust-footer">🔒 256-Bit SSL Encrypted Bank-Grade Checkout</p>
+      <p class="cart-trust-footer">256-Bit SSL Encrypted Bank-Grade Checkout</p>
     </div>
   </aside>
 

@@ -199,10 +199,10 @@
           </button>
         </div>
 
-        <!-- Direct WhatsApp Quick Order -->
-        <button type="button" class="btn-pdp-whatsapp" onclick="buyCurrentViaWhatsApp()">
-          <i data-lucide="message-circle"></i>
-          <span>Order via WhatsApp Direct Atelier Checkout</span>
+        <!-- Instant Direct Card Checkout -->
+        <button type="button" class="btn btn-pdp-buy-now" onclick="buyNowCurrentProduct()">
+          <i data-lucide="credit-card"></i>
+          <span>Instant Card Checkout • Buy Now</span>
         </button>
 
         <!-- Luxury Value Guarantee Callouts -->
@@ -401,12 +401,8 @@
 
       <div class="cart-actions-col">
         <button class="btn btn-dark btn-block btn-checkout" onclick="openCheckoutModal()">
-          <span>Proceed to Secure Checkout</span>
+          <span>Proceed to Secure Card Checkout</span>
           <i data-lucide="arrow-right"></i>
-        </button>
-        <button class="btn btn-whatsapp btn-block" onclick="checkoutViaWhatsApp()">
-          <i data-lucide="message-circle"></i>
-          <span>Checkout via WhatsApp</span>
         </button>
       </div>
     </div>
@@ -483,8 +479,8 @@
             <input type="email" id="chkEmail" class="form-input" placeholder="hamza@example.com" required>
           </div>
           <div class="form-field form-col-full">
-            <label>Phone / WhatsApp Number *</label>
-            <input type="tel" id="chkPhone" class="form-input" placeholder="+92 300 1234567" required>
+            <label>Phone Number (with Country Code) *</label>
+            <input type="tel" id="chkPhone" class="form-input" placeholder="+1 555-0199" required>
           </div>
         </div>
       </div>

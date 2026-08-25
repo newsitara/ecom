@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    NEW SITARA — PRODUCT DETAIL PAGE (PDP) STYLESHEET
    Clean Modern Apple-Glassmorphism Luxury Architecture
    ========================================================================== */
@@ -338,15 +338,16 @@
   fill: #EF4444;
 }
 
-.btn-pdp-whatsapp {
+.btn-pdp-buy-now {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
   width: 100%;
   height: 48px;
-  background: #25D366;
-  color: #FFFFFF;
+  background: var(--bg-card);
+  border: 1.5px solid var(--accent-noir);
+  color: var(--accent-noir);
   font-size: 0.85rem;
   font-weight: 700;
   border-radius: var(--radius-pill);
@@ -354,8 +355,9 @@
   transition: all 0.2s ease;
 }
 
-.btn-pdp-whatsapp:hover {
-  background: #1FA855;
+.btn-pdp-buy-now:hover {
+  background: var(--accent-noir);
+  color: #FFFFFF;
   transform: translateY(-1px);
 }
 

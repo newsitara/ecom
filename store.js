@@ -1115,11 +1115,6 @@ function openProductModal(productId) {
           <button type="button" class="btn-modal-wishlist ${isSaved ? 'active' : ''}" id="modalWishlistBtn" onclick="handleModalWishlistToggle('${product.id}')" title="Save to Wishlist">
             <i data-lucide="heart"></i>
           </button>
-
-          <button type="button" class="btn-modal-wa" onclick="buySingleViaWhatsApp('${product.id}')" title="Buy via WhatsApp">
-            <i data-lucide="message-circle"></i>
-            <span>WhatsApp Buy</span>
-          </button>
         </div>
       </div>
 
@@ -1261,18 +1256,6 @@ function handleModalWishlistToggle(productId) {
   updateWishlistBadge();
   renderProductsGrid();
   showToast(isNowSaved ? 'Saved to Wishlist' : 'Removed from Wishlist');
-}
-
-function buySingleViaWhatsApp(productId) {
-  const products = DataStore.getProducts();
-  const prod = products.find((p) => p.id === productId);
-  if (!prod) return;
-
-  const size = modalSelectedSize || 'M';
-  const price = DataStore.formatPrice(prod.price, true);
-
-  const msg = `*NEW SITARA — IMMEDIATE ORDER INQUIRY*%0A%0A*Piece:* ${prod.name}%0A*Size:* ${size}%0A*Price:* ${price}%0A*Category:* ${prod.categoryName || prod.category}%0A%0AI would like to purchase this piece. Please confirm availability & dispatch instructions.`;
-  window.open(`https://wa.me/?text=${msg}`, '_blank');
 }
 
 function setModalImage(src, thumbEl) {
@@ -1632,43 +1615,11 @@ function copyReceiptTrackingId() {
   showToast(`Tracking ID ${lastPlacedOrder.trackingId} copied to clipboard!`);
 }
 
-function sendOrderReceiptToWhatsApp() {
-  if (!lastPlacedOrder) return;
-
-  const o = lastPlacedOrder;
-  const formattedTotal = DataStore.formatPrice(o.total, true);
-  const itemsText = (o.items || []).map((i) => `• ${i.name} (Size: ${i.size}, Qty: ${i.qty})`).join('%0A');
-  const trackUrl = `${window.location.origin}/track?id=${o.trackingId}`;
-
-  const msg = `*NEW SITARA ORDER CONFIRMATION*%0A%0A*Tracking ID:* ${o.trackingId}%0A*Customer:* ${o.customer?.fullName || 'Client'}%0A*Total:* ${formattedTotal}%0A*Payment Method:* ${o.paymentMethod}%0A%0A*Items Ordered:*%0A${itemsText}%0A%0A*Track Shipment Live:*%0A${trackUrl}`;
-
-  window.open(`https://wa.me/?text=${msg}`, '_blank');
-}
-
 function closeReceiptModalAndShop() {
   document.getElementById('receiptModal').classList.remove('open');
   document.getElementById('receiptBackdrop').classList.remove('open');
   document.body.style.overflow = '';
   scrollToSection('catalogSection');
-}
-
-function executeQuickWhatsApp() {
-  if (cartItems.length === 0) {
-    showToast('Your shopping bag is empty.');
-    return;
-  }
-
-  const subtotal = cartItems.reduce((sum, i) => sum + i.price * i.qty, 0);
-  const discountAmount = subtotal * activePromoDiscount;
-  const isFree = subtotal >= 150;
-  const shipping = isFree ? 0 : 15;
-  const grandTotal = Math.max(0, subtotal - discountAmount + shipping);
-  const formattedTotal = DataStore.formatPrice(grandTotal, true);
-
-  const itemsText = cartItems.map((i) => `• ${i.name} (Size: ${i.size}, Qty: ${i.qty})`).join('%0A');
-  const msg = `*NEW SITARA — WHATSAPP EXPRESS ORDER*%0A%0A*Items in Bag:*%0A${itemsText}%0A%0A*Estimated Total:* ${formattedTotal}%0A%0APlease assist me in completing this order via WhatsApp Concierge.`;
-
-  window.open(`https://wa.me/?text=${msg}`, '_blank');
 }
 
 function handleSubscribe(e) {

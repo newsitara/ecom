@@ -163,11 +163,6 @@ function updateStepper(status, courier) {
 }
 
 function contactConcierge() {
-  if (!currentTrackedOrder) {
-    window.open('https://wa.me/?text=Hello%20New%20Sitara%20Concierge,%20I%20need%20assistance%20with%20an%20order.', '_blank');
-    return;
-  }
-
-  const msg = `Hello New Sitara Concierge! I am inquiring about my Order: ${currentTrackedOrder.trackingId} (Customer: ${currentTrackedOrder.customer?.fullName || 'Client'}).`;
-  window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+  const subject = currentTrackedOrder ? `Order Inquiry: ${currentTrackedOrder.trackingId}` : 'New Sitara Client Support';
+  window.location.href = `mailto:support@newsitara.com?subject=${encodeURIComponent(subject)}`;
 }

@@ -501,7 +501,7 @@ function confirmDeleteCategory(catId) {
 }
 
 // ==========================================================================
-// 4. ORDERS HUB WITH TRACKING & WHATSAPP
+// 4. ORDERS HUB WITH LIVE TRACKING & STATUS CONTROLLER
 // ==========================================================================
 function renderOrdersTable() {
   const orders = DataStore.getOrders();
@@ -517,8 +517,7 @@ function renderOrdersTable() {
     .map((o) => {
       const c = o.customer || {};
       const fullAddr = `${c.street || ''}${c.apartment ? ', ' + c.apartment : ''}, ${c.city || ''}, ${c.state || ''} ${c.postalCode || ''}, ${c.country || ''}`;
-      const cleanPhone = (c.phone || '').replace(/[^0-9+]/g, '');
-      const waLink = cleanPhone ? `https://wa.me/${cleanPhone}?text=Hello%20${encodeURIComponent(c.fullName || 'Client')},%20regarding%20your%20New%20Sitara%20Order%20${o.trackingId || o.id}...` : '#';
+      const phone = c.phone || o.phone || '';
 
       return `
       <tr>
@@ -526,12 +525,12 @@ function renderOrdersTable() {
           <a href="/track?id=${o.trackingId || o.id}" target="_blank" style="color: #60A5FA; font-weight:800; text-decoration:underline;">${o.trackingId || o.id} ↗</a>
         </td>
         <td>
-          <div style="font-weight:700; color:#FFF;">${c.fullName || o.customer || 'VIP Client'}</div>
+          <div style="font-weight:700; color:#FFF;">${c.fullName || o.fullName || o.customer || 'VIP Client'}</div>
           <div style="font-size:0.72rem; color:#888;">${c.email || o.email || 'N/A'}</div>
           ${
-            cleanPhone
-              ? `<a href="${waLink}" target="_blank" style="display:inline-flex; align-items:center; gap:0.25rem; font-size:0.72rem; color:#25D366; font-weight:700; margin-top:0.2rem;">
-                  <span>💬 Chat on WhatsApp</span>
+            phone
+              ? `<a href="tel:${phone}" style="display:inline-flex; align-items:center; gap:0.25rem; font-size:0.72rem; color:#94A3B8; font-weight:600; margin-top:0.2rem;">
+                  <span>📞 ${phone}</span>
                 </a>`
               : ''
           }

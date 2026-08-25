@@ -188,13 +188,12 @@ function togglePdpWishlist() {
   }
 }
 
-function buyCurrentViaWhatsApp() {
+function buyNowCurrentProduct() {
   if (!currentProduct) return;
-  const formattedPrice = DataStore.formatPrice(currentProduct.price, true);
-  const text = encodeURIComponent(
-    `Hello NEW SITARA Atelier,\n\nI would like to order:\n• Product: ${currentProduct.name}\n• ID: ${currentProduct.id}\n• Size: ${selectedSize}\n• Qty: ${currentQty}\n• Price: ${formattedPrice}\n\nPlease confirm availability and payment details.`
-  );
-  window.open(`https://wa.me/923001234567?text=${text}`, '_blank');
+  DataStore.addToCart(currentProduct.id, selectedSize, currentQty);
+  updateCartBadge();
+  renderCartFeed();
+  openCheckoutModal();
 }
 
 // Reviews Subsystem
@@ -757,29 +756,6 @@ function handleOrderSubmit(e) {
   setTimeout(() => {
     window.location.href = `/track.html?id=${newOrder.trackingId}`;
   }, 1500);
-}
-
-function checkoutViaWhatsApp() {
-  const cart = DataStore.getCart();
-  const products = DataStore.getProducts();
-  if (cart.length === 0) {
-    showToast('Your bag is empty.');
-    return;
-  }
-
-  let summary = 'Hello NEW SITARA Atelier,\n\nI would like to checkout my bag:\n';
-  let totalUSD = 0;
-  cart.forEach((item, i) => {
-    const prod = products.find((p) => p.id === item.id);
-    if (prod) {
-      const line = prod.price * item.quantity;
-      totalUSD += line;
-      summary += `${i + 1}. ${prod.name} (Size: ${item.size}, Qty: ${item.quantity}) — ${DataStore.formatPrice(line, true)}\n`;
-    }
-  });
-
-  summary += `\nEstimated Total: ${DataStore.formatPrice(totalUSD, true)}\nPlease provide dispatch details.`;
-  window.open(`https://wa.me/923001234567?text=${encodeURIComponent(summary)}`, '_blank');
 }
 
 function showToast(msg) {

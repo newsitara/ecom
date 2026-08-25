@@ -3637,26 +3637,143 @@ img {
   font-weight: 500;
 }
 
-/* RTL Layout Mode */
+/* ==========================================================================
+   RTL LAYOUT MODE (Arabic, Urdu, Hebrew, Persian)
+   ========================================================================== */
 body.rtl-mode {
   direction: rtl;
   text-align: right;
+  font-family: -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* Navbar in RTL */
+body.rtl-mode .nav-container {
+  direction: rtl;
+}
+
+body.rtl-mode .brand-center {
+  direction: ltr !important;
+  text-align: center;
+  margin: 0 auto;
+}
+
+body.rtl-mode .brand-center .brand-sub-tag {
+  direction: ltr !important;
+  text-align: center;
+}
+
+body.rtl-mode .nav-links-left {
+  justify-content: flex-start;
+  direction: rtl;
 }
 
 body.rtl-mode .nav-actions-right {
-  justify-content: flex-start;
+  justify-content: flex-end;
+  direction: rtl;
+}
+
+body.rtl-mode .nav-dropdown-head {
+  text-align: right;
+}
+
+body.rtl-mode .nav-cat-item {
+  flex-direction: row-reverse;
+  text-align: right;
 }
 
 body.rtl-mode .currency-dropdown,
 body.rtl-mode .lang-dropdown {
   right: auto;
   left: 0;
+  text-align: right;
 }
 
 body.rtl-mode .bag-pill,
 body.rtl-mode .wishlist-pill {
   right: auto;
-  left: -3px;
+  left: -4px;
+}
+
+/* Hero Section in RTL */
+body.rtl-mode .store-hero.editorial-hero {
+  direction: rtl;
+  text-align: right;
+}
+
+body.rtl-mode .hero-container {
+  direction: rtl;
+}
+
+body.rtl-mode .hero-content-col {
+  align-items: flex-start;
+  text-align: right;
+}
+
+body.rtl-mode .hero-headline {
+  line-height: 1.38;
+  padding-top: 0.35rem;
+  letter-spacing: 0;
+}
+
+body.rtl-mode .hero-cta-row {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+body.rtl-mode .hero-trust-row {
+  direction: rtl;
+  text-align: right;
+}
+
+body.rtl-mode .hero-trust-item {
+  flex-direction: row;
+  text-align: right;
+}
+
+body.rtl-mode .hero-lookbook-card .lookbook-overlay {
+  text-align: right;
+  align-items: flex-start;
+}
+
+body.rtl-mode [data-lucide="arrow-right"] {
+  transform: scaleX(-1);
+}
+
+body.rtl-mode [data-lucide="arrow-left"] {
+  transform: scaleX(-1);
+}
+
+/* Shelves and Cards in RTL */
+body.rtl-mode .shelf-header {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+body.rtl-mode .shelf-title-col {
+  text-align: right;
+}
+
+body.rtl-mode .card-content {
+  text-align: right;
+}
+
+body.rtl-mode .card-price-row {
+  flex-direction: row;
+}
+
+body.rtl-mode .card-wishlist-btn {
+  right: auto;
+  left: 12px;
+}
+
+body.rtl-mode .card-tag {
+  left: auto;
+  right: 12px;
+}
+
+body.rtl-mode .flash-sale-content {
+  direction: rtl;
 }
 
 .currency-opt-btn {

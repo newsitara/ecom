@@ -201,54 +201,79 @@ function selectLanguage(code, e) {
 }
 
 function applyTranslations() {
-  // Update announcements
-  const annEls = document.querySelectorAll('.announcement-track span:not(.track-dot)');
-  if (annEls.length > 0) {
-    annEls.forEach((el, idx) => {
-      if (idx % 2 === 0) el.textContent = DataStore.t('announcement_shipping');
-      else el.innerHTML = `USE PROMO CODE <strong>SITARA15</strong> FOR 15% OFF`;
-    });
+  const lang = DataStore.getActiveLanguage().code;
+  const isRtl = DataStore.getActiveLanguage().dir === 'rtl';
+
+  // Announcement text
+  const annText = document.querySelector('.announcement-text');
+  if (annText) {
+    annText.innerHTML = `${DataStore.t('announcement_shipping')} &nbsp;•&nbsp; ${DataStore.t('announcement_promo')}`;
   }
 
-  // Update Hero text
-  const heroCapsule = document.querySelector('.hero-capsule');
-  if (heroCapsule) heroCapsule.textContent = DataStore.t('hero_capsule');
+  // Hero Section Elements
+  const heroSeason = document.querySelector('.hero-season-pill');
+  if (heroSeason) heroSeason.textContent = isRtl ? 'خريف / شتاء 2026' : 'AUTUMN / WINTER 2026';
+  
+  const heroDrop = document.querySelector('.hero-drop-badge');
+  if (heroDrop) heroDrop.textContent = isRtl ? 'إصدار حصري' : 'INAUGURAL DROP';
+
   const heroHeadline = document.querySelector('.hero-headline');
-  if (heroHeadline) heroHeadline.textContent = DataStore.t('hero_headline');
+  if (heroHeadline) {
+    if (lang === 'ar') {
+      heroHeadline.innerHTML = `تصاميم مميزة ومبتكرة.<br><span class="hero-highlight">أزياء راقية مصممة خصيصاً.</span>`;
+    } else if (lang === 'ur') {
+      heroHeadline.innerHTML = `پریمیم ملبوسات اور نفاست۔<br><span class="hero-highlight">شاہکار اسٹریٹ ویئر۔</span>`;
+    } else {
+      heroHeadline.innerHTML = `STRUCTURED SILHOUETTES.<br><span class="hero-highlight">BESPOKE STREETWEAR.</span>`;
+    }
+  }
+
   const heroSubtext = document.querySelector('.hero-subtext');
   if (heroSubtext) heroSubtext.textContent = DataStore.t('hero_subtext');
 
-  // Update Trust features
-  const trustTitles = document.querySelectorAll('.trust-feature h4');
-  const trustDescs = document.querySelectorAll('.trust-feature p');
-  if (trustTitles.length >= 4) {
-    trustTitles[0].textContent = DataStore.t('trust_shipping_title');
-    trustTitles[1].textContent = DataStore.t('trust_card_title');
-    trustTitles[2].textContent = DataStore.t('trust_returns_title');
-    trustTitles[3].textContent = DataStore.t('trust_quality_title');
+  // Hero CTA Buttons
+  const btnHeroPrimary = document.querySelector('.btn-hero-primary span');
+  if (btnHeroPrimary) btnHeroPrimary.textContent = isRtl ? 'استكشف المجموعة الافتتاحية' : 'Explore Inaugural Collection';
+  
+  const btnHeroOutline = document.querySelector('.btn-hero-outline span');
+  if (btnHeroOutline) btnHeroOutline.textContent = isRtl ? 'الهوديات والسترات الفاخرة' : 'Heavyweight Hoodies';
+
+  // Hero Trust Pillars
+  const heroTrustItems = document.querySelectorAll('.hero-trust-item');
+  if (heroTrustItems.length >= 3) {
+    if (lang === 'ar') {
+      heroTrustItems[0].querySelector('strong').textContent = 'شحن مجاني دولي';
+      heroTrustItems[0].querySelector('span').textContent = 'للطلبات المؤهلة حول العالم';
+      heroTrustItems[1].querySelector('strong').textContent = 'دفع مشفر وآمن 256-Bit';
+      heroTrustItems[1].querySelector('span').textContent = 'بطاقات الدفع المعتمدة فقط';
+      heroTrustItems[2].querySelector('strong').textContent = 'استبدال مجاني خلال 14 يوماً';
+      heroTrustItems[2].querySelector('span').textContent = 'خدمة إرجاع واستبدال سهلة';
+    } else if (lang === 'ur') {
+      heroTrustItems[0].querySelector('strong').textContent = 'مفت عالمی ڈیلیوری';
+      heroTrustItems[0].querySelector('span').textContent = 'تمام اہل آرڈرز پر';
+      heroTrustItems[1].querySelector('strong').textContent = '256-بٹ محفوظ انکرپشن';
+      heroTrustItems[1].querySelector('span').textContent = 'صرف کارڈ کے ذریعے ادائیگی';
+      heroTrustItems[2].querySelector('strong').textContent = '14 دن میں مفت تبدیلی';
+      heroTrustItems[2].querySelector('span').textContent = 'آسان واپسی کی سہولت';
+    } else {
+      heroTrustItems[0].querySelector('strong').textContent = 'Complimentary Delivery';
+      heroTrustItems[0].querySelector('span').textContent = 'On qualifying global orders';
+      heroTrustItems[1].querySelector('strong').textContent = '256-Bit SSL Encrypted';
+      heroTrustItems[1].querySelector('span').textContent = 'Card payments only';
+      heroTrustItems[2].querySelector('strong').textContent = '14-Day Exchanges';
+      heroTrustItems[2].querySelector('span').textContent = 'Complimentary returns';
+    }
   }
-  if (trustDescs.length >= 4) {
-    trustDescs[0].textContent = DataStore.t('trust_shipping_desc');
-    trustDescs[1].textContent = DataStore.t('trust_card_desc');
-    trustDescs[2].textContent = DataStore.t('trust_returns_desc');
-    trustDescs[3].textContent = DataStore.t('trust_quality_desc');
-  }
 
-  // Update Reviews Header
-  const revHeading = document.querySelector('.reviews-header-block h2');
-  if (revHeading) revHeading.textContent = DataStore.t('reviews_header');
-  const revTag = document.querySelector('.reviews-header-block .section-tag');
-  if (revTag) revTag.textContent = DataStore.t('reviews_tag');
+  // Flash Sale
+  const flashTag = document.querySelector('.flash-tag');
+  if (flashTag) flashTag.innerHTML = `<i data-lucide="zap"></i> ${DataStore.t('flash_tag')}`;
+  
+  const flashTitle = document.querySelector('.flash-title');
+  if (flashTitle) flashTitle.innerHTML = `${DataStore.t('flash_extra')} <span class="flash-code">SITARA15</span>`;
 
-  // Update Drawer Titles
-  const bagHeader = document.querySelector('#cartDrawer .cart-drawer-header h3');
-  if (bagHeader) bagHeader.textContent = DataStore.t('bag_title');
-  const wishHeader = document.querySelector('#storeWishlistDrawer .cart-drawer-header h3');
-  if (wishHeader) wishHeader.textContent = DataStore.t('wishlist_title');
-
-  // Update Checkout Headings
-  const chkTitle = document.querySelector('#checkoutModal .modal-header h3');
-  if (chkTitle) chkTitle.textContent = DataStore.t('chk_title');
+  // Update Cart Badge safely
+  updateCartBadge();
 
   if (window.lucide) window.lucide.createIcons();
 }
@@ -1337,14 +1362,17 @@ function saveCart() {
 }
 
 function updateCartBadge() {
-  const count = cartItems.reduce((sum, i) => sum + i.qty, 0);
+  const cart = DataStore.getCart();
+  const count = cart.reduce((sum, i) => sum + (parseInt(i.quantity || i.qty || 1, 10) || 0), 0);
   const badge = document.getElementById('cartCountBadge');
   const countTxt = document.getElementById('cartItemCountText');
   const mobBadge = document.getElementById('mobCartBadge');
+  const mobBagBadge = document.getElementById('mobBagBadge');
 
   if (badge) badge.textContent = count;
   if (countTxt) countTxt.textContent = `(${count})`;
   if (mobBadge) mobBadge.textContent = count;
+  if (mobBagBadge) mobBagBadge.textContent = count;
 }
 
 function renderCartFeed() {

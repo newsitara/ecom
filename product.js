@@ -26,18 +26,24 @@ function initPDP() {
   const sizes = Array.isArray(currentProduct.sizes) ? currentProduct.sizes : [currentProduct.sizes];
   selectedSize = sizes[0] || 'M';
 
-  renderProductDetails();
+  renderLanguageDropdown();
   renderCurrencyDropdown();
+  populateCountryDropdown();
+  renderProductDetails();
   updateCartBadge();
   renderCartFeed();
   updateWishlistBadge();
   renderRelatedProducts();
 
-  // Close dropdown on outside click
+  // Close dropdowns on outside click
   document.addEventListener('click', (e) => {
-    const wrap = document.getElementById('currencyPickerWrap');
-    if (wrap && !wrap.contains(e.target)) {
-      wrap.classList.remove('open');
+    const currWrap = document.getElementById('currencyPickerWrap');
+    if (currWrap && !currWrap.contains(e.target)) {
+      currWrap.classList.remove('open');
+    }
+    const langWrap = document.getElementById('langPickerWrap');
+    if (langWrap && !langWrap.contains(e.target)) {
+      langWrap.classList.remove('open');
     }
   });
 
@@ -341,7 +347,74 @@ function handleRelatedWishlistToggle(id, btnEl) {
   showToast(isSaved ? 'Saved to Wishlist.' : 'Removed from Wishlist.');
 }
 
-// Multi-Currency Subsystem
+// Multi-Language & Multi-Currency Subsystem
+function renderLanguageDropdown() {
+  const languages = DataStore.getLanguages();
+  const active = DataStore.getActiveLanguage();
+
+  const codeEl = document.getElementById('activeLangCode');
+  const dropdown = document.getElementById('langDropdown');
+
+  if (codeEl) codeEl.textContent = active.code.toUpperCase();
+
+  if (dropdown) {
+    dropdown.innerHTML = languages
+      .map(
+        (l) => `
+        <button type="button" class="lang-opt-btn ${l.code === active.code ? 'active' : ''}" onclick="selectLanguage('${l.code}', event)">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span class="lang-code-pill">${l.code.toUpperCase()}</span>
+            <span>${l.native}</span>
+          </div>
+          <span class="lang-native-sub">${l.name}</span>
+        </button>
+      `
+      )
+      .join('');
+  }
+}
+
+function toggleLangDropdown(e) {
+  if (e) e.stopPropagation();
+  const wrap = document.getElementById('langPickerWrap');
+  if (wrap) wrap.classList.toggle('open');
+  const currWrap = document.getElementById('currencyPickerWrap');
+  if (currWrap) currWrap.classList.remove('open');
+}
+
+function selectLanguage(code, e) {
+  if (e) e.stopPropagation();
+  DataStore.setActiveLanguage(code);
+  const wrap = document.getElementById('langPickerWrap');
+  if (wrap) wrap.classList.remove('open');
+
+  renderLanguageDropdown();
+  renderProductDetails();
+  renderRelatedProducts();
+  renderCartFeed();
+  showToast(`Language: ${DataStore.getActiveLanguage().name}`);
+}
+
+function populateCountryDropdown() {
+  const select = document.getElementById('chkCountry');
+  if (!select) return;
+  const countries = DataStore.getCountries();
+  const currentVal = select.value;
+  select.innerHTML = countries.map(c => `<option value="${c.name}" ${currentVal === c.name || (!currentVal && c.code === 'US') ? 'selected' : ''}>${c.name} (${c.phone})</option>`).join('');
+}
+
+function handleCountryChange(e) {
+  const selectedName = e.target.value;
+  const country = DataStore.getCountryByName(selectedName);
+  if (country) {
+    const phoneInput = document.getElementById('chkPhone');
+    if (phoneInput && (!phoneInput.value || phoneInput.value.startsWith('+'))) {
+      phoneInput.placeholder = `${country.phone} 000-0000`;
+      phoneInput.value = `${country.phone} `;
+    }
+  }
+}
+
 function renderCurrencyDropdown() {
   const currencies = DataStore.getCurrencies();
   const active = DataStore.getActiveCurrency();
@@ -374,6 +447,8 @@ function toggleCurrencyDropdown(e) {
   if (e) e.stopPropagation();
   const wrap = document.getElementById('currencyPickerWrap');
   if (wrap) wrap.classList.toggle('open');
+  const langWrap = document.getElementById('langPickerWrap');
+  if (langWrap) langWrap.classList.remove('open');
 }
 
 function selectCurrency(code, e) {

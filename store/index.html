@@ -54,13 +54,25 @@
         <span class="brand-logotype">NEW SITARA</span>
       </a>
 
-      <!-- Right Actions: Currency, Wishlist, Search, Track & Bag -->
+      <!-- Right Actions: Language, Currency, Wishlist, Search, Track & Bag -->
       <div class="nav-actions-right">
         
+        <!-- Multi-Language Selector -->
+        <div class="lang-picker-wrap" id="langPickerWrap">
+          <button type="button" class="lang-btn" id="langToggleBtn" onclick="toggleLangDropdown(event)" aria-label="Select Language">
+            <i data-lucide="globe"></i>
+            <span id="activeLangCode">EN</span>
+            <i data-lucide="chevron-down" class="chevron-icon"></i>
+          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <!-- Injected dynamically via JS -->
+          </div>
+        </div>
+
         <!-- Multi-Currency Selector -->
         <div class="currency-picker-wrap" id="currencyPickerWrap">
           <button type="button" class="currency-btn" id="currencyToggleBtn" onclick="toggleCurrencyDropdown(event)" aria-label="Select Currency">
-            <span id="activeCurrencyCode">PKR</span>
+            <span id="activeCurrencyCode">USD</span>
             <i data-lucide="chevron-down" class="chevron-icon"></i>
           </button>
           <div class="currency-dropdown" id="currencyDropdown">
@@ -464,44 +476,35 @@
 
         <!-- Shipping Address -->
         <div class="form-section">
-          <h4 class="form-section-title">2. Shipping Destination</h4>
+          <h4 class="form-section-title">2. International Shipping Destination</h4>
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label>Country / Region *</label>
+              <select id="chkCountry" class="form-input" onchange="handleCountryChange(event)">
+                <!-- Dynamically populated from DataStore with 40+ countries -->
+              </select>
+            </div>
+            <div class="form-group flex-2">
+              <label>City / Town *</label>
+              <input type="text" id="chkCity" class="form-input" placeholder="e.g. London, Dubai, New York" required>
+            </div>
+          </div>
           <div class="form-group">
             <label>Street Address *</label>
-            <input type="text" id="chkStreet" class="form-input" placeholder="123 Luxury Boulevard" required>
+            <input type="text" id="chkStreet" class="form-input" placeholder="House/Building No., Street Name" required>
           </div>
           <div class="form-row">
             <div class="form-group flex-2">
               <label>Apartment, Suite, Unit</label>
-              <input type="text" id="chkApartment" class="form-input" placeholder="Apt 4B (Optional)">
-            </div>
-            <div class="form-group flex-2">
-              <label>City *</label>
-              <input type="text" id="chkCity" class="form-input" placeholder="New York" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group flex-1">
-              <label>State / Province</label>
-              <input type="text" id="chkState" class="form-input" placeholder="NY">
+              <input type="text" id="chkApartment" class="form-input" placeholder="Apt, Suite, Floor (Optional)">
             </div>
             <div class="form-group flex-1">
-              <label>Postal Code *</label>
-              <input type="text" id="chkPostal" class="form-input" placeholder="10001" required>
+              <label>State / Province / Region</label>
+              <input type="text" id="chkState" class="form-input" placeholder="State/County">
             </div>
             <div class="form-group flex-1">
-              <label>Country *</label>
-              <select id="chkCountry" class="form-input">
-                <option value="United States">United States</option>
-                <option value="United Kingdom">United Kingdom</option>
-                <option value="Canada">Canada</option>
-                <option value="United Arab Emirates">United Arab Emirates</option>
-                <option value="Pakistan">Pakistan</option>
-                <option value="Saudi Arabia">Saudi Arabia</option>
-                <option value="Australia">Australia</option>
-                <option value="Germany">Germany</option>
-                <option value="France">France</option>
-                <option value="Other Worldwide">Other Worldwide</option>
-              </select>
+              <label>Postal / ZIP Code *</label>
+              <input type="text" id="chkPostal" class="form-input" placeholder="Postal Code" required>
             </div>
           </div>
         </div>

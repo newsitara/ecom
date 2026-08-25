@@ -3237,7 +3237,9 @@ img {
   position: absolute;
   top: calc(100% + 6px);
   right: 0;
-  width: 260px;
+  width: 270px;
+  max-height: 380px;
+  overflow-y: auto;
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -3259,6 +3261,139 @@ img {
 
 .currency-picker-wrap.open .currency-dropdown {
   display: flex;
+}
+
+/* ==========================================================================
+   MULTI-LANGUAGE SELECTOR & RTL SUPPORT
+   ========================================================================== */
+.lang-picker-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  padding: 0.38rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+  background: #FFF;
+  border-color: var(--text-main);
+}
+
+.lang-btn svg {
+  width: 13px;
+  height: 13px;
+  color: var(--text-muted);
+}
+
+.lang-btn .chevron-icon {
+  width: 12px;
+  height: 12px;
+  color: var(--text-muted);
+  transition: transform 0.2s ease;
+}
+
+.lang-picker-wrap.open .lang-btn .chevron-icon {
+  transform: rotate(180deg);
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  width: 220px;
+  max-height: 360px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  padding: 0.5rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.25rem;
+  z-index: 1200;
+  animation: dropdownPop 0.18s var(--ease-modern);
+}
+
+.lang-picker-wrap.open .lang-dropdown {
+  display: flex;
+}
+
+.lang-opt-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-main);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  width: 100%;
+}
+
+.lang-opt-btn:hover {
+  background: var(--bg-subtle);
+}
+
+.lang-opt-btn.active {
+  background: var(--accent-noir);
+  color: #FFF;
+}
+
+.lang-opt-btn.active .lang-native-sub {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.lang-code-pill {
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.lang-native-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* RTL Layout Mode */
+body.rtl-mode {
+  direction: rtl;
+  text-align: right;
+}
+
+body.rtl-mode .nav-actions-right {
+  justify-content: flex-start;
+}
+
+body.rtl-mode .currency-dropdown,
+body.rtl-mode .lang-dropdown {
+  right: auto;
+  left: 0;
+}
+
+body.rtl-mode .bag-pill,
+body.rtl-mode .wishlist-pill {
+  right: auto;
+  left: -3px;
 }
 
 .currency-opt-btn {

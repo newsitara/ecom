@@ -59,13 +59,25 @@
         <span class="brand-logotype">NEW SITARA</span>
       </a>
 
-      <!-- Right Actions: Currency, Wishlist, Bag -->
+      <!-- Right Actions: Language, Currency, Wishlist, Bag -->
       <div class="nav-actions-right">
         
+        <!-- Multi-Language Selector -->
+        <div class="lang-picker-wrap" id="langPickerWrap">
+          <button type="button" class="lang-btn" id="langToggleBtn" onclick="toggleLangDropdown(event)" aria-label="Select Language">
+            <i data-lucide="globe"></i>
+            <span id="activeLangCode">EN</span>
+            <i data-lucide="chevron-down" class="chevron-icon"></i>
+          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <!-- Injected dynamically via JS -->
+          </div>
+        </div>
+
         <!-- Multi-Currency Selector -->
         <div class="currency-picker-wrap" id="currencyPickerWrap">
           <button type="button" class="currency-btn" id="currencyToggleBtn" onclick="toggleCurrencyDropdown(event)" aria-label="Select Currency">
-            <span id="activeCurrencyCode">PKR</span>
+            <span id="activeCurrencyCode">USD</span>
             <i data-lucide="chevron-down" class="chevron-icon"></i>
           </button>
           <div class="currency-dropdown" id="currencyDropdown">
@@ -485,22 +497,17 @@
         <div class="form-grid-2">
           <div class="form-field form-col-full">
             <label>Street Address *</label>
-            <input type="text" id="chkAddress" class="form-input" placeholder="House #, Street, Apartment" required>
+            <input type="text" id="chkAddress" class="form-input" placeholder="House/Building No., Street, Apartment" required>
           </div>
           <div class="form-field">
-            <label>City *</label>
-            <input type="text" id="chkCity" class="form-input" placeholder="e.g. Lahore / Karachi" required>
-          </div>
-          <div class="form-field">
-            <label>Country *</label>
-            <select id="chkCountry" class="form-input">
-              <option value="Pakistan">Pakistan</option>
-              <option value="United States">United States</option>
-              <option value="United Kingdom">United Kingdom</option>
-              <option value="United Arab Emirates">United Arab Emirates</option>
-              <option value="Saudi Arabia">Saudi Arabia</option>
-              <option value="Canada">Canada</option>
+            <label>Country / Region *</label>
+            <select id="chkCountry" class="form-input" onchange="handleCountryChange(event)">
+              <!-- Populated dynamically via DataStore -->
             </select>
+          </div>
+          <div class="form-field">
+            <label>City / Town *</label>
+            <input type="text" id="chkCity" class="form-input" placeholder="e.g. London, New York, Dubai" required>
           </div>
         </div>
       </div>

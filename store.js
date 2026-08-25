@@ -23,13 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initStore() {
+  renderLanguageDropdown();
   renderCurrencyDropdown();
+  populateCountryDropdown();
   renderCategoryNavigation();
   renderCategoryPillStrip();
   renderHomeDepartmentShelves();
   renderFilterPills();
   renderFooterCategories();
   startFlashCountdown();
+  applyTranslations();
 
   // Check URL category query
   const urlParams = new URLSearchParams(window.location.search);
@@ -53,9 +56,13 @@ function initStore() {
 
   // Close dropdowns on outside click
   document.addEventListener('click', (e) => {
-    const wrap = document.getElementById('currencyPickerWrap');
-    if (wrap && !wrap.contains(e.target)) {
-      wrap.classList.remove('open');
+    const currWrap = document.getElementById('currencyPickerWrap');
+    if (currWrap && !currWrap.contains(e.target)) {
+      currWrap.classList.remove('open');
+    }
+    const langWrap = document.getElementById('langPickerWrap');
+    if (langWrap && !langWrap.contains(e.target)) {
+      langWrap.classList.remove('open');
     }
     const catWrap = document.getElementById('navCategoryDropdownWrap');
     if (catWrap && !catWrap.contains(e.target)) {
@@ -93,10 +100,10 @@ function renderCategoryPillStrip() {
 
   let pillsHTML = `
     <button type="button" class="quick-pill ${activeCategory === 'home' ? 'active' : ''}" onclick="filterByCategory('home')">
-      <span>Home</span>
+      <span>${DataStore.t('nav_home', 'Home')}</span>
     </button>
     <button type="button" class="quick-pill ${activeCategory === 'all' ? 'active' : ''}" onclick="filterByCategory('all')">
-      <span>All Drops (${products.length})</span>
+      <span>${DataStore.t('nav_all_archive', 'All Drops')} (${products.length})</span>
     </button>
   `;
 
@@ -137,8 +144,135 @@ function scrollToSection(id) {
 }
 
 // ==========================================================================
-// 1. MULTI-CURRENCY ENGINE
+// 1. MULTI-LANGUAGE & MULTI-CURRENCY INTERNATIONAL ENGINE
 // ==========================================================================
+function renderLanguageDropdown() {
+  const languages = DataStore.getLanguages();
+  const active = DataStore.getActiveLanguage();
+
+  const codeEl = document.getElementById('activeLangCode');
+  const dropdown = document.getElementById('langDropdown');
+
+  if (codeEl) codeEl.textContent = active.code.toUpperCase();
+
+  if (dropdown) {
+    dropdown.innerHTML = languages
+      .map(
+        (l) => `
+        <button type="button" class="lang-opt-btn ${l.code === active.code ? 'active' : ''}" onclick="selectLanguage('${l.code}', event)">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span class="lang-code-pill">${l.code.toUpperCase()}</span>
+            <span>${l.native}</span>
+          </div>
+          <span class="lang-native-sub">${l.name}</span>
+        </button>
+      `
+      )
+      .join('');
+  }
+}
+
+function toggleLangDropdown(e) {
+  if (e) e.stopPropagation();
+  const wrap = document.getElementById('langPickerWrap');
+  if (wrap) wrap.classList.toggle('open');
+  const currWrap = document.getElementById('currencyPickerWrap');
+  if (currWrap) currWrap.classList.remove('open');
+}
+
+function selectLanguage(code, e) {
+  if (e) e.stopPropagation();
+  DataStore.setActiveLanguage(code);
+  const wrap = document.getElementById('langPickerWrap');
+  if (wrap) wrap.classList.remove('open');
+
+  renderLanguageDropdown();
+  applyTranslations();
+  renderCategoryNavigation();
+  renderCategoryPillStrip();
+  renderHomeDepartmentShelves();
+  renderProductsGrid();
+  renderCartFeed();
+  if (document.getElementById('storeWishlistDrawer')?.classList.contains('open')) {
+    renderWishlistFeed();
+  }
+
+  showToast(`Language: ${DataStore.getActiveLanguage().name}`);
+}
+
+function applyTranslations() {
+  // Update announcements
+  const annEls = document.querySelectorAll('.announcement-track span:not(.track-dot)');
+  if (annEls.length > 0) {
+    annEls.forEach((el, idx) => {
+      if (idx % 2 === 0) el.textContent = DataStore.t('announcement_shipping');
+      else el.innerHTML = `USE PROMO CODE <strong>SITARA15</strong> FOR 15% OFF`;
+    });
+  }
+
+  // Update Hero text
+  const heroCapsule = document.querySelector('.hero-capsule');
+  if (heroCapsule) heroCapsule.textContent = DataStore.t('hero_capsule');
+  const heroHeadline = document.querySelector('.hero-headline');
+  if (heroHeadline) heroHeadline.textContent = DataStore.t('hero_headline');
+  const heroSubtext = document.querySelector('.hero-subtext');
+  if (heroSubtext) heroSubtext.textContent = DataStore.t('hero_subtext');
+
+  // Update Trust features
+  const trustTitles = document.querySelectorAll('.trust-feature h4');
+  const trustDescs = document.querySelectorAll('.trust-feature p');
+  if (trustTitles.length >= 4) {
+    trustTitles[0].textContent = DataStore.t('trust_shipping_title');
+    trustTitles[1].textContent = DataStore.t('trust_card_title');
+    trustTitles[2].textContent = DataStore.t('trust_returns_title');
+    trustTitles[3].textContent = DataStore.t('trust_quality_title');
+  }
+  if (trustDescs.length >= 4) {
+    trustDescs[0].textContent = DataStore.t('trust_shipping_desc');
+    trustDescs[1].textContent = DataStore.t('trust_card_desc');
+    trustDescs[2].textContent = DataStore.t('trust_returns_desc');
+    trustDescs[3].textContent = DataStore.t('trust_quality_desc');
+  }
+
+  // Update Reviews Header
+  const revHeading = document.querySelector('.reviews-header-block h2');
+  if (revHeading) revHeading.textContent = DataStore.t('reviews_header');
+  const revTag = document.querySelector('.reviews-header-block .section-tag');
+  if (revTag) revTag.textContent = DataStore.t('reviews_tag');
+
+  // Update Drawer Titles
+  const bagHeader = document.querySelector('#cartDrawer .cart-drawer-header h3');
+  if (bagHeader) bagHeader.textContent = DataStore.t('bag_title');
+  const wishHeader = document.querySelector('#storeWishlistDrawer .cart-drawer-header h3');
+  if (wishHeader) wishHeader.textContent = DataStore.t('wishlist_title');
+
+  // Update Checkout Headings
+  const chkTitle = document.querySelector('#checkoutModal .modal-header h3');
+  if (chkTitle) chkTitle.textContent = DataStore.t('chk_title');
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function populateCountryDropdown() {
+  const select = document.getElementById('chkCountry');
+  if (!select) return;
+  const countries = DataStore.getCountries();
+  const currentVal = select.value;
+  select.innerHTML = countries.map(c => `<option value="${c.name}" ${currentVal === c.name || (!currentVal && c.code === 'US') ? 'selected' : ''}>${c.name} (${c.phone})</option>`).join('');
+}
+
+function handleCountryChange(e) {
+  const selectedName = e.target.value;
+  const country = DataStore.getCountryByName(selectedName);
+  if (country) {
+    const phoneInput = document.getElementById('chkPhone');
+    if (phoneInput && (!phoneInput.value || phoneInput.value.startsWith('+'))) {
+      phoneInput.placeholder = `${country.phone} 000-0000`;
+      phoneInput.value = `${country.phone} `;
+    }
+  }
+}
+
 function renderCurrencyDropdown() {
   const currencies = DataStore.getCurrencies();
   const active = DataStore.getActiveCurrency();
@@ -169,6 +303,8 @@ function toggleCurrencyDropdown(e) {
   if (e) e.stopPropagation();
   const wrap = document.getElementById('currencyPickerWrap');
   if (wrap) wrap.classList.toggle('open');
+  const langWrap = document.getElementById('langPickerWrap');
+  if (langWrap) langWrap.classList.remove('open');
 }
 
 function selectCurrency(code, e) {

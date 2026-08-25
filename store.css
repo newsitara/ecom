@@ -511,94 +511,125 @@ img {
 }
 
 /* ==========================================================================
-   CLEAN LIGHT CONTEMPORARY HERO BANNER (Inspired by Eveen.pk)
+   HIGH-IMPACT EDITORIAL FASHION HERO BANNER (2-Column Luxury Showcase)
    ========================================================================== */
-.store-hero.light-hero {
+.store-hero.editorial-hero {
   position: relative;
-  min-height: 480px;
+  background: linear-gradient(135deg, #FAF8F5 0%, #FFFFFF 50%, #F5EFE6 100%);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 3.5rem 1.5rem 4rem;
+  overflow: hidden;
+}
+
+.hero-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.hero-content-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.hero-tag-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 5rem 2rem 4rem;
-  background: linear-gradient(145deg, #FAF8F5 0%, #FFFFFF 50%, #F5F1EB 100%);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  color: var(--text-main);
-}
-
-.hero-inner {
-  max-width: 840px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
-
-.hero-capsule {
-  display: inline-block;
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  color: #111827;
-  background: rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 0.45rem 1.25rem;
-  border-radius: var(--radius-pill);
+  gap: 0.6rem;
   margin-bottom: 1.25rem;
+}
+
+.hero-season-pill {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  background: #111827;
+  color: #FFFFFF;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+}
+
+.hero-drop-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: #FFFFFF;
+  color: #111827;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
 }
 
 .hero-headline {
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-size: clamp(2.4rem, 4.2vw, 3.6rem);
   font-weight: 800;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
   color: #111827;
   margin-bottom: 1.25rem;
 }
 
+.hero-headline .hero-highlight {
+  background: linear-gradient(135deg, #111827 0%, #4B5563 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .hero-subtext {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: #4B5563;
-  max-width: 620px;
-  margin: 0 auto 2.25rem;
   line-height: 1.6;
-  font-weight: 400;
+  margin-bottom: 2rem;
+  max-width: 540px;
 }
 
 .hero-cta-row {
   display: flex;
-  justify-content: center;
+  align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-bottom: 2.5rem;
 }
 
 .btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   background: #111827;
   color: #FFFFFF;
-  padding: 0.85rem 2rem;
-  font-size: 0.86rem;
+  padding: 0.85rem 1.85rem;
+  font-size: 0.88rem;
   font-weight: 700;
   border-radius: var(--radius-pill);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-  cursor: pointer;
   border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   transition: all 0.25s var(--ease-modern);
 }
 
 .btn-hero-primary:hover {
   background: #000000;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
 }
 
 .btn-hero-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   background: #FFFFFF;
   color: #111827;
-  border: 1px solid rgba(0, 0, 0, 0.18);
-  padding: 0.85rem 2rem;
-  font-size: 0.86rem;
+  border: 1.5px solid #111827;
+  padding: 0.85rem 1.85rem;
+  font-size: 0.88rem;
   font-weight: 700;
   border-radius: var(--radius-pill);
   cursor: pointer;
@@ -606,9 +637,207 @@ img {
 }
 
 .btn-hero-outline:hover {
-  background: #F3F4F6;
-  border-color: #111827;
+  background: #111827;
+  color: #FFFFFF;
   transform: translateY(-2px);
+}
+
+.hero-trust-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 100%;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.hero-trust-item svg {
+  width: 20px;
+  height: 20px;
+  color: #111827;
+  flex-shrink: 0;
+}
+
+.hero-trust-item strong {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #111827;
+  line-height: 1.2;
+}
+
+.hero-trust-item span {
+  display: block;
+  font-size: 0.68rem;
+  color: #6B7280;
+}
+
+/* Right Column Lookbook Cards */
+.hero-visual-col {
+  position: relative;
+  width: 100%;
+}
+
+.hero-cards-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  grid-template-rows: repeat(2, 180px);
+  gap: 1rem;
+}
+
+.hero-lookbook-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #E5E7EB;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: all 0.35s var(--ease-modern);
+}
+
+.hero-lookbook-card.main-card {
+  grid-row: span 2;
+  height: 100%;
+  min-height: 370px;
+}
+
+.hero-lookbook-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+}
+
+.hero-lookbook-card .lookbook-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-modern);
+}
+
+.hero-lookbook-card:hover .lookbook-img {
+  transform: scale(1.06);
+}
+
+.hero-lookbook-card .lookbook-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.7) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.25rem;
+  color: #FFFFFF;
+}
+
+.lookbook-badge {
+  display: inline-block;
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+
+.lookbook-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+  color: #FFFFFF;
+}
+
+.main-card .lookbook-title {
+  font-size: 1.35rem;
+}
+
+.lookbook-link {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.hero-lookbook-card:hover .lookbook-link {
+  color: #FFFFFF;
+}
+
+@media (max-width: 1080px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hero-content-col {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-subtext {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-trust-row {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .hero-cards-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 220px 220px;
+  }
+
+  .hero-lookbook-card.main-card {
+    grid-row: auto;
+    grid-column: span 2;
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 640px) {
+  .store-hero.editorial-hero {
+    padding: 2.5rem 1rem 3rem;
+  }
+
+  .hero-headline {
+    font-size: 2rem;
+  }
+
+  .hero-trust-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .hero-cards-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .hero-lookbook-card.main-card {
+    grid-column: auto;
+    min-height: 220px;
+  }
+
+  .hero-lookbook-card.sub-card-1,
+  .hero-lookbook-card.sub-card-2 {
+    height: 180px;
+  }
 }
 
 /* ==========================================================================

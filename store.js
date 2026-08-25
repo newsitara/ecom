@@ -342,32 +342,31 @@ function renderCategoryNavigation() {
       
       <div class="nav-dropdown-wrap" id="navCategoryDropdownWrap">
         <button type="button" class="nav-link-btn nav-dropdown-btn ${activeCategory !== 'home' && activeCategory !== 'all' ? 'active' : ''}" onclick="toggleNavCategoryDropdown(event)">
-          <span>Categories</span>
+          <span>Departments</span>
           <i data-lucide="chevron-down" class="nav-chevron"></i>
         </button>
         <div class="nav-category-dropdown" id="navCategoryDropdown">
-          <div class="nav-dropdown-head">Shop by Category</div>
+          <div class="nav-dropdown-head">Browse Departments</div>
           ${categories
             .map((c) => {
               const count = products.filter((p) => p.category === (c.slug || c.id)).length;
               return `
               <a href="javascript:void(0)" class="nav-cat-item ${activeCategory === (c.slug || c.id) ? 'active' : ''}" onclick="filterByCategory('${c.slug || c.id}'); closeNavCategoryDropdown();">
                 <span class="nav-cat-name">${c.name}</span>
-                <span class="nav-cat-count">${count} items</span>
+                <span class="nav-cat-count">${count} pieces</span>
               </a>
             `;
             })
             .join('')}
           <div class="nav-dropdown-divider"></div>
           <a href="javascript:void(0)" class="nav-cat-item ${activeCategory === 'all' ? 'active' : ''}" onclick="filterByCategory('all'); closeNavCategoryDropdown();">
-            <span class="nav-cat-name" style="font-weight: 800;">View All Archive</span>
-            <span class="nav-cat-count">${products.length} items</span>
+            <span class="nav-cat-name" style="font-weight: 800;">Complete Archive</span>
+            <span class="nav-cat-count">${products.length} pieces</span>
           </a>
         </div>
       </div>
 
       <button class="nav-link-btn ${activeCategory === 'all' ? 'active' : ''}" onclick="filterByCategory('all')">All Archive</button>
-      <a href="/track" class="nav-link-btn">Track Order</a>
     `;
   }
 

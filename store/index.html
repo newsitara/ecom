@@ -52,6 +52,7 @@
       <!-- Center Brand Logo -->
       <a href="javascript:void(0)" onclick="filterByCategory('home')" class="brand-center">
         <span class="brand-logotype">NEW SITARA</span>
+        <span class="brand-sub-tag" style="display:block; font-size:0.58rem; letter-spacing:0.25em; font-weight:800; color:var(--text-muted); text-transform:uppercase; margin-top:-2px;">ATELIER 2026</span>
       </a>
 
       <!-- Right Actions: Language, Currency, Wishlist, Search, Track & Bag -->
@@ -138,17 +139,100 @@
     </div>
   </aside>
 
-  <!-- Light Contemporary Hero Banner -->
-  <section class="store-hero light-hero">
-    <div class="hero-inner">
-      <span class="hero-capsule">INAUGURAL COLLECTION</span>
-      <h1 class="hero-headline">PREMIUM APPAREL & BESPOKE ESSENTIALS</h1>
-      <p class="hero-subtext">Discover contemporary silhouettes, heavyweight fabrics, and tailored streetwear designed for everyday luxury.</p>
+  <!-- High-Impact Editorial Fashion Hero Banner -->
+  <section class="store-hero editorial-hero">
+    <div class="hero-container">
       
-      <div class="hero-cta-row">
-        <button class="btn btn-hero-primary" onclick="filterByCategory('all')">Shop All Pieces</button>
-        <button class="btn btn-hero-outline" onclick="toggleNavCategoryDropdown(event)">Explore Departments</button>
+      <!-- Left Editorial Narrative & CTAs -->
+      <div class="hero-content-col">
+        <div class="hero-tag-row">
+          <span class="hero-season-pill">AUTUMN / WINTER 2026</span>
+          <span class="hero-drop-badge">INAUGURAL DROP</span>
+        </div>
+
+        <h1 class="hero-headline">
+          STRUCTURED SILHOUETTES.<br>
+          <span class="hero-highlight">BESPOKE STREETWEAR.</span>
+        </h1>
+
+        <p class="hero-subtext">
+          Engineered from 520 GSM Portuguese loopback fleece, vintage Japanese selvedge denim, and hand-finished bespoke tailoring for a permanent modern drape.
+        </p>
+
+        <div class="hero-cta-row">
+          <button class="btn btn-hero-primary" onclick="scrollToSection('catalogSection')">
+            <span>Explore Inaugural Collection</span>
+            <i data-lucide="arrow-down"></i>
+          </button>
+          <button class="btn btn-hero-outline" onclick="filterByCategory('hoodies')">
+            <span>Heavyweight Hoodies</span>
+            <i data-lucide="arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Trust & Value Pillars Under Hero -->
+        <div class="hero-trust-row">
+          <div class="hero-trust-item">
+            <i data-lucide="truck"></i>
+            <div>
+              <strong>Complimentary Delivery</strong>
+              <span>On qualifying global orders</span>
+            </div>
+          </div>
+          <div class="hero-trust-item">
+            <i data-lucide="shield-check"></i>
+            <div>
+              <strong>256-Bit SSL Encrypted</strong>
+              <span>Card payments only</span>
+            </div>
+          </div>
+          <div class="hero-trust-item">
+            <i data-lucide="refresh-cw"></i>
+            <div>
+              <strong>14-Day Exchanges</strong>
+              <span>Complimentary returns</span>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- Right Editorial Lookbook Visual Showcase -->
+      <div class="hero-visual-col">
+        <div class="hero-cards-grid">
+          
+          <!-- Featured Lookbook Card 1 -->
+          <div class="hero-lookbook-card main-card" onclick="filterByCategory('hoodies')">
+            <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop" alt="Heavyweight Hoodies" class="lookbook-img">
+            <div class="lookbook-overlay">
+              <span class="lookbook-badge">520 GSM FLEECE</span>
+              <h3 class="lookbook-title">Heavyweight Boxy Hoodies</h3>
+              <span class="lookbook-link">Shop Outerwear ↗</span>
+            </div>
+          </div>
+
+          <!-- Lookbook Card 2 -->
+          <div class="hero-lookbook-card sub-card-1" onclick="filterByCategory('pants')">
+            <img src="https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=600&auto=format&fit=crop" alt="Tailored Pants" class="lookbook-img">
+            <div class="lookbook-overlay">
+              <span class="lookbook-badge">TAILORED CUT</span>
+              <h3 class="lookbook-title">Pleated & Cargo Trousers</h3>
+              <span class="lookbook-link">Explore Bottoms ↗</span>
+            </div>
+          </div>
+
+          <!-- Lookbook Card 3 -->
+          <div class="hero-lookbook-card sub-card-2" onclick="filterByCategory('t-shirts')">
+            <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600&auto=format&fit=crop" alt="Vintage Washed Tees" class="lookbook-img">
+            <div class="lookbook-overlay">
+              <span class="lookbook-badge">300 GSM COTTON</span>
+              <h3 class="lookbook-title">Vintage Washed Tees</h3>
+              <span class="lookbook-link">Discover Tops ↗</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </section>
 

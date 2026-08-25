@@ -25,10 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
 function initStore() {
   renderCurrencyDropdown();
   renderCategoryNavigation();
-  renderCategoryPortals();
+  renderCategoryPillStrip();
   renderHomeDepartmentShelves();
   renderFilterPills();
   renderFooterCategories();
+  startFlashCountdown();
 
   // Check URL category query
   const urlParams = new URLSearchParams(window.location.search);
@@ -63,6 +64,53 @@ function initStore() {
   });
 
   if (window.lucide) window.lucide.createIcons();
+}
+
+function renderCategoryPillStrip() {
+  const container = document.getElementById('categoryPillStrip');
+  if (!container) return;
+
+  const categories = DataStore.getCategories();
+  const products = DataStore.getProducts();
+
+  let pillsHTML = `
+    <button type="button" class="quick-pill ${activeCategory === 'home' ? 'active' : ''}" onclick="filterByCategory('home')">
+      <span>🏠 Home</span>
+    </button>
+    <button type="button" class="quick-pill ${activeCategory === 'all' ? 'active' : ''}" onclick="filterByCategory('all')">
+      <span>⚡ All Drops (${products.length})</span>
+    </button>
+  `;
+
+  categories.forEach((c) => {
+    const count = products.filter((p) => p.category === (c.slug || c.id)).length;
+    pillsHTML += `
+      <button type="button" class="quick-pill ${activeCategory === (c.slug || c.id) ? 'active' : ''}" onclick="filterByCategory('${c.slug || c.id}')">
+        <span>${c.name.split('&')[0].trim()} (${count})</span>
+      </button>
+    `;
+  });
+
+  container.innerHTML = pillsHTML;
+}
+
+let flashTimerInterval = null;
+function startFlashCountdown() {
+  if (flashTimerInterval) return;
+  let secondsLeft = 8 * 3600 + 42 * 60 + 19;
+  flashTimerInterval = setInterval(() => {
+    secondsLeft--;
+    if (secondsLeft <= 0) secondsLeft = 12 * 3600;
+    const h = Math.floor(secondsLeft / 3600);
+    const m = Math.floor((secondsLeft % 3600) / 60);
+    const s = secondsLeft % 60;
+    const hEl = document.getElementById('timerHours');
+    const mEl = document.getElementById('timerMinutes');
+    const sEl = document.getElementById('timerSeconds');
+    if (hEl) hEl.textContent = String(h).padStart(2, '0');
+    if (mEl) mEl.textContent = String(m).padStart(2, '0');
+    if (sEl) sEl.textContent = String(s).padStart(2, '0');
+  }, 1000);
 }
 
 function scrollToSection(id) {
@@ -747,8 +795,9 @@ function filterByCategory(catSlug, btnEl, pushState = true) {
     renderProductsGrid();
   }
 
-  // Sync navigation
+  // Sync navigation & quick pill strip
   renderCategoryNavigation();
+  renderCategoryPillStrip();
 }
 
 function handleSort(e) {
@@ -1167,7 +1216,7 @@ function updateCartBadge() {
   const count = cartItems.reduce((sum, i) => sum + i.qty, 0);
   const badge = document.getElementById('cartCountBadge');
   const countTxt = document.getElementById('cartItemCountText');
-  const mobBadge = document.getElementById('mobBagBadge');
+  const mobBadge = document.getElementById('mobCartBadge');
 
   if (badge) badge.textContent = count;
   if (countTxt) countTxt.textContent = `(${count})`;

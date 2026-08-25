@@ -30,32 +30,42 @@ function handleTrackSearch(e) {
 }
 
 function performTrackLookup(query) {
-  const order = DataStore.trackOrder(query);
-
   const zeroHint = document.getElementById('trackZeroHint');
   const card = document.getElementById('orderStatusCard');
 
-  if (!order) {
-    if (zeroHint) {
-      zeroHint.style.display = 'block';
-      zeroHint.innerHTML = `
-        <div class="hint-icon" style="color: #EF4444;"><i data-lucide="alert-circle"></i></div>
-        <h3 style="color: #EF4444;">Shipment Not Found</h3>
-        <p>No active order found for <code>${query}</code>. Please double-check your Tracking ID (e.g. <code>NS-TRK-XXXXX</code>) or the email address used at checkout.</p>
-      `;
-      if (window.lucide) window.lucide.createIcons();
+  if (zeroHint) {
+    zeroHint.innerHTML = `
+      <div style="max-width:600px; margin:2rem auto; display:flex; flex-direction:column; gap:1rem;">
+        <div class="skeleton" style="height:32px; width:45%; border-radius:6px;"></div>
+        <div class="skeleton" style="height:20px; width:70%; border-radius:4px;"></div>
+        <div class="skeleton" style="height:120px; width:100%; border-radius:10px;"></div>
+      </div>
+    `;
+    zeroHint.style.display = 'block';
+  }
+  if (card) card.style.display = 'none';
+
+  setTimeout(() => {
+    const order = DataStore.trackOrder(query);
+    if (!order) {
+      if (zeroHint) {
+        zeroHint.innerHTML = `
+          <div class="hint-icon" style="color: #EF4444;"><i data-lucide="alert-circle"></i></div>
+          <h3 style="color: #EF4444;">Shipment Not Found</h3>
+          <p>No active order found for <code>${query}</code>. Please double-check your Tracking ID (e.g. <code>NS-TRK-XXXXX</code>) or the email address used at checkout.</p>
+        `;
+        if (window.lucide) window.lucide.createIcons();
+      }
+      return;
     }
-    if (card) card.style.display = 'none';
-    return;
-  }
 
-  currentTrackedOrder = order;
-
-  if (zeroHint) zeroHint.style.display = 'none';
-  if (card) {
-    card.style.display = 'block';
-    renderOrderStatus(order);
-  }
+    currentTrackedOrder = order;
+    if (zeroHint) zeroHint.style.display = 'none';
+    if (card) {
+      card.style.display = 'block';
+      renderOrderStatus(order);
+    }
+  }, 200);
 }
 
 function renderOrderStatus(order) {

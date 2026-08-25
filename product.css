@@ -683,3 +683,16 @@ details[open] .accordion-chevron {
     grid-template-columns: 1fr;
   }
 }
+
+/* Skeleton Loading Screens */
+.skeleton {
+  background: linear-gradient(90deg, #F3F4F6 25%, #E5E7EB 50%, #F3F4F6 75%);
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.5s infinite ease-in-out;
+  border-radius: 6px;
+}
+
+@keyframes skeletonShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

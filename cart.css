@@ -549,3 +549,40 @@
     align-self: center;
   }
 }
+
+/* Skeleton Loading Screens */
+.skeleton {
+  background: linear-gradient(90deg, #F3F4F6 25%, #E5E7EB 50%, #F3F4F6 75%);
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.5s infinite ease-in-out;
+  border-radius: 6px;
+}
+
+@keyframes skeletonShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeleton-line {
+  height: 14px;
+  border-radius: 4px;
+}
+
+.skeleton-line.tag { height: 10px; width: 35%; }
+.skeleton-line.title { height: 16px; width: 85%; }
+.skeleton-line.price { height: 18px; width: 40%; }
+
+.skeleton-cart-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 100px 100px 40px;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.skeleton-cart-thumb {
+  width: 80px;
+  height: 96px;
+  border-radius: 6px;
+}

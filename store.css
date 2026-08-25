@@ -20,8 +20,8 @@
   --border-dark: #111827;
 
   --accent-noir: #111827;
-  --accent-blue: #2563EB;
-  --accent-blue-hover: #1D4ED8;
+  --accent-blue: #111827;
+  --accent-blue-hover: #000000;
   --accent-green: #059669;
   --accent-warm: #F5EFE6;
   --accent-cream: #FAF8F5;
@@ -1246,7 +1246,7 @@ img {
   position: absolute;
   top: -4px;
   right: -8px;
-  background: #2563EB;
+  background: #111827;
   color: #FFFFFF;
   font-size: 0.6rem;
   font-weight: 800;
@@ -1926,18 +1926,27 @@ img {
 }
 
 .btn-card-quick {
-  background: var(--accent-noir);
-  color: #FFF;
-  font-size: 0.72rem;
+  background: #111827 !important;
+  color: #FFFFFF !important;
+  font-size: 0.74rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
-  padding: 0.55rem;
-  border-radius: 4px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.65rem 0.85rem;
+  border-radius: 6px;
   width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: all 0.2s var(--ease-modern);
+  cursor: pointer;
 }
 
 .btn-card-quick:hover {
-  background: var(--accent-blue);
+  background: #000000 !important;
+  color: #FFFFFF !important;
+  border-color: #000000;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transform: translateY(-1px);
 }
 
 .card-sizes-row {
@@ -4380,6 +4389,111 @@ body.rtl-mode .wishlist-pill {
 
   .receipt-modal *, .order-status-card * {
     visibility: visible;
+  }
+}
+
+/* ==========================================================================
+   LUXURY SHIMMERING SKELETON LOADING SCREENS
+   ========================================================================== */
+.skeleton {
+  background: linear-gradient(90deg, #F3F4F6 25%, #E5E7EB 50%, #F3F4F6 75%);
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.5s infinite ease-in-out;
+  border-radius: 6px;
+}
+
+@keyframes skeletonShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.skeleton-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skeleton-media {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: 8px;
+}
+
+.skeleton-line {
+  height: 14px;
+  border-radius: 4px;
+}
+
+.skeleton-line.tag { height: 10px; width: 35%; }
+.skeleton-line.title { height: 16px; width: 85%; }
+.skeleton-line.rating { height: 12px; width: 50%; }
+.skeleton-line.price { height: 18px; width: 40%; }
+
+/* PDP Skeleton */
+.skeleton-pdp-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3.5rem;
+  max-width: 1320px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.skeleton-pdp-gallery {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: 12px;
+}
+
+.skeleton-pdp-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Cart Skeleton */
+.skeleton-cart-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 100px 100px 40px;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.skeleton-cart-thumb {
+  width: 80px;
+  height: 96px;
+  border-radius: 6px;
+}
+
+@media (max-width: 1080px) {
+  .skeleton-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .skeleton-pdp-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .skeleton-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+  .skeleton-cart-row {
+    grid-template-columns: 70px 1fr 60px;
   }
 }
 

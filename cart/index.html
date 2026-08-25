@@ -109,7 +109,19 @@
 
     <!-- Dynamic Cart Layout (Injected via cart.js) -->
     <div id="cartLayoutContainer">
-      <!-- Injected dynamically -->
+      <div class="cart-layout-grid" style="display: grid; grid-template-columns: 1fr 380px; gap: 2.5rem; margin-top: 2rem;">
+        <div class="cart-items-pane">
+          <div class="skeleton-cart-row"><div class="skeleton skeleton-cart-thumb"></div><div style="display:flex; flex-direction:column; gap:0.5rem;"><div class="skeleton skeleton-line title"></div><div class="skeleton skeleton-line tag"></div></div><div class="skeleton skeleton-line price"></div><div class="skeleton skeleton-line" style="width:60px;"></div></div>
+          <div class="skeleton-cart-row"><div class="skeleton skeleton-cart-thumb"></div><div style="display:flex; flex-direction:column; gap:0.5rem;"><div class="skeleton skeleton-line title"></div><div class="skeleton skeleton-line tag"></div></div><div class="skeleton skeleton-line price"></div><div class="skeleton skeleton-line" style="width:60px;"></div></div>
+        </div>
+        <div class="cart-summary-card" style="background:#FFF; padding:1.5rem; border-radius:10px; border:1px solid var(--border-subtle); display:flex; flex-direction:column; gap:1rem;">
+          <div class="skeleton skeleton-line title" style="width:50%;"></div>
+          <div class="skeleton skeleton-line" style="height:44px; width:100%;"></div>
+          <div class="skeleton skeleton-line" style="height:20px; width:100%;"></div>
+          <div class="skeleton skeleton-line" style="height:20px; width:100%;"></div>
+          <div class="skeleton skeleton-line" style="height:48px; width:100%; border-radius:999px;"></div>
+        </div>
+      </div>
     </div>
 
   </main>

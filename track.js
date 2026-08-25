@@ -30,29 +30,35 @@ function handleTrackSearch(e) {
 }
 
 function performTrackLookup(query) {
-  const zeroHint = document.getElementById('trackZeroHint');
+  const feedbackPane = document.getElementById('trackFeedbackPane');
   const card = document.getElementById('orderStatusCard');
 
-  if (zeroHint) {
-    zeroHint.innerHTML = `
-      <div style="max-width:600px; margin:2rem auto; display:flex; flex-direction:column; gap:1rem;">
-        <div class="skeleton" style="height:32px; width:45%; border-radius:6px;"></div>
-        <div class="skeleton" style="height:20px; width:70%; border-radius:4px;"></div>
-        <div class="skeleton" style="height:120px; width:100%; border-radius:10px;"></div>
+  if (card) card.style.display = 'none';
+  if (feedbackPane) {
+    feedbackPane.innerHTML = `
+      <div style="max-width:640px; margin:1.5rem auto; background:#FFFFFF; border:1px solid rgba(0,0,0,0.08); border-radius:16px; padding:2rem; box-shadow:0 4px 20px rgba(0,0,0,0.04); display:flex; flex-direction:column; gap:1.2rem;">
+        <div class="skeleton" style="height:28px; width:40%; border-radius:6px;"></div>
+        <div class="skeleton" style="height:18px; width:65%; border-radius:4px;"></div>
+        <div class="skeleton" style="height:100px; width:100%; border-radius:12px;"></div>
       </div>
     `;
-    zeroHint.style.display = 'block';
+    feedbackPane.style.display = 'block';
   }
-  if (card) card.style.display = 'none';
 
   setTimeout(() => {
     const order = DataStore.trackOrder(query);
     if (!order) {
-      if (zeroHint) {
-        zeroHint.innerHTML = `
-          <div class="hint-icon" style="color: #EF4444;"><i data-lucide="alert-circle"></i></div>
-          <h3 style="color: #EF4444;">Shipment Not Found</h3>
-          <p>No active order found for <code>${query}</code>. Please double-check your Tracking ID (e.g. <code>NS-TRK-XXXXX</code>) or the email address used at checkout.</p>
+      if (feedbackPane) {
+        feedbackPane.innerHTML = `
+          <div style="max-width:640px; margin:1.5rem auto; background:#FFFFFF; border:1px solid rgba(239,68,68,0.2); border-radius:16px; padding:2.5rem 1.5rem; text-align:center; box-shadow:0 4px 20px rgba(0,0,0,0.04);">
+            <div style="width:48px; height:48px; border-radius:50%; background:rgba(239,68,68,0.1); color:#EF4444; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem;">
+              <i data-lucide="alert-circle" style="width:24px; height:24px;"></i>
+            </div>
+            <h3 style="font-size:1.15rem; font-weight:800; color:#111827; margin-bottom:0.4rem;">Shipment Not Found</h3>
+            <p style="font-size:0.88rem; color:#6B7280; line-height:1.6; max-width:460px; margin:0 auto;">
+              No active order found for <strong style="color:#111827;">"${query}"</strong>. Please double-check your Tracking ID (e.g. <code>NS-TRK-XXXXX</code>) or the email address used during checkout.
+            </p>
+          </div>
         `;
         if (window.lucide) window.lucide.createIcons();
       }
@@ -60,12 +66,12 @@ function performTrackLookup(query) {
     }
 
     currentTrackedOrder = order;
-    if (zeroHint) zeroHint.style.display = 'none';
+    if (feedbackPane) feedbackPane.style.display = 'none';
     if (card) {
       card.style.display = 'block';
       renderOrderStatus(order);
     }
-  }, 200);
+  }, 250);
 }
 
 function renderOrderStatus(order) {

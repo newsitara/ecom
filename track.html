@@ -77,12 +77,8 @@
     <!-- Tracking Results Area -->
     <section class="track-results-pane" id="trackResultsPane">
       
-      <!-- Initial State Hint -->
-      <div class="track-zero-hint" id="trackZeroHint">
-        <div class="hint-icon"><i data-lucide="package"></i></div>
-        <h3>Looking for your order?</h3>
-        <p>Your unique Tracking ID was provided upon checkout completion (e.g. <code>NS-TRK-XXXXX</code>) and sent to your email.</p>
-      </div>
+      <!-- Dynamic Search Feedback / Skeleton / Alert -->
+      <div id="trackFeedbackPane" style="display:none;"></div>
 
       <!-- Live Order Status Card (Injected dynamically) -->
       <div class="order-status-card" id="orderStatusCard" style="display:none;">

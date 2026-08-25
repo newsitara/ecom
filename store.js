@@ -342,11 +342,11 @@ function renderCategoryNavigation() {
       
       <div class="nav-dropdown-wrap" id="navCategoryDropdownWrap">
         <button type="button" class="nav-link-btn nav-dropdown-btn ${activeCategory !== 'home' && activeCategory !== 'all' ? 'active' : ''}" onclick="toggleNavCategoryDropdown(event)">
-          <span>Departments</span>
+          <span>Categories</span>
           <i data-lucide="chevron-down" class="nav-chevron"></i>
         </button>
         <div class="nav-category-dropdown" id="navCategoryDropdown">
-          <div class="nav-dropdown-head">Browse Departments</div>
+          <div class="nav-dropdown-head">Categories</div>
           ${categories
             .map((c) => {
               const count = products.filter((p) => p.category === (c.slug || c.id)).length;
@@ -358,15 +358,10 @@ function renderCategoryNavigation() {
             `;
             })
             .join('')}
-          <div class="nav-dropdown-divider"></div>
-          <a href="javascript:void(0)" class="nav-cat-item ${activeCategory === 'all' ? 'active' : ''}" onclick="filterByCategory('all'); closeNavCategoryDropdown();">
-            <span class="nav-cat-name" style="font-weight: 800;">Complete Archive</span>
-            <span class="nav-cat-count">${products.length} pieces</span>
-          </a>
         </div>
       </div>
 
-      <button class="nav-link-btn ${activeCategory === 'all' ? 'active' : ''}" onclick="filterByCategory('all')">All Archive</button>
+      <button class="nav-link-btn" onclick="scrollToSection('homeDepartmentShelves')">Lookbook</button>
     `;
   }
 
@@ -375,11 +370,7 @@ function renderCategoryNavigation() {
   if (mobLinks) {
     mobLinks.innerHTML = `
       <button class="mob-category-btn ${activeCategory === 'home' ? 'active' : ''}" onclick="filterByCategory('home'); toggleMobileMenu(false);">
-        <span>Home Storefront</span>
-      </button>
-      <button class="mob-category-btn ${activeCategory === 'all' ? 'active' : ''}" onclick="filterByCategory('all'); toggleMobileMenu(false);">
-        <span>All Collections</span>
-        <span class="mob-count-badge">${products.length}</span>
+        <span>Home</span>
       </button>
       ${categories
         .map((c) => {

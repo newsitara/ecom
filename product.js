@@ -670,6 +670,7 @@ function handleOrderSubmit(e) {
     customer: { name, email, phone },
     shippingAddress: { address, city, country },
     items: cart,
+    paymentMethod: 'Credit / Debit Card (Visa, Mastercard, AMEX)',
     currency: DataStore.getActiveCurrency().code
   });
 

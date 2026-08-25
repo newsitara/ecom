@@ -63,6 +63,24 @@ function initStore() {
     }
   });
 
+  // Card input auto-formatters
+  const cardNumInp = document.getElementById('chkCardNumber');
+  if (cardNumInp) {
+    cardNumInp.addEventListener('input', (e) => {
+      let val = e.target.value.replace(/\D/g, '').substring(0, 16);
+      val = val.replace(/(.{4})/g, '$1 ').trim();
+      e.target.value = val;
+    });
+  }
+  const cardExpInp = document.getElementById('chkCardExpiry');
+  if (cardExpInp) {
+    cardExpInp.addEventListener('input', (e) => {
+      let val = e.target.value.replace(/\D/g, '').substring(0, 4);
+      if (val.length >= 2) val = val.substring(0, 2) + ' / ' + val.substring(2);
+      e.target.value = val;
+    });
+  }
+
   if (window.lucide) window.lucide.createIcons();
 }
 
@@ -1426,8 +1444,7 @@ function handlePlaceOrder(e) {
   const shipping = isFree ? 0 : 15;
   const grandTotal = Math.round(Math.max(0, subtotal - discountAmount + shipping));
 
-  const selectedPayEl = document.querySelector('input[name="payMethod"]:checked');
-  const paymentMethod = selectedPayEl ? selectedPayEl.value : 'Stripe Card';
+  const paymentMethod = 'Credit / Debit Card (Visa, Mastercard, AMEX)';
 
   const orderData = {
     fullName: document.getElementById('chkFullName').value.trim(),

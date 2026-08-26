@@ -5,15 +5,20 @@
    ========================================================================== */
 
 :root {
-  --bg-base: #F5F5F7;
-  --bg-surface: #FFFFFF;
-  --text-pure: #1D1D1F;
-  --text-dim: #6E6E73;
+  --bg-base: #0E1013;
+  --bg-surface: #16181D;
+  --text-pure: #FFFFFF;
+  --text-dim: #A1A1A6;
   --text-muted: #86868B;
 
-  --accent-steel: #0071E3;
-  --accent-steel-hover: #0077ED;
-  --accent-steel-glow: rgba(0, 113, 227, 0.2);
+  --accent-gold: #D4AF37;
+  --accent-gold-light: #F3E5AB;
+  --accent-gold-dark: #99773D;
+  --accent-gold-glow: rgba(212, 175, 55, 0.35);
+
+  --accent-steel: #D4AF37;
+  --accent-steel-hover: #E5C158;
+  --accent-steel-glow: rgba(212, 175, 55, 0.35);
 
   --font-heading: 'Outfit', -apple-system, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
@@ -237,15 +242,17 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: var(--font-body);
-  font-size: 4.2rem;
+  font-family: var(--font-heading);
+  font-size: 3.8rem;
   font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -0.01em;
-  color: var(--text-pure);
-  text-transform: none; /* Not all caps */
+  line-height: 1.1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #FFFFFF 0%, #E8DFD0 55%, #C8A26A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
   margin-bottom: 1.5rem;
-  text-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   overflow: hidden;
 }
 
@@ -326,8 +333,8 @@ html, body {
   width: 14px;
   height: 14px;
   border: 2px solid rgba(255, 255, 255, 0.15);
-  border-top-color: var(--accent-steel);
-  border-right-color: var(--accent-steel);
+  border-top-color: var(--accent-gold);
+  border-right-color: var(--accent-gold);
   border-radius: 50%;
   animation: spinRing 0.85s linear infinite;
 }
@@ -344,17 +351,17 @@ html, body {
   border-radius: 999px;
   overflow: hidden;
   position: relative;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
 }
 
 .progress-bar-fill {
   height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, #4d7a94, var(--accent-steel));
+  width: 56%;
+  background: linear-gradient(90deg, #99773D, #D4AF37, #F3E5AB);
   border-radius: 999px;
   transition: width 1.6s var(--ease-cinematic);
   position: relative;
-  box-shadow: 0 0 14px var(--accent-steel-glow);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.4);
 }
 
 .bar-shine-sweep {
@@ -383,9 +390,9 @@ html, body {
 }
 
 .label-current {
-  color: var(--accent-steel);
-  font-weight: 600;
-  font-size: 0.75rem;
+  color: var(--accent-gold);
+  font-weight: 700;
+  font-size: 0.78rem;
 }
 
 /* Action Button & Email Drawer */

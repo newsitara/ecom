@@ -483,13 +483,14 @@ function closeReceiptModalAndShop() {
 // Multi-Country
 function populateCountryDropdown() {
   const select = document.getElementById('chkCountry');
-  if (!select || select.children.length > 1) return;
+  if (!select) return;
 
   const countries = DataStore.getCountries();
+  const currentVal = select.value;
   select.innerHTML = countries
     .map(
       (c) => `
-    <option value="${c.name}" data-code="${c.code}" data-prefix="${c.phonePrefix}" data-currency="${c.currency}" ${c.name === 'United States' ? 'selected' : ''}>
+    <option value="${c.name}" data-code="${c.code}" data-prefix="${c.phonePrefix}" data-currency="${c.currency}" ${currentVal === c.name || (!currentVal && c.code === 'US') ? 'selected' : ''}>
       ${c.name} (${c.phonePrefix})
     </option>
   `
@@ -498,14 +499,14 @@ function populateCountryDropdown() {
 }
 
 function handleCountryChange(e) {
-  const select = e.target;
-  const opt = select.options[select.selectedIndex];
-  if (!opt) return;
-
-  const prefix = opt.getAttribute('data-prefix');
-  const phoneInp = document.getElementById('chkPhone');
-  if (phoneInp && prefix && !phoneInp.value) {
-    phoneInp.value = `${prefix} `;
+  const selectedName = e.target.value;
+  const country = DataStore.getCountryByName(selectedName);
+  if (country) {
+    const phoneInput = document.getElementById('chkPhone');
+    if (phoneInput && (!phoneInput.value || phoneInput.value.startsWith('+'))) {
+      phoneInput.placeholder = `${country.phonePrefix} 000-0000`;
+      phoneInput.value = `${country.phonePrefix} `;
+    }
   }
 }
 

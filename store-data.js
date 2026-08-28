@@ -1222,11 +1222,20 @@ const DataStore = {
   },
 
   getCountries() {
-    return DEFAULT_COUNTRIES;
+    return DEFAULT_COUNTRIES.map((c) => ({
+      ...c,
+      phonePrefix: c.phonePrefix || c.phone || '+1',
+      phone: c.phone || c.phonePrefix || '+1'
+    }));
   },
 
   getCountryByName(name) {
-    return DEFAULT_COUNTRIES.find((c) => c.name.toLowerCase() === (name || '').toLowerCase()) || DEFAULT_COUNTRIES[0];
+    const c = DEFAULT_COUNTRIES.find((item) => item.name.toLowerCase() === (name || '').toLowerCase()) || DEFAULT_COUNTRIES[0];
+    return {
+      ...c,
+      phonePrefix: c.phonePrefix || c.phone || '+1',
+      phone: c.phone || c.phonePrefix || '+1'
+    };
   },
 
   formatPrice(priceInUSD, withSymbol = true) {

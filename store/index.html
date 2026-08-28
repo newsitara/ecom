@@ -176,18 +176,20 @@
       <!-- Injected dynamically via JS from DataStore -->
     </div>
 
-    <!-- Mobile Language & Currency Switchers -->
+    <!-- Mobile Language & Currency Selectors -->
     <div class="mob-drawer-preferences">
-      <div class="mob-pref-block">
-        <span class="mob-pref-title"><i data-lucide="globe"></i> Language</span>
-        <div class="mob-pref-pills" id="mobLangPills">
-          <!-- Injected via JS -->
+      <div class="mob-select-grid">
+        <div class="mob-select-wrap">
+          <label for="mobLangSelect" class="mob-pref-label"><i data-lucide="globe"></i> Language</label>
+          <select id="mobLangSelect" class="mob-pref-select" onchange="selectLanguage(this.value, event); toggleMobileMenu(false);">
+            <!-- Injected via JS -->
+          </select>
         </div>
-      </div>
-      <div class="mob-pref-block">
-        <span class="mob-pref-title"><i data-lucide="dollar-sign"></i> Currency</span>
-        <div class="mob-pref-pills" id="mobCurrencyPills">
-          <!-- Injected via JS -->
+        <div class="mob-select-wrap">
+          <label for="mobCurrencySelect" class="mob-pref-label"><i data-lucide="coins"></i> Currency</label>
+          <select id="mobCurrencySelect" class="mob-pref-select" onchange="selectCurrency(this.value, event); toggleMobileMenu(false);">
+            <!-- Injected via JS -->
+          </select>
         </div>
       </div>
     </div>

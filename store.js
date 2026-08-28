@@ -171,16 +171,10 @@ function renderLanguageDropdown() {
       .join('');
   }
 
-  const mobLangPills = document.getElementById('mobLangPills');
-  if (mobLangPills) {
-    mobLangPills.innerHTML = languages
-      .map(
-        (l) => `
-        <button type="button" class="mob-pref-pill ${l.code === active.code ? 'active' : ''}" onclick="selectLanguage('${l.code}', event); toggleMobileMenu(false);">
-          <span>${l.code.toUpperCase()}</span>
-        </button>
-      `
-      )
+  const mobLangSelect = document.getElementById('mobLangSelect');
+  if (mobLangSelect) {
+    mobLangSelect.innerHTML = languages
+      .map((l) => `<option value="${l.code}" ${l.code === active.code ? 'selected' : ''}>${l.native} (${l.code.toUpperCase()})</option>`)
       .join('');
   }
 }
@@ -314,16 +308,10 @@ function renderCurrencyDropdown() {
       .join('');
   }
 
-  const mobCurrencyPills = document.getElementById('mobCurrencyPills');
-  if (mobCurrencyPills) {
-    mobCurrencyPills.innerHTML = Object.values(currencies)
-      .map(
-        (c) => `
-        <button type="button" class="mob-pref-pill ${c.code === active.code ? 'active' : ''}" onclick="selectCurrency('${c.code}', event); toggleMobileMenu(false);">
-          <span>${c.code}</span>
-        </button>
-      `
-      )
+  const mobCurrencySelect = document.getElementById('mobCurrencySelect');
+  if (mobCurrencySelect) {
+    mobCurrencySelect.innerHTML = Object.values(currencies)
+      .map((c) => `<option value="${c.code}" ${c.code === active.code ? 'selected' : ''}>${c.code} (${c.symbol.trim()})</option>`)
       .join('');
   }
 }

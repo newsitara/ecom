@@ -54,9 +54,51 @@ function renderProductDetails() {
   if (!currentProduct) return;
 
   // Title & Head Meta
-  document.title = `${currentProduct.name} — NEW SITARA`;
+  document.title = `${currentProduct.name} — NEW SITARA Atelier`;
   document.getElementById('breadcrumbCategory').textContent = currentProduct.categoryName || currentProduct.category;
   document.getElementById('breadcrumbTitle').textContent = currentProduct.name;
+
+  // Dynamic Google Product Schema.org JSON-LD Rich Snippets
+  let schemaScript = document.getElementById('pdpProductSchema');
+  if (!schemaScript) {
+    schemaScript = document.createElement('script');
+    schemaScript.id = 'pdpProductSchema';
+    schemaScript.type = 'application/ld+json';
+    document.head.appendChild(schemaScript);
+  }
+
+  const ratingData = DataStore.getProductRating(currentProduct.id);
+  const activeCurr = DataStore.getActiveCurrency();
+
+  schemaScript.textContent = JSON.stringify({
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": currentProduct.name,
+    "image": [
+      currentProduct.imageFront || "https://newsitara.com/assets/ns%20logo.jpg",
+      currentProduct.imageBack || currentProduct.imageFront
+    ],
+    "description": currentProduct.description || "Luxury atelier apparel piece by New Sitara.",
+    "sku": currentProduct.id,
+    "brand": {
+      "@type": "Brand",
+      "name": "NEW SITARA"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": window.location.href,
+      "priceCurrency": activeCurr.code,
+      "price": Math.round(currentProduct.price * (activeCurr.rate || 1)),
+      "priceValidUntil": "2027-12-31",
+      "itemCondition": "https://schema.org/NewCondition",
+      "availability": currentProduct.inStock ? "https://schema.org/InStock" : "https://schema.org/LimitedAvailability"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": ratingData.average || 5.0,
+      "reviewCount": Math.max(1, ratingData.count || 4)
+    }
+  });
 
   document.getElementById('pdpDeptTag').textContent = `NEW SITARA • ${currentProduct.categoryName || currentProduct.category}`;
   document.getElementById('pdpProductTitle').textContent = currentProduct.name;

@@ -93,8 +93,8 @@
       <!-- Right Actions: Language, Currency, Wishlist, Search, Track & Bag -->
       <div class="nav-actions-right">
         
-        <!-- Multi-Language Selector -->
-        <div class="lang-picker-wrap" id="langPickerWrap">
+        <!-- Multi-Language Selector (Desktop Only) -->
+        <div class="lang-picker-wrap desktop-only" id="langPickerWrap">
           <button type="button" class="lang-btn" id="langToggleBtn" onclick="toggleLangDropdown(event)" aria-label="Select Language">
             <i data-lucide="globe"></i>
             <span id="activeLangCode">EN</span>
@@ -105,8 +105,8 @@
           </div>
         </div>
 
-        <!-- Multi-Currency Selector -->
-        <div class="currency-picker-wrap" id="currencyPickerWrap">
+        <!-- Multi-Currency Selector (Desktop Only) -->
+        <div class="currency-picker-wrap desktop-only" id="currencyPickerWrap">
           <button type="button" class="currency-btn" id="currencyToggleBtn" onclick="toggleCurrencyDropdown(event)" aria-label="Select Currency">
             <span id="activeCurrencyCode">USD</span>
             <i data-lucide="chevron-down" class="chevron-icon"></i>
@@ -116,7 +116,7 @@
           </div>
         </div>
 
-        <!-- Track Order Link -->
+        <!-- Track Order Link (Desktop Only) -->
         <a href="/track" class="nav-track-link desktop-only" title="Track Order">
           <i data-lucide="map-pin"></i>
           <span>Track Order</span>
@@ -128,6 +128,11 @@
           <input type="text" id="storeSearchInput" placeholder="Search all products, collections..." oninput="handleSearch(event)" autocomplete="off">
           <button class="clear-btn" id="searchClearBtn" onclick="clearSearch()" style="display:none;"><i data-lucide="x"></i></button>
         </div>
+
+        <!-- Mobile Search Button -->
+        <button class="mobile-search-btn mobile-only" onclick="toggleMobileSearchBar(true)" aria-label="Open Search">
+          <i data-lucide="search"></i>
+        </button>
 
         <!-- Wishlist Button (Desktop only - mobile has it in bottom nav) -->
         <button class="store-wishlist-btn desktop-only" onclick="toggleWishlistDrawer(true)" aria-label="View Saved Items" title="Wishlist">
@@ -159,18 +164,38 @@
   <div class="mobile-drawer-backdrop" id="mobNavBackdrop" onclick="toggleMobileMenu(false)"></div>
   <aside class="mobile-nav-drawer" id="mobNavDrawer">
     <div class="mob-drawer-header">
-      <span class="mob-drawer-title">NEW SITARA</span>
-      <button class="mob-drawer-close" onclick="toggleMobileMenu(false)"><i data-lucide="x"></i></button>
+      <div class="mob-drawer-brand">
+        <img src="/assets/ns logo.jpg" alt="New Sitara" class="nav-brand-logo-img" style="width:30px; height:30px;">
+        <span class="mob-drawer-title">NEW SITARA</span>
+      </div>
+      <button class="mob-drawer-close" onclick="toggleMobileMenu(false)" aria-label="Close Menu"><i data-lucide="x"></i></button>
     </div>
 
+    <!-- Category Navigation List -->
     <div class="mob-drawer-body" id="mobDrawerLinks">
       <!-- Injected dynamically via JS from DataStore -->
     </div>
 
+    <!-- Mobile Language & Currency Switchers -->
+    <div class="mob-drawer-preferences">
+      <div class="mob-pref-block">
+        <span class="mob-pref-title"><i data-lucide="globe"></i> Language</span>
+        <div class="mob-pref-pills" id="mobLangPills">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+      <div class="mob-pref-block">
+        <span class="mob-pref-title"><i data-lucide="dollar-sign"></i> Currency</span>
+        <div class="mob-pref-pills" id="mobCurrencyPills">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+    </div>
+
     <div class="mob-drawer-footer">
-      <a href="/track" class="mob-track-link"><i data-lucide="map-pin"></i> Track Your Shipment</a>
-      <a href="/admin" class="mob-admin-link"><i data-lucide="shield"></i> Merchant Admin Portal</a>
-      <a href="/" class="mob-coming-soon-link">Return to Coming Soon Screen</a>
+      <a href="/track" class="mob-footer-link"><i data-lucide="map-pin"></i> <span>Track Order</span></a>
+      <a href="javascript:void(0)" onclick="toggleMobileMenu(false); toggleWishlistDrawer(true);" class="mob-footer-link"><i data-lucide="heart"></i> <span>Wishlist</span></a>
+      <a href="/admin" class="mob-footer-link"><i data-lucide="shield"></i> <span>Merchant Portal</span></a>
     </div>
   </aside>
 
@@ -181,26 +206,26 @@
       <!-- Left Editorial Narrative & CTAs -->
       <div class="hero-content-col">
         <div class="hero-tag-row">
-          <span class="hero-season-pill">AUTUMN / WINTER 2026</span>
-          <span class="hero-drop-badge">INAUGURAL DROP</span>
+          <span class="hero-season-pill">FLAGSHIP RELEASE</span>
+          <span class="hero-drop-badge">LIMITED EDITION</span>
         </div>
 
         <h1 class="hero-headline">
-          STRUCTURED SILHOUETTES.<br>
-          <span class="hero-highlight">BESPOKE STREETWEAR.</span>
+          CONTEMPORARY LUXURY.<br>
+          <span class="hero-highlight">CURATED DROPS.</span>
         </h1>
 
         <p class="hero-subtext">
-          Engineered from 520 GSM Portuguese loopback fleece, vintage Japanese selvedge denim, and hand-finished bespoke tailoring for a permanent modern drape.
+          Engineered with precision materials, artisanal craftsmanship, and uncompromising standards across all collections.
         </p>
 
         <div class="hero-cta-row">
           <button class="btn btn-hero-primary" onclick="scrollToSection('catalogSection')">
-            <span>Explore Inaugural Collection</span>
+            <span>Explore Collection</span>
             <i data-lucide="arrow-down"></i>
           </button>
-          <button class="btn btn-hero-outline" onclick="filterByCategory('hoodies')">
-            <span>Heavyweight Hoodies</span>
+          <button class="btn btn-hero-outline" onclick="filterByCategory('all')">
+            <span>All Releases</span>
             <i data-lucide="arrow-right"></i>
           </button>
         </div>

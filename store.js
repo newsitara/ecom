@@ -170,6 +170,19 @@ function renderLanguageDropdown() {
       )
       .join('');
   }
+
+  const mobLangPills = document.getElementById('mobLangPills');
+  if (mobLangPills) {
+    mobLangPills.innerHTML = languages
+      .map(
+        (l) => `
+        <button type="button" class="mob-pref-pill ${l.code === active.code ? 'active' : ''}" onclick="selectLanguage('${l.code}', event); toggleMobileMenu(false);">
+          <span>${l.code.toUpperCase()}</span>
+        </button>
+      `
+      )
+      .join('');
+  }
 }
 
 function toggleLangDropdown(e) {
@@ -295,6 +308,19 @@ function renderCurrencyDropdown() {
             <span class="currency-code-bold">${c.code}</span>
           </div>
           <span class="currency-rate-sub">${c.name}</span>
+        </button>
+      `
+      )
+      .join('');
+  }
+
+  const mobCurrencyPills = document.getElementById('mobCurrencyPills');
+  if (mobCurrencyPills) {
+    mobCurrencyPills.innerHTML = Object.values(currencies)
+      .map(
+        (c) => `
+        <button type="button" class="mob-pref-pill ${c.code === active.code ? 'active' : ''}" onclick="selectCurrency('${c.code}', event); toggleMobileMenu(false);">
+          <span>${c.code}</span>
         </button>
       `
       )

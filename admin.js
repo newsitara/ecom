@@ -832,12 +832,62 @@ function previewImage(containerId, url) {
   const box = document.getElementById(containerId);
   if (!box) return;
 
-  if (url && url.startsWith('http')) {
+  if (url && (url.startsWith('http') || url.startsWith('data:') || url.startsWith('/assets/'))) {
     box.style.backgroundImage = `url('${url}')`;
     box.style.display = 'block';
   } else {
     box.style.display = 'none';
   }
+}
+
+function handleAdminFileUpload(event, inputId, previewId) {
+  const file = event.target.files?.[0];
+  if (!file) return;
+
+  if (!file.type.startsWith('image/')) {
+    showAdminToast('Please select a valid image file (PNG, JPG, WEBP).');
+    return;
+  }
+
+  showAdminToast('Processing photo...');
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const img = new Image();
+    img.onload = () => {
+      // Scale down image to max 1200px width/height for fast loading & local persistence
+      const maxDim = 1200;
+      let width = img.width;
+      let height = img.height;
+
+      if (width > maxDim || height > maxDim) {
+        if (width > height) {
+          height = Math.round((height * maxDim) / width);
+          width = maxDim;
+        } else {
+          width = Math.round((width * maxDim) / height);
+          height = maxDim;
+        }
+      }
+
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, width, height);
+
+      // Convert to compressed WebP / JPEG
+      const compressedDataUrl = canvas.toDataURL('image/webp', 0.82);
+
+      const input = document.getElementById(inputId);
+      if (input) input.value = compressedDataUrl;
+
+      previewImage(previewId, compressedDataUrl);
+      showAdminToast('Photo loaded successfully!');
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
 }
 
 function showAdminToast(msg) {

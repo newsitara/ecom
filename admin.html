@@ -556,13 +556,27 @@
 
       <div class="form-row">
         <div class="form-group flex-1">
-          <label for="prodImgFront">Front Image URL *</label>
-          <input type="url" id="prodImgFront" class="form-input" placeholder="https://images.unsplash.com/..." required oninput="previewImage('frontPreview', this.value)">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+            <label for="prodImgFront" style="margin-bottom: 0;">Front Image URL *</label>
+            <label class="btn-upload-label" style="font-size: 0.72rem; color: #D4AF37; cursor: pointer; display: inline-flex; align-items: center; gap: 0.25rem;">
+              <i data-lucide="upload" style="width: 12px; height: 12px;"></i>
+              <span>Upload Photo</span>
+              <input type="file" accept="image/*" style="display: none;" onchange="handleAdminFileUpload(event, 'prodImgFront', 'frontPreview')">
+            </label>
+          </div>
+          <input type="text" id="prodImgFront" class="form-input" placeholder="https://... or /assets/products/..." required oninput="previewImage('frontPreview', this.value)">
           <div class="img-preview-box" id="frontPreview"></div>
         </div>
         <div class="form-group flex-1">
-          <label for="prodImgBack">Back / Hover Image URL</label>
-          <input type="url" id="prodImgBack" class="form-input" placeholder="https://images.unsplash.com/..." oninput="previewImage('backPreview', this.value)">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+            <label for="prodImgBack" style="margin-bottom: 0;">Back / Hover Image URL</label>
+            <label class="btn-upload-label" style="font-size: 0.72rem; color: #D4AF37; cursor: pointer; display: inline-flex; align-items: center; gap: 0.25rem;">
+              <i data-lucide="upload" style="width: 12px; height: 12px;"></i>
+              <span>Upload Photo</span>
+              <input type="file" accept="image/*" style="display: none;" onchange="handleAdminFileUpload(event, 'prodImgBack', 'backPreview')">
+            </label>
+          </div>
+          <input type="text" id="prodImgBack" class="form-input" placeholder="https://... or /assets/products/..." oninput="previewImage('backPreview', this.value)">
           <div class="img-preview-box" id="backPreview"></div>
         </div>
       </div>
@@ -613,8 +627,15 @@
       </div>
 
       <div class="form-group">
-        <label for="catImage">Cover Image URL *</label>
-        <input type="url" id="catImage" class="form-input" placeholder="https://images.unsplash.com/..." required oninput="previewImage('catPreview', this.value)">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+          <label for="catImage" style="margin-bottom: 0;">Cover Image URL *</label>
+          <label class="btn-upload-label" style="font-size: 0.72rem; color: #D4AF37; cursor: pointer; display: inline-flex; align-items: center; gap: 0.25rem;">
+            <i data-lucide="upload" style="width: 12px; height: 12px;"></i>
+            <span>Upload Photo</span>
+            <input type="file" accept="image/*" style="display: none;" onchange="handleAdminFileUpload(event, 'catImage', 'catPreview')">
+          </label>
+        </div>
+        <input type="text" id="catImage" class="form-input" placeholder="https://... or /assets/products/..." required oninput="previewImage('catPreview', this.value)">
         <div class="img-preview-box" id="catPreview"></div>
       </div>
 

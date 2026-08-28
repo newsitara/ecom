@@ -484,9 +484,14 @@ function renderCardMarkup(p) {
         </button>
 
         <div class="card-hover-drawer desktop-only">
-          <button class="btn-card-quick" onclick="event.stopPropagation(); window.location.href='/product.html?id=${p.id}'">
-            View Details
-          </button>
+          <div class="card-quick-sizes-wrap">
+            <span class="quick-size-label">Quick Add</span>
+            <div class="card-sizes-row">
+              ${(Array.isArray(p.sizes) ? p.sizes : ['S', 'M', 'L', 'XL'])
+                .map((s) => `<button type="button" class="size-pill-btn" onclick="event.stopPropagation(); quickAddFromCard('${p.id}', '${s}')" title="Add size ${s}">${s}</button>`)
+                .join('')}
+            </div>
+          </div>
         </div>
       </div>
 
@@ -646,12 +651,14 @@ function renderProductsGrid() {
           </button>
 
           <!-- Desktop Hover Quick Strip -->
-          <div class="card-hover-drawer">
-            <button class="btn-card-quick" onclick="event.stopPropagation(); window.location.href='/product.html?id=${p.id}'">View Details ↗</button>
-            <div class="card-sizes-row">
-              ${(Array.isArray(p.sizes) ? p.sizes : [p.sizes])
-                .map((s) => `<button class="size-pill-btn" onclick="event.stopPropagation(); quickAddFromCard('${p.id}', '${s}')">${s}</button>`)
-                .join('')}
+          <div class="card-hover-drawer desktop-only">
+            <div class="card-quick-sizes-wrap">
+              <span class="quick-size-label">Quick Add</span>
+              <div class="card-sizes-row">
+                ${(Array.isArray(p.sizes) ? p.sizes : ['S', 'M', 'L', 'XL'])
+                  .map((s) => `<button type="button" class="size-pill-btn" onclick="event.stopPropagation(); quickAddFromCard('${p.id}', '${s}')" title="Add size ${s}">${s}</button>`)
+                  .join('')}
+              </div>
             </div>
           </div>
         </div>

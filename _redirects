@@ -1,4 +1,6 @@
 /store    /store.html   200
 /shop     /store.html   200
+/cart     /cart.html    200
 /track    /track.html   200
 /admin    /admin.html   200
+/product  /product.html 200

@@ -37,14 +37,14 @@ const DEFAULT_CATEGORIES = [
     name: 'Jackets & Outerwear',
     slug: 'outerwear',
     description: 'Double-breasted virgin wool overcoats, calfskin leather bombers, and technical shells.',
-    image: 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=800&auto=format&fit=crop'
   },
   {
     id: 'apparel',
     name: 'Signature Tops & Hoodies',
     slug: 'apparel',
     description: '520 GSM Portuguese loopback fleece hoodies and vintage enzyme-washed heavyweight tees.',
-    image: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=800&auto=format&fit=crop'
   },
   {
     id: 'jewelry',
@@ -184,8 +184,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Jackets & Outerwear',
     price: 520,
     tag: 'Atelier Piece',
-    imageFront: 'https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1000&auto=format&fit=crop',
+    imageFront: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?q=80&w=1000&auto=format&fit=crop',
     description: 'Hand-finished in Florence from buttery full-grain Italian calfskin with custom heavyweight Excella zippers and ribbed wool trim.',
     specs: '100% Full-Grain Calfskin Leather • YKK Excella Hardware • Ribbed Wool Cuffs • Satin Interior Lining',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -200,8 +200,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Signature Tops & Hoodies',
     price: 195,
     tag: 'Iconic Drop',
-    imageFront: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1578587018452-892bacefd3f2?q=80&w=1000&auto=format&fit=crop',
+    imageFront: 'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1000&auto=format&fit=crop',
     description: 'Constructed from ultra-dense 520 GSM Portuguese loopback French terry. Designed with a double-layered crossover hood without drawstrings, wide ribbed cuffs, and an architectural drop-shoulder drape.',
     specs: '100% Portuguese Cotton • 520 GSM French Terry • Crossover Double Hood • Pre-Shrunk • Made in Portugal',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -214,8 +214,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Signature Tops & Hoodies',
     price: 95,
     tag: 'Bestseller',
-    imageFront: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1000&auto=format&fit=crop',
+    imageFront: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=1000&auto=format&fit=crop',
     description: 'Cut with an oversized, relaxed silhouette from 280 GSM long-staple combed cotton. Enzyme washed for a rich tactile patina and buttery hand feel.',
     specs: '100% Combed Ring-Spun Cotton • 280 GSM • Enzyme Wash • Reinforced Collar • Made in Portugal',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -244,8 +244,8 @@ const DEFAULT_PRODUCTS = [
     categoryName: 'Jewelry & Accessories',
     price: 110,
     tag: 'Handmade',
-    imageFront: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1000&auto=format&fit=crop',
-    imageBack: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=1000&auto=format&fit=crop',
+    imageFront: 'https://images.unsplash.com/photo-1624222247344-550fb60583dc?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1585856345241-7db127fb053a?q=80&w=1000&auto=format&fit=crop',
     description: 'Vegetable-tanned 3.8mm thick English bridle leather with beveled and hand-burnished edges. Equipped with a solid brushed nickel buckle.',
     specs: '100% Bridle Leather • 35mm Width • Solid Brushed Nickel • Hand-Finished in UK',
     sizes: ['85cm', '90cm', '95cm', '100cm'],
@@ -919,15 +919,15 @@ const DEFAULT_REVIEWS = [
 // ==========================================================================
 const DataStore = {
   getProducts() {
-    const raw = localStorage.getItem('sitara_products_v15');
+    const raw = localStorage.getItem('sitara_products_v20');
     if (!raw) {
-      localStorage.setItem('sitara_products_v15', JSON.stringify(DEFAULT_PRODUCTS));
+      localStorage.setItem('sitara_products_v20', JSON.stringify(DEFAULT_PRODUCTS));
       return DEFAULT_PRODUCTS;
     }
     try {
       const parsed = JSON.parse(raw);
-      if (!Array.isArray(parsed) || parsed.length === 0 || parsed.some((p) => p.imageFront && (p.imageFront.includes('product-placeholder') || p.category === 'shorts'))) {
-        localStorage.setItem('sitara_products_v15', JSON.stringify(DEFAULT_PRODUCTS));
+      if (!Array.isArray(parsed) || parsed.length === 0 || parsed.some((p) => p.imageFront && (p.imageFront.includes('product-placeholder') || p.category === 'shorts' || p.imageFront.includes('556905055') || p.imageFront.includes('521572267')))) {
+        localStorage.setItem('sitara_products_v20', JSON.stringify(DEFAULT_PRODUCTS));
         return DEFAULT_PRODUCTS;
       }
       return parsed;
@@ -949,7 +949,7 @@ const DataStore = {
     } else {
       prods.unshift(product);
     }
-    localStorage.setItem('sitara_products_v15', JSON.stringify(prods));
+    localStorage.setItem('sitara_products_v20', JSON.stringify(prods));
     this.syncWithCloud('products', product);
     return prods;
   },
@@ -957,20 +957,20 @@ const DataStore = {
   deleteProduct(id) {
     let prods = this.getProducts();
     prods = prods.filter((p) => p.id !== id);
-    localStorage.setItem('sitara_products_v15', JSON.stringify(prods));
+    localStorage.setItem('sitara_products_v20', JSON.stringify(prods));
     return prods;
   },
 
   getCategories() {
-    const raw = localStorage.getItem('sitara_categories_v15');
+    const raw = localStorage.getItem('sitara_categories_v20');
     if (!raw) {
-      localStorage.setItem('sitara_categories_v15', JSON.stringify(DEFAULT_CATEGORIES));
+      localStorage.setItem('sitara_categories_v20', JSON.stringify(DEFAULT_CATEGORIES));
       return DEFAULT_CATEGORIES;
     }
     try {
       const parsed = JSON.parse(raw);
       if (!Array.isArray(parsed) || parsed.length === 0 || parsed.some((c) => c.id === 'shorts' || (c.image && c.image.includes('product-placeholder')))) {
-        localStorage.setItem('sitara_categories_v15', JSON.stringify(DEFAULT_CATEGORIES));
+        localStorage.setItem('sitara_categories_v20', JSON.stringify(DEFAULT_CATEGORIES));
         return DEFAULT_CATEGORIES;
       }
       return parsed;
@@ -987,14 +987,14 @@ const DataStore = {
     } else {
       cats.push(category);
     }
-    localStorage.setItem('sitara_categories_v15', JSON.stringify(cats));
+    localStorage.setItem('sitara_categories_v20', JSON.stringify(cats));
     return cats;
   },
 
   deleteCategory(id) {
     let cats = this.getCategories();
     cats = cats.filter((c) => c.id !== id);
-    localStorage.setItem('sitara_categories_v15', JSON.stringify(cats));
+    localStorage.setItem('sitara_categories_v20', JSON.stringify(cats));
     return cats;
   },
 

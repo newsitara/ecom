@@ -1156,6 +1156,11 @@ const DataStore = {
     }
   },
 
+  clearWishlist() {
+    localStorage.setItem('sitara_wishlist', JSON.stringify([]));
+    return [];
+  },
+
   toggleWishlist(productId) {
     let wishlist = this.getWishlist();
     const exists = wishlist.includes(productId);
@@ -1171,6 +1176,11 @@ const DataStore = {
   isInWishlist(productId) {
     const wishlist = this.getWishlist();
     return wishlist.includes(productId);
+  },
+
+  clearCart() {
+    localStorage.setItem('sitara_cart', JSON.stringify([]));
+    return [];
   },
 
   getReviews(productId = null) {
@@ -1189,6 +1199,10 @@ const DataStore = {
     return reviews;
   },
 
+  getAllReviews() {
+    return this.getReviews();
+  },
+
   addReview(review) {
     const reviews = this.getReviews();
     reviews.unshift({
@@ -1197,6 +1211,13 @@ const DataStore = {
       date: new Date().toISOString().split('T')[0],
       verified: true
     });
+    localStorage.setItem('sitara_reviews_v3', JSON.stringify(reviews));
+    return reviews;
+  },
+
+  deleteReview(reviewId) {
+    let reviews = this.getReviews();
+    reviews = reviews.filter((r) => r.id !== reviewId);
     localStorage.setItem('sitara_reviews_v3', JSON.stringify(reviews));
     return reviews;
   },
@@ -1248,9 +1269,9 @@ const DataStore = {
     return this.createOrder(orderData);
   },
 
-  updateOrderStatus(trackingId, status, note = '') {
+  updateOrderStatus(trackingIdOrId, status, note = '') {
     const orders = this.getOrders();
-    const order = orders.find((o) => o.trackingId === trackingId);
+    const order = orders.find((o) => o.trackingId === trackingIdOrId || o.id === trackingIdOrId);
     if (order) {
       order.status = status;
       if (!order.timeline) order.timeline = [];
@@ -1265,9 +1286,39 @@ const DataStore = {
     return order;
   },
 
-  getOrderByTrackingId(trackingId) {
+  updateCourierInfo(idOrTrack, courierName, trackingRef, eta = '') {
     const orders = this.getOrders();
-    return orders.find((o) => o.trackingId.toUpperCase() === trackingId.trim().toUpperCase()) || null;
+    const order = orders.find((o) => o.id === idOrTrack || o.trackingId === idOrTrack);
+    if (order) {
+      order.courier = {
+        name: courierName,
+        trackingRef: trackingRef,
+        eta: eta || '2-4 Business Days'
+      };
+      localStorage.setItem('sitara_orders_v2', JSON.stringify(orders));
+      this.syncWithCloud('orders', order);
+    }
+    return order;
+  },
+
+  getOrderByTrackingId(trackingId) {
+    if (!trackingId) return null;
+    const clean = trackingId.trim().toUpperCase();
+    const orders = this.getOrders();
+    return orders.find((o) => (o.trackingId || o.id || '').toUpperCase() === clean) || null;
+  },
+
+  trackOrder(query) {
+    if (!query) return null;
+    const clean = query.trim().toUpperCase();
+    const orders = this.getOrders();
+    return orders.find((o) => {
+      const matchTrack = (o.trackingId || '').toUpperCase() === clean;
+      const matchId = (o.id || '').toUpperCase() === clean;
+      const matchEmail = (o.email || '').toUpperCase() === clean;
+      const matchPhone = (o.phone || '').toUpperCase() === clean;
+      return matchTrack || matchId || matchEmail || matchPhone;
+    }) || null;
   },
 
   getPromos() {
@@ -1280,10 +1331,50 @@ const DataStore = {
     }
   },
 
+  savePromo(promo) {
+    const promos = this.getPromos();
+    const idx = promos.findIndex((p) => (p.code || '').toUpperCase() === (promo.code || '').toUpperCase());
+    if (idx >= 0) {
+      promos[idx] = { ...promos[idx], ...promo };
+    } else {
+      promos.push(promo);
+    }
+    localStorage.setItem('sitara_promos', JSON.stringify(promos));
+    return promos;
+  },
+
+  deletePromo(code) {
+    if (!code) return this.getPromos();
+    let promos = this.getPromos();
+    promos = promos.filter((p) => (p.code || '').toUpperCase() !== code.toUpperCase());
+    localStorage.setItem('sitara_promos', JSON.stringify(promos));
+    return promos;
+  },
+
   validatePromo(code) {
+    if (!code) return null;
     const promos = this.getPromos();
     const promo = promos.find((p) => p.code.toUpperCase() === code.trim().toUpperCase() && p.active);
     return promo || null;
+  },
+
+  verifyAdminPin(enteredPin) {
+    const savedPin = localStorage.getItem('sitara_admin_pin') || '1234';
+    return (enteredPin || '').trim() === savedPin.trim();
+  },
+
+  setAdminPin(newPin) {
+    if (newPin) {
+      localStorage.setItem('sitara_admin_pin', newPin.trim());
+    }
+  },
+
+  resetAllDefaults() {
+    localStorage.setItem('sitara_products_v20', JSON.stringify(DEFAULT_PRODUCTS));
+    localStorage.setItem('sitara_categories_v20', JSON.stringify(DEFAULT_CATEGORIES));
+    localStorage.setItem('sitara_promos', JSON.stringify(DEFAULT_PROMOS));
+    localStorage.setItem('sitara_reviews_v3', JSON.stringify(DEFAULT_REVIEWS));
+    return { products: DEFAULT_PRODUCTS, categories: DEFAULT_CATEGORIES };
   },
 
   getSupabaseConfig() {
@@ -1302,6 +1393,10 @@ const DataStore = {
       return;
     }
     localStorage.setItem('sitara_supabase_config', JSON.stringify({ url, anonKey }));
+  },
+
+  saveCloudConfig(url, anonKey) {
+    this.setSupabaseConfig(url, anonKey);
   },
 
   async syncWithCloud(table, payload) {
@@ -1323,3 +1418,12 @@ const DataStore = {
     }
   }
 };
+
+if (typeof window !== 'undefined') {
+  window.DataStore = DataStore;
+  window.DEFAULT_PRODUCTS = DEFAULT_PRODUCTS;
+  window.DEFAULT_CATEGORIES = DEFAULT_CATEGORIES;
+}
+if (typeof module !== 'undefined') {
+  module.exports = { DataStore, DEFAULT_PRODUCTS, DEFAULT_CATEGORIES };
+}

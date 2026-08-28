@@ -24,17 +24,52 @@ function renderDesktopCategories() {
   if (!navLeft) return;
 
   const categories = DataStore.getCategories();
+  const products = DataStore.getProducts();
+
   navLeft.innerHTML = `
-    <a href="/store" class="nav-item">Catalog</a>
-    ${categories
-      .map(
-        (c) => `
-      <a href="/store?cat=${c.id}" class="nav-item">${c.name}</a>
-    `
-      )
-      .join('')}
+    <a href="/store" class="nav-link-btn">Shop</a>
+    
+    <div class="nav-dropdown-wrap" id="navCategoryDropdownWrap">
+      <button type="button" class="nav-link-btn nav-dropdown-btn" onclick="toggleNavCategoryDropdown(event)">
+        <span>Categories</span>
+        <i data-lucide="chevron-down" class="nav-chevron"></i>
+      </button>
+      <div class="nav-category-dropdown" id="navCategoryDropdown">
+        <div class="nav-dropdown-head">Collections</div>
+        ${categories
+          .map((c) => {
+            const count = products.filter((p) => p.category === (c.slug || c.id)).length;
+            return `
+            <a href="/store?cat=${c.slug || c.id}" class="nav-cat-item">
+              <span class="nav-cat-name">${c.name}</span>
+              <span class="nav-cat-count">${count}</span>
+            </a>
+          `;
+          })
+          .join('')}
+      </div>
+    </div>
+
+    <a href="/store#lookbook" class="nav-link-btn">Lookbook</a>
   `;
 }
+
+function toggleNavCategoryDropdown(e) {
+  if (e) e.stopPropagation();
+  const wrap = document.getElementById('navCategoryDropdownWrap');
+  if (wrap) wrap.classList.toggle('open');
+}
+
+function closeNavCategoryDropdown() {
+  const wrap = document.getElementById('navCategoryDropdownWrap');
+  if (wrap) wrap.classList.remove('open');
+}
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('#navCategoryDropdownWrap')) {
+    closeNavCategoryDropdown();
+  }
+});
 
 function renderCartPage() {
   const cart = DataStore.getCart();

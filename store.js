@@ -466,6 +466,32 @@ function renderHomeDepartmentShelves() {
   if (window.lucide) window.lucide.createIcons();
 }
 
+function renderCardHoverAction(p) {
+  const rawSizes = Array.isArray(p.sizes) ? p.sizes.filter(Boolean) : (p.sizes ? [p.sizes] : []);
+  const hasMultipleSizes = rawSizes.length > 1;
+
+  if (hasMultipleSizes) {
+    return `
+      <div class="card-quick-sizes-wrap">
+        <span class="quick-size-label">Quick Add</span>
+        <div class="card-sizes-row">
+          ${rawSizes
+            .map((s) => `<button type="button" class="size-pill-btn" onclick="event.stopPropagation(); quickAddFromCard('${p.id}', '${s}')" title="Add ${s}">${s}</button>`)
+            .join('')}
+        </div>
+      </div>
+    `;
+  } else {
+    const defaultOption = rawSizes[0] || 'Standard';
+    return `
+      <button type="button" class="btn-card-direct-add" onclick="event.stopPropagation(); quickAddFromCard('${p.id}', '${defaultOption}')">
+        <i data-lucide="shopping-bag" style="width:13px; height:13px;"></i>
+        <span>Add to Bag</span>
+      </button>
+    `;
+  }
+}
+
 function renderCardMarkup(p) {
   const isSaved = DataStore.isInWishlist(p.id);
   const rating = DataStore.getProductRating(p.id);
@@ -484,14 +510,7 @@ function renderCardMarkup(p) {
         </button>
 
         <div class="card-hover-drawer desktop-only">
-          <div class="card-quick-sizes-wrap">
-            <span class="quick-size-label">Quick Add</span>
-            <div class="card-sizes-row">
-              ${(Array.isArray(p.sizes) ? p.sizes : ['S', 'M', 'L', 'XL'])
-                .map((s) => `<button type="button" class="size-pill-btn" onclick="event.stopPropagation(); quickAddFromCard('${p.id}', '${s}')" title="Add size ${s}">${s}</button>`)
-                .join('')}
-            </div>
-          </div>
+          ${renderCardHoverAction(p)}
         </div>
       </div>
 
@@ -652,14 +671,7 @@ function renderProductsGrid() {
 
           <!-- Desktop Hover Quick Strip -->
           <div class="card-hover-drawer desktop-only">
-            <div class="card-quick-sizes-wrap">
-              <span class="quick-size-label">Quick Add</span>
-              <div class="card-sizes-row">
-                ${(Array.isArray(p.sizes) ? p.sizes : ['S', 'M', 'L', 'XL'])
-                  .map((s) => `<button type="button" class="size-pill-btn" onclick="event.stopPropagation(); quickAddFromCard('${p.id}', '${s}')" title="Add size ${s}">${s}</button>`)
-                  .join('')}
-              </div>
-            </div>
+            ${renderCardHoverAction(p)}
           </div>
         </div>
 

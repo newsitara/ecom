@@ -299,7 +299,7 @@ function filterProductsTable() {
 function openNewProductModal() {
   document.getElementById('productForm').reset();
   document.getElementById('editProductId').value = '';
-  document.getElementById('productModalTitle').textContent = 'Add New Apparel Piece';
+  document.getElementById('productModalTitle').textContent = 'Add New Product';
   document.getElementById('btnSaveProduct').textContent = 'Save Product';
   document.getElementById('frontPreview').style.display = 'none';
   document.getElementById('backPreview').style.display = 'none';
@@ -559,7 +559,7 @@ function renderOrdersTable() {
         <td>
           <select class="admin-select" style="padding:0.25rem 0.5rem; font-size:0.75rem;" onchange="handleOrderStatusChange('${o.id}', this.value)">
             <option value="Processing" ${o.status === 'Processing' ? 'selected' : ''}>Processing</option>
-            <option value="Tailoring & Prep" ${o.status === 'Tailoring & Prep' ? 'selected' : ''}>Tailoring & Prep</option>
+            <option value="Preparing & Pack" ${o.status === 'Preparing & Pack' || o.status === 'Tailoring & Prep' ? 'selected' : ''}>Preparing & Pack</option>
             <option value="Shipped" ${o.status === 'Shipped' ? 'selected' : ''}>Shipped</option>
             <option value="Delivered" ${o.status === 'Delivered' ? 'selected' : ''}>Delivered</option>
             <option value="Cancelled" ${o.status === 'Cancelled' ? 'selected' : ''}>Cancelled</option>

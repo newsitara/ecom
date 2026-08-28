@@ -200,51 +200,106 @@
           </div>
         </div>
 
-        <!-- Payment Method Selection (Card Only) -->
+        <!-- Payment Method Selection -->
         <div class="form-section">
-          <h4 class="form-section-title">3. Payment Method (Card Only)</h4>
+          <h4 class="form-section-title">3. Payment Method</h4>
           
-          <div class="payment-options-grid">
-            <label class="pay-option-card active" style="border-color: #111827; background: #FAF8F5; cursor: default;">
-              <input type="radio" name="payMethod" value="Credit / Debit Card" checked style="accent-color: #111827;">
-              <div class="pay-option-content">
-                <div class="pay-option-title" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-                  <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <i data-lucide="credit-card"></i>
-                    <strong>Credit / Debit Card</strong>
-                  </div>
-                  <div class="card-brand-logos" style="display: flex; gap: 0.35rem; font-size: 0.7rem; font-weight: 800; color: #4B5563;">
-                    <span style="background: #FFF; padding: 0.15rem 0.4rem; border-radius: 4px; border: 1px solid #E5E7EB;">VISA</span>
-                    <span style="background: #FFF; padding: 0.15rem 0.4rem; border-radius: 4px; border: 1px solid #E5E7EB;">MASTERCARD</span>
-                    <span style="background: #FFF; padding: 0.15rem 0.4rem; border-radius: 4px; border: 1px solid #E5E7EB;">AMEX</span>
-                  </div>
+          <div class="payment-options-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <!-- Option 1: HBL & Raast Instant Transfer (Default) -->
+            <label class="pay-option-card active" id="optHblTransfer" onclick="selectPayOption('hbl')" style="border-color: #111827; background: #FAF8F5; cursor: pointer; padding: 0.85rem; border-radius: 8px; border: 1.5px solid #111827;">
+              <input type="radio" name="payMethod" value="HBL Bank Transfer / Raast" checked style="accent-color: #111827;">
+              <div class="pay-option-content" style="margin-left: 0.4rem;">
+                <div style="display: flex; align-items: center; gap: 0.4rem;">
+                  <i data-lucide="building-2" style="width: 16px; height: 16px;"></i>
+                  <strong style="font-size: 0.82rem;">HBL / Raast Pay</strong>
                 </div>
-                <p class="pay-option-desc" style="margin-top: 0.35rem; font-size: 0.78rem; color: #6B7280;">Encrypted 256-bit instant checkout. Only cards accepted.</p>
+                <p style="margin-top: 0.2rem; font-size: 0.7rem; color: #6B7280;">Direct Bank & Raast Transfer</p>
+              </div>
+            </label>
+
+            <!-- Option 2: Credit / Debit Card -->
+            <label class="pay-option-card" id="optCardPayment" onclick="selectPayOption('card')" style="border-color: #E5E7EB; background: #FFFFFF; cursor: pointer; padding: 0.85rem; border-radius: 8px; border: 1.5px solid #E5E7EB;">
+              <input type="radio" name="payMethod" value="Credit / Debit Card" style="accent-color: #111827;">
+              <div class="pay-option-content" style="margin-left: 0.4rem;">
+                <div style="display: flex; align-items: center; gap: 0.4rem;">
+                  <i data-lucide="credit-card" style="width: 16px; height: 16px;"></i>
+                  <strong style="font-size: 0.82rem;">Debit / Credit Card</strong>
+                </div>
+                <p style="margin-top: 0.2rem; font-size: 0.7rem; color: #6B7280;">Visa, Mastercard, AMEX</p>
               </div>
             </label>
           </div>
 
-          <!-- Secure Card Input Fields -->
-          <div class="card-checkout-fields" style="margin-top: 1rem; display: grid; gap: 0.75rem; background: #FAF8F5; padding: 1.15rem; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06);">
+          <!-- Tab 1: HBL Account Details Card & Proof Submission -->
+          <div id="hblPaymentDetailsBox" style="margin-top: 1rem; background: #FAF8F5; padding: 1.25rem; border-radius: 10px; border: 1px solid rgba(0,0,0,0.08);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 0.5rem;">
+              <span style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; color: #111827; text-transform: uppercase;">Habib Bank Limited (HBL) Details</span>
+              <span style="background: #059669; color: #FFF; font-size: 0.65rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 999px;">Instant IBFT / Raast</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.82rem; margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; background: #FFF; padding: 0.5rem 0.75rem; border-radius: 6px; border: 1px solid rgba(0,0,0,0.05);">
+                <div>
+                  <span style="display: block; font-size: 0.68rem; color: #6B7280; text-transform: uppercase;">Account Title</span>
+                  <strong id="hblDisplayTitle" style="color: #111827; font-size: 0.85rem;">NEW SITARA ATELIER</strong>
+                </div>
+                <button type="button" onclick="copyBankField('hblDisplayTitle')" style="font-size: 0.72rem; font-weight: 700; color: #111827; background: #F3EFEA; padding: 0.25rem 0.6rem; border-radius: 4px; border: 1px solid #E8E3DA; cursor: pointer;">Copy</button>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: center; background: #FFF; padding: 0.5rem 0.75rem; border-radius: 6px; border: 1px solid rgba(0,0,0,0.05);">
+                <div>
+                  <span style="display: block; font-size: 0.68rem; color: #6B7280; text-transform: uppercase;">HBL Account Number</span>
+                  <strong id="hblDisplayAccount" style="color: #111827; font-size: 0.88rem; font-family: monospace;">00427991829103</strong>
+                </div>
+                <button type="button" onclick="copyBankField('hblDisplayAccount')" style="font-size: 0.72rem; font-weight: 700; color: #111827; background: #F3EFEA; padding: 0.25rem 0.6rem; border-radius: 4px; border: 1px solid #E8E3DA; cursor: pointer;">Copy</button>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: center; background: #FFF; padding: 0.5rem 0.75rem; border-radius: 6px; border: 1px solid rgba(0,0,0,0.05);">
+                <div>
+                  <span style="display: block; font-size: 0.68rem; color: #6B7280; text-transform: uppercase;">IBAN Number</span>
+                  <strong id="hblDisplayIban" style="color: #111827; font-size: 0.82rem; font-family: monospace;">PK36HABB0000427991829103</strong>
+                </div>
+                <button type="button" onclick="copyBankField('hblDisplayIban')" style="font-size: 0.72rem; font-weight: 700; color: #111827; background: #F3EFEA; padding: 0.25rem 0.6rem; border-radius: 4px; border: 1px solid #E8E3DA; cursor: pointer;">Copy</button>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: center; background: #FFF; padding: 0.5rem 0.75rem; border-radius: 6px; border: 1px solid rgba(0,0,0,0.05);">
+                <div>
+                  <span style="display: block; font-size: 0.68rem; color: #6B7280; text-transform: uppercase;">Raast ID (Mobile)</span>
+                  <strong id="hblDisplayRaast" style="color: #111827; font-size: 0.85rem; font-family: monospace;">03001234567</strong>
+                </div>
+                <button type="button" onclick="copyBankField('hblDisplayRaast')" style="font-size: 0.72rem; font-weight: 700; color: #111827; background: #F3EFEA; padding: 0.25rem 0.6rem; border-radius: 4px; border: 1px solid #E8E3DA; cursor: pointer;">Copy</button>
+              </div>
+            </div>
+
+            <!-- Transaction Reference Input -->
+            <div class="form-group" style="margin-bottom: 0;">
+              <label style="font-size: 0.75rem; font-weight: 700; color: #374151; margin-bottom: 0.25rem; display: block;">Bank Transaction Reference / RRN *</label>
+              <input type="text" id="chkHblTxRef" placeholder="e.g. 48291038 or HBL App Reference" style="width: 100%; padding: 0.65rem 0.85rem; border-radius: 6px; border: 1px solid #D1D5DB; font-size: 0.85rem; background: #FFF;" required>
+              <span style="display: block; font-size: 0.7rem; color: #6B7280; margin-top: 0.35rem;">Enter the Transaction ID shown on your bank transfer receipt.</span>
+            </div>
+          </div>
+
+          <!-- Tab 2: Secure Card Input Fields (Hidden by default when HBL selected) -->
+          <div id="cardPaymentDetailsBox" class="card-checkout-fields" style="display: none; margin-top: 1rem; display: none; gap: 0.75rem; background: #FAF8F5; padding: 1.15rem; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06);">
             <div class="form-group" style="margin-bottom: 0;">
               <label style="font-size: 0.75rem; font-weight: 700; color: #374151; margin-bottom: 0.25rem; display: block;">Card Number</label>
-              <input type="text" id="chkCardNumber" placeholder="4000 1234 5678 9010" required maxlength="19" autocomplete="cc-number" style="width: 100%; padding: 0.65rem 0.85rem; border-radius: 6px; border: 1px solid #D1D5DB; font-family: monospace; font-size: 0.95rem; background: #FFF;">
+              <input type="text" id="chkCardNumber" placeholder="4000 1234 5678 9010" maxlength="19" autocomplete="cc-number" style="width: 100%; padding: 0.65rem 0.85rem; border-radius: 6px; border: 1px solid #D1D5DB; font-family: monospace; font-size: 0.95rem; background: #FFF;">
             </div>
             
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
               <div class="form-group" style="margin-bottom: 0;">
                 <label style="font-size: 0.75rem; font-weight: 700; color: #374151; margin-bottom: 0.25rem; display: block;">Expiry Date</label>
-                <input type="text" id="chkCardExpiry" placeholder="MM / YY" required maxlength="5" autocomplete="cc-exp" style="width: 100%; padding: 0.65rem 0.85rem; border-radius: 6px; border: 1px solid #D1D5DB; font-family: monospace; font-size: 0.95rem; background: #FFF;">
+                <input type="text" id="chkCardExpiry" placeholder="MM / YY" maxlength="5" autocomplete="cc-exp" style="width: 100%; padding: 0.65rem 0.85rem; border-radius: 6px; border: 1px solid #D1D5DB; font-family: monospace; font-size: 0.95rem; background: #FFF;">
               </div>
               <div class="form-group" style="margin-bottom: 0;">
                 <label style="font-size: 0.75rem; font-weight: 700; color: #374151; margin-bottom: 0.25rem; display: block;">Security Code (CVC)</label>
-                <input type="text" id="chkCardCvc" placeholder="123" required maxlength="4" autocomplete="cc-csc" style="width: 100%; padding: 0.65rem 0.85rem; border-radius: 6px; border: 1px solid #D1D5DB; font-family: monospace; font-size: 0.95rem; background: #FFF;">
+                <input type="text" id="chkCardCvc" placeholder="123" maxlength="4" autocomplete="cc-csc" style="width: 100%; padding: 0.65rem 0.85rem; border-radius: 6px; border: 1px solid #D1D5DB; font-family: monospace; font-size: 0.95rem; background: #FFF;">
               </div>
             </div>
 
             <div class="form-group" style="margin-bottom: 0;">
               <label style="font-size: 0.75rem; font-weight: 700; color: #374151; margin-bottom: 0.25rem; display: block;">Name on Card</label>
-              <input type="text" id="chkCardName" placeholder="Cardholder full name" required autocomplete="cc-name" style="width: 100%; padding: 0.65rem 0.85rem; border-radius: 6px; border: 1px solid #D1D5DB; font-size: 0.85rem; background: #FFF;">
+              <input type="text" id="chkCardName" placeholder="Cardholder full name" autocomplete="cc-name" style="width: 100%; padding: 0.65rem 0.85rem; border-radius: 6px; border: 1px solid #D1D5DB; font-size: 0.85rem; background: #FFF;">
             </div>
           </div>
         </div>

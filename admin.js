@@ -104,6 +104,7 @@ function switchTab(tabId) {
   else if (tabId === 'orders') renderOrdersTable();
   else if (tabId === 'promos') renderPromosTable();
   else if (tabId === 'reviews') renderReviewsTable();
+  else if (tabId === 'settings') loadBankSettingsToAdmin();
 
   if (window.lucide) window.lucide.createIcons();
 }
@@ -544,7 +545,17 @@ function renderOrdersTable() {
             ${(o.items || []).map((i) => `• ${i.name} (${i.size} × ${i.qty})`).join('<br>')}
           </div>
         </td>
-        <td><strong style="font-size:0.95rem; color:#FFF;">$${o.total}.00</strong></td>
+        <td>
+          <strong style="font-size:0.95rem; color:#FFF;">$${o.total}.00</strong>
+          <div style="margin-top: 0.35rem;">
+            ${
+              (o.paymentMethod || '').includes('HBL')
+                ? `<span style="display:inline-block; font-size:0.68rem; font-weight:700; color:#10B981; background:rgba(16,185,129,0.15); padding:0.15rem 0.4rem; border-radius:4px; border:1px solid rgba(16,185,129,0.3);">🏦 HBL Transfer</span>
+                   ${o.transactionRef ? `<div style="font-size:0.68rem; color:#94A3B8; font-family:monospace; margin-top:0.15rem;">Ref: ${o.transactionRef}</div>` : ''}`
+                : `<span style="display:inline-block; font-size:0.68rem; font-weight:700; color:#60A5FA; background:rgba(96,165,250,0.15); padding:0.15rem 0.4rem; border-radius:4px; border:1px solid rgba(96,165,250,0.3);">💳 Card</span>`
+            }
+          </div>
+        </td>
         <td>
           <select class="admin-select" style="padding:0.25rem 0.5rem; font-size:0.75rem;" onchange="handleOrderStatusChange('${o.id}', this.value)">
             <option value="Processing" ${o.status === 'Processing' ? 'selected' : ''}>Processing</option>
@@ -735,6 +746,37 @@ function handleDeleteReview(reviewId) {
 // ==========================================================================
 // 7. SETTINGS & CLOUD DATABASE
 // ==========================================================================
+function loadBankSettingsToAdmin() {
+  const bank = DataStore.getBankSettings();
+  const t = document.getElementById('cfgHblTitle');
+  const a = document.getElementById('cfgHblAccount');
+  const i = document.getElementById('cfgHblIban');
+  const r = document.getElementById('cfgHblRaast');
+  if (t) t.value = bank.accountTitle || '';
+  if (a) a.value = bank.accountNumber || '';
+  if (i) i.value = bank.iban || '';
+  if (r) r.value = bank.raastId || '';
+}
+
+function handleSaveBankSettings(e) {
+  e.preventDefault();
+  const title = document.getElementById('cfgHblTitle').value.trim();
+  const account = document.getElementById('cfgHblAccount').value.trim();
+  const iban = document.getElementById('cfgHblIban').value.trim();
+  const raast = document.getElementById('cfgHblRaast').value.trim();
+
+  DataStore.saveBankSettings({
+    bankName: 'Habib Bank Limited (HBL)',
+    accountTitle: title,
+    accountNumber: account,
+    iban: iban,
+    raastId: raast,
+    instructions: 'Transfer the order amount to our official HBL account via HBL Mobile, Raast, or any banking app, and enter your Transaction Reference Number / RRN below.'
+  });
+
+  showAdminToast('HBL Bank & Raast settings saved successfully!');
+}
+
 function handleSaveCloudConfig(e) {
   e.preventDefault();
   const url = document.getElementById('cfgSupabaseUrl').value.trim();

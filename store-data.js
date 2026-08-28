@@ -1249,6 +1249,29 @@ const DataStore = {
     return `${num} ${currency.symbol}`;
   },
 
+  getBankSettings() {
+    const raw = localStorage.getItem('sitara_bank_settings');
+    if (raw) {
+      try {
+        return JSON.parse(raw);
+      } catch (e) {
+        // fallback
+      }
+    }
+    return {
+      bankName: 'Habib Bank Limited (HBL)',
+      accountTitle: 'NEW SITARA ATELIER',
+      accountNumber: '00427991829103',
+      iban: 'PK36HABB0000427991829103',
+      raastId: '03001234567',
+      instructions: 'Transfer the order amount to our official HBL account via HBL Mobile, Raast, or any banking app, and enter your Transaction Reference Number / RRN below.'
+    };
+  },
+
+  saveBankSettings(settings) {
+    localStorage.setItem('sitara_bank_settings', JSON.stringify(settings));
+  },
+
   getCart() {
     const raw = localStorage.getItem('sitara_cart');
     if (!raw) return [];

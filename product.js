@@ -804,15 +804,97 @@ function openCheckoutModal() {
 
   // Populate countries if empty
   populateCountryDropdown();
-
-  // Attach card formatters
   setupCardFormatters();
+  loadBankDetailsIntoCheckout();
+  selectPayOption('hbl');
 
   document.getElementById('checkoutModal')?.classList.add('open');
   document.getElementById('checkoutBackdrop')?.classList.add('open');
   document.body.style.overflow = 'hidden';
 
   if (window.lucide) window.lucide.createIcons();
+}
+
+let selectedPaymentType = 'hbl';
+
+function selectPayOption(type) {
+  selectedPaymentType = type;
+  const optHbl = document.getElementById('optHblTransfer');
+  const optCard = document.getElementById('optCardPayment');
+  const hblBox = document.getElementById('hblPaymentDetailsBox');
+  const cardBox = document.getElementById('cardPaymentDetailsBox');
+  const txInput = document.getElementById('chkHblTxRef');
+  const cardInput = document.getElementById('chkCardNumber');
+  const cardExp = document.getElementById('chkCardExpiry');
+  const cardCvc = document.getElementById('chkCardCvc');
+  const cardName = document.getElementById('chkCardName');
+
+  if (type === 'hbl') {
+    if (optHbl) {
+      optHbl.style.borderColor = '#111827';
+      optHbl.style.background = '#FAF8F5';
+      const rad = optHbl.querySelector('input[type="radio"]');
+      if (rad) rad.checked = true;
+    }
+    if (optCard) {
+      optCard.style.borderColor = '#E5E7EB';
+      optCard.style.background = '#FFFFFF';
+    }
+    if (hblBox) hblBox.style.display = 'block';
+    if (cardBox) cardBox.style.display = 'none';
+
+    if (txInput) txInput.required = true;
+    if (cardInput) cardInput.required = false;
+    if (cardExp) cardExp.required = false;
+    if (cardCvc) cardCvc.required = false;
+    if (cardName) cardName.required = false;
+  } else {
+    if (optCard) {
+      optCard.style.borderColor = '#111827';
+      optCard.style.background = '#FAF8F5';
+      const rad = optCard.querySelector('input[type="radio"]');
+      if (rad) rad.checked = true;
+    }
+    if (optHbl) {
+      optHbl.style.borderColor = '#E5E7EB';
+      optHbl.style.background = '#FFFFFF';
+    }
+    if (hblBox) hblBox.style.display = 'none';
+    if (cardBox) {
+      cardBox.style.display = 'grid';
+    }
+
+    if (txInput) txInput.required = false;
+    if (cardInput) cardInput.required = true;
+    if (cardExp) cardExp.required = true;
+    if (cardCvc) cardCvc.required = true;
+    if (cardName) cardName.required = true;
+  }
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function copyBankField(elementId) {
+  const el = document.getElementById(elementId);
+  if (!el) return;
+  const text = el.textContent.trim();
+  navigator.clipboard.writeText(text).then(() => {
+    showToast(`Copied: ${text}`);
+  }).catch(() => {
+    showToast(`Copied: ${text}`);
+  });
+}
+
+function loadBankDetailsIntoCheckout() {
+  const bank = DataStore.getBankSettings();
+  const titleEl = document.getElementById('hblDisplayTitle');
+  const accEl = document.getElementById('hblDisplayAccount');
+  const ibanEl = document.getElementById('hblDisplayIban');
+  const raastEl = document.getElementById('hblDisplayRaast');
+
+  if (titleEl) titleEl.textContent = bank.accountTitle || 'NEW SITARA ATELIER';
+  if (accEl) accEl.textContent = bank.accountNumber || '00427991829103';
+  if (ibanEl) ibanEl.textContent = bank.iban || 'PK36HABB0000427991829103';
+  if (raastEl) raastEl.textContent = bank.raastId || '03001234567';
 }
 
 function setupCardFormatters() {
@@ -879,6 +961,9 @@ function handlePlaceOrder(e) {
   const shipping = subtotal === 0 ? 0 : isFree ? 0 : 15;
   const grandTotal = Math.round(Math.max(0, subtotal - discountUSD + shipping));
 
+  const isHbl = selectedPaymentType === 'hbl';
+  const txRef = isHbl ? (document.getElementById('chkHblTxRef')?.value.trim() || 'HBL-TRANSFER') : 'CARD-DIRECT';
+
   const orderData = {
     customer: {
       fullName: document.getElementById('chkFullName')?.value.trim() || 'VIP Client',
@@ -897,7 +982,9 @@ function handlePlaceOrder(e) {
     shipping: shipping,
     total: grandTotal,
     currency: DataStore.getActiveCurrency().code,
-    paymentMethod: 'Credit / Debit Card (Visa, Mastercard, AMEX)'
+    paymentMethod: isHbl ? 'HBL Direct Bank Transfer / Raast' : 'Credit / Debit Card (Visa, Mastercard, AMEX)',
+    transactionRef: txRef,
+    paymentStatus: isHbl ? 'Pending Verification' : 'Paid (Card)'
   };
 
   const createdOrder = DataStore.addOrder(orderData);

@@ -5,432 +5,250 @@
 
 const DEFAULT_CATEGORIES = [
   {
-    id: 't-shirts',
-    name: 'T-Shirts & Tops',
-    slug: 't-shirts',
-    description: 'Heavyweight organic cotton tees, ribbed tanks, and knit polos.',
-    image: '/assets/product-placeholder.svg'
+    id: 'watches',
+    name: 'Timepieces & Chronographs',
+    slug: 'watches',
+    description: 'Precision mechanical chronographs, sapphire automatic watches, and bespoke bracelets.',
+    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop'
   },
   {
-    id: 'hoodies',
-    name: 'Hoodies & Sweatshirts',
-    slug: 'hoodies',
-    description: '520 GSM Portuguese loopback fleece hoodies and structured crewnecks.',
-    image: '/assets/product-placeholder.svg'
+    id: 'fragrance',
+    name: 'Perfumes & Fragrances',
+    slug: 'fragrance',
+    description: 'Artisanal high-concentration extrait de parfum, royal amber, and smoked oud.',
+    image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=800&auto=format&fit=crop'
   },
   {
-    id: 'pants',
-    name: 'Pants & Trousers',
-    slug: 'pants',
-    description: '14oz Okayama selvedge denim, pleated wool trousers, and utility cargos.',
-    image: '/assets/product-placeholder.svg'
+    id: 'leather-goods',
+    name: 'Bags & Leather Goods',
+    slug: 'leather-goods',
+    description: 'Full-grain Italian calfskin weekender duffels, briefcases, and minimalist wallets.',
+    image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop'
   },
   {
-    id: 'shorts',
-    name: 'Shorts & Bottoms',
-    slug: 'shorts',
-    description: 'Heavyweight French terry sweatshorts and relaxed tailored linen shorts.',
-    image: '/assets/product-placeholder.svg'
+    id: 'eyewear',
+    name: 'Eyewear & Sunglasses',
+    slug: 'eyewear',
+    description: 'Handcrafted titanium frames, Zeiss polarized lenses, and sculpted acetate silhouettes.',
+    image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=800&auto=format&fit=crop'
   },
   {
     id: 'outerwear',
     name: 'Jackets & Outerwear',
     slug: 'outerwear',
-    description: 'Double-breasted wool overcoats, calfskin bombers, and technical shells.',
-    image: '/assets/product-placeholder.svg'
+    description: 'Double-breasted virgin wool overcoats, calfskin leather bombers, and technical shells.',
+    image: 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?q=80&w=800&auto=format&fit=crop'
   },
   {
-    id: 'shoes',
-    name: 'Shoes & Footwear',
-    slug: 'shoes',
-    description: 'Italian calfskin sneakers, sculpted runners, and suede Chelsea boots.',
-    image: '/assets/product-placeholder.svg'
+    id: 'apparel',
+    name: 'Signature Tops & Hoodies',
+    slug: 'apparel',
+    description: '520 GSM Portuguese loopback fleece hoodies and vintage enzyme-washed heavyweight tees.',
+    image: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop'
   },
   {
-    id: 'accessories',
-    name: 'Belts & Accessories',
-    slug: 'accessories',
-    description: 'Full-grain leather goods, 925 sterling silver jewelry, and twill caps.',
-    image: '/assets/product-placeholder.svg'
+    id: 'jewelry',
+    name: 'Jewelry & Accessories',
+    slug: 'jewelry',
+    description: 'Cast 925 sterling silver signet rings, diamond-cut curb chains, and full-grain belts.',
+    image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800&auto=format&fit=crop'
   }
 ];
 
 const DEFAULT_PRODUCTS = [
-  // --- T-SHIRTS & TOPS ---
+  // --- WATCHES & TIMEPIECES ---
   {
     id: 'ns-prod-101',
-    name: 'Boxy Heavyweight Cotton Tee',
-    category: 't-shirts',
-    categoryName: 'T-Shirts & Tops',
-    price: 85,
+    name: 'Automatic Chronograph Horizon 41mm',
+    category: 'watches',
+    categoryName: 'Timepieces & Chronographs',
+    price: 640,
     tag: 'Bestseller',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Cut with an oversized, relaxed silhouette from 280 GSM long-staple combed cotton. Features dropped shoulders, a dense 1x1 ribbed collar, and blind-stitched hems for a crisp architectural drape.',
-    specs: '100% Combed Cotton • 280 GSM • Pre-shrunk • Reinforced Rib Collar • Made in Portugal',
-    sizes: ['S', 'M', 'L', 'XL'],
+    imageFront: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=1000&auto=format&fit=crop',
+    description: 'Engineered with a Swiss-made automatic mechanical movement, scratch-resistant sapphire crystal with anti-reflective coating, and an integrated solid 316L stainless steel bracelet.',
+    specs: 'Swiss Automatic Calibre • 41mm Case • Double Domed Sapphire Glass • 100M Water Resistant • 316L Steel',
+    sizes: ['41mm Case'],
     inStock: true
   },
   {
     id: 'ns-prod-102',
-    name: 'Vintage Washed Oversized Tee',
-    category: 't-shirts',
-    categoryName: 'T-Shirts & Tops',
-    price: 95,
+    name: 'Minimalist Noir Dial Dress Watch',
+    category: 'watches',
+    categoryName: 'Timepieces & Chronographs',
+    price: 480,
     tag: 'New Drop',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Enzyme-washed for a subtly faded, broken-in patina and ultra-soft hand feel. Structured boxy cut with wide sleeves and double-needle topstitching throughout.',
-    specs: '100% Ring-Spun Cotton • 260 GSM • Pigment Dye Wash • Anti-Twist Side Seams',
-    sizes: ['S', 'M', 'L', 'XL'],
-    inStock: true
-  },
-  {
-    id: 'ns-prod-103',
-    name: 'Ribbed Interlock Muscle Tank',
-    category: 't-shirts',
-    categoryName: 'T-Shirts & Tops',
-    price: 65,
-    tag: 'Essential',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Engineered from high-gauge 2x2 ribbed cotton with added elastane for durable shape retention. Tailored armholes and curved hem designed for layering or standalone wear.',
-    specs: '95% Organic Cotton, 5% Elastane • 240 GSM • Form-Holding Rib • Bound Neckline',
-    sizes: ['S', 'M', 'L', 'XL'],
-    inStock: true
-  },
-  {
-    id: 'ns-prod-104',
-    name: 'Fine Merino Knit Polo',
-    category: 't-shirts',
-    categoryName: 'T-Shirts & Tops',
-    price: 140,
-    tag: 'Atelier',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Spun from 16-gauge extrafine Australian merino wool. Styled with a buttonless Johnny collar, ribbed cuffs, and an elegant regular drape suitable for all seasons.',
-    specs: '100% Extrafine Merino Wool • 16-Gauge Fully Fashioned Knit • Mother of Pearl Accents',
-    sizes: ['S', 'M', 'L', 'XL'],
+    imageFront: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1533139502658-0198f920d8e8?q=80&w=1000&auto=format&fit=crop',
+    description: 'An ultra-slim 7.8mm profile featuring a sunburst matte noir dial, diamond-polished hands, and a handcrafted Italian calfskin leather strap with quick-release spring bars.',
+    specs: 'Ultra-Thin Calibre • 39mm Case • Anti-Reflective Sapphire • Italian Leather Strap • 50M Water Resistance',
+    sizes: ['39mm Case'],
     inStock: true
   },
 
-  // --- HOODIES & SWEATSHIRTS ---
+  // --- PERFUMES & FRAGRANCES ---
   {
     id: 'ns-prod-201',
-    name: '520 GSM Loopback French Terry Hoodie',
-    category: 'hoodies',
-    categoryName: 'Hoodies & Sweatshirts',
-    price: 185,
+    name: 'Royal Amber Extrait De Parfum (100ml)',
+    category: 'fragrance',
+    categoryName: 'Perfumes & Fragrances',
+    price: 260,
     tag: 'Iconic Piece',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Our signature silhouette constructed from ultra-heavyweight 520 GSM Portuguese loopback French terry. Features a double-layered crossover hood without drawstrings, wide ribbed cuffs, and concealed side-seam pockets.',
-    specs: '100% Portuguese Cotton • 520 GSM French Terry • Crossover Hood • Seamless Pockets',
-    sizes: ['S', 'M', 'L', 'XL'],
+    imageFront: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=1000&auto=format&fit=crop',
+    description: 'A 32% high-concentration extrait de parfum. Top notes of saffron and Sicilian bergamot open into a heart of smoky amber resin, cedarwood, and rich Madagascar vanilla.',
+    specs: 'Extrait de Parfum (32% Oil Concentration) • 100ml / 3.4 fl. oz. • Magnetic Gold-Plated Cap • Made in Grasse, France',
+    sizes: ['100ml'],
     inStock: true
   },
   {
     id: 'ns-prod-202',
-    name: 'Raglan Structured Crewneck',
-    category: 'hoodies',
-    categoryName: 'Hoodies & Sweatshirts',
-    price: 155,
-    tag: 'Classic',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Crafted with ergonomic raglan sleeves for enhanced shoulder movement. Built with 480 GSM dense cotton fleece and flatlock reinforcement on every critical stress point.',
-    specs: '100% Combed Cotton • 480 GSM Fleece • Raglan Sleeves • Flatlock Seam Construction',
-    sizes: ['S', 'M', 'L', 'XL'],
-    inStock: true
-  },
-  {
-    id: 'ns-prod-203',
-    name: 'Cashmere Blend Pullover Knit Hoodie',
-    category: 'hoodies',
-    categoryName: 'Hoodies & Sweatshirts',
-    price: 245,
-    tag: 'Luxury Drop',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'An elevated take on casual luxury. Blended with 30% Mongolian cashmere and 70% ultra-fine wool for lightweight warmth, softness, and refined drape.',
-    specs: '30% Mongolian Cashmere, 70% Fine Merino • 7-Gauge Heavy Knit • Seamless Hem',
-    sizes: ['S', 'M', 'L', 'XL'],
-    inStock: true
-  },
-  {
-    id: 'ns-prod-204',
-    name: 'Heavyweight Track Zip Jacket',
-    category: 'hoodies',
-    categoryName: 'Hoodies & Sweatshirts',
-    price: 175,
-    tag: 'New Drop',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Featuring a custom two-way brushed steel zipper, funnel collar, and minimal welt pockets. Built from structured interlock fleece with matte metal hardware.',
-    specs: '100% Heavyweight Cotton Interlock • Custom Dual Steel Zippers • Stand Collar',
-    sizes: ['S', 'M', 'L', 'XL'],
+    name: 'Smoked Santal & Vetiver Cologne (100ml)',
+    category: 'fragrance',
+    categoryName: 'Perfumes & Fragrances',
+    price: 220,
+    tag: 'Atelier Release',
+    imageFront: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?q=80&w=1000&auto=format&fit=crop',
+    description: 'A warm, sophisticated blend of Australian sandalwood, Haitian vetiver, cardamom, and subtle leather accords for an unforgettable signature trail.',
+    specs: 'Eau de Parfum • 100ml / 3.4 fl. oz. • Smoked Glass Vessel • Hand-Bottled in France',
+    sizes: ['100ml'],
     inStock: true
   },
 
-  // --- PANTS & TROUSERS ---
+  // --- BAGS & LEATHER GOODS ---
   {
     id: 'ns-prod-301',
-    name: '14oz Okayama Selvedge Denim Jean',
-    category: 'pants',
-    categoryName: 'Pants & Trousers',
-    price: 240,
-    tag: 'Heritage',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Woven on vintage shuttle looms in Kojima, Japan. 14oz raw sanforized denim featuring a classic redline selvedge ID, custom branded copper rivets, and a straight-leg drape.',
-    specs: '100% Japanese Selvedge Denim • 14oz Raw • Redline ID • Hand-Stamped Leather Patch',
-    sizes: ['30', '32', '34', '36'],
+    name: 'Full-Grain Leather Weekender Duffel',
+    category: 'leather-goods',
+    categoryName: 'Bags & Leather Goods',
+    price: 490,
+    tag: 'Bestseller',
+    imageFront: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1000&auto=format&fit=crop',
+    description: 'Masterfully built from vegetable-tanned full-grain vacchetta leather. Features a spacious twill-lined interior, reinforced brass hardware, and a detachable padded shoulder strap.',
+    specs: '100% Full-Grain Italian Vacchetta Leather • YKK Excella Brass Zippers • Reinforced Base • 45L Capacity',
+    sizes: ['One Size (45L)'],
     inStock: true
   },
   {
     id: 'ns-prod-302',
-    name: 'Pleated Wool-Blend Tailored Trouser',
-    category: 'pants',
-    categoryName: 'Pants & Trousers',
-    price: 215,
-    tag: 'Tailored',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Featuring single front pleats, hidden waistband adjusters, and a relaxed wide taper. Woven from breathable tropical wool blend with clean pressed creases.',
-    specs: '60% Wool, 38% Viscose, 2% Elastane • Single Pleat Front • Horn Buttons • Half-Lined',
-    sizes: ['30', '32', '34', '36'],
-    inStock: true
-  },
-  {
-    id: 'ns-prod-303',
-    name: 'Utility Cargo Pant',
-    category: 'pants',
-    categoryName: 'Pants & Trousers',
-    price: 195,
-    tag: 'Tactical',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Constructed from durable 280 GSM cotton ripstop with darted knees for ergonomic mobility. Styled with 3D accordion cargo pockets and adjustable bungee ankle cuffs.',
-    specs: '100% Cotton Ripstop • 6-Pocket Storage • Articulated Knees • Bungee Hem Adjusters',
-    sizes: ['S', 'M', 'L', 'XL'],
-    inStock: true
-  },
-  {
-    id: 'ns-prod-304',
-    name: 'Structured Interlock Lounge Pant',
-    category: 'pants',
-    categoryName: 'Pants & Trousers',
-    price: 150,
-    tag: 'Comfort',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'A refined leisure silhouette in heavyweight 420 GSM double-knit cotton. Elasticated drawstring waistband with silver aglets and pin-tuck center front seams.',
-    specs: '100% Combed Double-Knit Cotton • Pin-Tuck Seams • Silver Aglet Drawcord • Zip Pockets',
-    sizes: ['S', 'M', 'L', 'XL'],
+    name: 'Handcrafted Calfskin Noir Bifold Wallet',
+    category: 'leather-goods',
+    categoryName: 'Bags & Leather Goods',
+    price: 135,
+    tag: 'Daily Carry',
+    imageFront: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?q=80&w=1000&auto=format&fit=crop',
+    description: 'Slim bifold wallet crafted from supple calfskin. Holds 8 cards with dual currency sleeves and integrated RFID-blocking shields.',
+    specs: 'Full-Grain Calfskin • 8 Card Slots • RFID-Shielded • Hand-Burnished Edges • Made in Italy',
+    sizes: ['One Size'],
     inStock: true
   },
 
-  // --- SHORTS & BOTTOMS ---
+  // --- EYEWEAR & SUNGLASSES ---
   {
     id: 'ns-prod-401',
-    name: 'French Terry Heavyweight Sweatshort',
-    category: 'shorts',
-    categoryName: 'Shorts & Bottoms',
-    price: 110,
-    tag: 'Essential',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Heavyweight 450 GSM loopback cotton cut with a modern 6-inch inseam. Deep mesh-lined side pockets and a thick ribbed waistband for premium structure.',
-    specs: '100% Organic Cotton • 450 GSM • 6" Inseam • Chunky Drawcord • Raw Edge Hem',
-    sizes: ['S', 'M', 'L', 'XL'],
-    inStock: true
-  },
-  {
-    id: 'ns-prod-402',
-    name: 'Technical Ripstop Cargo Short',
-    category: 'shorts',
-    categoryName: 'Shorts & Bottoms',
-    price: 135,
-    tag: 'Outdoor',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Ultralight yet tear-resistant nylon ripstop with a water-repellent DWR coating. Features dual modular bellows pockets with matte snap closures.',
-    specs: '100% Recycled Nylon • DWR Water-Repellent Finish • Integrated Webbing Belt',
-    sizes: ['S', 'M', 'L', 'XL'],
-    inStock: true
-  },
-  {
-    id: 'ns-prod-403',
-    name: 'Pleated Linen Tailored Short',
-    category: 'shorts',
-    categoryName: 'Shorts & Bottoms',
-    price: 145,
-    tag: 'Resort',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Woven from pure European flax linen. Tailored with double forward pleats, slanted pockets, and a cuffed hem for warm-weather sophistication.',
-    specs: '100% European Flax Linen • Garment Washed • Double Pleat • Extended Waistband Tab',
-    sizes: ['30', '32', '34', '36'],
+    name: 'Titanium Frame Polarized Aviator Sunglasses',
+    category: 'eyewear',
+    categoryName: 'Eyewear & Sunglasses',
+    price: 280,
+    tag: 'Limited Drop',
+    imageFront: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=1000&auto=format&fit=crop',
+    description: 'Ultralight grade-5 Japanese titanium frame paired with Carl Zeiss Category 3 polarized mineral glass lenses offering 100% UVA/UVB protection.',
+    specs: 'Pure Grade-5 Titanium • Zeiss Polarized Lenses • Anti-Reflective Back Coating • Hand-Assembled in Japan',
+    sizes: ['Universal Fit'],
     inStock: true
   },
 
   // --- JACKETS & OUTERWEAR ---
   {
     id: 'ns-prod-501',
-    name: 'Double-Breasted Wool Overcoat',
+    name: 'Double-Breasted Cashmere Melton Overcoat',
     category: 'outerwear',
     categoryName: 'Jackets & Outerwear',
-    price: 490,
+    price: 580,
     tag: 'Signature',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Masterfully tailored from 800 GSM double-faced Melton wool. Features peak lapels, genuine horn buttons, deep welt pockets, and a full cupro interior lining.',
-    specs: '80% Virgin Wool, 20% Polyamide • 800 GSM Melton • Full Cupro Lining • Tailored Fit',
+    imageFront: 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1000&auto=format&fit=crop',
+    description: 'Tailored from 850 GSM double-faced virgin wool and Mongolian cashmere blend. Styled with architectural peak lapels, genuine buffalo horn buttons, and a pure cupro lining.',
+    specs: '70% Virgin Wool, 30% Cashmere • 850 GSM • Full Bemberg Cupro Lining • Horn Buttons • Made in Italy',
     sizes: ['S', 'M', 'L', 'XL'],
     inStock: true
   },
   {
     id: 'ns-prod-502',
-    name: 'Italian Calfskin Leather Bomber',
+    name: 'Italian Calfskin Leather Bomber Jacket',
     category: 'outerwear',
     categoryName: 'Jackets & Outerwear',
-    price: 450,
-    tag: 'Limited Edition',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Handcrafted in Florence from supple, full-grain Italian calfskin leather. Finished with custom tonal rib-knit trim, heavy two-way YKK zippers, and interior chest pockets.',
-    specs: '100% Full-Grain Calfskin • Custom Wool Rib Cuffs • YKK Excella Zippers • Made in Italy',
-    sizes: ['M', 'L', 'XL'],
-    inStock: true
-  },
-  {
-    id: 'ns-prod-503',
-    name: 'Technical 3-Layer Shell Jacket',
-    category: 'outerwear',
-    categoryName: 'Jackets & Outerwear',
-    price: 290,
-    tag: 'All-Weather',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: '20,000mm waterproof / 15,000g breathable 3-layer membrane with fully taped seams and Aquaguard waterproof zippers for maximum storm protection.',
-    specs: '3-Layer Ripstop Membrane • 20k/15k Rating • Fully Taped Seams • Cohaesive Hood Adjuster',
-    sizes: ['S', 'M', 'L', 'XL'],
-    inStock: true
-  },
-  {
-    id: 'ns-prod-504',
-    name: 'Vintage Wash Denim Trucker Jacket',
-    category: 'outerwear',
-    categoryName: 'Jackets & Outerwear',
-    price: 220,
-    tag: 'Heritage',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: '13.5oz ring-spun denim treated with artisanal hand-sanding and stone washing. Built with brass tack buttons, shank side adjusters, and dual chest flap pockets.',
-    specs: '100% Cotton Denim • 13.5oz • Hand-Aged Vintage Wash • Antiqued Brass Hardware',
+    price: 520,
+    tag: 'Atelier Piece',
+    imageFront: 'https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1000&auto=format&fit=crop',
+    description: 'Hand-finished in Florence from buttery full-grain Italian calfskin with custom heavyweight Excella zippers and ribbed wool trim.',
+    specs: '100% Full-Grain Calfskin Leather • YKK Excella Hardware • Ribbed Wool Cuffs • Satin Interior Lining',
     sizes: ['S', 'M', 'L', 'XL'],
     inStock: true
   },
 
-  // --- SHOES & FOOTWEAR ---
+  // --- APPAREL & HOODIES ---
   {
     id: 'ns-prod-601',
-    name: 'Minimalist Calfskin Low-Top Sneaker',
-    category: 'shoes',
-    categoryName: 'Shoes & Footwear',
-    price: 220,
-    tag: 'Handmade',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Handcrafted in Civitanova Marche, Italy. Made with buttery nappa leather, full leather lining, waxed cotton laces, and a durable stitched Margom rubber sole.',
-    specs: 'Full-Grain Italian Leather • Margom Rubber Cupsole • Calfskin Lining • Made in Italy',
-    sizes: ['40', '41', '42', '43', '44', '45'],
+    name: '520 GSM Heavyweight Loopback Boxy Hoodie',
+    category: 'apparel',
+    categoryName: 'Signature Tops & Hoodies',
+    price: 195,
+    tag: 'Iconic Drop',
+    imageFront: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1578587018452-892bacefd3f2?q=80&w=1000&auto=format&fit=crop',
+    description: 'Constructed from ultra-dense 520 GSM Portuguese loopback French terry. Designed with a double-layered crossover hood without drawstrings, wide ribbed cuffs, and an architectural drop-shoulder drape.',
+    specs: '100% Portuguese Cotton • 520 GSM French Terry • Crossover Double Hood • Pre-Shrunk • Made in Portugal',
+    sizes: ['S', 'M', 'L', 'XL'],
     inStock: true
   },
   {
     id: 'ns-prod-602',
-    name: 'Technical Sculpted Runner',
-    category: 'shoes',
-    categoryName: 'Shoes & Footwear',
-    price: 280,
-    tag: 'Performance',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Combining layered open mesh, heat-welded TPU reinforcements, and an ultra-cushioned sculpted EVA midsole for effortless all-day comfort and bold aesthetic.',
-    specs: 'Engineered Air Mesh & TPU Overlays • Vibram Megagrip Outsole • OrthoLite Insole',
-    sizes: ['41', '42', '43', '44', '45'],
-    inStock: true
-  },
-  {
-    id: 'ns-prod-603',
-    name: 'Handcrafted Suede Chelsea Boot',
-    category: 'shoes',
-    categoryName: 'Shoes & Footwear',
-    price: 360,
-    tag: 'Artisanal',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Constructed using traditional Blake stitching from supple Italian reverse calf suede. Features elasticated side gussets and a stacked leather sole with rubber injection.',
-    specs: '100% Italian Reverse Suede • Blake-Stitched Sole • Grosgrain Pull Tabs • Made in Portugal',
-    sizes: ['40', '41', '42', '43', '44'],
+    name: 'Vintage Washed Heavyweight Boxy Tee',
+    category: 'apparel',
+    categoryName: 'Signature Tops & Hoodies',
+    price: 95,
+    tag: 'Bestseller',
+    imageFront: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1000&auto=format&fit=crop',
+    description: 'Cut with an oversized, relaxed silhouette from 280 GSM long-staple combed cotton. Enzyme washed for a rich tactile patina and buttery hand feel.',
+    specs: '100% Combed Ring-Spun Cotton • 280 GSM • Enzyme Wash • Reinforced Collar • Made in Portugal',
+    sizes: ['S', 'M', 'L', 'XL'],
     inStock: true
   },
 
-  // --- BELTS & ACCESSORIES ---
+  // --- JEWELRY & ACCESSORIES ---
   {
     id: 'ns-prod-701',
-    name: 'Full-Grain Leather Roller Belt',
-    category: 'accessories',
-    categoryName: 'Belts & Accessories',
-    price: 95,
-    tag: 'Handmade',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Vegetable-tanned 3.5mm thick English bridle leather that ages with a rich bespoke patina. Secured with a solid brushed nickel roller buckle.',
-    specs: '100% Full-Grain Bridle Leather • 35mm Width • Solid Nickel Hardware • Hand-Beveled Edges',
-    sizes: ['85cm', '90cm', '95cm', '100cm'],
+    name: 'Solid 925 Sterling Silver Signet Ring',
+    category: 'jewelry',
+    categoryName: 'Jewelry & Accessories',
+    price: 175,
+    tag: 'Fine Jewelry',
+    imageFront: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1000&auto=format&fit=crop',
+    description: 'Cast from solid 925 sterling silver with a mirror-polished face and hand-engraved internal Sitara hallmark. Comfort-fit internal curve.',
+    specs: 'Solid 925 Sterling Silver • High-Polish Finish • Hallmarked • Made in Italy',
+    sizes: ['US 7', 'US 8', 'US 9', 'US 10', 'US 11'],
     inStock: true
   },
   {
     id: 'ns-prod-702',
-    name: 'Minimalist Leather Cardholder',
-    category: 'accessories',
-    categoryName: 'Belts & Accessories',
-    price: 80,
-    tag: 'Daily Carry',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Slim profile crafted with 4 exterior card slots and a central currency slip. Hand-finished with edge-burnishing and debossed Sitara logo.',
-    specs: 'Full-Grain Buttero Calfskin • 4 Card Slots + 1 Note Slot • Hand-Painted Edges',
-    sizes: ['One Size'],
-    inStock: true
-  },
-  {
-    id: 'ns-prod-703',
-    name: 'Solid 925 Sterling Silver Curb Chain',
-    category: 'accessories',
-    categoryName: 'Belts & Accessories',
-    price: 165,
-    tag: 'Fine Jewelry',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Diamond-cut 5mm curb link chain cast in solid 925 sterling silver with an oxidized vintage finish and custom engraved lobster clasp.',
-    specs: 'Solid 925 Sterling Silver • 5mm Gauge • Custom Hallmarked Clasp • Made in Italy',
-    sizes: ['50cm', '55cm'],
-    inStock: true
-  },
-  {
-    id: 'ns-prod-704',
-    name: 'Unstructured Cotton Twill Atelier Cap',
-    category: 'accessories',
-    categoryName: 'Belts & Accessories',
-    price: 65,
-    tag: 'Essential',
-    imageFront: '/assets/product-placeholder.svg',
-    imageBack: '/assets/product-placeholder-back.svg',
-    description: 'Low-profile 6-panel cap crafted from washed 100% cotton chino twill. Features embroidered eyelets and an adjustable self-fabric strap with an antiqued brass buckle.',
-    specs: '100% Chino Twill Cotton • 6-Panel Unstructured Crown • Brass Slider Clasp',
-    sizes: ['Adjustable'],
+    name: 'Full-Grain English Bridle Leather Belt',
+    category: 'jewelry',
+    categoryName: 'Jewelry & Accessories',
+    price: 110,
+    tag: 'Handmade',
+    imageFront: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1000&auto=format&fit=crop',
+    imageBack: 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=1000&auto=format&fit=crop',
+    description: 'Vegetable-tanned 3.8mm thick English bridle leather with beveled and hand-burnished edges. Equipped with a solid brushed nickel buckle.',
+    specs: '100% Bridle Leather • 35mm Width • Solid Brushed Nickel • Hand-Finished in UK',
+    sizes: ['85cm', '90cm', '95cm', '100cm'],
     inStock: true
   }
 ];
@@ -1101,13 +919,18 @@ const DEFAULT_REVIEWS = [
 // ==========================================================================
 const DataStore = {
   getProducts() {
-    const raw = localStorage.getItem('sitara_products_v8');
+    const raw = localStorage.getItem('sitara_products_v15');
     if (!raw) {
-      localStorage.setItem('sitara_products_v8', JSON.stringify(DEFAULT_PRODUCTS));
+      localStorage.setItem('sitara_products_v15', JSON.stringify(DEFAULT_PRODUCTS));
       return DEFAULT_PRODUCTS;
     }
     try {
-      return JSON.parse(raw);
+      const parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed) || parsed.length === 0 || parsed.some((p) => p.imageFront && (p.imageFront.includes('product-placeholder') || p.category === 'shorts'))) {
+        localStorage.setItem('sitara_products_v15', JSON.stringify(DEFAULT_PRODUCTS));
+        return DEFAULT_PRODUCTS;
+      }
+      return parsed;
     } catch {
       return DEFAULT_PRODUCTS;
     }
@@ -1126,7 +949,7 @@ const DataStore = {
     } else {
       prods.unshift(product);
     }
-    localStorage.setItem('sitara_products_v8', JSON.stringify(prods));
+    localStorage.setItem('sitara_products_v15', JSON.stringify(prods));
     this.syncWithCloud('products', product);
     return prods;
   },
@@ -1134,18 +957,23 @@ const DataStore = {
   deleteProduct(id) {
     let prods = this.getProducts();
     prods = prods.filter((p) => p.id !== id);
-    localStorage.setItem('sitara_products_v8', JSON.stringify(prods));
+    localStorage.setItem('sitara_products_v15', JSON.stringify(prods));
     return prods;
   },
 
   getCategories() {
-    const raw = localStorage.getItem('sitara_categories_v5');
+    const raw = localStorage.getItem('sitara_categories_v15');
     if (!raw) {
-      localStorage.setItem('sitara_categories_v5', JSON.stringify(DEFAULT_CATEGORIES));
+      localStorage.setItem('sitara_categories_v15', JSON.stringify(DEFAULT_CATEGORIES));
       return DEFAULT_CATEGORIES;
     }
     try {
-      return JSON.parse(raw);
+      const parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed) || parsed.length === 0 || parsed.some((c) => c.id === 'shorts' || (c.image && c.image.includes('product-placeholder')))) {
+        localStorage.setItem('sitara_categories_v15', JSON.stringify(DEFAULT_CATEGORIES));
+        return DEFAULT_CATEGORIES;
+      }
+      return parsed;
     } catch {
       return DEFAULT_CATEGORIES;
     }
@@ -1159,14 +987,14 @@ const DataStore = {
     } else {
       cats.push(category);
     }
-    localStorage.setItem('sitara_categories_v5', JSON.stringify(cats));
+    localStorage.setItem('sitara_categories_v15', JSON.stringify(cats));
     return cats;
   },
 
   deleteCategory(id) {
     let cats = this.getCategories();
     cats = cats.filter((c) => c.id !== id);
-    localStorage.setItem('sitara_categories_v5', JSON.stringify(cats));
+    localStorage.setItem('sitara_categories_v15', JSON.stringify(cats));
     return cats;
   },
 

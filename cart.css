@@ -2,6 +2,15 @@
    NEW SITARA — DEDICATED FULL-PAGE SHOPPING BAG (CART.CSS)
    ========================================================================== */
 
+.nav-brand-logo-img {
+  width: 38px !important;
+  height: 38px !important;
+  max-width: 38px !important;
+  max-height: 38px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+}
+
 .cart-page-body {
   background: #FAF8F5;
   color: var(--text-main, #111827);

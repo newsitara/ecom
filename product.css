@@ -3,6 +3,15 @@
    Clean Modern Apple-Glassmorphism Luxury Architecture
    ========================================================================== */
 
+.nav-brand-logo-img {
+  width: 38px !important;
+  height: 38px !important;
+  max-width: 38px !important;
+  max-height: 38px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+}
+
 .pdp-main-wrapper {
   max-width: 1520px;
   margin: 0 auto;

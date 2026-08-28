@@ -415,7 +415,22 @@ function renderCategoryNavigation() {
     `;
   }
 
+  renderMobileHomeCatStrip();
+
   if (window.lucide) window.lucide.createIcons();
+}
+
+function renderMobileHomeCatStrip() {
+  const container = document.getElementById('mobileHomeCatStrip');
+  if (!container) return;
+  const categories = DataStore.getCategories();
+  container.innerHTML = `
+    <button type="button" class="mob-pill ${activeCategory === 'home' ? 'active' : ''}" onclick="filterByCategory('home')">Featured</button>
+    <button type="button" class="mob-pill ${activeCategory === 'all' ? 'active' : ''}" onclick="filterByCategory('all')">All Products</button>
+    ${categories
+      .map((c) => `<button type="button" class="mob-pill ${activeCategory === (c.slug || c.id) ? 'active' : ''}" onclick="filterByCategory('${c.slug || c.id}')">${c.name.split('&')[0].trim()}</button>`)
+      .join('')}
+  `;
 }
 
 function toggleNavCategoryDropdown(e) {

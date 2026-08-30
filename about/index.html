@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="google-site-verification" content="tqNq9eph0r8Ot5AgZvi3txq_Nso3boXHGmgIPab4dT4" />
-  <title>About NewSitara — Heritage & Atelier Craftsmanship</title>
-  <meta name="description" content="Discover the story and ethos of NewSitara. Architectural luxury silhouettes, premium materials, and uncompromising craftsmanship.">
+  <title>About NewSitara — The Atelier Manifesto & Heritage</title>
+  <meta name="description" content="Discover the ethos and material craftsmanship of NewSitara. Heavyweight 520 GSM textiles, architectural drop-shoulder silhouettes, and permanent modern craft.">
   <meta name="application-name" content="NewSitara">
   <meta name="apple-mobile-web-app-title" content="NewSitara">
   <link rel="canonical" href="https://newsitara.com/about">
@@ -13,7 +13,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="NewSitara">
-  <meta property="og:title" content="About NewSitara — Heritage & Atelier Craftsmanship">
+  <meta property="og:title" content="About NewSitara — The Atelier Manifesto">
   <meta property="og:image" content="https://newsitara.com/assets/ns-logo.jpg">
   <meta property="og:url" content="https://newsitara.com/about">
 
@@ -30,137 +30,358 @@
   <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="/store.css?v=20260825_live">
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    .about-wrap {
-      max-width: 920px;
-      margin: 3.5rem auto 6rem;
-      padding: 0 1.5rem;
-    }
-    .about-header {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-    .about-tag {
-      display: inline-block;
-      padding: 0.35rem 0.9rem;
-      background: var(--bg-subtle);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-pill);
-      font-size: 0.74rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent-noir);
-      margin-bottom: 1rem;
-    }
-    .about-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.2rem, 5.5vw, 3.2rem);
-      font-weight: 800;
-      color: var(--text-main);
-      letter-spacing: -0.03em;
-      margin-bottom: 1rem;
-      line-height: 1.15;
-    }
-    .about-lead {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      max-width: 620px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-    .about-banner-card {
-      background: #111827;
+    /* ==========================================================================
+       LUXURY EDITORIAL ABOUT / MANIFESTO PAGE
+       High-Fashion Editorial Aesthetic (Aimé Leon Dore & Fear of God Inspired)
+       ========================================================================== */
+    
+    /* Hero Section */
+    .about-hero-section {
+      background: #0E1217;
       color: #FFFFFF;
-      border-radius: 24px;
-      padding: 3.5rem 2rem;
-      text-align: center;
-      margin: 3rem 0;
+      padding: 5rem 1.5rem 6rem;
       position: relative;
       overflow: hidden;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .about-banner-card h2 {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: #FFFFFF;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
-    }
-    .about-banner-card p {
-      font-size: 0.95rem;
-      color: #D1D5DB;
-      max-width: 580px;
+    .about-hero-inner {
+      max-width: 1180px;
       margin: 0 auto;
-      line-height: 1.7;
-    }
-    .pillar-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 1.5rem;
-      margin: 3rem 0;
+      gap: 3.5rem;
+      align-items: center;
     }
-    @media (min-width: 640px) {
-      .pillar-grid {
-        grid-template-columns: repeat(3, 1fr);
+    @media (min-width: 900px) {
+      .about-hero-inner {
+        grid-template-columns: 1.15fr 0.85fr;
       }
     }
-    .pillar-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 20px;
-      padding: 2rem 1.5rem;
-      text-align: center;
-    }
-    .pillar-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: var(--bg-subtle);
-      color: #D4AF37;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.25rem;
-    }
-    .pillar-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: var(--text-main);
-      margin-bottom: 0.5rem;
-    }
-    .pillar-card p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-    .about-closing {
-      text-align: center;
-      margin-top: 4rem;
-    }
-    .btn-explore-story {
-      background: var(--accent-noir);
-      color: #FFFFFF;
-      padding: 1rem 2.2rem;
-      border-radius: var(--radius-pill);
-      font-weight: 700;
-      font-size: 0.92rem;
-      text-decoration: none;
+    .about-hero-tagline {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      transition: all 0.2s;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #D4AF37;
+      margin-bottom: 1.5rem;
     }
-    .btn-explore-story:hover {
-      background: #000000;
+    .about-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      color: #FFFFFF;
+      margin-bottom: 1.5rem;
+    }
+    .about-hero-title span {
+      background: linear-gradient(135deg, #FFFFFF 40%, #D4AF37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .about-hero-lead {
+      font-size: 1.05rem;
+      color: #9CA3AF;
+      line-height: 1.7;
+      max-width: 540px;
+      margin-bottom: 2rem;
+    }
+    .hero-stat-strip {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .hero-stat-item strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+    .hero-stat-item span {
+      font-size: 0.72rem;
+      color: #9CA3AF;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .about-hero-img-wrap {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 175, 55, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .about-hero-img-wrap img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .about-hero-img-wrap:hover img {
+      transform: scale(1.04);
+    }
+    .img-corner-tag {
+      position: absolute;
+      bottom: 1.25rem;
+      left: 1.25rem;
+      background: rgba(14, 18, 23, 0.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      color: #F3E5AB;
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* Editorial Story Section 01 */
+    .story-container {
+      max-width: 1180px;
+      margin: 5rem auto;
+      padding: 0 1.5rem;
+    }
+    .story-split-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+      align-items: center;
+      margin-bottom: 6rem;
+    }
+    @media (min-width: 900px) {
+      .story-split-row {
+        grid-template-columns: 1fr 1.1fr;
+      }
+      .story-split-row.reverse {
+        grid-template-columns: 1.1fr 1fr;
+      }
+    }
+    .story-img-frame {
+      border-radius: 20px;
+      overflow: hidden;
+      background: #111827;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
+      position: relative;
+    }
+    .story-img-frame img {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s var(--ease-modern);
+    }
+    .story-img-frame:hover img {
+      transform: scale(1.05);
+    }
+    .story-text-col h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+    .story-text-col p {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+    }
+    .story-quote {
+      font-style: italic;
+      font-size: 1.08rem;
+      color: var(--text-main);
+      border-left: 3px solid #D4AF37;
+      padding-left: 1.25rem;
+      margin: 1.5rem 0;
+      line-height: 1.6;
+    }
+
+    /* Materials Provenance Bento */
+    .provenance-section {
+      background: #F4EFEA;
+      border-radius: 28px;
+      padding: 4rem 2rem;
+      margin: 5rem 0;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .provenance-header {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 3rem;
+    }
+    .provenance-header h2 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #111827;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+    .provenance-header p {
+      font-size: 0.95rem;
+      color: #6B7280;
+      line-height: 1.6;
+    }
+    .provenance-bento {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 768px) {
+      .provenance-bento {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      .provenance-bento {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .prov-card {
+      background: #FFFFFF;
+      border-radius: 18px;
+      padding: 1.75rem 1.4rem;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      transition: all 0.3s ease;
+    }
+    .prov-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      border-color: rgba(212, 175, 55, 0.3);
+    }
+    .prov-num {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #D4AF37;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.6rem;
+    }
+    .prov-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 0.4rem;
+    }
+    .prov-card p {
+      font-size: 0.84rem;
+      color: #6B7280;
+      line-height: 1.5;
+    }
+
+    /* Lookbook Triple Showcase */
+    .lookbook-strip-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin: 4rem 0;
+    }
+    @media (min-width: 768px) {
+      .lookbook-strip-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .lookbook-strip-card {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      height: 380px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+    .lookbook-strip-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s var(--ease-modern);
+    }
+    .lookbook-strip-card:hover img {
+      transform: scale(1.08);
+    }
+    .lookbook-strip-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(14,18,23,0.9) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      color: #FFFFFF;
+    }
+    .lookbook-strip-overlay h4 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 0.2rem;
+    }
+    .lookbook-strip-overlay span {
+      font-size: 0.75rem;
+      color: #D4AF37;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    /* Manifesto Callout Banner */
+    .manifesto-banner {
+      background: #111827;
+      color: #FFFFFF;
+      border-radius: 24px;
+      padding: 4.5rem 2rem;
+      text-align: center;
+      margin: 5rem 0 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .manifesto-banner h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.025em;
+      margin-bottom: 1rem;
+    }
+    .manifesto-banner p {
+      font-size: 1.02rem;
+      color: #D1D5DB;
+      max-width: 580px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.65;
+    }
+    .btn-manifesto-explore {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #FFFFFF;
+      color: #111827;
+      padding: 1rem 2.2rem;
+      border-radius: var(--radius-pill);
+      font-weight: 800;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: all 0.25s var(--ease-modern);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+    .btn-manifesto-explore:hover {
+      background: #D4AF37;
+      color: #111827;
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 12px 32px rgba(212, 175, 55, 0.3);
     }
   </style>
 </head>
@@ -170,7 +391,7 @@
   <aside class="store-announcement">
     <div class="announcement-inner">
       <span class="announcement-text">
-        COMPLIMENTARY WORLDWIDE DELIVERY ON QUALIFYING ORDERS &nbsp;•&nbsp; THE NEW SITARA STORY
+        COMPLIMENTARY WORLDWIDE DELIVERY ON QUALIFYING ORDERS &nbsp;•&nbsp; NEW SITARA ATELIER ARCHIVE
       </span>
     </div>
   </aside>
@@ -182,52 +403,157 @@
         <img src="/assets/ns-logo.jpg" alt="New Sitara Emblem" class="nav-brand-logo-img">
         <div class="brand-text-stack">
           <span class="brand-logotype">NEW SITARA</span>
-          <span class="brand-sub-tag">OFFICIAL STORE</span>
+          <span class="brand-sub-tag">OFFICIAL ATELIER</span>
         </div>
       </a>
     </div>
   </header>
 
-  <main class="about-wrap">
-    
-    <div class="about-header">
-      <span class="about-tag">HERITAGE & PROVENANCE</span>
-      <h1 class="about-title">The Pursuit of Tactile Perfection</h1>
-      <p class="about-lead">
-        New Sitara was founded on a singular conviction: luxury should be felt in the density of the weave, the precision of the cut, and the longevity of every finished piece.
-      </p>
+  <!-- Hero Section -->
+  <section class="about-hero-section">
+    <div class="about-hero-inner">
+      <div class="about-hero-text">
+        <div class="about-hero-tagline">
+          <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i>
+          <span>ATELIER ARCHIVE & HERITAGE</span>
+        </div>
+        <h1 class="about-hero-title">
+          Permanent Foundations.<br>
+          <span>Tactile Weight.</span>
+        </h1>
+        <p class="about-hero-lead">
+          Founded on a refusal of disposable fashion cycles. We engineer heavyweight architectural streetwear, precision horology, and bespoke leather goods forged for permanence.
+        </p>
+        <div class="hero-stat-strip">
+          <div class="hero-stat-item">
+            <strong>520 GSM</strong>
+            <span>French Terry</span>
+          </div>
+          <div class="hero-stat-item">
+            <strong>100%</strong>
+            <span>Full-Grain Leather</span>
+          </div>
+          <div class="hero-stat-item">
+            <strong>14-Day</strong>
+            <span>Atelier Guarantee</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-hero-img-wrap">
+        <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=1000&auto=format&fit=crop" alt="NewSitara Editorial Apparel">
+        <span class="img-corner-tag">AUTUMN / WINTER 2026 ARCHIVE</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Story Flow -->
+  <main class="story-container">
+
+    <!-- Story Row 1: The Heavyweight Drape -->
+    <div class="story-split-row">
+      <div class="story-img-frame">
+        <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=1000&auto=format&fit=crop" alt="Heavyweight Fleece Craft">
+      </div>
+      <div class="story-text-col">
+        <h2>Structured Silhouettes.<br>Zero Compromise.</h2>
+        <p>
+          Every garment begins with yarn selection. Rather than lightweight commercial blends, our fleeces are woven from high-density 520 GSM combed cottons on specialized circular knitting machinery in northern Portugal.
+        </p>
+        <div class="story-quote">
+          "A great garment holds its shape in space. It doesn't cling; it sculpts an architectural drape."
+        </div>
+        <p>
+          Pre-shrunk to eliminate post-wash distortion, double-stitched along stress points, and finished with oxidized hardware that patinas uniquely to the wearer.
+        </p>
+      </div>
     </div>
 
-    <div class="about-banner-card">
-      <h2>Architectural Streetwear & Fine Craft</h2>
+    <!-- Story Row 2: Precision Horology & Accessories -->
+    <div class="story-split-row reverse">
+      <div class="story-text-col">
+        <h2>Horology & Fine Leather Goods.</h2>
+        <p>
+          Our accessories follow the exact same direct-to-client craftsmanship standards. Timepieces housing 28,800 VPH mechanical movements encased in hand-polished 316L surgical steel, paired with Florentine full-grain calfskin leather straps.
+        </p>
+        <p>
+          No middlemen, no 10x department store markups. Direct atelier delivery to discerning clients worldwide.
+        </p>
+      </div>
+      <div class="story-img-frame">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1000&auto=format&fit=crop" alt="Luxury Timepiece & Leather Craft">
+      </div>
+    </div>
+
+    <!-- Provenance Bento Grid -->
+    <section class="provenance-section">
+      <div class="provenance-header">
+        <h2>Materials Provenance</h2>
+        <p>Where craftsmanship meets institutional textile engineering.</p>
+      </div>
+
+      <div class="provenance-bento">
+        <div class="prov-card">
+          <div class="prov-num">01 / FLEECE</div>
+          <h3>520 GSM Loopback</h3>
+          <p>Milled in Barcelos, Portugal. Dense diagonal loop construction with exceptional thermal retention.</p>
+        </div>
+
+        <div class="prov-card">
+          <div class="prov-num">02 / DENIM</div>
+          <h3>Japanese Selvedge</h3>
+          <p>Woven on vintage Toyoda shuttle looms in Okayama. Raw indigo warp that fades with distinctive whiskers.</p>
+        </div>
+
+        <div class="prov-card">
+          <div class="prov-num">03 / LEATHER</div>
+          <h3>Florentine Calfskin</h3>
+          <p>Tanned in Santa Croce sull'Arno, Italy. Vegetable-dyed full-grain hide that deepens in luster over time.</p>
+        </div>
+
+        <div class="prov-card">
+          <div class="prov-num">04 / HARDWARE</div>
+          <h3>Oxidized Excella</h3>
+          <p>Solid brass and titanium components engineered to withstand decades of tactile friction.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lookbook Triple Collage -->
+    <div class="lookbook-strip-grid">
+      <div class="lookbook-strip-card">
+        <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=800&auto=format&fit=crop" alt="Vintage Washed Tees">
+        <div class="lookbook-strip-overlay">
+          <h4>280 GSM Washed Cotton</h4>
+          <span>01 / TOPS & KNITS</span>
+        </div>
+      </div>
+
+      <div class="lookbook-strip-card">
+        <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=800&auto=format&fit=crop" alt="Tailored Pleated Trousers">
+        <div class="lookbook-strip-overlay">
+          <h4>Tailored Pleated Silhouette</h4>
+          <span>02 / BOTTOMS & PANTS</span>
+        </div>
+      </div>
+
+      <div class="lookbook-strip-card">
+        <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=800&auto=format&fit=crop" alt="Horology & Timepieces">
+        <div class="lookbook-strip-overlay">
+          <h4>Surgical Steel Automatic</h4>
+          <span>03 / TIMEPIECES</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Manifesto Callout Banner -->
+    <div class="manifesto-banner">
+      <h2>Experience The Inaugural Drop</h2>
       <p>
-        Moving beyond transient seasonal trends, our atelier curates permanent wardrobe foundations engineered with dense Portuguese loopback fleece, Japanese selvedge denim, Swiss mechanical movements, and Florentine calfskin.
+        Limited release quantities engineered without compromise. Complimentary express delivery worldwide on qualifying orders.
       </p>
-    </div>
-
-    <div class="pillar-grid">
-      <div class="pillar-card">
-        <div class="pillar-icon"><i data-lucide="feather"></i></div>
-        <h3>Provenance</h3>
-        <p>We source long-staple combed cottons, raw shuttle-loom denims, and full-grain bridle leathers from heritage mills across Europe and Japan.</p>
-      </div>
-
-      <div class="pillar-card">
-        <div class="pillar-icon"><i data-lucide="shield"></i></div>
-        <h3>Longevity</h3>
-        <p>Pre-shrunk fibers, reinforced twin-needle stitching, and custom Excella hardware engineered to age gracefully with everyday wear.</p>
-      </div>
-
-      <div class="pillar-card">
-        <div class="pillar-icon"><i data-lucide="sparkles"></i></div>
-        <h3>Modern Atelier</h3>
-        <p>Direct-to-client craftsmanship delivering haute-couture tailoring standards without artificial luxury markups.</p>
-      </div>
-    </div>
-
-    <div class="about-closing">
-      <a href="/store" class="btn-explore-story">
-        <span>Explore the Inaugural Collection</span>
+      <a href="/store" class="btn-manifesto-explore">
+        <span>Explore Collection</span>
         <i data-lucide="arrow-right"></i>
       </a>
     </div>
@@ -236,36 +562,32 @@
 
   <!-- Mobile Bottom Quick Navigation Bar -->
   <nav class="mobile-bottom-bar mobile-only">
-    <a href="/store" class="mob-tab ">
+    <a href="/store" class="mob-tab">
       <i data-lucide="grid"></i>
       <span>Shop</span>
     </a>
-    <a href="/cart" class="mob-tab ">
+    <a href="/cart" class="mob-tab">
       <div class="mob-bag-badge-wrap">
         <i data-lucide="shopping-bag"></i>
         <span class="mob-bag-pill" id="mobCartBadge">0</span>
       </div>
       <span>Bag</span>
     </a>
-    <a href="/track" class="mob-tab ">
+    <a href="/track" class="mob-tab">
       <i data-lucide="map-pin"></i>
       <span>Track</span>
     </a>
-    <a href="/contact" class="mob-tab ">
+    <a href="/contact" class="mob-tab">
       <i data-lucide="mail"></i>
       <span>Concierge</span>
     </a>
   </nav>
 
-
-  <!-- Minimal Footer -->
-  
   <!-- Minimal Luxury Footer -->
   <footer class="compact-footer">
     <div class="footer-wrap">
       <div class="footer-grid-top" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border-subtle); margin-bottom: 2rem;">
         
-        <!-- Brand Column -->
         <div class="footer-brand-col">
           <div class="brand-center" style="justify-content: flex-start; margin-bottom: 0.8rem;">
             <img src="/assets/ns-logo.jpg" alt="New Sitara Emblem" class="nav-brand-logo-img" style="width: 38px; height: 38px;">
@@ -279,30 +601,27 @@
           </p>
         </div>
 
-        <!-- Directory Links -->
         <div class="footer-nav-col">
           <h6 style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1rem;">DIRECTORY</h6>
           <div style="display: flex; flex-direction: column; gap: 0.55rem; font-size: 0.82rem;">
-            <a href="/store" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;">Inaugural Collection</a>
-            <a href="/about" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;">Atelier Heritage</a>
-            <a href="/faq" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;">Help & FAQ</a>
-            <a href="/contact" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;">Client Concierge</a>
+            <a href="/store" style="color: var(--text-muted); text-decoration: none;">Inaugural Collection</a>
+            <a href="/about" style="color: var(--text-muted); text-decoration: none;">Atelier Heritage</a>
+            <a href="/faq" style="color: var(--text-muted); text-decoration: none;">Help & FAQ</a>
+            <a href="/contact" style="color: var(--text-muted); text-decoration: none;">Client Concierge</a>
           </div>
         </div>
 
-        <!-- Client Care -->
         <div class="footer-nav-col">
           <h6 style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1rem;">CLIENT CARE</h6>
           <div style="display: flex; flex-direction: column; gap: 0.55rem; font-size: 0.82rem;">
-            <a href="/track" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;">Live Order Tracking</a>
-            <a href="/terms#shipping" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;">Worldwide Delivery</a>
-            <a href="/terms#returns" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;">14-Day Returns</a>
-            <a href="/terms" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;">Terms of Service</a>
-            <a href="/privacy" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;">Privacy Policy</a>
+            <a href="/track" style="color: var(--text-muted); text-decoration: none;">Live Order Tracking</a>
+            <a href="/terms#shipping" style="color: var(--text-muted); text-decoration: none;">Worldwide Delivery</a>
+            <a href="/terms#returns" style="color: var(--text-muted); text-decoration: none;">14-Day Returns</a>
+            <a href="/terms" style="color: var(--text-muted); text-decoration: none;">Terms of Service</a>
+            <a href="/privacy" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
           </div>
         </div>
 
-        <!-- Electronic Concierge -->
         <div class="footer-nav-col">
           <h6 style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1rem;">DIRECT CONCIERGE</h6>
           <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.75rem;">
@@ -326,7 +645,6 @@
       </div>
     </div>
   </footer>
-
 
   <script>
     if (window.lucide) window.lucide.createIcons();

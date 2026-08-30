@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="google-site-verification" content="tqNq9eph0r8Ot5AgZvi3txq_Nso3boXHGmgIPab4dT4" />
+  <title>Client Concierge & Contact — NewSitara Atelier</title>
+  <meta name="description" content="Contact the NewSitara Client Concierge for bespoke inquiries, order status assistance, sizing recommendations, and client care.">
+  <meta name="application-name" content="NewSitara">
+  <meta name="apple-mobile-web-app-title" content="NewSitara">
+  <link rel="canonical" href="https://newsitara.com/contact">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NewSitara">
+  <meta property="og:title" content="Client Concierge & Contact | NewSitara">
+  <meta property="og:description" content="Reach NewSitara Client Care. 24-hour response guarantee for all inquiries.">
+  <meta property="og:image" content="https://newsitara.com/assets/ns-logo.jpg">
+  <meta property="og:url" content="https://newsitara.com/contact">
+
+  <!-- Official Favicon Suite -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/store.css?v=20260825_live">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    .contact-wrap {
+      max-width: 1080px;
+      margin: 3.5rem auto 6rem;
+      padding: 0 1.5rem;
+    }
+    .contact-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .contact-tag {
+      display: inline-block;
+      padding: 0.35rem 0.9rem;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-noir);
+      margin-bottom: 1rem;
+    }
+    .contact-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+    .contact-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    @media (min-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+      }
+    }
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
+    }
+    .contact-card h2 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+    .contact-card p.form-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      line-height: 1.5;
+    }
+    .form-group-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    @media (min-width: 480px) {
+      .form-group-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .contact-field {
+      margin-bottom: 1.2rem;
+    }
+    .contact-field label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+    }
+    .contact-input, .contact-select, .contact-textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: var(--text-main);
+      transition: all 0.2s;
+      outline: none;
+    }
+    .contact-input:focus, .contact-select:focus, .contact-textarea:focus {
+      border-color: var(--accent-noir);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.06);
+    }
+    .contact-textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+    .btn-send-message {
+      width: 100%;
+      background: var(--accent-noir);
+      color: #FFFFFF;
+      border: none;
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+    }
+    .btn-send-message:hover {
+      background: #000000;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+    .info-pane {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .info-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 1.5rem;
+    }
+    .info-block-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--bg-subtle);
+      color: var(--accent-noir);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .info-block h3 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.35rem;
+    }
+    .info-block p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 0.6rem;
+    }
+    .info-link {
+      color: #D4AF37;
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .info-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body class="store-theme">
+
+  <!-- Micro Announcement Bar -->
+  <aside class="store-announcement">
+    <div class="announcement-inner">
+      <span class="announcement-text">
+        COMPLIMENTARY WORLDWIDE DELIVERY ON QUALIFYING ORDERS &nbsp;•&nbsp; 24-HOUR CONCIERGE RESPONSE GUARANTEE
+      </span>
+    </div>
+  </aside>
+
+  <!-- Navigation Bar -->
+  <header class="store-navbar">
+    <div class="nav-container">
+      <a href="/store" class="brand-center">
+        <img src="/assets/ns-logo.jpg" alt="New Sitara Emblem" class="nav-brand-logo-img">
+        <div class="brand-text-stack">
+          <span class="brand-logotype">NEW SITARA</span>
+          <span class="brand-sub-tag">OFFICIAL STORE</span>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <main class="contact-wrap">
+    
+    <div class="contact-header">
+      <span class="contact-tag">CLIENT CARE & ASSISTANCE</span>
+      <h1 class="contact-title">Contact Client Concierge</h1>
+      <p class="contact-subtitle">
+        Our concierge team is available to assist with sizing advice, archival releases, bespoke orders, and order inquiries.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+      
+      <!-- Inquiry Form -->
+      <div class="contact-card">
+        <h2>Direct Message Concierge</h2>
+        <p class="form-desc">Please complete the details below. You will receive an official response within 24 hours.</p>
+
+        <form id="contactForm" onsubmit="handleContactSubmit(event)">
+          
+          <div class="form-group-row">
+            <div class="contact-field" style="margin-bottom:0;">
+              <label for="cName">Your Name *</label>
+              <input type="text" id="cName" class="contact-input" placeholder="e.g. Alexander Vance" required>
+            </div>
+            <div class="contact-field" style="margin-bottom:0;">
+              <label for="cEmail">Email Address *</label>
+              <input type="email" id="cEmail" class="contact-input" placeholder="client@example.com" required>
+            </div>
+          </div>
+
+          <div class="form-group-row">
+            <div class="contact-field" style="margin-bottom:0;">
+              <label for="cOrder">Order / Tracking ID (Optional)</label>
+              <input type="text" id="cOrder" class="contact-input" placeholder="e.g. NS-TRK-849201">
+            </div>
+            <div class="contact-field" style="margin-bottom:0;">
+              <label for="cTopic">Inquiry Topic</label>
+              <select id="cTopic" class="contact-select">
+                <option value="General Inquiry">General Inquiries</option>
+                <option value="Order & Tracking">Order & Tracking Status</option>
+                <option value="Sizing & Garments">Sizing & Material Advice</option>
+                <option value="Returns & Exchanges">Return / Exchange Request</option>
+                <option value="VIP Bespoke Request">VIP & Archival Access</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="contact-field">
+            <label for="cMessage">Your Message *</label>
+            <textarea id="cMessage" class="contact-textarea" placeholder="How may our concierge team assist you today?..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-send-message" id="btnContactSubmit">
+            <i data-lucide="send"></i>
+            <span>Transmit Message to Concierge</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Info Column -->
+      <div class="info-pane">
+        
+        <div class="info-block">
+          <div class="info-block-icon"><i data-lucide="mail"></i></div>
+          <h3>Electronic Concierge</h3>
+          <p>For urgent inquiries, press, or direct communication:</p>
+          <a href="mailto:concierge@newsitara.com" class="info-link">concierge@newsitara.com ↗</a>
+        </div>
+
+        <div class="info-block">
+          <div class="info-block-icon"><i data-lucide="clock"></i></div>
+          <h3>Client Assistance Hours</h3>
+          <p>Monday – Saturday: 9:00 AM – 8:00 PM (GMT+5)<br>Sunday: Dedicated order dispatch monitoring.</p>
+        </div>
+
+        <div class="info-block">
+          <div class="info-block-icon"><i data-lucide="shield-check"></i></div>
+          <h3>Guaranteed Response</h3>
+          <p>Every inquiry is routed directly to a senior client specialist with a strict 24-hour turnaround policy.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Minimal Footer -->
+  <footer class="compact-footer">
+    <div class="footer-wrap">
+      <div class="footer-bottom-row">
+        <p class="copyright-text">© 2026 New Sitara Interprizes. All rights reserved.</p>
+        <div class="footer-legal-links" style="display: flex; gap: 1.2rem; font-size: 0.78rem;">
+          <a href="/store" style="color: var(--text-muted); text-decoration: none;">Catalog</a>
+          <a href="/faq" style="color: var(--text-muted); text-decoration: none;">FAQ</a>
+          <a href="/about" style="color: var(--text-muted); text-decoration: none;">About</a>
+          <a href="/terms" style="color: var(--text-muted); text-decoration: none;">Terms</a>
+          <a href="/privacy" style="color: var(--text-muted); text-decoration: none;">Privacy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="store-toast-hub" id="storeToastHub"></div>
+
+  <script>
+    if (window.lucide) window.lucide.createIcons();
+
+    function showToast(msg) {
+      const hub = document.getElementById('storeToastHub');
+      if (!hub) return;
+      const t = document.createElement('div');
+      t.className = 'store-toast';
+      t.innerHTML = `<span>✦</span> <span>${msg}</span>`;
+      hub.appendChild(t);
+      setTimeout(() => {
+        t.style.opacity = '0';
+        t.style.transform = 'translateY(10px)';
+        setTimeout(() => t.remove(), 300);
+      }, 3500);
+    }
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('cName').value.trim();
+      const email = document.getElementById('cEmail').value.trim();
+      const topic = document.getElementById('cTopic').value;
+      const msg = document.getElementById('cMessage').value.trim();
+      const order = document.getElementById('cOrder').value.trim();
+
+      const btn = document.getElementById('btnContactSubmit');
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<span>Transmitting...</span>';
+      }
+
+      setTimeout(() => {
+        showToast(`Thank you ${name}, your message has been transmitted to our concierge team!`);
+        document.getElementById('contactForm').reset();
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = '<i data-lucide="check"></i> <span>Message Sent Successfully</span>';
+          setTimeout(() => {
+            btn.innerHTML = '<i data-lucide="send"></i> <span>Transmit Message to Concierge</span>';
+            if (window.lucide) window.lucide.createIcons();
+          }, 3000);
+        }
+      }, 600);
+    }
+  </script>
+</body>
+</html>

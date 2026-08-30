@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="google-site-verification" content="tqNq9eph0r8Ot5AgZvi3txq_Nso3boXHGmgIPab4dT4" />
+  <title>About NewSitara — Heritage & Atelier Craftsmanship</title>
+  <meta name="description" content="Discover the story and ethos of NewSitara. Architectural luxury silhouettes, premium materials, and uncompromising craftsmanship.">
+  <meta name="application-name" content="NewSitara">
+  <meta name="apple-mobile-web-app-title" content="NewSitara">
+  <link rel="canonical" href="https://newsitara.com/about">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NewSitara">
+  <meta property="og:title" content="About NewSitara — Heritage & Atelier Craftsmanship">
+  <meta property="og:image" content="https://newsitara.com/assets/ns-logo.jpg">
+  <meta property="og:url" content="https://newsitara.com/about">
+
+  <!-- Official Favicon Suite -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/store.css?v=20260825_live">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    .about-wrap {
+      max-width: 920px;
+      margin: 3.5rem auto 6rem;
+      padding: 0 1.5rem;
+    }
+    .about-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .about-tag {
+      display: inline-block;
+      padding: 0.35rem 0.9rem;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-noir);
+      margin-bottom: 1rem;
+    }
+    .about-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5.5vw, 3.2rem);
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+    .about-lead {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .about-banner-card {
+      background: #111827;
+      color: #FFFFFF;
+      border-radius: 24px;
+      padding: 3.5rem 2rem;
+      text-align: center;
+      margin: 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-banner-card h2 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .about-banner-card p {
+      font-size: 0.95rem;
+      color: #D1D5DB;
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+    @media (min-width: 640px) {
+      .pillar-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .pillar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .pillar-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--bg-subtle);
+      color: #D4AF37;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+    }
+    .pillar-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+    .pillar-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .about-closing {
+      text-align: center;
+      margin-top: 4rem;
+    }
+    .btn-explore-story {
+      background: var(--accent-noir);
+      color: #FFFFFF;
+      padding: 1rem 2.2rem;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+    }
+    .btn-explore-story:hover {
+      background: #000000;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body class="store-theme">
+
+  <!-- Micro Announcement Bar -->
+  <aside class="store-announcement">
+    <div class="announcement-inner">
+      <span class="announcement-text">
+        COMPLIMENTARY WORLDWIDE DELIVERY ON QUALIFYING ORDERS &nbsp;•&nbsp; THE NEW SITARA STORY
+      </span>
+    </div>
+  </aside>
+
+  <!-- Navigation Bar -->
+  <header class="store-navbar">
+    <div class="nav-container">
+      <a href="/store" class="brand-center">
+        <img src="/assets/ns-logo.jpg" alt="New Sitara Emblem" class="nav-brand-logo-img">
+        <div class="brand-text-stack">
+          <span class="brand-logotype">NEW SITARA</span>
+          <span class="brand-sub-tag">OFFICIAL STORE</span>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <main class="about-wrap">
+    
+    <div class="about-header">
+      <span class="about-tag">HERITAGE & PROVENANCE</span>
+      <h1 class="about-title">The Pursuit of Tactile Perfection</h1>
+      <p class="about-lead">
+        New Sitara was founded on a singular conviction: luxury should be felt in the density of the weave, the precision of the cut, and the longevity of every finished piece.
+      </p>
+    </div>
+
+    <div class="about-banner-card">
+      <h2>Architectural Streetwear & Fine Craft</h2>
+      <p>
+        Moving beyond transient seasonal trends, our atelier curates permanent wardrobe foundations engineered with dense Portuguese loopback fleece, Japanese selvedge denim, Swiss mechanical movements, and Florentine calfskin.
+      </p>
+    </div>
+
+    <div class="pillar-grid">
+      <div class="pillar-card">
+        <div class="pillar-icon"><i data-lucide="feather"></i></div>
+        <h3>Provenance</h3>
+        <p>We source long-staple combed cottons, raw shuttle-loom denims, and full-grain bridle leathers from heritage mills across Europe and Japan.</p>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-icon"><i data-lucide="shield"></i></div>
+        <h3>Longevity</h3>
+        <p>Pre-shrunk fibers, reinforced twin-needle stitching, and custom Excella hardware engineered to age gracefully with everyday wear.</p>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-icon"><i data-lucide="sparkles"></i></div>
+        <h3>Modern Atelier</h3>
+        <p>Direct-to-client craftsmanship delivering haute-couture tailoring standards without artificial luxury markups.</p>
+      </div>
+    </div>
+
+    <div class="about-closing">
+      <a href="/store" class="btn-explore-story">
+        <span>Explore the Inaugural Collection</span>
+        <i data-lucide="arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Minimal Footer -->
+  <footer class="compact-footer">
+    <div class="footer-wrap">
+      <div class="footer-bottom-row">
+        <p class="copyright-text">© 2026 New Sitara Interprizes. All rights reserved.</p>
+        <div class="footer-legal-links" style="display: flex; gap: 1.2rem; font-size: 0.78rem;">
+          <a href="/store" style="color: var(--text-muted); text-decoration: none;">Catalog</a>
+          <a href="/contact" style="color: var(--text-muted); text-decoration: none;">Contact</a>
+          <a href="/faq" style="color: var(--text-muted); text-decoration: none;">FAQ</a>
+          <a href="/terms" style="color: var(--text-muted); text-decoration: none;">Terms</a>
+          <a href="/privacy" style="color: var(--text-muted); text-decoration: none;">Privacy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    if (window.lucide) window.lucide.createIcons();
+  </script>
+</body>
+</html>

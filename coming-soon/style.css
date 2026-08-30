@@ -356,7 +356,7 @@ html, body {
 
 .progress-bar-fill {
   height: 100%;
-  width: 56%;
+  width: 68%;
   background: linear-gradient(90deg, #99773D, #D4AF37, #F3E5AB);
   border-radius: 999px;
   transition: width 1.6s var(--ease-cinematic);

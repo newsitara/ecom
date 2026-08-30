@@ -1100,6 +1100,27 @@ const DataStore = {
     localStorage.setItem('sitara_bank_settings', JSON.stringify(settings));
   },
 
+  getHblIpgConfig() {
+    const raw = localStorage.getItem('sitara_hbl_ipg_config');
+    if (raw) {
+      try {
+        return JSON.parse(raw);
+      } catch (e) {}
+    }
+    return {
+      enabled: true,
+      environment: 'sandbox', // 'sandbox' (testing) or 'production' (live bank processing)
+      merchantId: 'HBL_NEWSITARA_01',
+      storeId: '0042799182',
+      secretKey: '',
+      endpointUrl: 'https://ipg.hbl.com/'
+    };
+  },
+
+  saveHblIpgConfig(config) {
+    localStorage.setItem('sitara_hbl_ipg_config', JSON.stringify(config));
+  },
+
   getCart() {
     const raw = localStorage.getItem('sitara_cart');
     if (!raw) return [];

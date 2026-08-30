@@ -104,7 +104,10 @@ function switchTab(tabId) {
   else if (tabId === 'orders') renderOrdersTable();
   else if (tabId === 'promos') renderPromosTable();
   else if (tabId === 'reviews') renderReviewsTable();
-  else if (tabId === 'settings') loadBankSettingsToAdmin();
+  else if (tabId === 'settings') {
+    loadBankSettingsToAdmin();
+    loadHblIpgConfigToAdmin();
+  }
 
   if (window.lucide) window.lucide.createIcons();
 }
@@ -757,6 +760,50 @@ function handleDeleteReview(reviewId) {
 // ==========================================================================
 // 7. SETTINGS & CLOUD DATABASE
 // ==========================================================================
+function loadHblIpgConfigToAdmin() {
+  const ipg = DataStore.getHblIpgConfig();
+  const env = document.getElementById('cfgIpgEnv');
+  const mid = document.getElementById('cfgIpgMerchantId');
+  const sid = document.getElementById('cfgIpgStoreId');
+  const key = document.getElementById('cfgIpgSecretKey');
+  const badge = document.getElementById('hblIpgStatusBadge');
+
+  if (env) env.value = ipg.environment || 'sandbox';
+  if (mid) mid.value = ipg.merchantId || '';
+  if (sid) sid.value = ipg.storeId || '';
+  if (key) key.value = ipg.secretKey || '';
+
+  if (badge) {
+    if (ipg.environment === 'production') {
+      badge.textContent = 'LIVE PRODUCTION';
+      badge.style.background = '#059669';
+    } else {
+      badge.textContent = 'SANDBOX SIMULATION';
+      badge.style.background = '#D97706';
+    }
+  }
+}
+
+function handleSaveHblIpgConfig(e) {
+  e.preventDefault();
+  const env = document.getElementById('cfgIpgEnv')?.value || 'sandbox';
+  const mid = document.getElementById('cfgIpgMerchantId')?.value.trim() || '';
+  const sid = document.getElementById('cfgIpgStoreId')?.value.trim() || '';
+  const key = document.getElementById('cfgIpgSecretKey')?.value.trim() || '';
+
+  DataStore.saveHblIpgConfig({
+    enabled: true,
+    environment: env,
+    merchantId: mid,
+    storeId: sid,
+    secretKey: key,
+    endpointUrl: env === 'production' ? 'https://ipg.hbl.com/' : 'https://test-hbl.cybersource.com/'
+  });
+
+  loadHblIpgConfigToAdmin();
+  showAdminToast('HBL IPG Payment Gateway credentials saved successfully!');
+}
+
 function loadBankSettingsToAdmin() {
   const bank = DataStore.getBankSettings();
   const t = document.getElementById('cfgHblTitle');

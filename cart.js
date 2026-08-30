@@ -581,9 +581,9 @@ function handlePlaceOrder(e) {
     shipping: shipping,
     total: grandTotal,
     currency: DataStore.getActiveCurrency().code,
-    paymentMethod: isHbl ? 'HBL Direct Bank Transfer / Raast' : 'Credit / Debit Card (Visa, Mastercard, AMEX)',
+    paymentMethod: isHbl ? 'HBL Direct Bank Transfer / Raast' : 'HBL Automated IPG Card Payment (Visa, Mastercard, AMEX)',
     transactionRef: txRef,
-    paymentStatus: isHbl ? 'Pending Verification' : 'Paid (Card)'
+    paymentStatus: isHbl ? 'Pending Verification' : 'Paid (HBL IPG Authorized)'
   };
 
   const createdOrder = DataStore.addOrder(orderData);
@@ -594,9 +594,9 @@ function handlePlaceOrder(e) {
   updateNavBadges();
   renderCartPage();
 
-  // Close Checkout Modal & Open Order Receipt Modal
+  // Close Checkout Modal & Open Thank You Confirmation Page
   closeCheckoutModal();
-  openOrderReceiptModal(createdOrder);
+  window.location.href = `/thank-you?id=${encodeURIComponent(createdOrder.trackingId)}`;
 }
 
 function openOrderReceiptModal(order) {

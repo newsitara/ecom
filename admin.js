@@ -297,17 +297,24 @@ function filterProductsTable() {
 
 // Product Modal Handlers
 function openNewProductModal() {
-  document.getElementById('productForm').reset();
-  document.getElementById('editProductId').value = '';
-  document.getElementById('productModalTitle').textContent = 'Add New Product';
-  document.getElementById('btnSaveProduct').textContent = 'Save Product';
-  document.getElementById('frontPreview').style.display = 'none';
-  document.getElementById('backPreview').style.display = 'none';
+  const form = document.getElementById('productForm');
+  if (form) form.reset();
+  const idEl = document.getElementById('editProductId');
+  if (idEl) idEl.value = '';
+  const titleEl = document.getElementById('productModalTitle');
+  if (titleEl) titleEl.textContent = 'Add New Product';
+  const saveBtn = document.getElementById('btnSaveProduct');
+  if (saveBtn) saveBtn.textContent = 'Save Product';
+  
+  const fp = document.getElementById('frontPreview');
+  if (fp) fp.style.display = 'none';
+  const bp = document.getElementById('backPreview');
+  if (bp) bp.style.display = 'none';
 
   populateCategoryDropdowns();
 
-  document.getElementById('productModal').classList.add('open');
-  document.getElementById('productModalBackdrop').classList.add('open');
+  document.getElementById('productModal')?.classList.add('open');
+  document.getElementById('productModalBackdrop')?.classList.add('open');
 }
 
 function openEditProductModal(productId) {
@@ -430,13 +437,17 @@ function renderCategoriesGrid() {
 }
 
 function openNewCategoryModal() {
-  document.getElementById('categoryForm').reset();
-  document.getElementById('editCategoryId').value = '';
-  document.getElementById('categoryModalTitle').textContent = 'Add Category';
-  document.getElementById('catPreview').style.display = 'none';
+  const form = document.getElementById('categoryForm');
+  if (form) form.reset();
+  const idEl = document.getElementById('editCategoryId');
+  if (idEl) idEl.value = '';
+  const titleEl = document.getElementById('categoryModalTitle');
+  if (titleEl) titleEl.textContent = 'Add Category';
+  const cp = document.getElementById('catPreview');
+  if (cp) cp.style.display = 'none';
 
-  document.getElementById('categoryModal').classList.add('open');
-  document.getElementById('categoryModalBackdrop').classList.add('open');
+  document.getElementById('categoryModal')?.classList.add('open');
+  document.getElementById('categoryModalBackdrop')?.classList.add('open');
 }
 
 function openEditCategoryModal(catId) {

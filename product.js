@@ -1006,17 +1006,39 @@ function handlePlaceOrder(e) {
   const isHbl = selectedPaymentType === 'hbl';
   const txRef = isHbl ? (document.getElementById('chkHblTxRef')?.value.trim() || 'HBL-TRANSFER') : 'CARD-DIRECT';
 
+  const fullName = document.getElementById('chkFullName')?.value.trim();
+  const email = document.getElementById('chkEmail')?.value.trim();
+  const phone = document.getElementById('chkPhone')?.value.trim();
+  const street = document.getElementById('chkStreet')?.value.trim();
+  const city = document.getElementById('chkCity')?.value.trim();
+  const state = document.getElementById('chkState')?.value.trim() || '';
+  const postalCode = document.getElementById('chkPostal')?.value.trim() || '';
+  const country = document.getElementById('chkCountry')?.value || 'United States';
+
+  if (!fullName || fullName.length < 2) {
+    showToast('Please enter your full name.');
+    return;
+  }
+  if (!email || !email.includes('@')) {
+    showToast('Please enter a valid email address.');
+    return;
+  }
+  if (!street || street.length < 3) {
+    showToast('Please enter a valid delivery address.');
+    return;
+  }
+
   const orderData = {
     customer: {
-      fullName: document.getElementById('chkFullName')?.value.trim() || 'VIP Client',
-      email: document.getElementById('chkEmail')?.value.trim() || '',
-      phone: document.getElementById('chkPhone')?.value.trim() || '',
-      street: document.getElementById('chkStreet')?.value.trim() || '',
+      fullName,
+      email,
+      phone,
+      street,
       apartment: document.getElementById('chkApartment')?.value.trim() || '',
-      city: document.getElementById('chkCity')?.value.trim() || '',
-      state: document.getElementById('chkState')?.value.trim() || '',
-      postalCode: document.getElementById('chkPostal')?.value.trim() || '',
-      country: document.getElementById('chkCountry')?.value || 'United States'
+      city,
+      state,
+      postalCode,
+      country
     },
     items: items,
     subtotal: subtotal,

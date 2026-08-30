@@ -1115,12 +1115,13 @@ const DataStore = {
   },
 
   addToCart(productId, size, quantity = 1) {
+    const validQty = Math.max(1, parseInt(quantity, 10) || 1);
     const cart = this.getCart();
     const existing = cart.find((item) => item.id === productId && item.size === size);
     if (existing) {
-      existing.quantity += quantity;
+      existing.quantity += validQty;
     } else {
-      cart.push({ id: productId, size, quantity });
+      cart.push({ id: productId, size, quantity: validQty });
     }
     this.saveCart(cart);
     return cart;
@@ -1133,11 +1134,15 @@ const DataStore = {
     return cart;
   },
 
-  updateCartQty(productId, size, delta) {
+  updateCartQty(productId, size, deltaOrNewQty, isAbsolute = false) {
     const cart = this.getCart();
     const item = cart.find((i) => i.id === productId && i.size === size);
     if (item) {
-      item.quantity += delta;
+      if (isAbsolute || deltaOrNewQty === 0) {
+        item.quantity = parseInt(deltaOrNewQty, 10) || 0;
+      } else {
+        item.quantity += parseInt(deltaOrNewQty, 10) || 0;
+      }
       if (item.quantity <= 0) {
         return this.removeFromCart(productId, size);
       }
@@ -1311,12 +1316,14 @@ const DataStore = {
   trackOrder(query) {
     if (!query) return null;
     const clean = query.trim().toUpperCase();
+    const cleanDigits = query.replace(/\D/g, '');
     const orders = this.getOrders();
     return orders.find((o) => {
       const matchTrack = (o.trackingId || '').toUpperCase() === clean;
       const matchId = (o.id || '').toUpperCase() === clean;
       const matchEmail = (o.email || '').toUpperCase() === clean;
-      const matchPhone = (o.phone || '').toUpperCase() === clean;
+      const orderPhoneDigits = (o.phone || '').replace(/\D/g, '');
+      const matchPhone = (o.phone || '').toUpperCase() === clean || (cleanDigits.length >= 7 && orderPhoneDigits.length >= 7 && (orderPhoneDigits === cleanDigits || orderPhoneDigits.endsWith(cleanDigits) || cleanDigits.endsWith(orderPhoneDigits)));
       return matchTrack || matchId || matchEmail || matchPhone;
     }) || null;
   },

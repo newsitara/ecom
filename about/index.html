@@ -234,21 +234,99 @@
 
   </main>
 
+  <!-- Mobile Bottom Quick Navigation Bar -->
+  <nav class="mobile-bottom-bar mobile-only">
+    <a href="/store" class="mob-tab ">
+      <i data-lucide="grid"></i>
+      <span>Shop</span>
+    </a>
+    <a href="/cart" class="mob-tab ">
+      <div class="mob-bag-badge-wrap">
+        <i data-lucide="shopping-bag"></i>
+        <span class="mob-bag-pill" id="mobCartBadge">0</span>
+      </div>
+      <span>Bag</span>
+    </a>
+    <a href="/track" class="mob-tab ">
+      <i data-lucide="map-pin"></i>
+      <span>Track</span>
+    </a>
+    <a href="/contact" class="mob-tab ">
+      <i data-lucide="mail"></i>
+      <span>Concierge</span>
+    </a>
+  </nav>
+
+
   <!-- Minimal Footer -->
+  
+  <!-- Minimal Luxury Footer -->
   <footer class="compact-footer">
     <div class="footer-wrap">
+      <div class="footer-grid-top" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border-subtle); margin-bottom: 2rem;">
+        
+        <!-- Brand Column -->
+        <div class="footer-brand-col">
+          <div class="brand-center" style="justify-content: flex-start; margin-bottom: 0.8rem;">
+            <img src="/assets/ns-logo.jpg" alt="New Sitara Emblem" class="nav-brand-logo-img" style="width: 38px; height: 38px;">
+            <div class="brand-text-stack">
+              <span class="brand-logotype">NEW SITARA</span>
+              <span class="brand-sub-tag">OFFICIAL ATELIER</span>
+            </div>
+          </div>
+          <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; max-width: 280px;">
+            Contemporary luxury apparel, timepieces, and accessories engineered with uncompromising craftsmanship.
+          </p>
+        </div>
+
+        <!-- Directory Links -->
+        <div class="footer-nav-col">
+          <h6 style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1rem;">DIRECTORY</h6>
+          <div style="display: flex; flex-direction: column; gap: 0.55rem; font-size: 0.82rem;">
+            <a href="/store" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;">Inaugural Collection</a>
+            <a href="/about" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;">Atelier Heritage</a>
+            <a href="/faq" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;">Help & FAQ</a>
+            <a href="/contact" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;">Client Concierge</a>
+          </div>
+        </div>
+
+        <!-- Client Care -->
+        <div class="footer-nav-col">
+          <h6 style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1rem;">CLIENT CARE</h6>
+          <div style="display: flex; flex-direction: column; gap: 0.55rem; font-size: 0.82rem;">
+            <a href="/track" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;">Live Order Tracking</a>
+            <a href="/terms#shipping" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;">Worldwide Delivery</a>
+            <a href="/terms#returns" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;">14-Day Returns</a>
+            <a href="/terms" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;">Terms of Service</a>
+            <a href="/privacy" style="color: var(--text-muted); text-decoration: none; transition: color 0.2s;">Privacy Policy</a>
+          </div>
+        </div>
+
+        <!-- Electronic Concierge -->
+        <div class="footer-nav-col">
+          <h6 style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1rem;">DIRECT CONCIERGE</h6>
+          <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.75rem;">
+            Direct electronic assistance for orders & sizing:
+          </p>
+          <a href="mailto:concierge@newsitara.com" style="color: #D4AF37; font-weight: 700; font-size: 0.85rem; text-decoration: none;">concierge@newsitara.com ↗</a>
+        </div>
+
+      </div>
+
       <div class="footer-bottom-row">
         <p class="copyright-text">© 2026 New Sitara Interprizes. All rights reserved.</p>
-        <div class="footer-legal-links" style="display: flex; gap: 1.2rem; font-size: 0.78rem;">
-          <a href="/store" style="color: var(--text-muted); text-decoration: none;">Catalog</a>
-          <a href="/contact" style="color: var(--text-muted); text-decoration: none;">Contact</a>
+        <div class="footer-legal-links" style="display: flex; flex-wrap: wrap; gap: 1.2rem; font-size: 0.78rem;">
+          <a href="/store" style="color: var(--text-muted); text-decoration: none;">Store</a>
+          <a href="/about" style="color: var(--text-muted); text-decoration: none;">About</a>
           <a href="/faq" style="color: var(--text-muted); text-decoration: none;">FAQ</a>
+          <a href="/contact" style="color: var(--text-muted); text-decoration: none;">Contact</a>
           <a href="/terms" style="color: var(--text-muted); text-decoration: none;">Terms</a>
           <a href="/privacy" style="color: var(--text-muted); text-decoration: none;">Privacy</a>
         </div>
       </div>
     </div>
   </footer>
+
 
   <script>
     if (window.lucide) window.lucide.createIcons();

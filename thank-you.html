@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="google-site-verification" content="tqNq9eph0r8Ot5AgZvi3txq_Nso3boXHGmgIPab4dT4" />
+  <title>Order Confirmed — Thank You | NewSitara Atelier</title>
+  <meta name="description" content="Thank you for your order with NewSitara Atelier. Your tracking ID has been generated and your pieces are queued for dispatch.">
+  <meta name="application-name" content="NewSitara">
+  <meta name="apple-mobile-web-app-title" content="NewSitara">
+  <link rel="canonical" href="https://newsitara.com/thank-you">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NewSitara">
+  <meta property="og:title" content="Order Confirmed — Thank You | NewSitara">
+  <meta property="og:image" content="https://newsitara.com/assets/ns-logo.jpg">
+  <meta property="og:url" content="https://newsitara.com/thank-you">
+
+  <!-- Official Favicon Suite -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/store.css?v=20260825_live">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    .thank-you-wrap {
+      max-width: 680px;
+      margin: 3.5rem auto 5rem;
+      padding: 0 1.25rem;
+    }
+    .thank-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      padding: 3rem 2rem;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+      position: relative;
+    }
+    .thank-icon-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(212, 175, 55, 0.15));
+      border: 2px solid #10B981;
+      color: #10B981;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    .thank-badge {
+      display: inline-block;
+      padding: 0.3rem 0.85rem;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-noir);
+      margin-bottom: 0.8rem;
+    }
+    .thank-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
+    }
+    .thank-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 480px;
+      margin: 0 auto 2rem;
+    }
+    .tracking-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+    .tracking-box-head {
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 0.5rem;
+    }
+    .tracking-box-val {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: #FFFFFF;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+    }
+    .tracking-id-text {
+      font-family: monospace;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--accent-noir);
+      letter-spacing: 0.05em;
+    }
+    .btn-copy-track {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .btn-copy-track:hover {
+      background: var(--bg-subtle);
+      color: var(--text-main);
+    }
+    .thank-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+    .step-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1rem;
+    }
+    .step-card-num {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #D4AF37;
+      margin-bottom: 0.2rem;
+    }
+    .step-card-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.25rem;
+    }
+    .step-card-desc {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+    .thank-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    @media (min-width: 480px) {
+      .thank-actions {
+        flex-direction: row;
+      }
+    }
+    .btn-thank-primary {
+      flex: 1;
+      background: var(--accent-noir);
+      color: #FFFFFF;
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+    }
+    .btn-thank-primary:hover {
+      background: #000000;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+    .btn-thank-secondary {
+      flex: 1;
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+    }
+    .btn-thank-secondary:hover {
+      border-color: var(--text-main);
+      background: var(--bg-subtle);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="store-theme">
+
+  <!-- Micro Announcement Bar -->
+  <aside class="store-announcement">
+    <div class="announcement-inner">
+      <span class="announcement-text">
+        COMPLIMENTARY WORLDWIDE DELIVERY ON QUALIFYING ORDERS &nbsp;•&nbsp; OFFICIAL NEW SITARA ATELIER
+      </span>
+    </div>
+  </aside>
+
+  <!-- Navigation Bar -->
+  <header class="store-navbar">
+    <div class="nav-container">
+      <a href="/store" class="brand-center">
+        <img src="/assets/ns-logo.jpg" alt="New Sitara Emblem" class="nav-brand-logo-img">
+        <div class="brand-text-stack">
+          <span class="brand-logotype">NEW SITARA</span>
+          <span class="brand-sub-tag">OFFICIAL STORE</span>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <!-- Thank You Container -->
+  <main class="thank-you-wrap">
+    <div class="thank-card">
+      <div class="thank-icon-circle">
+        <i data-lucide="check" style="width: 36px; height: 36px;"></i>
+      </div>
+      <span class="thank-badge">ORDER AUTHORIZED</span>
+      <h1 class="thank-title">Thank You For Your Order</h1>
+      <p class="thank-subtitle">
+        Your order has been safely placed in our atelier dispatch queue. A confirmation email and digital invoice have been registered.
+      </p>
+
+      <div class="tracking-box">
+        <div class="tracking-box-head">Your Unique Tracking Reference ID</div>
+        <div class="tracking-box-val">
+          <span class="tracking-id-text" id="thankTrackingId">NS-TRK-849201</span>
+          <button type="button" class="btn-copy-track" onclick="copyTrackingId()">
+            <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+            <span id="copyBtnText">Copy</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="thank-steps">
+        <div class="step-card">
+          <div class="step-card-num">STEP 01</div>
+          <div class="step-card-title">Garment Inspection</div>
+          <div class="step-card-desc">Every piece undergoes rigorous tactile & finishing inspection.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card-num">STEP 02</div>
+          <div class="step-card-title">Express Courier Handover</div>
+          <div class="step-card-desc">Dispatched via DHL Express with global air waybill tracking.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card-num">STEP 03</div>
+          <div class="step-card-title">Direct Delivery</div>
+          <div class="step-card-desc">Delivered to your doorstep within 2–4 business days.</div>
+        </div>
+      </div>
+
+      <div class="thank-actions">
+        <a href="/track" id="btnTrackLink" class="btn-thank-primary">
+          <i data-lucide="map-pin"></i>
+          <span>Track Shipment Live</span>
+        </a>
+        <a href="/store" class="btn-thank-secondary">
+          <i data-lucide="arrow-left"></i>
+          <span>Continue Browsing</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Minimal Footer -->
+  <footer class="compact-footer">
+    <div class="footer-wrap">
+      <div class="footer-bottom-row">
+        <p class="copyright-text">© 2026 New Sitara Interprizes. All rights reserved.</p>
+        <div class="footer-legal-links" style="display: flex; gap: 1.2rem; font-size: 0.78rem;">
+          <a href="/terms" style="color: var(--text-muted); text-decoration: none;">Terms of Service</a>
+          <a href="/privacy" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+          <a href="/terms#shipping" style="color: var(--text-muted); text-decoration: none;">Shipping & Returns</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/store-data.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const trackId = urlParams.get('id') || urlParams.get('tracking') || 'NS-TRK-' + Math.floor(100000 + Math.random() * 900000);
+      
+      const trackEl = document.getElementById('thankTrackingId');
+      const trackBtn = document.getElementById('btnTrackLink');
+      if (trackEl) trackEl.textContent = trackId;
+      if (trackBtn) trackBtn.href = '/track?id=' + encodeURIComponent(trackId);
+
+      if (window.lucide) window.lucide.createIcons();
+    });
+
+    function copyTrackingId() {
+      const idText = document.getElementById('thankTrackingId')?.textContent;
+      if (!idText) return;
+      navigator.clipboard.writeText(idText).then(() => {
+        const btnText = document.getElementById('copyBtnText');
+        if (btnText) btnText.textContent = 'Copied!';
+        setTimeout(() => { if (btnText) btnText.textContent = 'Copy'; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

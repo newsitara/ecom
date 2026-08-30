@@ -440,16 +440,16 @@
           <!-- HBL IPG Automated Payment Gateway -->
           <div class="dash-card">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
-              <h3 style="margin-bottom: 0;">💳 HBL Automated Internet Payment Gateway (IPG)</h3>
-              <span class="badge badge-success" id="hblIpgStatusBadge" style="font-size: 0.68rem; padding: 0.2rem 0.5rem; background: #059669; color: #FFF; border-radius: 999px;">CONFIGURED</span>
+              <h3 style="margin-bottom: 0;"><i data-lucide="credit-card"></i> HBL Automated Internet Payment Gateway (IPG)</h3>
+              <span class="badge badge-success" id="hblIpgStatusBadge" style="font-size: 0.68rem; padding: 0.2rem 0.55rem; border-radius: 999px;">CONFIGURED</span>
             </div>
-            <p style="font-size: 0.82rem; color: #8F9CAE; margin: 0.4rem 0 1rem; line-height: 1.5;">
+            <p style="font-size: 0.82rem; color: var(--admin-text-muted); margin: 0.4rem 0 1.25rem; line-height: 1.5;">
               Connect your official HBL Internet Payment Gateway (CyberSource) credentials to automatically process client credit & debit cards straight to your bank account.
             </p>
             <form onsubmit="handleSaveHblIpgConfig(event)">
               <div class="form-row">
                 <div class="form-group flex-1">
-                  <label>Gateway Gateway Mode</label>
+                  <label>Gateway Mode</label>
                   <select id="cfgIpgEnv" class="form-input">
                     <option value="sandbox">Sandbox / Testing (Instant Simulation)</option>
                     <option value="production">Production / Live Bank Processing</option>
@@ -470,13 +470,13 @@
                   <input type="password" id="cfgIpgSecretKey" class="form-input" placeholder="Enter HBL CyberSource Secret Key">
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary btn-sm">Save HBL IPG Credentials</button>
+              <button type="submit" class="btn btn-primary btn-sm"><i data-lucide="save"></i> Save HBL IPG Credentials</button>
             </form>
           </div>
 
           <div class="dash-card">
-            <h3>🏦 HBL Bank & Raast Transfer Settings</h3>
-            <p style="font-size: 0.82rem; color: #8F9CAE; margin: 0.4rem 0 1rem; line-height: 1.5;">
+            <h3><i data-lucide="landmark"></i> HBL Bank & Raast Transfer Settings</h3>
+            <p style="font-size: 0.82rem; color: var(--admin-text-muted); margin: 0.4rem 0 1.25rem; line-height: 1.5;">
               Configure your official Habib Bank Limited (HBL) account and Raast ID displayed to customers at checkout.
             </p>
             <form onsubmit="handleSaveBankSettings(event)">
@@ -496,14 +496,14 @@
                 <label>Raast ID (Mobile / IBAN)</label>
                 <input type="text" id="cfgHblRaast" class="form-input" placeholder="e.g. 03001234567">
               </div>
-              <button type="submit" class="btn btn-primary btn-sm">Save Bank Details</button>
+              <button type="submit" class="btn btn-primary btn-sm"><i data-lucide="save"></i> Save Bank Details</button>
             </form>
           </div>
 
           <!-- Security PIN Configuration -->
           <div class="dash-card">
-            <h3>🔒 Merchant Security PIN</h3>
-            <p style="font-size: 0.82rem; color: #8F9CAE; margin: 0.4rem 0 1rem; line-height: 1.5;">
+            <h3><i data-lucide="shield-check"></i> Merchant Security PIN</h3>
+            <p style="font-size: 0.82rem; color: var(--admin-text-muted); margin: 0.4rem 0 1.25rem; line-height: 1.5;">
               Update the 4+ digit security passcode used to unlock this Admin Dashboard.
             </p>
             <form onsubmit="handleUpdateAdminPin(event)">
@@ -511,14 +511,14 @@
                 <label>New Security PIN</label>
                 <input type="password" id="newAdminPinInput" class="form-input" placeholder="Enter 4+ digit PIN" maxlength="10" required>
               </div>
-              <button type="submit" class="btn btn-primary btn-sm">Update Security PIN</button>
+              <button type="submit" class="btn btn-primary btn-sm"><i data-lucide="lock"></i> Update Security PIN</button>
             </form>
           </div>
 
           <!-- Cloud Database Sync -->
           <div class="dash-card">
-            <h3>⚡ Supabase Cloud PostgreSQL Sync</h3>
-            <p style="font-size: 0.82rem; color: #8F9CAE; margin: 0.4rem 0 1rem; line-height: 1.5;">
+            <h3><i data-lucide="database"></i> Supabase Cloud PostgreSQL Sync</h3>
+            <p style="font-size: 0.82rem; color: var(--admin-text-muted); margin: 0.4rem 0 1.25rem; line-height: 1.5;">
               Connect your free Supabase project to automatically sync products and customer orders across all devices globally.
             </p>
             <form onsubmit="handleSaveCloudConfig(event)">
@@ -530,14 +530,14 @@
                 <label>Supabase Anon Public API Key</label>
                 <input type="password" id="cfgSupabaseKey" class="form-input" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...">
               </div>
-              <button type="submit" class="btn btn-primary btn-sm">Save & Connect Cloud DB</button>
+              <button type="submit" class="btn btn-primary btn-sm"><i data-lucide="link"></i> Save & Connect Cloud DB</button>
             </form>
           </div>
 
           <!-- JSON Backup -->
           <div class="dash-card">
-            <h3>📦 Export Store Data JSON</h3>
-            <p style="font-size: 0.82rem; color: #8F9CAE; margin: 0.4rem 0 1.25rem; line-height: 1.5;">
+            <h3><i data-lucide="download"></i> Export Store Data JSON</h3>
+            <p style="font-size: 0.82rem; color: var(--admin-text-muted); margin: 0.4rem 0 1.25rem; line-height: 1.5;">
               Download an encrypted JSON backup containing your entire catalog, customer orders, categories, and reviews.
             </p>
             <button class="btn btn-outline" onclick="exportDataJson()"><i data-lucide="download"></i> Download JSON Backup</button>
@@ -545,11 +545,11 @@
 
           <!-- Reset Defaults -->
           <div class="dash-card">
-            <h3>🔄 Restore Clean Sample Catalog</h3>
-            <p style="font-size: 0.82rem; color: #8F9CAE; margin: 0.4rem 0 1.25rem; line-height: 1.5;">
+            <h3><i data-lucide="rotate-ccw"></i> Restore Clean Sample Catalog</h3>
+            <p style="font-size: 0.82rem; color: var(--admin-text-muted); margin: 0.4rem 0 1.25rem; line-height: 1.5;">
               Restores the default luxury clothing catalog with sample data and resets security PIN to <code>1234</code>.
             </p>
-            <button class="btn btn-danger" onclick="confirmResetDefaults()">Reset Catalog Fixtures</button>
+            <button class="btn btn-danger" onclick="confirmResetDefaults()"><i data-lucide="rotate-ccw"></i> Reset Catalog Fixtures</button>
           </div>
 
         </div>

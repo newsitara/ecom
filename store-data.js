@@ -942,6 +942,9 @@ const DataStore = {
   },
 
   saveProduct(product) {
+    if (!product.id) {
+      product.id = 'ns-prod-' + Math.floor(1000 + Math.random() * 9000);
+    }
     const prods = this.getProducts();
     const index = prods.findIndex((p) => p.id === product.id);
     if (index >= 0) {
@@ -951,7 +954,11 @@ const DataStore = {
     }
     localStorage.setItem('sitara_products_v20', JSON.stringify(prods));
     this.syncWithCloud('products', product);
-    return prods;
+    return product;
+  },
+
+  addProduct(product) {
+    return this.saveProduct(product);
   },
 
   deleteProduct(id) {
@@ -1342,9 +1349,11 @@ const DataStore = {
     return orders.find((o) => {
       const matchTrack = (o.trackingId || '').toUpperCase() === clean;
       const matchId = (o.id || '').toUpperCase() === clean;
-      const matchEmail = (o.email || '').toUpperCase() === clean;
-      const orderPhoneDigits = (o.phone || '').replace(/\D/g, '');
-      const matchPhone = (o.phone || '').toUpperCase() === clean || (cleanDigits.length >= 7 && orderPhoneDigits.length >= 7 && (orderPhoneDigits === cleanDigits || orderPhoneDigits.endsWith(cleanDigits) || cleanDigits.endsWith(orderPhoneDigits)));
+      const customerEmail = ((o.customer && o.customer.email) || o.email || '').toUpperCase();
+      const matchEmail = customerEmail === clean;
+      const customerPhone = ((o.customer && o.customer.phone) || o.phone || '');
+      const orderPhoneDigits = customerPhone.replace(/\D/g, '');
+      const matchPhone = customerPhone.toUpperCase() === clean || (cleanDigits.length >= 7 && orderPhoneDigits.length >= 7 && (orderPhoneDigits === cleanDigits || orderPhoneDigits.endsWith(cleanDigits) || cleanDigits.endsWith(orderPhoneDigits)));
       return matchTrack || matchId || matchEmail || matchPhone;
     }) || null;
   },

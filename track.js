@@ -131,7 +131,7 @@ function renderOrderStatus(order) {
   }
 
   // Render Financials
-  document.getElementById('resPayMethod').textContent = order.paymentMethod || 'Stripe Card';
+  document.getElementById('resPayMethod').textContent = order.paymentMethod || 'Credit / Debit Card (Visa, Mastercard)';
   document.getElementById('resShipMethod').textContent = order.shipping === 0 ? 'Complimentary Express (Free)' : `${DataStore.formatPrice(order.shipping)} Express`;
   document.getElementById('resGrandTotal').textContent = DataStore.formatPrice(order.total, true);
 
@@ -180,5 +180,5 @@ function updateStepper(status, courier) {
 
 function contactConcierge() {
   const subject = currentTrackedOrder ? `Order Inquiry: ${currentTrackedOrder.trackingId}` : 'New Sitara Client Support';
-  window.location.href = `mailto:support@newsitara.com?subject=${encodeURIComponent(subject)}`;
+  window.location.href = `mailto:concierge@newsitara.com?subject=${encodeURIComponent(subject)}`;
 }
